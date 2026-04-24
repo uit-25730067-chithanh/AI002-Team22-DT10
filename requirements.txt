@@ -1,0 +1,4 @@
+# Core
+# python>=3.9
+
+# Cập nhật dependencies khi triển khai từng phần
