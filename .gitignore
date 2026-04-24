@@ -28,9 +28,22 @@ model/saved/*.pth
 *.swo
 
 # ===== OS =====
-.DS_Store
-Thumbs.db
+**/.DS_Store
+**/.Thumbs.db
 
 # ===== Misc =====
 *.log
 *.tmp
+
+# ===== AI Tooling Exclusions =====
+.github/copilot-instructions.md
+.cursorrules
+CLAUDE.md
+AGENTS.md
+.opencode/
+.claude/
+.agents/
+plans/
+logs/
+tmp/
+
