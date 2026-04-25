@@ -19,33 +19,70 @@ gantt
     Nghỉ Giỗ Tổ & 30/4 - 1/5           :active, holiday, 2026-04-27, 7d
 
     section GĐ 2: Thu thập Dữ liệu
-    Viết Crawler (Phúc/Thịnh)        :des3, 2026-05-04, 14d
-    Làm sạch & EDA (Thanh/Sơn)       :des4, 2026-05-04, 14d
+    Viết Crawler (Phúc/Thịnh)        :des3, 2026-05-04, 7d
+    Làm sạch & EDA (Thanh/Sơn)       :des4, 2026-05-04, 7d
 
     section GĐ 3: Huấn luyện AI
-    Train Random Forest (Thanh/Sơn)  :des5, 2026-05-18, 14d
-    Đánh giá 5 Trụ cột (Thanh/Sơn)   :des6, 2026-05-18, 14d
+    Train Random Forest (Thanh/Sơn)  :des5, 2026-05-11, 7d
+    Đánh giá 5 Trụ cột (Thanh/Sơn)   :des6, 2026-05-11, 7d
 
     section GĐ 4: Tích hợp Hệ thống
-    Backend API (Thanh/Sơn)          :des7, 2026-06-01, 7d
-    Giao diện Web (Phúc/Thịnh)       :des8, 2026-06-01, 7d
+    Backend API (Thanh/Sơn)          :des7, 2026-05-18, 7d
+    Giao diện Web (Phúc/Thịnh)       :des8, 2026-05-18, 7d
 
     section GĐ 5: Báo cáo & Slide
-    Soạn báo cáo Kỹ thuật (Team 10)  :des9, 2026-06-08, 14d
-    Nộp bài chính thức               :milestone, des10, 2026-06-22, 0d
+    Soạn báo cáo Kỹ thuật (Team 10)  :des9, 2026-05-25, 10d
+    Nộp bài chính thức               :milestone, des10, 2026-06-04, 0d
 ```
 
 ---
 
 ## 📈 Theo dõi Tiến độ (Weekly Tracker)
 
-### Tuần 1-2 (Khởi động) — Tháng 04/2026
+### Tuần 1-2 (Khởi động) — 20/4 - 24/4/2026
 
 - [x] Khởi tạo repo & Git setup.
 - [x] Chốt đề tài: Dự báo giá cà phê.
 - [x] Viết tài liệu PDR định hình kiến trúc và 5 Trụ cột AI.
 - [x] Setup cấu trúc thư mục codebase (backend, model, crawler).
-- [ ] Chốt định dạng file CSV để crawl.
+
+---
+
+### 🗓️ Tuần nghỉ lễ — 25/4 - 3/5/2026
+
+- [ ] Team 2 chạy foundation week: mock data + EDA + train RF + API skeleton (chạy trước để sau nghỉ lễ chỉ thay data thật).
+
+---
+
+### Tuần 3 (Data + EDA) — 4/5 - 10/5/2026 (Buổi 4: 7/5)
+
+- [ ] Team 1 crawl data thật.
+- [ ] Team 2 thay mock data = data thật, chạy lại EDA + preprocessing.
+- [ ] Chốt định dạng file CSV.
+
+---
+
+### Tuần 4 (Model) — 11/5 - 17/5/2026 (Buổi 5: 14/5)
+
+- [ ] Train Random Forest baseline trên data thật.
+- [ ] Trích xuất feature importance.
+- [ ] (Tùy chọn) So sánh XGBoost.
+
+---
+
+### Tuần 5 (API + Integration) — 18/5 - 24/5/2026 (Buổi 6: 21/5)
+
+- [ ] Hoàn thiện FastAPI backend (`/predict`, `/health`).
+- [ ] Team 1 kết nối frontend với API.
+- [ ] Stress test + báo cáo Robustness.
+
+---
+
+### Tuần 6 (Slide + Báo cáo) — 25/5 - 4/6/2026 (Buổi 7: 28/5 | Buổi 8: 4/6)
+
+- [ ] Viết `5-pillars-checkpoint.md` — tài liệu chứng minh 5 Trụ cột AI.
+- [ ] Chuẩn bị slide thuyết trình 15 phút.
+- [ ] Tổng duyệt demo end-to-end.
 
 ---
 
@@ -63,8 +100,8 @@ gantt
 
 ## 🚩 Các cột mốc chính (Milestones)
 
-1. **M1: Nền tảng (Cuối tháng 4)** — Hoàn tất setup repo và thiết kế hệ thống.
-2. **M2: Dữ liệu (Đầu tháng 5)** — Thu thập đủ bộ dataset thô và làm sạch cơ bản.
-3. **M3: Mô hình (Giữa tháng 5)** — Có model Baseline dự báo được giá, đo được sai số.
-4. **M4: Tích hợp (Đầu tháng 6)** — Có API chạy thật và nối được lên Web.
-5. **M5: Nộp bài (Giữa tháng 6)** — Xong slide, báo cáo bảo vệ đồ án.
+1. **M1: Nền tảng (25/4 - 3/5)** — Team 2 hoàn tất mock pipeline (EDA + RF + API skeleton) trong tuần nghỉ lễ.
+2. **M2: Dữ liệu (Đầu tháng 5 / ~7/5)** — Thu thập đủ data thật, làm sạch cơ bản.
+3. **M3: Mô hình (Giữa tháng 5 / ~14/5)** — Có model Baseline dự báo được giá, đo được sai số.
+4. **M4: Tích hợp (Cuối tháng 5 / ~21/5)** — Có API chạy thật và nối được lên Web.
+5. **M5: Nộp bài (Đầu tháng 6 / ~4/6)** — Xong slide, báo cáo bảo vệ đồ án tại Buổi 8.
