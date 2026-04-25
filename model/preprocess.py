@@ -66,19 +66,19 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df = df.sort_values("date").reset_index(drop=True)
 
-    # Cyclic month encoding
+    # Mã hóa chu kỳ tháng (cyclic encoding) — giữ quan hệ mùa vụ liên tục
     month = df["month"]
     df["month_sin"] = np.sin(2 * np.pi * month / 12)
     df["month_cos"] = np.cos(2 * np.pi * month / 12)
 
-    # Rolling average of price (7-day window)
+    # Trung bình trượt 7 ngày giá cà phê — nắm bắt xu hướng ngắn hạn
     df["rolling_avg_7d"] = df["historical_price_vnd"].rolling(window=7, min_periods=1).mean()
 
-    # Lag features
+    # Giá trị trễ (lag): giá ngày hôm trước và 7 ngày trước
     df["lag_1d"] = df["historical_price_vnd"].shift(1)
     df["lag_7d"] = df["historical_price_vnd"].shift(7)
 
-    # Fill NaN from lags with forward-fill then backfill
+    # Điền NaN từ lag bằng forward-fill rồi backfill để không mất dòng đầu
     df["lag_1d"] = df["lag_1d"].ffill().bfill()
     df["lag_7d"] = df["lag_7d"].ffill().bfill()
 
@@ -100,9 +100,11 @@ def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: 
     df = df.copy()
     df["date"] = pd.to_datetime(df["date"])
 
+    # Các cột đặc trưng (loại bỏ date và target)
     feature_cols = [c for c in df.columns if c not in ["date", "historical_price_vnd"]]
-    target_col = "historical_price_vnd"
+    target_col = "historical_price_vnd"  # cột mục tiêu: giá cà phê
 
+    # Chia theo thời gian — KHÔNG dùng random shuffle để tránh data leakage trong time-series
     train_mask = df["date"] <= train_end
     test_mask = df["date"] >= test_start
 

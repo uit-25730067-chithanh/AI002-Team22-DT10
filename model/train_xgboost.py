@@ -22,11 +22,13 @@ from preprocess import preprocess_pipeline, split_temporal
 
 
 def try_import_xgboost():
+    """Thử import xgboost; nếu thiếu runtime (libomp) thì thoát nhẹ thay vì crash."""
     try:
         import xgboost as xgb
         return xgb
-    except ImportError:
-        print("xgboost chưa được cài. Bỏ qua so sánh.")
+    except Exception as exc:
+        print(f"Không thể dùng xgboost trong môi trường hiện tại: {exc}")
+        print("Gợi ý: dùng venv riêng và cài đầy đủ runtime (macOS cần libomp).")
         return None
 
 
@@ -39,17 +41,18 @@ def train_and_compare(data_path: str) -> dict:
     if xgb is None:
         return {}
 
-    # XGBoost Regressor
+    # Huấn luyện XGBoost Regressor — tham số tương đương RF để so sánh công bằng
     model = xgb.XGBRegressor(
-        n_estimators=100,
+        n_estimators=100,    # số cây tương đương RF
         max_depth=6,
         learning_rate=0.1,
-        random_state=42,
-        n_jobs=-1,
+        random_state=42,     # cố định seed
+        n_jobs=-1,           # dùng tất cả CPU cores
     )
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
+    # Đánh giá metrics giống RF để so sánh trực tiếp
     mae = mean_absolute_error(y_test, y_pred)
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2 = r2_score(y_test, y_pred)
@@ -59,7 +62,7 @@ def train_and_compare(data_path: str) -> dict:
     print(f"RMSE = {rmse:,.0f} VND/kg")
     print(f"R^2  = {r2:.4f}")
 
-    # Save
+    # Lưu model để so sánh sau này
     model_dir = Path("model/saved")
     model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / "xgboost_baseline.pkl"
