@@ -13,6 +13,10 @@ Nhằm đảm bảo sự đồng bộ trong team và bám sát triết lý **Sus
 - **Thực hiện công việc:** Tạo nhánh `feature/<tên-việc>`, ví dụ: `feature/setup-fastapi`, `feature/random-forest-baseline`.
 - **Hợp nhất:** Cần tạo Pull Request (PR) và cho **Phúc**, **Thanh**, **Thịnh**, **Sơn** review trước khi gộp vào `main`.
 - **Commit:** Sử dụng **Conventional Commits** (ví dụ: `feat:`, `fix:`, `docs:`, `refactor:`). Commit thường xuyên, mỗi commit chỉ chứa một thay đổi nhỏ (atomic).
+- **Quy ước Scope (khuyến nghị):** Để dễ trace từ commit -> plan, nên dùng scope mô tả vị trí task:
+  - Format: `type(phase{N}/task{M}/{scope}): description`
+  - Ví dụ: `feat(phase1/task1_2/data): add mock data generator`, `docs(phase2/task2_5/test): add stress test report`
+  - Nếu commit không thuộc task plan cụ thể, scope có thể ngắn gọn như `feat(api): add health endpoint`.
 
 ## 3. Tiêu chuẩn Mã nguồn & Ngôn ngữ (Python - Team 2)
 
