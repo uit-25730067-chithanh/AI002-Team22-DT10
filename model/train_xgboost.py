@@ -1,6 +1,11 @@
 """
 So sánh XGBoost vs Random Forest baseline.
 Chạy khi đã cài xgboost (optional dependency).
+
+KHUYẾN NGHỊ: Cài xgboost trong venv riêng, KHÔNG cài global:
+    python -m venv venv_test
+    source venv_test/bin/activate  # macOS/Linux
+    pip install xgboost
 """
 
 import argparse
