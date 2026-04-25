@@ -30,30 +30,30 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     Returns:
         Dictionary chứa metrics và feature importances.
     """
-    # 1. Load data
+    # 1. Đọc dữ liệu CSV đầu vào (mock hoặc thật)
     df = pd.read_csv(data_path)
     print(f"Đã load data: {df.shape[0]} dòng, {df.shape[1]} cột")
 
-    # 2. Preprocess
+    # 2. Tiền xử lý: điền NaN, loại outliers, tạo features
     df_clean = preprocess_pipeline(df)
     print(f"Sau tiền xử lý: {df_clean.shape[0]} dòng (đã loại outliers)")
 
-    # 3. Temporal split
+    # 3. Chia train/test theo thời gian — tránh data leakage
     X_train, X_test, y_train, y_test = split_temporal(df_clean)
     print(f"Train: {len(X_train)} dòng | Test: {len(X_test)} dòng")
 
-    # 4. Train
+    # 4. Huấn luyện Random Forest baseline
     model = RandomForestRegressor(
-        n_estimators=100,
-        random_state=42,
-        n_jobs=-1,
+        n_estimators=100,    # 100 cây — đủ nhanh vẫn ổn định
+        random_state=42,     # cố định seed để tái lập kết quả
+        n_jobs=-1,           # dùng tất cả CPU cores
     )
     model.fit(X_train, y_train)
 
-    # 5. Predict
+    # 5. Dự báo trên tập test
     y_pred = model.predict(X_test)
 
-    # 6. Metrics
+    # 6. Đánh giá metrics: MAE, RMSE, R² (Trụ cột Reliability)
     mae = mean_absolute_error(y_test, y_pred)
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2 = r2_score(y_test, y_pred)
@@ -63,7 +63,7 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     print(f"RMSE = {rmse:,.0f} VND/kg")
     print(f"R^2  = {r2:.4f}")
 
-    # 7. Feature importance
+    # 7. Trích xuất feature importance — minh bạch lý do dự báo (Trụ cột Transparency)
     importances = pd.Series(
         model.feature_importances_,
         index=X_train.columns,
@@ -73,7 +73,7 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     for feat, imp in importances.head(10).items():
         print(f"  {feat}: {imp:.4f}")
 
-    # 8. Plot feature importance
+    # 8. Vẽ và lưu biểu đồ feature importance
     plt.figure(figsize=(8, 5))
     importances.head(10).plot(kind="barh")
     plt.title("Top 10 Feature Importances — Random Forest")
@@ -84,7 +84,7 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     plt.savefig(plot_path)
     print(f"\nĐã lưu biểu đồ feature importance: {plot_path}")
 
-    # 9. Save model
+    # 9. Lưu model đã train để API load lại sau này
     model_path = Path(model_dir) / "rf_baseline.pkl"
     joblib.dump(model, model_path)
     print(f"Đã lưu model: {model_path}")

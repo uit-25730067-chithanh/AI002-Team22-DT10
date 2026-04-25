@@ -45,15 +45,16 @@ def inject_black_swan(df: pd.DataFrame, scenario: str) -> pd.DataFrame:
 
 
 def run_stress_test(data_path: str, model_path: str, output_dir: str = "docs/discussions"):
-    # Load
+    # Load dữ liệu và model đã train
     df_raw = pd.read_csv(data_path)
     model = joblib.load(model_path)
 
-    # Normal pipeline
+    # Pipeline bình thường (không inject outliers) để có baseline
     df_normal = fill_missing(df_raw)
     df_normal = feature_engineer(df_normal)
     X_train, X_test_normal, y_train, y_test_normal = split_temporal(df_normal)
 
+    # Đánh giá baseline trên dữ liệu không nhiễm
     y_pred_normal = model.predict(X_test_normal)
     mae_normal = mean_absolute_error(y_test_normal, y_pred_normal)
     rmse_normal = np.sqrt(mean_squared_error(y_test_normal, y_pred_normal))
