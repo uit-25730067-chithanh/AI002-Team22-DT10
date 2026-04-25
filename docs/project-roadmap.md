@@ -50,7 +50,7 @@ gantt
 
 ### 🗓️ Tuần nghỉ lễ — 25/4 - 3/5/2026
 
-- [ ] Team 2 chạy foundation week: mock data + EDA + train RF + API skeleton (chạy trước để sau nghỉ lễ chỉ thay data thật).
+- [x] Team 2 chạy foundation week: mock data + EDA + train RF + API skeleton (chạy trước để sau nghỉ lễ chỉ thay data thật).
 
 ---
 
