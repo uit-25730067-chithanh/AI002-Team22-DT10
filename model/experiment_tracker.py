@@ -265,14 +265,15 @@ def update_best_model(
     dest_model = BEST_MODEL_DIR / "model.pkl"
     shutil.copy2(src_model, dest_model)
 
-    # Ghi metadata cho model tốt nhất
+    # Ghi metadata cho model tốt nhất (đảm bảo tất cả metrics là float)
     metadata = {
         "experiment_id": exp_id,
+        "timestamp": best.get("timestamp", _datetime_iso()),
         "tag": best["tag"],
         "model_type": best["model_type"],
-        "mae": best["mae"],
-        "rmse": best["rmse"],
-        "r2": best["r2"],
+        "mae": float(best["mae"]),
+        "rmse": float(best["rmse"]),
+        "r2": float(best["r2"]),
         "model_path": str(dest_model),
         "source_experiment": str(exp_dir),
     }
