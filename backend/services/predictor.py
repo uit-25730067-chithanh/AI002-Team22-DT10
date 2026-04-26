@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -30,7 +31,7 @@ class PredictorService:
     và trả về kết quả kèm lý giải (Trụ cột Transparency).
     """
 
-    def __init__(self, model_path: str = "model/saved/rf_baseline.pkl") -> None:
+    def __init__(self, model_path: str = "model/best_model/model.pkl") -> None:
         self.model_path = Path(model_path)
         self.model: Any | None = None
         self.model_info: ModelInfo | None = None
@@ -44,9 +45,22 @@ class PredictorService:
 
         self.model = joblib.load(self.model_path)
         feature_names = list(getattr(self.model, "feature_names_in_", []))
+
+        # Đọc version ổn định từ metadata.json nếu có
+        meta_path = self.model_path.parent / "metadata.json"
+        version = f"unknown@{self.model_path.stat().st_mtime_ns}"
+        trained_at = pd.Timestamp(self.model_path.stat().st_mtime, unit="s").isoformat()
+        if meta_path.exists():
+            try:
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
+                version = f"{meta.get('experiment_id', 'unknown')}"
+                trained_at = meta.get("timestamp", trained_at)
+            except Exception:
+                pass
+
         self.model_info = ModelInfo(
-            version=f"rf-baseline@{self.model_path.stat().st_mtime_ns}",
-            trained_at=pd.Timestamp(self.model_path.stat().st_mtime, unit="s").isoformat(),
+            version=version,
+            trained_at=trained_at,
             feature_names=feature_names,
         )
         return True
