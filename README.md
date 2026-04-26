@@ -140,11 +140,14 @@ python3 -m pytest tests/ai-tests/test_predictor_service.py -q
 # Generate mock data first (if not present)
 python3 scripts/generate_mock_data.py
 
-# Train Random Forest baseline
-python3 model/train_rf.py --data data/raw/mock_coffee_data.csv --model-dir model/saved
+# Train Random Forest baseline (tự động lưu vào model/experiments/ và cập nhật model/best_model/)
+python3 model/train_rf.py --data data/raw/mock_coffee_data.csv
 
 # Optional: XGBoost comparison (install in a separate venv)
 python3 model/train_xgboost.py --data data/raw/mock_coffee_data.csv
+
+# Xem lịch sử experiments
+cat model/experiments.csv
 ```
 
 ### 4. Running the Web UI

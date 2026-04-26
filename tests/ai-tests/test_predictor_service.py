@@ -9,11 +9,11 @@ def test_predictor_service_after_model_training() -> None:
     Kiểm tra predictor service sau khi đã train model.
     Nếu model chưa tồn tại thì skip thay vì fail — để CI không bị block.
     """
-    predictor = PredictorService(model_path="model/saved/rf_baseline.pkl")
+    predictor = PredictorService(model_path="model/best_model/model.pkl")
     loaded = predictor.load_model()
 
     if not loaded:
-        pytest.skip("model/saved/rf_baseline.pkl chưa có; train model trước khi chạy test này")
+        pytest.skip("model/best_model/model.pkl chưa có; train model trước khi chạy test này")
 
     # Payload mẫu: tháng 11, nhiệt độ 26°C, lượng mưa 20mm, giá TB 62k
     payload = PredictionRequest(
