@@ -1,0 +1,10 @@
+{
+  "experiment_id": "20260426_135849__rf_final",
+  "tag": "rf_final",
+  "model_type": "RandomForestRegressor",
+  "mae": 2705.3473063829792,
+  "rmse": "3340.064426093781",
+  "r2": "0.202908338096221",
+  "model_path": "model/best_model/model.pkl",
+  "source_experiment": "model/experiments/20260426_135849__rf_final"
+}
