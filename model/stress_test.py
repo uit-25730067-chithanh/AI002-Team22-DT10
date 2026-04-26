@@ -1,9 +1,11 @@
 """
 Stress Test: Đo lường model phản ứng khi data nhiễm cực đoan (Black Swan).
 Cover Trụ cột Robustness bằng báo cáo thay vì module phức tạp.
+Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
 """
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -13,6 +15,13 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).parent))
+from experiment_tracker import (
+    build_params,
+    create_experiment,
+    get_latest_experiment,
+    save_metrics,
+    save_params,
+)
 from preprocess import feature_engineer, fill_missing, split_temporal
 
 
@@ -44,7 +53,26 @@ def inject_black_swan(df: pd.DataFrame, scenario: str) -> pd.DataFrame:
     return df
 
 
-def run_stress_test(data_path: str, model_path: str, output_dir: str = "docs/discussions"):
+def run_stress_test(
+    data_path: str,
+    model_path: str,
+    exp_dir: str | None = None,
+    tag: str = "stress",
+    also_docs: bool = False,
+):
+    # Tạo hoặc xác định experiment folder
+    if exp_dir:
+        exp_path = Path(exp_dir)
+        if not exp_path.is_dir():
+            raise ValueError(f"exp_dir không tồn tại: {exp_dir}")
+    else:
+        latest = get_latest_experiment()
+        if latest is None:
+            exp_path = create_experiment(tag)
+        else:
+            exp_path = latest
+    print(f"Stress test experiment folder: {exp_path}")
+
     # Load dữ liệu và model đã train
     df_raw = pd.read_csv(data_path)
     model = joblib.load(model_path)
@@ -85,13 +113,14 @@ def run_stress_test(data_path: str, model_path: str, output_dir: str = "docs/dis
         print(f"MAE  = {mae_stress:,.0f} VND/kg (+{mae_lift:.1f}%)")
         print(f"RMSE = {rmse_stress:,.0f} VND/kg (+{rmse_lift:.1f}%)")
 
-    # Write report
+    # Build report
     report_lines = [
         "# Stress Test Report — Robustness Pillar",
         "",
-        "**Date:** 2026-04-26",
-        "**Model:** Random Forest Baseline",
-        "**Dataset:** mock_coffee_data.csv",
+        f"**Date:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"**Model:** {model_path}",
+        f"**Dataset:** {data_path}",
+        f"**Experiment:** {exp_path.name}",
         "",
         "## Baseline (Normal Test Set)",
         "",
@@ -123,15 +152,65 @@ def run_stress_test(data_path: str, model_path: str, output_dir: str = "docs/dis
         "  nhưng cần cảnh báo người dùng khi input nằm ngoài phân bố đã thấy.'",
     ])
 
-    output_path = Path(output_dir) / "robustness-stress-test.md"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"\nĐã lưu báo cáo: {output_path}")
+    # Create dedicated stress subfolder to avoid overwriting experiment artifacts
+    stress_dir = exp_path / "stress"
+    stress_dir.mkdir(exist_ok=True)
+
+    # Save report to stress subfolder
+    report_path = stress_dir / "stress_report.md"
+    report_path.write_text("\n".join(report_lines), encoding="utf-8")
+    print(f"\nĐã lưu báo cáo: {report_path}")
+
+    # Save stress results as JSON for programmatic comparison
+    stress_results = {
+        "baseline": {"mae": mae_normal, "rmse": rmse_normal},
+        "scenarios": {r["scenario"]: r for r in results},
+    }
+    results_path = stress_dir / "stress_results.json"
+    results_path.write_text(json.dumps(stress_results, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Đã lưu JSON kết quả: {results_path}")
+
+    # Save metadata
+    stress_metrics = {
+        "baseline_mae": float(mae_normal),
+        "baseline_rmse": float(rmse_normal),
+        "max_mae_lift_pct": max(r["mae_lift_pct"] for r in results),
+        "max_rmse_lift_pct": max(r["rmse_lift_pct"] for r in results),
+    }
+    save_metrics(stress_dir, stress_metrics)
+    params = build_params(
+        model_params={},
+        data_path=data_path,
+        extra={"model_path": model_path, "scenarios": [r["scenario"] for r in results]},
+    )
+    save_params(stress_dir, params)
+
+    # Optionally also save to docs/discussions
+    if also_docs:
+        docs_path = Path("docs/discussions") / f"robustness-stress-test-{exp_path.name}.md"
+        docs_path.parent.mkdir(parents=True, exist_ok=True)
+        docs_path.write_text("\n".join(report_lines), encoding="utf-8")
+        print(f"Đã lưu copy vào docs: {docs_path}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", default="data/raw/mock_coffee_data.csv")
-    parser.add_argument("--model", default="model/saved/rf_baseline.pkl")
+    parser.add_argument("--model", default="model/best_model/model.pkl")
+    parser.add_argument(
+        "--exp-dir",
+        default=None,
+        help="Experiment folder để lưu report (mặc định: latest experiment)",
+    )
+    parser.add_argument(
+        "--tag",
+        default="stress",
+        help="Tag nếu tạo experiment mới",
+    )
+    parser.add_argument(
+        "--also-docs",
+        action="store_true",
+        help="Cũng lưu copy vào docs/discussions/",
+    )
     args = parser.parse_args()
-    run_stress_test(args.data, args.model)
+    run_stress_test(args.data, args.model, args.exp_dir, args.tag, args.also_docs)

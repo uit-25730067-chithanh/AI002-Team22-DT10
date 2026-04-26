@@ -1,6 +1,7 @@
 """
 Train Random Forest baseline cho dự báo giá cà phê.
 Lưu model .pkl và in ra metrics MAE/RMSE/R^2.
+Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
 """
 
 import argparse
@@ -14,22 +15,34 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Đảm bảo import preprocess từ cùng thư mục
+# Đảm bảo import preprocess và tracker từ cùng thư mục
 sys.path.insert(0, str(Path(__file__).parent))
+from experiment_tracker import (
+    append_experiment_csv,
+    build_params,
+    create_experiment,
+    save_metrics,
+    save_params,
+    update_best_model,
+)
 from preprocess import preprocess_pipeline, split_temporal
 
 
-def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
+def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
     """
-    Load data, preprocess, train Random Forest, evaluate, save model.
+    Đọc dữ liệu, tiền xử lý, huấn luyện Random Forest, đánh giá, lưu model.
 
     Args:
         data_path: Đường dẫn tới CSV (mock hoặc real).
-        model_dir: Thư mục lưu model .pkl.
+        tag: Tag cho experiment folder (mặc định 'rf_baseline').
 
     Returns:
-        Dictionary chứa metrics và feature importances.
+        Dictionary chứa metrics, feature importances, và experiment_id.
     """
+    # 0. Tạo experiment folder mới
+    exp_dir = create_experiment(tag)
+    print(f"Experiment folder: {exp_dir}")
+
     # 1. Đọc dữ liệu CSV đầu vào (mock hoặc thật)
     df = pd.read_csv(data_path)
     print(f"Đã load data: {df.shape[0]} dòng, {df.shape[1]} cột")
@@ -58,6 +71,14 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2 = r2_score(y_test, y_pred)
 
+    metrics = {
+        "mae": float(mae),
+        "rmse": float(rmse),
+        "r2": float(r2),
+        "train_size": len(X_train),
+        "test_size": len(X_test),
+    }
+
     print(f"\n=== Kết quả Random Forest Baseline ===")
     print(f"MAE  = {mae:,.0f} VND/kg")
     print(f"RMSE = {rmse:,.0f} VND/kg")
@@ -73,44 +94,58 @@ def train_and_evaluate(data_path: str, model_dir: str = "model/saved") -> dict:
     for feat, imp in importances.head(10).items():
         print(f"  {feat}: {imp:.4f}")
 
-    # 8. Vẽ và lưu biểu đồ feature importance
+    # 8. Vẽ và lưu biểu đồ feature importance vào experiment folder
     plt.figure(figsize=(8, 5))
     importances.head(10).plot(kind="barh")
     plt.title("Top 10 Feature Importances — Random Forest")
     plt.xlabel("Importance")
     plt.tight_layout()
-    plot_path = Path(model_dir) / "feature_importance_rf.png"
-    plot_path.parent.mkdir(parents=True, exist_ok=True)
+    plot_path = exp_dir / "feature_importance.png"
     plt.savefig(plot_path)
     print(f"\nĐã lưu biểu đồ feature importance: {plot_path}")
 
-    # 9. Lưu model đã train để API load lại sau này
-    model_path = Path(model_dir) / "rf_baseline.pkl"
+    # 9. Lưu model đã train vào experiment folder
+    model_path = exp_dir / "rf_baseline.pkl"
     joblib.dump(model, model_path)
     print(f"Đã lưu model: {model_path}")
 
+    # 10. Lưu metadata
+    save_metrics(exp_dir, metrics)
+    params = build_params(
+        model_params=model.get_params(),
+        data_path=data_path,
+    )
+    save_params(exp_dir, params)
+
+    # 11. Append to experiments CSV và cập nhật best model
+    append_experiment_csv(exp_dir, tag, "RandomForestRegressor", metrics)
+    best_model_path = update_best_model(metric_key="mae", mode="min")
+    print(f"Best model cập nhật: {best_model_path}")
+
     return {
+        "experiment_id": exp_dir.name,
         "mae": mae,
         "rmse": rmse,
         "r2": r2,
         "feature_importance": importances.to_dict(),
         "model_path": str(model_path),
         "plot_path": str(plot_path),
+        "exp_dir": str(exp_dir),
     }
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train RF baseline")
+    parser = argparse.ArgumentParser(description="Huấn luyện RF baseline")
     parser.add_argument(
         "--data",
         default="data/raw/mock_coffee_data.csv",
         help="Đường dẫn CSV input",
     )
     parser.add_argument(
-        "--model-dir",
-        default="model/saved",
-        help="Thư mục lưu model và plot",
+        "--tag",
+        default="rf_baseline",
+        help="Tag cho experiment folder",
     )
     args = parser.parse_args()
 
-    train_and_evaluate(args.data, args.model_dir)
+    train_and_evaluate(args.data, args.tag)
