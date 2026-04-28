@@ -1,100 +1,100 @@
-# 📊 Week 1 Report – Coffee Price Analysis (Thinh)
+# 📊 Báo cáo Tuần 1 – Phân tích giá cà phê (Phước Thịnh)
 
 ---
 
-## 1. Objective
+## 1. Mục tiêu
 
-- Identify factors affecting coffee prices  
-- Determine the most important price for prediction  
-
----
-
-## 2. Factors Affecting Coffee Prices
-
-Coffee prices are influenced by multiple factors, which can be grouped as follows:
-
-### 2.1 Economic Factors
-- Robusta futures price (London market)  
-- Arabica futures price (New York market)  
-- Exchange rate (USD/VND)  
-
-👉 Global price movements directly impact domestic coffee prices.
+- Xác định các yếu tố ảnh hưởng đến giá cà phê  
+- Xác định mức giá quan trọng nhất để làm mục tiêu dự báo (target)  
 
 ---
 
-### 2.2 Agricultural Factors
-- Production volume  
-- Cultivation area  
-- Yield  
+## 2. Các yếu tố ảnh hưởng đến giá cà phê
 
-👉 Higher supply leads to lower prices and vice versa.
+Giá cà phê chịu tác động bởi nhiều yếu tố, có thể chia thành các nhóm sau:
 
----
+### 2.1 Yếu tố kinh tế (Economic Factors)
+- Giá cà phê kỳ hạn Robusta (thị trường London)  
+- Giá cà phê kỳ hạn Arabica (thị trường New York)  
+- Tỷ giá USD/VND  
 
-### 2.3 Climate Factors
-- Rainfall  
-- Temperature  
-- ENSO index (El Niño / La Niña)  
-
-👉 Extreme weather conditions can reduce yield and increase prices.
+👉 Biến động giá thế giới ảnh hưởng trực tiếp đến giá cà phê nội địa.
 
 ---
 
-### 2.4 Cost & Competition Factors
-- Fertilizer prices  
-- Labor costs  
-- Fuel prices  
-- Competing crops (pepper, rubber, etc.)  
+### 2.2 Yếu tố nông nghiệp (Agricultural Factors)
+- Sản lượng cà phê  
+- Diện tích trồng  
+- Năng suất  
 
-👉 Higher production costs can push prices upward.
-
----
-
-### 2.5 Policy Factors
-- Export tax  
-- Trade agreements (EVFTA, CPTPP)  
-- Environmental regulations (EUDR)  
-
-👉 Policy changes can affect both supply and export conditions.
+👉 Khi nguồn cung tăng → giá có xu hướng giảm và ngược lại.
 
 ---
 
-## 3. Target Price Selection
+### 2.3 Yếu tố khí hậu (Climate Factors)
+- Lượng mưa  
+- Nhiệt độ  
+- Chỉ số ENSO (El Niño / La Niña)  
 
-👉 **Selected target: Farm-gate price (VND/kg)**  
-
-### Reason:
-- Directly reflects farmers' income  
-- Represents real market conditions  
-- Suitable as the prediction target (label)  
-
-👉 Other prices (futures, exchange rate, etc.) will be used as input features.
+👉 Thời tiết cực đoan có thể làm giảm năng suất và đẩy giá tăng.
 
 ---
 
-## 4. Data Orientation (Supporting Dataset Design)
+### 2.4 Yếu tố chi phí & cạnh tranh (Cost & Competition)
+- Giá phân bón  
+- Chi phí lao động  
+- Giá nhiên liệu  
+- Cây trồng cạnh tranh (tiêu, cao su, …)  
 
-To support model development, the dataset should include:
-
-- Farm-gate price (target variable)  
-- Global coffee futures prices  
-- Exchange rate (USD/VND)  
-- Weather data (rainfall, temperature, ENSO)  
-- Production and agricultural data  
-
-👉 The dataset will use **farm-gate price as the target variable** and the remaining variables as input features for machine learning models.
-
-👉 Specific data sources and data collection methods will be handled by the data collection team.
+👉 Chi phí sản xuất tăng sẽ làm giá cà phê tăng theo.
 
 ---
 
-## 5. Conclusion
+### 2.5 Yếu tố chính sách (Policy Factors)
+- Thuế xuất khẩu  
+- Hiệp định thương mại (EVFTA, CPTPP)  
+- Quy định môi trường (EUDR)  
 
-Coffee prices are mainly influenced by:
-- Supply  
-- Demand  
-- Weather conditions  
+👉 Chính sách có thể ảnh hưởng đến chi phí và khả năng xuất khẩu.
 
-👉 Farm-gate price is the most appropriate target for prediction models.
+---
+
+## 3. Xác định giá mục tiêu (Target Price)
+
+👉 **Giá được chọn: Giá thu mua tại vườn (farm-gate price, đơn vị VND/kg)**  
+
+### Lý do lựa chọn:
+- Phản ánh trực tiếp thu nhập của nông dân  
+- Thể hiện rõ giá thực tế trên thị trường  
+- Phù hợp để làm biến mục tiêu (target/label) cho mô hình AI  
+
+👉 Các mức giá khác (giá kỳ hạn, tỷ giá, …) sẽ được sử dụng làm biến đầu vào (features).
+
+---
+
+## 4. Định hướng dữ liệu (Phục vụ xây dựng dataset)
+
+Để phục vụ xây dựng mô hình, dataset cần bao gồm:
+
+- Giá thu mua tại vườn (biến mục tiêu – target)  
+- Giá cà phê thế giới (Robusta, Arabica)  
+- Tỷ giá USD/VND  
+- Dữ liệu thời tiết (lượng mưa, nhiệt độ, ENSO)  
+- Dữ liệu sản lượng và nông nghiệp  
+
+👉 Dataset sẽ sử dụng **giá tại vườn làm target** và các yếu tố còn lại làm **features** cho mô hình Machine Learning.
+
+👉 Phần nguồn dữ liệu cụ thể và phương pháp thu thập (API/Web Scraping) sẽ do nhóm phụ trách dữ liệu triển khai.
+
+---
+
+## 5. Kết luận
+
+Giá cà phê chủ yếu phụ thuộc vào:
+- Cung (sản lượng)  
+- Cầu (thị trường)  
+- Điều kiện thời tiết  
+
+👉 Giá thu mua tại vườn là lựa chọn phù hợp nhất để làm mục tiêu dự báo.
 
 ---
