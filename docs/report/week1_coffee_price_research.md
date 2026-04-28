@@ -1,138 +1,100 @@
-# 📊 Week 1 Report – Coffee Price Forecasting (Thinh)
-
-## 1. Executive Summary
-Vietnam is one of the largest coffee producers globally. Coffee prices are influenced by global futures markets, weather conditions, production levels, and macroeconomic factors.
-
-The current farm-gate price is approximately **98,000 – 99,500 VND/kg (~4.2 USD/kg)**.
-
-👉 This report identifies key variables affecting coffee prices and defines the main prediction target.
+# 📊 Week 1 Report – Coffee Price Analysis (Thinh)
 
 ---
 
-## 2. Objective
+## 1. Objective
 
 - Identify factors affecting coffee prices  
 - Determine the most important price for prediction  
 
 ---
 
-## 3. Factors Affecting Coffee Prices
+## 2. Factors Affecting Coffee Prices
 
-### 3.1 Economic Factors
-- Robusta futures (London): https://www.investing.com/commodities/london-coffee  
-- Arabica futures (New York): https://finance.yahoo.com/quote/KC%3DF  
-- Exchange rate (USD/VND): https://api.exchangeratesapi.io/latest?base=USD&symbols=VND  
+Coffee prices are influenced by multiple factors, which can be grouped as follows:
 
-👉 Global market movements directly impact domestic prices  
+### 2.1 Economic Factors
+- Robusta futures price (London market)  
+- Arabica futures price (New York market)  
+- Exchange rate (USD/VND)  
 
----
-
-### 3.2 Agricultural Factors
-- Production (USDA report): https://apps.fas.usda.gov  
-- Area & yield (Vietnam statistics): https://www.gso.gov.vn  
-
-👉 Higher supply → lower price  
+👉 Global price movements directly impact domestic coffee prices.
 
 ---
 
-### 3.3 Climate Factors
-- Weather data (NOAA API): https://www.ncei.noaa.gov  
-- ENSO index: https://www.noaa.gov  
+### 2.2 Agricultural Factors
+- Production volume  
+- Cultivation area  
+- Yield  
 
-👉 Extreme weather → lower yield → higher price  
-
----
-
-### 3.4 Cost & Competition
-- Fertilizer price: https://www.fao.org/faostat  
-- Fuel price (Brent oil): https://www.investing.com/commodities/brent-oil  
+👉 Higher supply leads to lower prices and vice versa.
 
 ---
 
-### 3.5 Policy Factors
+### 2.3 Climate Factors
+- Rainfall  
+- Temperature  
+- ENSO index (El Niño / La Niña)  
+
+👉 Extreme weather conditions can reduce yield and increase prices.
+
+---
+
+### 2.4 Cost & Competition Factors
+- Fertilizer prices  
+- Labor costs  
+- Fuel prices  
+- Competing crops (pepper, rubber, etc.)  
+
+👉 Higher production costs can push prices upward.
+
+---
+
+### 2.5 Policy Factors
+- Export tax  
 - Trade agreements (EVFTA, CPTPP)  
 - Environmental regulations (EUDR)  
 
+👉 Policy changes can affect both supply and export conditions.
+
 ---
 
-## 4. Target Price Selection
+## 3. Target Price Selection
 
 👉 **Selected target: Farm-gate price (VND/kg)**  
 
-### Source:
-- https://giathitruongcaphe.com/price  
-
 ### Reason:
-- Directly affects farmers  
-- Reflects real market value  
-- Most practical for prediction  
+- Directly reflects farmers' income  
+- Represents real market conditions  
+- Suitable as the prediction target (label)  
 
-👉 Other prices (futures, FOB) are used as input features  
-
----
-
-## 5. Data Collection Plan
-
-### Frequency
-- Daily: price, exchange rate  
-- Weekly: weather  
-- Yearly: production  
-
-### Sources
-- Local price: https://giathitruongcaphe.com  
-- Futures: Investing / Yahoo Finance  
-- Weather: NOAA API  
-- Production: USDA / GSO  
+👉 Other prices (futures, exchange rate, etc.) will be used as input features.
 
 ---
 
-## 6. Dataset Structure
+## 4. Data Orientation (Supporting Dataset Design)
 
-Minimum dataset:
+To support model development, the dataset should include:
 
-- date  
-- region  
-- farm_gate_price  
-- robusta_futures  
-- arabica_futures  
-- usd_vnd  
-- rainfall  
-- temperature  
-- enso_index  
-- production  
+- Farm-gate price (target variable)  
+- Global coffee futures prices  
+- Exchange rate (USD/VND)  
+- Weather data (rainfall, temperature, ENSO)  
+- Production and agricultural data  
 
----
+👉 The dataset will use **farm-gate price as the target variable** and the remaining variables as input features for machine learning models.
 
-## 7. Modeling Direction
-
-- Time-series models:
-  - SARIMA  
-  - LSTM  
-
-### Techniques:
-- Lag features  
-- Seasonality (harvest season Oct–Dec)  
+👉 Specific data sources and data collection methods will be handled by the data collection team.
 
 ---
 
-## 8. Evaluation Metrics
-
-- MAE  
-- RMSE  
-
----
-
-## 9. Conclusion
+## 5. Conclusion
 
 Coffee prices are mainly influenced by:
 - Supply  
 - Demand  
-- Weather  
+- Weather conditions  
 
-👉 Farm-gate price is the most appropriate prediction target.  
+👉 Farm-gate price is the most appropriate target for prediction models.
 
 ---
-
-## 10. Variables Dataset
-
-🔗 [View Variables Sheet](https://docs.google.com/spreadsheets/d/1S4Mmu3_0EVyRm1AV_xjeK-iRWynAuaqHejPcjozjNuw/edit?usp=sharing)
