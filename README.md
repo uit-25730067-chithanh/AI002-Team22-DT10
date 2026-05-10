@@ -1,21 +1,22 @@
 <div align="center">
   <img src="docs/assets/hero-banner.png" alt="AI Coffee Farming Banner" width="100%" style="border-radius: 8px;">
 
-  # AI-Powered Agricultural Market Analysis (DT10)
+# AI-Powered Agricultural Market Analysis (DT10)
 
-  **University Project - Artificial Intelligence Thinking (AI002)**  
-  *Topic DT10: AI predicting crop planning and coffee prices for farmers.*
+**University Project - Artificial Intelligence Thinking (AI002)**  
+ _Topic DT10: AI predicting crop planning and coffee prices for farmers._
 
-  [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-  [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-  [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 </div>
 
 <br/>
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
@@ -35,13 +36,13 @@ This project implements an **Artificial Intelligence model** designed to analyze
 
 ## Tech Stack
 
-| Category | Technologies |
-| :--- | :--- |
-| **Backend / API** | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python) |
-| **Machine Learning** | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost) ![Prophet](https://img.shields.io/badge/Prophet-00A9E0?style=flat-square) |
-| **Data Processing** | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy) |
+| Category               | Technologies                                                                                                                                                                                                                                                                   |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Backend / API**      | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)                                                                                                  |
+| **Machine Learning**   | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost)                                                                  |
+| **Data Processing**    | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy)                                                                                                           |
 | **Frontend / Crawler** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3) ![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
-| **Storage** | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite) ![CSV](https://img.shields.io/badge/CSV-107C41?style=flat-square&logo=microsoftexcel&logoColor=white) |
+| **Storage**            | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite) ![CSV](https://img.shields.io/badge/CSV-107C41?style=flat-square&logo=microsoftexcel&logoColor=white)                                                                                      |
 
 ---
 
@@ -60,19 +61,25 @@ AI002_PROJECT/
 ├── notebooks/                      # Jupyter Notebooks for EDA & Prototyping
 │
 ├── model/                          # AI/ML Core (Team 2)
-│   ├── training/                   # Model training scripts
-│   ├── evaluation/                 # Model evaluation metrics
-│   └── saved/                      # Serialized models (.pkl, .joblib)
+│   ├── preprocess.py               # Data cleaning, feature engineering, temporal split
+│   ├── train_rf.py                 # Random Forest baseline training + evaluation
+│   ├── train_xgboost.py            # Optional XGBoost comparison (requires venv)
+│   ├── stress_test.py              # Robustness stress test (Black Swan scenarios)
+│   └── saved/                      # Serialized models (.pkl)
 │
 ├── backend/                        # API Server (Team 2)
 │   ├── main.py                     # FastAPI entry point
-│   ├── api/                        # Route definitions
-│   └── services/                   # Business & inference logic
+│   ├── api/routes.py               # Endpoints: /health, /predict, /model/info
+│   ├── schemas/prediction.py       # Pydantic request/response validation
+│   └── services/predictor.py       # Model loading, inference, explanations
+│
+├── tests/ai-tests/                 # Pytest suite
+│   └── test_predictor_service.py   # PredictorService unit tests
 │
 └── frontend/                       # Web Interface (Team 1)
 ```
 
-> *For detailed team responsibilities across these modules, see the [Team Workflows](./docs/project-overview-pdr.md#4-phân-công-công-việc).*
+> _For detailed team responsibilities across these modules, see the [Team Workflows](./docs/project-overview-pdr.md#4-phân-công-công-việc)._
 
 ---
 
@@ -81,6 +88,7 @@ AI002_PROJECT/
 ### 1. Prerequisites
 
 Ensure you have the following installed:
+
 - **Python 3.9+**
 - **Git**
 
@@ -102,12 +110,45 @@ pip install -r requirements.txt
 
 ### 3. Running the Backend API
 
-Start the FastAPI server:
+Start the FastAPI server (supports running from project root or `backend/`):
+
 ```bash
-cd backend
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
+# or: cd backend && uvicorn main:app --reload
 ```
-**Tip:** Once running, navigate to `http://localhost:8000/docs` to interact with the auto-generated Swagger UI and test the prediction endpoints.
+
+**API Endpoints:**
+
+| Endpoint      | Method | Description                                                  |
+| :------------ | :----- | :----------------------------------------------------------- |
+| `/health`     | GET    | Check API status and model load state                        |
+| `/predict`    | POST   | Predict coffee price with confidence interval + explanations |
+| `/model/info` | GET    | Model metadata (version, features, training timestamp)       |
+
+**Tip:** Navigate to `http://localhost:8000/docs` for interactive Swagger UI.
+
+### 4. Running Tests
+
+```bash
+# Predictor service tests (skip gracefully if model not yet trained)
+python3 -m pytest tests/ai-tests/test_predictor_service.py -q
+```
+
+### 5. Training the Baseline Model
+
+```bash
+# Generate mock data first (if not present)
+python3 scripts/generate_mock_data.py
+
+# Train Random Forest baseline (tự động lưu vào model/experiments/ và cập nhật model/best_model/)
+python3 model/train_rf.py --data data/raw/mock_coffee_data.csv
+
+# Optional: XGBoost comparison (install in a separate venv)
+python3 model/train_xgboost.py --data data/raw/mock_coffee_data.csv
+
+# Xem lịch sử experiments
+cat model/experiments.csv
+```
 
 ### 4. Running the Web UI
 
@@ -117,10 +158,10 @@ Simply open `frontend/index.html` in your preferred web browser to view the dash
 
 ## Team Structure (Team 10)
 
-| Team | Members | Responsibilities |
-| :---: | :--- | :--- |
-| **Team 1** | Phúc & Thịnh | Data Crawling, Frontend UI Development, Presentation Slides |
-| **Team 2** | Thanh & Sơn | Core ML Engineering, Model Training & Evaluation, Backend API |
+|    Team    | Members      | Responsibilities                                              |
+| :--------: | :----------- | :------------------------------------------------------------ |
+| **Team 1** | Phúc & Thịnh | Data Crawling, Frontend UI Development, Presentation Slides   |
+| **Team 2** | Thanh & Sơn  | Core ML Engineering, Model Training & Evaluation, Backend API |
 
 <br/>
 
