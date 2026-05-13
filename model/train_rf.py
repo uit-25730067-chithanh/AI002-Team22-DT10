@@ -5,6 +5,7 @@ Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
 """
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -77,6 +78,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         "r2": float(r2),
         "train_size": len(X_train),
         "test_size": len(X_test),
+        "feature_count": len(X_train.columns),
     }
 
     print(f"\n=== Kết quả Random Forest Baseline ===")
@@ -94,6 +96,11 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
     for feat, imp in importances.head(10).items():
         print(f"  {feat}: {imp:.4f}")
 
+    importance_path = exp_dir / "feature_importance.csv"
+    importances.rename("importance").to_csv(importance_path, header=True)
+    feature_names_path = exp_dir / "feature_names.json"
+    feature_names_path.write_text(json.dumps(list(X_train.columns), indent=2, ensure_ascii=False), encoding="utf-8")
+
     # 8. Vẽ và lưu biểu đồ feature importance vào experiment folder
     plt.figure(figsize=(8, 5))
     importances.head(10).plot(kind="barh")
@@ -103,6 +110,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
     plot_path = exp_dir / "feature_importance.png"
     plt.savefig(plot_path)
     print(f"\nĐã lưu biểu đồ feature importance: {plot_path}")
+    print(f"Đã lưu feature list: {feature_names_path}")
 
     # 9. Lưu model đã train vào experiment folder
     model_path = exp_dir / "rf_baseline.pkl"
@@ -119,7 +127,44 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
 
     # 11. Append to experiments CSV và cập nhật best model
     append_experiment_csv(exp_dir, tag, "RandomForestRegressor", metrics)
-    best_model_path = update_best_model(metric_key="mae", mode="min")
+    should_promote_current = tag.startswith("rf_real")
+    best_model_path = None
+    if should_promote_current:
+        best_dir = Path("model/best_model")
+        best_dir.mkdir(parents=True, exist_ok=True)
+        best_model_path = best_dir / "model.pkl"
+        joblib.dump(model, best_model_path)
+        metadata = {
+            "experiment_id": exp_dir.name,
+            "timestamp": params["timestamp"],
+            "tag": tag,
+            "model_type": "RandomForestRegressor",
+            "mae": float(mae),
+            "rmse": float(rmse),
+            "r2": float(r2),
+            "train_size": len(X_train),
+            "test_size": len(X_test),
+            "feature_count": len(X_train.columns),
+            "feature_names": list(X_train.columns),
+            "top_features": {k: float(v) for k, v in importances.head(10).to_dict().items()},
+            "model_path": str(best_model_path),
+            "source_experiment": str(exp_dir),
+        }
+        (best_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+        if Path("model/experiments.csv").is_file():
+            experiments_df = pd.read_csv("model/experiments.csv")
+            experiments_df["best"] = experiments_df["experiment_id"].eq(exp_dir.name).astype(str)
+            experiments_df.to_csv("model/experiments.csv", index=False)
+    else:
+        best_model_path = update_best_model(metric_key="mae", mode="min")
+        if best_model_path is not None:
+            meta_path = Path(best_model_path).parent / "metadata.json"
+            if meta_path.exists():
+                metadata = json.loads(meta_path.read_text(encoding="utf-8"))
+                if metadata.get("experiment_id") == exp_dir.name:
+                    metadata["feature_names"] = list(X_train.columns)
+                    metadata["top_features"] = {k: float(v) for k, v in importances.head(10).to_dict().items()}
+                    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Best model cập nhật: {best_model_path}")
 
     return {
@@ -130,6 +175,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         "feature_importance": importances.to_dict(),
         "model_path": str(model_path),
         "plot_path": str(plot_path),
+        "feature_names_path": str(feature_names_path),
         "exp_dir": str(exp_dir),
     }
 
