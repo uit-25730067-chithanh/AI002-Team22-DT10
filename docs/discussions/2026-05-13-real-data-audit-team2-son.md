@@ -4,6 +4,7 @@
 **Người:** Sơn
 **Plan:** `plans/team2-real-data-model-week/`
 **Phạm vi:** Phase 1 - Real Data Audit, hỗ trợ Phase 4 - Five Pillars Evidence
+**PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
 ## Kết luận nhanh
 
@@ -106,11 +107,13 @@ Cần cảnh báo:
 
 ## Liên hệ với PR #9 của Thanh
 
-PR #9 đã hoàn thành phần Thanh:
+PR #9 đã merge phần Thanh:
 
 - Phase 2: preprocess schema migration.
 - Phase 3: Random Forest baseline.
 - Phase 5: API handoff.
+
+Sau merge, việc còn lại của Team 2 là pull latest, verify API schema thực tế, và chạy smoke/stress test trước tuần integration.
 
 Số liệu model chính từ PR #9:
 

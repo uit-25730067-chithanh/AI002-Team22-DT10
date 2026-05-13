@@ -4,6 +4,7 @@
 **Người cập nhật:** Sơn
 **Phạm vi:** Team 2 real data model week - Phase 4
 **Nguồn số liệu:** PR #9 và audit note `docs/discussions/2026-05-13-real-data-audit-team2-son.md`
+**PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
 ## Tóm tắt evidence real data
 
@@ -104,6 +105,6 @@ Diễn giải ngắn: model hiện dựa chủ yếu vào lịch sử giá gần
 
 ## Bước tiếp theo
 
-- Khi PR #9 merge vào main, pull latest rồi chạy lại stress test trên backend real-data schema.
+- PR #9 đã merge vào main; pull latest rồi chạy API smoke test và stress test trên backend real-data schema.
 - Nếu có thêm thời gian, so sánh monthly vs weekly hoặc top-area-only để xem metrics có ổn hơn không.
 - Đưa bảng Reliability/Bias/Transparency ở trên vào slide cuối kỳ.
