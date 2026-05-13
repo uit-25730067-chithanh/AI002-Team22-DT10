@@ -55,6 +55,7 @@ class PredictorService:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 version = f"{meta.get('experiment_id', 'unknown')}"
                 trained_at = meta.get("timestamp", trained_at)
+                feature_names = list(meta.get("feature_names", feature_names))
             except Exception:
                 pass
 
@@ -74,31 +75,46 @@ class PredictorService:
         Biến đổi PredictionRequest thành DataFrame để đưa vào model.
         Tự động tính month_sin, month_cos và fill giá trị mặc định cho optional fields.
         """
-        # Nếu optional field None thì dùng giá trị mặc định trung bình (có thể cải tiến sau)
-        humidity = request.humidity_pct if request.humidity_pct is not None else 80.0
-        sunshine = request.sunshine_hours if request.sunshine_hours is not None else 6.5
+        humidity = request.avg_humidity_percent if request.avg_humidity_percent is not None else 75.0
+        soil_moisture = request.avg_soil_moisture_0_7cm if request.avg_soil_moisture_0_7cm is not None else 0.24
+        soil_score = request.soil_score if request.soil_score is not None else 5.0
+        latest_price = request.latest_price_vnd_per_kg if request.latest_price_vnd_per_kg is not None else 90000.0
+        rolling_price = request.rolling_avg_price_vnd_per_kg if request.rolling_avg_price_vnd_per_kg is not None else latest_price
 
-        # Mã hóa chu kỳ tháng (cyclic encoding) — quan trọng cho mùa vụ
         month_sin = float(np.sin(2 * np.pi * request.month / 12))
         month_cos = float(np.cos(2 * np.pi * request.month / 12))
 
         row = {
-            "avg_temp_c": request.avg_temp_c,
-            "rainfall_mm": request.rainfall_mm,
+            "price_observations": 0.0,
+            "avg_temp_c": request.avg_temperature_c,
+            "rainfall_mm": request.total_rainfall_mm,
             "humidity_pct": humidity,
-            "sunshine_hours": sunshine,
+            "avg_soil_moisture_0_7cm": soil_moisture,
+            "soil_score": soil_score,
             "month": request.month,
+            "year": request.year,
+            "quarter": int((request.month - 1) // 3 + 1),
             "month_sin": month_sin,
             "month_cos": month_cos,
-            "rolling_avg_7d": request.historical_price_7d_avg,
-            # lag_1d / lag_7d: trong thực tế cần lịch sử đầy đủ; ở đây dùng proxy
-            "lag_1d": request.historical_price_7d_avg,
-            "lag_7d": request.historical_price_7d_avg,
+            "rolling_avg_7d": rolling_price,
+            "lag_1d": latest_price,
+            "lag_7d": rolling_price,
         }
 
-        # Chỉ giữ các cột mà model đã thấy khi train (tránh lỗi thứ tự / thiếu cột)
         feature_names = list(getattr(self.model, "feature_names_in_", row.keys()))
-        feature_row = {name: float(row.get(name, 0.0)) for name in feature_names}
+        if self.model_info and self.model_info.feature_names:
+            feature_names = self.model_info.feature_names
+
+        feature_row: dict[str, float] = {}
+        for name in feature_names:
+            value = row.get(name, 0.0)
+            if name.startswith("province_"):
+                value = 1.0 if name == f"province_{request.province}" else 0.0
+            elif name.startswith("area_"):
+                value = 1.0 if name == f"area_{request.area}" else 0.0
+            elif name.startswith("soil_data_confidence_") and request.soil_data_confidence:
+                value = 1.0 if name == f"soil_data_confidence_{request.soil_data_confidence}" else 0.0
+            feature_row[name] = float(value)
         return pd.DataFrame([feature_row])
 
     def explain(self, feature_row: pd.DataFrame) -> list[dict[str, Any]]:
@@ -153,6 +169,7 @@ class PredictorService:
             "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
+            "disclaimer": "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế.",
         }
 
     def get_model_info(self) -> dict[str, Any]:
