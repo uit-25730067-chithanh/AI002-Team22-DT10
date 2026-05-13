@@ -124,10 +124,11 @@ flowchart LR
     end
 
     subgraph T2B[Sơn]
-        J[EDA và kiểm tra thêm]
-        K[Stress test Robustness]
-        L[Bias check theo vùng]
+        J[Real data audit]
+        K[Bias coverage evidence]
+        L[API integration QA checklist]
         M[5 Pillars checkpoint]
+        Q[Stress/API follow-up]
     end
 
     subgraph ALL[Cả nhóm]
@@ -139,7 +140,7 @@ flowchart LR
     A --> E
     B --> E
     E --> F --> G --> H --> D
-    G --> J --> K --> M
+    G --> J --> K --> L --> M --> Q
     H --> I --> N
     D --> P
     M --> O
@@ -154,17 +155,19 @@ stateDiagram-v2
     DaCoDataProcessed --> DaTrainBaseline
     DaTrainBaseline --> DaCoBestModel
     DaCoBestModel --> DaCapNhatAPI
-    DaCapNhatAPI --> ChoFrontendNoiAPI
-    ChoFrontendNoiAPI --> ChoStressTest
-    ChoStressTest --> ChoBaoCao
+    DaCapNhatAPI --> DaCoEvaluationPack
+    DaCoEvaluationPack --> ChoFrontendNoiAPI
+    ChoFrontendNoiAPI --> ChoStressTestAPI
+    ChoStressTestAPI --> ChoBaoCao
 
     DaCoDataProcessed: Có monthly và weekly processed dataset
     DaTrainBaseline: Đã train RF baseline trên monthly all-areas
     DaCoBestModel: Đã có metadata và feature importance
     DaCapNhatAPI: /predict dùng real-data contract
+    DaCoEvaluationPack: Sơn đã có audit, QA checklist và 5 Pillars evidence
     ChoFrontendNoiAPI: Phúc/Thịnh nối UI
-    ChoStressTest: Sơn/Thanh kiểm tra Robustness và Bias
-    ChoBaoCao: Cả nhóm tổng hợp 5 Pillars
+    ChoStressTestAPI: Sơn/Thanh kiểm tra stress/API integration follow-up
+    ChoBaoCao: Cả nhóm chuyển evidence vào slide/report
 ```
 
 ## Cột mốc theo tuần
@@ -187,9 +190,10 @@ gantt
     Update API contract real data                :done, m4, 2026-05-13, 1d
 
     section Evaluation - Sơn/Thanh
-    Stress test input thiếu và outlier           :e1, 2026-05-14, 3d
-    Bias check theo province và area             :e2, 2026-05-15, 3d
-    Viết 5 Pillars checkpoint                    :e3, 2026-05-16, 3d
+    Real data audit và bias coverage             :done, e0, 2026-05-13, 1d
+    API integration QA checklist                 :done, e1, 2026-05-13, 1d
+    Viết 5 Pillars checkpoint                    :done, e2, 2026-05-13, 1d
+    Stress test API/integration follow-up        :e3, 2026-05-14, 3d
 
     section Integration - Team 1 và Team 2
     Frontend gọi /predict                        :i1, 2026-05-18, 4d
@@ -210,12 +214,19 @@ gantt
 - Các khu vực có coverage yếu, đặc biệt `Dak R'lap`.
 - Frontend nên cho user chọn field nào, field nào để default backend.
 
-## Những điểm Sơn cần review
+## Phần Sơn đã cover trong PR #12 và follow-up
 
-- Stress test cho missing values, outliers, unknown category.
-- Bias theo tỉnh/khu vực vì coverage không đều.
-- Cách giải thích R2 âm trong báo cáo.
-- Liên hệ 5 trụ cột: Reliability, Bias, Robustness, Social Impact, Transparency.
+- Đã có real data audit cho monthly/weekly, coverage theo tỉnh/khu vực và cảnh báo Dak Nong/Dak R'lap.
+- Đã có 5 Pillars checkpoint real-data, gồm Reliability metrics, Bias risk, Robustness validation, Social Impact disclaimer và Transparency feature importance.
+- Đã có API/frontend integration QA checklist cho `/health`, `/predict`, `/model/info`, unknown category, invalid range và model missing.
+- Follow-up còn lại: chạy smoke test/stress test ở tuần integration, rồi chuyển evidence vào slide/report cuối kỳ.
+
+Tài liệu Sơn liên quan:
+
+- [`2026-05-13-real-data-audit-team2-son.md`](2026-05-13-real-data-audit-team2-son.md)
+- [`2026-05-13-son-api-integration-qa-checklist.md`](2026-05-13-son-api-integration-qa-checklist.md)
+- [`2026-05-13-son-evaluation-pack-summary.md`](2026-05-13-son-evaluation-pack-summary.md)
+- [`5-pillars-checkpoint.md`](5-pillars-checkpoint.md)
 
 ## Nguyên tắc báo cáo
 

@@ -92,6 +92,8 @@ Tài liệu chi tiết:
 - [Team data flow roadmap](./docs/discussions/2026-05-13-team-data-flow-roadmap.md)
 - [Project roadmap](./docs/project-roadmap.md)
 - [API handoff real data model](./docs/discussions/2026-05-13-api-handoff-team2-real-data.md)
+- [Sơn evaluation pack summary](./docs/discussions/2026-05-13-son-evaluation-pack-summary.md)
+- [5 Pillars checkpoint](./docs/discussions/5-pillars-checkpoint.md)
 
 ---
 

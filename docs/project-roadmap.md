@@ -85,9 +85,10 @@ gantt
     Handoff API cho frontend                 :done, d3, 2026-05-13, 1d
 
     section GĐ 5: Evaluation
-    Stress test missing/outlier              :e1, 2026-05-14, 3d
-    Bias check theo tỉnh/khu vực             :e2, 2026-05-15, 3d
-    Viết 5 Pillars checkpoint                :e3, 2026-05-16, 3d
+    Real data audit và bias coverage         :done, e0, 2026-05-13, 1d
+    API integration QA checklist             :done, e1, 2026-05-13, 1d
+    5 Pillars checkpoint real-data           :done, e2, 2026-05-13, 1d
+    Stress test API/integration follow-up    :e3, 2026-05-14, 3d
 
     section GĐ 6: Integration và báo cáo
     Frontend nối /predict                    :f1, 2026-05-18, 4d
@@ -116,10 +117,11 @@ flowchart TD
     end
 
     subgraph Son[Sơn]
-        C1[EDA bổ sung]
-        C2[Stress test]
-        C3[Bias check]
+        C1[Real data audit]
+        C2[Bias coverage evidence]
+        C3[API integration QA checklist]
         C4[5 Pillars checkpoint]
+        C5[Stress/API follow-up]
     end
 
     subgraph Team[Team 10]
@@ -132,7 +134,7 @@ flowchart TD
     A2 --> A3
     A3 --> B1
     B1 --> B2 --> B3 --> B4 --> B5
-    B4 --> C1 --> C2 --> C3 --> C4
+    B4 --> C1 --> C2 --> C3 --> C4 --> C5
     B5 --> A4
     C4 --> D1
     A4 --> D3
@@ -202,7 +204,7 @@ stateDiagram-v2
     RealData: Processed monthly/weekly datasets
     BaselineModel: RF baseline + feature importance
     APIContract: /predict real-data schema
-    Evaluation: Stress test + Bias + 5 Pillars
+    Evaluation: Real data audit + Bias + 5 Pillars done, stress/API follow-up pending
     FrontendIntegration: Frontend gọi API
     ReportAndDemo: Slide + báo cáo + demo
     Submission: Nộp bài cuối kỳ
@@ -235,18 +237,21 @@ stateDiagram-v2
 - [x] Train Random Forest baseline trên monthly all-areas.
 - [x] Trích xuất feature importance.
 - [x] Lưu best model và metadata.
-- [ ] Sơn/Thanh đánh giá Robustness và Bias sâu hơn.
+- [x] Sơn bổ sung real data audit, bias coverage evidence và 5 Pillars checkpoint trong PR #12.
+- [ ] Stress test real-data/API integration follow-up sau khi frontend/backend ổn định.
 
 ### Tuần 5 — API và Integration
 
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
 - [x] API validate numeric ranges, enum và category đã train.
+- [x] Sơn bổ sung API/frontend integration QA checklist cho Team 1.
 - [ ] Team 1 nối frontend với API.
 - [ ] Demo end-to-end.
 
 ### Tuần 6 — Báo cáo và slide
 
-- [ ] Viết 5 Pillars checkpoint bản cuối.
+- [x] Có 5 Pillars checkpoint real-data từ PR #12.
+- [ ] Chuyển evidence 5 Pillars vào slide/report cuối kỳ.
 - [ ] Chuẩn bị slide thuyết trình.
 - [ ] Tổng duyệt demo.
 
@@ -281,5 +286,9 @@ flowchart TD
 
 - [`docs/discussions/2026-05-13-team-data-flow-roadmap.md`](discussions/2026-05-13-team-data-flow-roadmap.md)
 - [`docs/discussions/2026-05-13-api-handoff-team2-real-data.md`](discussions/2026-05-13-api-handoff-team2-real-data.md)
+- [`docs/discussions/2026-05-13-real-data-audit-team2-son.md`](discussions/2026-05-13-real-data-audit-team2-son.md)
+- [`docs/discussions/2026-05-13-son-api-integration-qa-checklist.md`](discussions/2026-05-13-son-api-integration-qa-checklist.md)
+- [`docs/discussions/2026-05-13-son-evaluation-pack-summary.md`](discussions/2026-05-13-son-evaluation-pack-summary.md)
+- [`docs/discussions/5-pillars-checkpoint.md`](discussions/5-pillars-checkpoint.md)
 - [`data/processed/FIELD_DESCRIPTIONS.md`](../data/processed/FIELD_DESCRIPTIONS.md)
 - [`data/processed/AREA_REAL_PRICE_DATA_RANKING.md`](../data/processed/AREA_REAL_PRICE_DATA_RANKING.md)
