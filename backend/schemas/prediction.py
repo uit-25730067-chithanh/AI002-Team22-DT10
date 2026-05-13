@@ -1,17 +1,30 @@
-from typing import Optional
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
+
+
+DEFAULT_PREDICTION_DISCLAIMER = "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
 
 
 class PredictionRequest(BaseModel):
     """Đầu vào dự báo — Pydantic validate tự động các ràng buộc (Trụ cột Robustness)."""
 
-    avg_temp_c: float = Field(..., ge=15.0, le=40.0)          # nhiệt độ trung bình (°C)
-    rainfall_mm: float = Field(..., ge=0.0, le=500.0)        # lượng mưa (mm)
-    humidity_pct: Optional[float] = Field(None, ge=0.0, le=100.0)   # độ ẩm (%), tùy chọn
-    sunshine_hours: Optional[float] = Field(None, ge=0.0, le=14.0) # giờ nắng, tùy chọn
-    month: int = Field(..., ge=1, le=12)                     # tháng trong năm
-    historical_price_7d_avg: float = Field(..., ge=30000.0, le=100000.0)  # giá TB 7 ngày
+    province: str = Field(..., min_length=1, max_length=80)
+    area: str = Field(..., min_length=1, max_length=80)
+    avg_temperature_c: float = Field(..., ge=10.0, le=45.0)
+    total_rainfall_mm: float = Field(..., ge=0.0, le=1000.0)
+    avg_humidity_percent: Optional[float] = Field(None, ge=0.0, le=100.0)
+    avg_soil_moisture_0_7cm: Optional[float] = Field(None, ge=0.0, le=1.0)
+    soil_score: Optional[float] = Field(None, ge=0.0, le=5.0)
+    soil_data_confidence: Optional[Literal["low", "medium", "high"]] = None
+    coffee_type: str = Field("Robusta / ca phe nhan xo noi dia", min_length=1, max_length=80)
+    price_fill_method: Literal["observed", "interpolated_area", "province_proxy"] = "observed"
+    dominant_soil_type: str = Field("Dat do bazan", min_length=1, max_length=80)
+    month: int = Field(..., ge=1, le=12)
+    year: int = Field(2025, ge=2022, le=2030)
+    latest_price_vnd_per_kg: Optional[float] = Field(None, ge=30000.0, le=200000.0)
+    rolling_avg_price_vnd_per_kg: Optional[float] = Field(None, ge=30000.0, le=200000.0)
+    price_observations: Optional[float] = Field(None, ge=0.0)
 
 
 class FeatureExplanation(BaseModel):
@@ -30,3 +43,4 @@ class PredictionResponse(BaseModel):
     confidence_interval: tuple[float, float]  # khoảng tin cậy 95% (ước lượng từ variance cây)
     top_features: list[FeatureExplanation]      # top 3 đặc trưng ảnh hưởng nhất
     model_version: str                  # phiên bản model để traceability
+    disclaimer: str = DEFAULT_PREDICTION_DISCLAIMER

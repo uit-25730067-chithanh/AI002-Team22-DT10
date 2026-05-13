@@ -11,9 +11,9 @@ import pandas as pd
 
 # Import schema; fallback để chạy được cả từ root và từ thư mục backend
 try:
-    from backend.schemas.prediction import PredictionRequest
+    from backend.schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
 except ModuleNotFoundError:
-    from schemas.prediction import PredictionRequest
+    from schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
 
 
 @dataclass
@@ -55,6 +55,7 @@ class PredictorService:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 version = f"{meta.get('experiment_id', 'unknown')}"
                 trained_at = meta.get("timestamp", trained_at)
+                feature_names = list(meta.get("feature_names", feature_names))
             except Exception:
                 pass
 
@@ -69,36 +70,77 @@ class PredictorService:
         """Kiểm tra model đã load thành công chưa."""
         return self.model is not None
 
+    @staticmethod
+    def _category_values(feature_names: list[str], prefix: str) -> set[str]:
+        marker = f"{prefix}_"
+        return {name.removeprefix(marker) for name in feature_names if name.startswith(marker)}
+
+    @staticmethod
+    def _one_hot_value(feature_name: str, prefix: str, selected_value: str) -> float:
+        return 1.0 if feature_name == f"{prefix}_{selected_value}" else 0.0
+
     def _build_feature_row(self, request: PredictionRequest) -> pd.DataFrame:
         """
         Biến đổi PredictionRequest thành DataFrame để đưa vào model.
         Tự động tính month_sin, month_cos và fill giá trị mặc định cho optional fields.
         """
-        # Nếu optional field None thì dùng giá trị mặc định trung bình (có thể cải tiến sau)
-        humidity = request.humidity_pct if request.humidity_pct is not None else 80.0
-        sunshine = request.sunshine_hours if request.sunshine_hours is not None else 6.5
+        humidity = request.avg_humidity_percent if request.avg_humidity_percent is not None else 75.0
+        soil_moisture = request.avg_soil_moisture_0_7cm if request.avg_soil_moisture_0_7cm is not None else 0.24
+        soil_score = request.soil_score if request.soil_score is not None else 5.0
+        latest_price = request.latest_price_vnd_per_kg if request.latest_price_vnd_per_kg is not None else 90000.0
+        rolling_price = request.rolling_avg_price_vnd_per_kg if request.rolling_avg_price_vnd_per_kg is not None else latest_price
+        price_observations = request.price_observations
+        if price_observations is None:
+            price_observations = 1.0 if request.price_fill_method == "observed" else 0.0
 
-        # Mã hóa chu kỳ tháng (cyclic encoding) — quan trọng cho mùa vụ
         month_sin = float(np.sin(2 * np.pi * request.month / 12))
         month_cos = float(np.cos(2 * np.pi * request.month / 12))
 
         row = {
-            "avg_temp_c": request.avg_temp_c,
-            "rainfall_mm": request.rainfall_mm,
+            "price_observations": price_observations,
+            "avg_temp_c": request.avg_temperature_c,
+            "rainfall_mm": request.total_rainfall_mm,
             "humidity_pct": humidity,
-            "sunshine_hours": sunshine,
+            "avg_soil_moisture_0_7cm": soil_moisture,
+            "soil_score": soil_score,
             "month": request.month,
+            "year": request.year,
+            "quarter": int((request.month - 1) // 3 + 1),
             "month_sin": month_sin,
             "month_cos": month_cos,
-            "rolling_avg_7d": request.historical_price_7d_avg,
-            # lag_1d / lag_7d: trong thực tế cần lịch sử đầy đủ; ở đây dùng proxy
-            "lag_1d": request.historical_price_7d_avg,
-            "lag_7d": request.historical_price_7d_avg,
+            "rolling_avg_7d": rolling_price,
+            "lag_1d": latest_price,
+            "lag_7d": rolling_price,
         }
 
-        # Chỉ giữ các cột mà model đã thấy khi train (tránh lỗi thứ tự / thiếu cột)
         feature_names = list(getattr(self.model, "feature_names_in_", row.keys()))
-        feature_row = {name: float(row.get(name, 0.0)) for name in feature_names}
+        if self.model_info and self.model_info.feature_names:
+            feature_names = self.model_info.feature_names
+
+        categorical_values = {
+            "province": request.province,
+            "area": request.area,
+            "coffee_type": request.coffee_type,
+            "price_fill_method": request.price_fill_method,
+            "dominant_soil_type": request.dominant_soil_type,
+        }
+        if request.soil_data_confidence is not None:
+            categorical_values["soil_data_confidence"] = request.soil_data_confidence
+
+        for prefix, selected_value in categorical_values.items():
+            available_values = self._category_values(feature_names, prefix)
+            if available_values and selected_value not in available_values:
+                allowed = ", ".join(sorted(available_values))
+                raise ValueError(f"Giá trị `{prefix}` không hợp lệ: {selected_value}. Giá trị hợp lệ: {allowed}")
+
+        feature_row: dict[str, float] = {}
+        for name in feature_names:
+            value = row.get(name, 0.0)
+            for prefix, selected_value in categorical_values.items():
+                if name.startswith(f"{prefix}_"):
+                    value = self._one_hot_value(name, prefix, selected_value)
+                    break
+            feature_row[name] = float(value)
         return pd.DataFrame([feature_row])
 
     def explain(self, feature_row: pd.DataFrame) -> list[dict[str, Any]]:
@@ -114,7 +156,10 @@ class PredictorService:
             return []
 
         feature_names = list(feature_row.columns)
-        ranked_idx = np.argsort(importances)[::-1][:3]
+        usable_count = min(len(feature_names), len(importances))
+        if usable_count == 0:
+            return []
+        ranked_idx = np.argsort(importances[:usable_count])[::-1][:3]
 
         explanations: list[dict[str, Any]] = []
         for idx in ranked_idx:
@@ -153,6 +198,7 @@ class PredictorService:
             "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
+            "disclaimer": DEFAULT_PREDICTION_DISCLAIMER,
         }
 
     def get_model_info(self) -> dict[str, Any]:
