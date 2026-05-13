@@ -85,7 +85,7 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: str = "2025-01-01") -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: str = "2025-01-01", train_ratio: float = 0.8) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     """
     Chia train/test theo thời gian (không random shuffle — tránh data leakage trong time-series).
 
@@ -93,6 +93,7 @@ def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: 
         df: DataFrame đã qua feature engineering, có cột 'date'.
         train_end: Ngày kết thúc tập train (mặc định 2024-12-31).
         test_start: Ngày bắt đầu tập test (mặc định 2025-01-01).
+        train_ratio: Tỷ lệ train nếu split theo ratio (mặc định 0.8). Chỉ dùng khi test set rỗng theo ngày.
 
     Returns:
         X_train, X_test, y_train, y_test
@@ -110,6 +111,12 @@ def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: 
 
     train_df = df[train_mask]
     test_df = df[test_mask]
+
+    # Fallback: nếu test rỗng, split theo ratio (giữ thứ tự thời gian)
+    if len(test_df) == 0:
+        split_idx = int(len(df) * train_ratio)
+        train_df = df.iloc[:split_idx]
+        test_df = df.iloc[split_idx:]
 
     X_train = train_df[feature_cols]
     y_train = train_df[target_col]
