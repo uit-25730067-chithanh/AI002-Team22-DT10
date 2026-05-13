@@ -1,11 +1,11 @@
 {
-  "experiment_id": "20260426_135849__rf_final",
-  "timestamp": "2026-04-26T06:58:50.651470+00:00",
-  "tag": "rf_final",
+  "experiment_id": "20260510_005036__rf_test",
+  "timestamp": "2026-05-09T17:50:36.937820+00:00",
+  "tag": "rf_test",
   "model_type": "RandomForestRegressor",
-  "mae": 2705.3473063829792,
-  "rmse": 3340.064426093781,
-  "r2": 0.202908338096221,
+  "mae": 2365.902444444442,
+  "rmse": 2716.822303207864,
+  "r2": 0.060564533433513534,
   "model_path": "model/best_model/model.pkl",
-  "source_experiment": "model/experiments/20260426_135849__rf_final"
+  "source_experiment": "model/experiments/20260510_005036__rf_test"
 }
