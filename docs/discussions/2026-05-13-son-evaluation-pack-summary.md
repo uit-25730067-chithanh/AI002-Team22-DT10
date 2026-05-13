@@ -26,7 +26,7 @@ PR này bổ sung gói **Responsible AI Evaluation + QA** cho phần Sơn, khôn
 - Dak Nong/Dak R'lap là vùng rủi ro cao, không nên demo chính.
 - PR #9 baseline có metrics thật nhưng R² âm, cần report limitation trung thực.
 - Feature importance cho thấy model phụ thuộc mạnh vào `rolling_avg_7d` và `lag_1d`; weather/soil không nên bị overclaim.
-- PR #9 đã merge nên bước tiếp theo là pull latest, verify API schema thực tế, error handling, disclaimer, và demo preset.
+- Branch hiện đã rebase trên `origin/main` sau PR #9; bước tiếp theo là API smoke test, error handling, disclaimer, và demo preset.
 
 ## 5 Pillars contribution
 
@@ -73,7 +73,7 @@ Docs-only evaluation/QA. Public PR should include summary + API QA checklist onl
 - R² is negative; baseline is demo/pipeline evidence, not financial advice.
 - Dak Nong/Dak R'lap coverage is weak; avoid as main demo.
 - Model depends heavily on lag/rolling price features.
-- PR #9 merged; next step is pull latest, run API smoke test, then run real-data stress test when backend contract is verified.
+- Branch is rebased on `origin/main` after PR #9; next step is API smoke test, then real-data stress test when backend contract is verified.
 
 ## Test/verification
 - `git diff --check -- docs/discussions/*.md plans/team2-son-evaluation-pack/*.md`

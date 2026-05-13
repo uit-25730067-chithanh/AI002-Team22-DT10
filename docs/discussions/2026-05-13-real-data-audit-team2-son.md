@@ -113,7 +113,7 @@ PR #9 đã merge phần Thanh:
 - Phase 3: Random Forest baseline.
 - Phase 5: API handoff.
 
-Sau merge, việc còn lại của Team 2 là pull latest, verify API schema thực tế, và chạy smoke/stress test trước tuần integration.
+Sau merge và rebase trên `origin/main`, việc còn lại của Team 2 là chạy API smoke test, xác nhận response mẫu, và chạy stress test trước tuần integration.
 
 Số liệu model chính từ PR #9:
 

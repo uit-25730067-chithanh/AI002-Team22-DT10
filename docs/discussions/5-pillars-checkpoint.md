@@ -105,6 +105,6 @@ Diễn giải ngắn: model hiện dựa chủ yếu vào lịch sử giá gần
 
 ## Bước tiếp theo
 
-- PR #9 đã merge vào main; pull latest rồi chạy API smoke test và stress test trên backend real-data schema.
+- Branch hiện đã rebase trên `origin/main` sau PR #9; chạy API smoke test và stress test trên backend real-data schema.
 - Nếu có thêm thời gian, so sánh monthly vs weekly hoặc top-area-only để xem metrics có ổn hơn không.
 - Đưa bảng Reliability/Bias/Transparency ở trên vào slide cuối kỳ.

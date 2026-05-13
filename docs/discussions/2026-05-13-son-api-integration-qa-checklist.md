@@ -9,16 +9,16 @@
 
 ## Kết luận nhanh
 
-Checklist này dùng để Team 1 nối frontend với backend mà không đoán schema và không bỏ sót edge cases. Vì PR #9 đã merge, bước tiếp theo là pull latest rồi verify contract thực tế trước khi Team 1 nối UI.
+Checklist này dùng để Team 1 nối frontend với backend mà không đoán schema và không bỏ sót edge cases. Branch hiện đã rebase trên `origin/main` sau PR #9, nên checklist dưới đây bám theo schema real-data hiện tại và còn cần smoke test trước khi Team 1 nối UI.
 
 ## Contract cần xác nhận trước integration
 
 | Item | Expected | Owner | Severity | Status |
 | --- | --- | --- | --- | --- |
 | Endpoint `/health` | Trả `status`, `model_loaded` | Thanh | Blocker | Exists local |
-| Endpoint `/predict` | Nhận request hợp lệ và trả prediction/explanation | Thanh | Blocker | PR #9 merged, verify after pull latest |
+| Endpoint `/predict` | Nhận request real-data hợp lệ và trả prediction/explanation/disclaimer | Thanh | Blocker | Schema available, verify with API smoke test |
 | Endpoint `/model/info` | Trả model version/features/trained_at | Thanh | Important | Exists local |
-| Province/area schema | Validate province/area theo backend real-data đã merge | Thanh | Blocker | PR #9 merged, verify with API smoke test |
+| Province/area schema | Validate province/area theo backend real-data hiện tại | Thanh | Blocker | Schema available, verify with API smoke test |
 | Disclaimer in response/UI | UI phải hiển thị cảnh báo AI chỉ tham khảo | Phúc/Thịnh | Important | Needs frontend work |
 | Data limitation warning | Dak Nong/Dak R'lap/ngoài Tây Nguyên có warning | Phúc/Thịnh/Sơn | Important | Needs frontend work |
 
@@ -55,22 +55,32 @@ Checklist này dùng để Team 1 nối frontend với backend mà không đoán
 | UI-07 | Demo preset | Có preset Di Linh/Ea H'leo/Buon Ho để demo nhanh | Phúc/Thịnh | Nice-to-have |
 | UI-08 | API unavailable | Nếu backend down, UI báo lỗi thân thiện | Phúc/Thịnh | Important |
 
-## Manual curl examples cần chuẩn hóa sau pull latest
+## Manual curl example theo schema hiện tại
 
-Nếu chưa pull latest, local schema có thể vẫn dùng mock-era fields:
+Request mẫu cho `POST /predict` sau PR #9:
 
 ```json
 {
-  "avg_temp_c": 26.0,
-  "rainfall_mm": 20.0,
-  "humidity_pct": 80.0,
-  "sunshine_hours": 6.0,
+  "province": "Dak Lak",
+  "area": "Buon Ho",
+  "avg_temperature_c": 26.0,
+  "total_rainfall_mm": 20.0,
+  "avg_humidity_percent": 80.0,
+  "avg_soil_moisture_0_7cm": 0.24,
+  "soil_score": 5.0,
+  "soil_data_confidence": "medium",
+  "coffee_type": "Robusta / ca phe nhan xo noi dia",
+  "price_fill_method": "observed",
+  "dominant_soil_type": "Dat do bazan",
   "month": 11,
-  "historical_price_7d_avg": 62000.0
+  "year": 2025,
+  "latest_price_vnd_per_kg": 90000.0,
+  "rolling_avg_price_vnd_per_kg": 90000.0,
+  "price_observations": 1
 }
 ```
 
-Sau khi pull merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`, Thanh cần chạy `/docs` hoặc curl smoke test để chốt example request/response chính thức trước khi Team 1 nối UI.
+Expected response cần có `predicted_price_vnd`, `confidence_interval`, `top_features`, `model_version`, và `disclaimer`. Thanh cần chạy `/docs` hoặc curl smoke test để chốt response mẫu chính thức trước khi Team 1 nối UI.
 
 ## Done criteria cho tuần 5
 
@@ -78,4 +88,4 @@ Sau khi pull merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`, Thanh cầ
 - API-04/API-05/API-06 không được silently predict sai vùng.
 - UI luôn hiển thị disclaimer.
 - Sơn xác nhận demo preset không dùng Dak Nong/Dak R'lap làm case chính.
-- Thanh xác nhận schema cuối cùng và example request sau khi pull latest từ PR #9 đã merge.
+- Thanh xác nhận schema/response mẫu bằng API smoke test trên branch đã rebase từ `origin/main`.
