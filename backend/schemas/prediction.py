@@ -3,6 +3,9 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
+DEFAULT_PREDICTION_DISCLAIMER = "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
+
+
 class PredictionRequest(BaseModel):
     """Đầu vào dự báo — Pydantic validate tự động các ràng buộc (Trụ cột Robustness)."""
 
@@ -21,6 +24,7 @@ class PredictionRequest(BaseModel):
     year: int = Field(2025, ge=2022, le=2030)
     latest_price_vnd_per_kg: Optional[float] = Field(None, ge=30000.0, le=200000.0)
     rolling_avg_price_vnd_per_kg: Optional[float] = Field(None, ge=30000.0, le=200000.0)
+    price_observations: Optional[float] = Field(None, ge=0.0)
 
 
 class FeatureExplanation(BaseModel):
@@ -39,4 +43,4 @@ class PredictionResponse(BaseModel):
     confidence_interval: tuple[float, float]  # khoảng tin cậy 95% (ước lượng từ variance cây)
     top_features: list[FeatureExplanation]      # top 3 đặc trưng ảnh hưởng nhất
     model_version: str                  # phiên bản model để traceability
-    disclaimer: str = "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
+    disclaimer: str = DEFAULT_PREDICTION_DISCLAIMER

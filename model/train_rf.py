@@ -153,7 +153,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         (best_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
         if Path("model/experiments.csv").is_file():
             experiments_df = pd.read_csv("model/experiments.csv")
-            experiments_df["best"] = experiments_df["experiment_id"].eq(exp_dir.name).astype(str)
+            experiments_df["best"] = np.where(experiments_df["experiment_id"].eq(exp_dir.name), "true", "false")
             experiments_df.to_csv("model/experiments.csv", index=False)
     else:
         best_model_path = update_best_model(metric_key="mae", mode="min")

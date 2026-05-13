@@ -28,7 +28,8 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
   "month": 11,
   "year": 2025,
   "latest_price_vnd_per_kg": 90000,
-  "rolling_avg_price_vnd_per_kg": 88000
+  "rolling_avg_price_vnd_per_kg": 88000,
+  "price_observations": 1
 }
 ```
 
@@ -50,6 +51,7 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
 | `dominant_soil_type`           | Không    | Backend default `Dat do bazan`                                                         |
 | `latest_price_vnd_per_kg`      | Không    | Backend default 90000 nếu thiếu                                                        |
 | `rolling_avg_price_vnd_per_kg` | Không    | Backend dùng latest price nếu thiếu                                                    |
+| `price_observations`           | Không    | Backend default 1 nếu `price_fill_method=observed`, ngược lại 0                        |
 
 `province`, `area`, và các categorical field phải nằm trong nhóm feature đã train. Nếu frontend gửi giá trị ngoài tập train, API trả `422` thay vì âm thầm tạo vector one-hot toàn 0.
 

@@ -3,9 +3,11 @@ Module tiền xử lý dữ liệu cho pipeline dự báo giá cà phê.
 Các hàm xử lý missing data, outliers, và engineer features.
 """
 
+import warnings
+from typing import Tuple
+
 import numpy as np
 import pandas as pd
-from typing import Tuple
 
 
 REAL_SCHEMA_RENAME_MAP = {
@@ -40,7 +42,16 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
 
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
     df["historical_price_vnd"] = pd.to_numeric(df["historical_price_vnd"], errors="coerce")
+    row_count_before_drop = len(df)
     df = df.dropna(subset=["date", "historical_price_vnd"])
+    dropped_count = row_count_before_drop - len(df)
+    if dropped_count > 0:
+        warnings.warn(
+            f"Đã drop {dropped_count} dòng vì date hoặc historical_price_vnd không parse được",
+            stacklevel=2,
+        )
+    if df.empty:
+        raise ValueError("Không còn dòng hợp lệ sau khi chuẩn hóa date và historical_price_vnd")
 
     for col in ["avg_temp_c", "rainfall_mm", "humidity_pct", "avg_soil_moisture_0_7cm", "soil_score", "price_observations"]:
         if col in df.columns:
@@ -108,8 +119,8 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
 
     Các features mới:
     - month_sin, month_cos: mã hóa chu kỳ tháng (cyclic encoding).
-    - rolling_avg_7d: trung bình trượt 7 ngày giá cà phê.
-    - lag_1d, lag_7d: giá trị trễ (lag) 1 và 7 ngày.
+    - rolling_avg_7d: trung bình trượt 7 kỳ dữ liệu giá cà phê.
+    - lag_1d, lag_7d: giá trị trễ (lag) 1 và 7 kỳ dữ liệu.
     """
     df = df.copy()
     sort_cols = ["area", "date"] if "area" in df.columns else ["date"]

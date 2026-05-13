@@ -195,7 +195,7 @@ def append_experiment_csv(
         "mae": metrics.get("mae", ""),
         "rmse": metrics.get("rmse", ""),
         "r2": metrics.get("r2", ""),
-        "best": "False",
+        "best": "false",
     }
 
     file_exists = CSV_PATH.is_file()
@@ -285,7 +285,7 @@ def update_best_model(
     with open(CSV_PATH, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row["best"] = "True" if row["experiment_id"] == exp_id else "False"
+            row["best"] = "true" if row["experiment_id"] == exp_id else "false"
             rows.append(row)
 
     with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:

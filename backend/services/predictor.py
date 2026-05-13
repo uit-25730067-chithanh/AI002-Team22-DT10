@@ -11,9 +11,9 @@ import pandas as pd
 
 # Import schema; fallback để chạy được cả từ root và từ thư mục backend
 try:
-    from backend.schemas.prediction import PredictionRequest
+    from backend.schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
 except ModuleNotFoundError:
-    from schemas.prediction import PredictionRequest
+    from schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
 
 
 @dataclass
@@ -89,12 +89,15 @@ class PredictorService:
         soil_score = request.soil_score if request.soil_score is not None else 5.0
         latest_price = request.latest_price_vnd_per_kg if request.latest_price_vnd_per_kg is not None else 90000.0
         rolling_price = request.rolling_avg_price_vnd_per_kg if request.rolling_avg_price_vnd_per_kg is not None else latest_price
+        price_observations = request.price_observations
+        if price_observations is None:
+            price_observations = 1.0 if request.price_fill_method == "observed" else 0.0
 
         month_sin = float(np.sin(2 * np.pi * request.month / 12))
         month_cos = float(np.cos(2 * np.pi * request.month / 12))
 
         row = {
-            "price_observations": 0.0,
+            "price_observations": price_observations,
             "avg_temp_c": request.avg_temperature_c,
             "rainfall_mm": request.total_rainfall_mm,
             "humidity_pct": humidity,
@@ -153,7 +156,10 @@ class PredictorService:
             return []
 
         feature_names = list(feature_row.columns)
-        ranked_idx = np.argsort(importances)[::-1][:3]
+        usable_count = min(len(feature_names), len(importances))
+        if usable_count == 0:
+            return []
+        ranked_idx = np.argsort(importances[:usable_count])[::-1][:3]
 
         explanations: list[dict[str, Any]] = []
         for idx in ranked_idx:
@@ -192,7 +198,7 @@ class PredictorService:
             "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
-            "disclaimer": "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế.",
+            "disclaimer": DEFAULT_PREDICTION_DISCLAIMER,
         }
 
     def get_model_info(self) -> dict[str, Any]:

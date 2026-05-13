@@ -37,7 +37,7 @@ def predict(payload: PredictionRequest) -> PredictionResponse:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except Exception as exc:
         # Lỗi không mong muốn khác
-        raise HTTPException(status_code=500, detail=f"Lỗi không mong muốn: {exc}") from exc
+        raise HTTPException(status_code=500, detail="Lỗi không mong muốn khi dự báo") from exc
 
 
 @router.get("/model/info")
