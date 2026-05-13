@@ -1,107 +1,284 @@
-# Lộ trình Dự án (Project Roadmap)
+# Lộ trình Dự án và Luồng Dữ liệu
 
-Dưới đây là lịch trình làm việc và lộ trình phát triển chính cho **Team 10**, bám sát theo kế hoạch song song hóa giữa Team 1 (Crawler/UI) và Team 2 (Core AI).
+Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu thật từ Team 1 sang Team 2, sau đó đi qua model, API và frontend.
 
-## 🗺️ Lộ trình tổng thể (Gantt Chart)
+## Bức tranh tổng quan
+
+```mermaid
+flowchart TD
+    A[Team 1: Phúc và Thịnh] --> B[Crawl giá cà phê và dữ liệu môi trường]
+    B --> C[Raw data]
+    C --> D[Processed weekly dataset]
+    C --> E[Processed monthly dataset]
+    E --> F[Team 2: Thanh train baseline]
+    F --> G[Best model và metadata]
+    G --> H[FastAPI backend]
+    H --> I[Frontend demo]
+    F --> J[Sơn đánh giá Robustness, Bias, 5 Pillars]
+    J --> K[Báo cáo kỹ thuật]
+    I --> L[Demo cuối kỳ]
+    K --> L
+```
+
+## Luồng dữ liệu từ raw đến demo
+
+```mermaid
+flowchart LR
+    A[Raw price data] --> D[Build processed datasets]
+    B[Weather by area] --> D
+    C[Soil profile] --> D
+
+    D --> E[Weekly all-areas]
+    D --> F[Monthly all-areas]
+    D --> G[Per-area files]
+    D --> H[Area coverage ranking]
+
+    E --> I[Future experiment]
+    G --> J[Debug từng khu vực]
+    H --> K[Chọn vùng có dữ liệu tốt]
+    F --> L[Dataset train chính]
+
+    L --> M[Preprocess]
+    M --> N[Random Forest]
+    N --> O[API /predict]
+    O --> P[Frontend]
+```
+
+## Quyết định dùng dữ liệu
+
+| Nhóm              | File                                                                        | Mục đích                     | Trạng thái                   |
+| :---------------- | :-------------------------------------------------------------------------- | :--------------------------- | :--------------------------- |
+| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật           | Không train trực tiếp        |
+| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment | Chưa dùng làm baseline chính |
+| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính          | Đã dùng                      |
+| Coverage ranking  | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực      | Đã dùng để quyết định        |
+
+Lý do chọn monthly: ít nhiễu hơn weekly, coverage giá thật tốt hơn, dễ giải thích trong báo cáo, phù hợp KISS.
+
+## Roadmap tổng thể
 
 ```mermaid
 gantt
-    title AI002 Lộ trình Dự án Cà phê (DT10)
+    title AI002 lộ trình dự án cà phê
     dateFormat  YYYY-MM-DD
     tickInterval 1w
-    axisFormat  %m/%d
+    axisFormat  %d/%m
 
     section GĐ 1: Khởi động
-    Nghiên cứu & Thiết kế (Team 10)    :done, des1, 2026-04-20, 7d
-    Setup Codebase & Tài liệu (Phúc)   :done, des2, 2026-04-24, 7d
+    Nghiên cứu và thiết kế hệ thống          :done, a1, 2026-04-20, 7d
+    Setup repo, docs, backend/model skeleton :done, a2, 2026-04-24, 7d
 
-    section 🗓️ Kỳ nghỉ lễ
-    Nghỉ Giỗ Tổ & 30/4 - 1/5           :active, holiday, 2026-04-27, 7d
+    section GĐ 2: Dữ liệu thật
+    Crawl giá cà phê và thời tiết            :done, b1, 2026-05-04, 7d
+    Build processed weekly/monthly           :done, b2, 2026-05-08, 4d
+    Review luồng dữ liệu với Phúc            :active, b3, 2026-05-14, 2d
 
-    section GĐ 2: Thu thập Dữ liệu
-    Viết Crawler (Phúc/Thịnh)        :des3, 2026-05-04, 7d
-    Làm sạch & EDA (Thanh/Sơn)       :des4, 2026-05-04, 7d
+    section GĐ 3: Model baseline
+    Chọn monthly dataset                     :done, c1, 2026-05-12, 1d
+    Preprocess schema real-data              :done, c2, 2026-05-12, 1d
+    Train Random Forest baseline             :done, c3, 2026-05-13, 1d
+    Lưu best model và feature importance     :done, c4, 2026-05-13, 1d
 
-    section GĐ 3: Huấn luyện AI
-    Train Random Forest (Thanh/Sơn)  :des5, 2026-05-11, 7d
-    Đánh giá 5 Trụ cột (Thanh/Sơn)   :des6, 2026-05-11, 7d
+    section GĐ 4: Backend API
+    Update prediction contract               :done, d1, 2026-05-13, 1d
+    Validate numeric ranges                  :done, d2, 2026-05-13, 1d
+    Handoff API cho frontend                 :done, d3, 2026-05-13, 1d
 
-    section GĐ 4: Tích hợp Hệ thống
-    Backend API (Thanh/Sơn)          :des7, 2026-05-18, 7d
-    Giao diện Web (Phúc/Thịnh)       :des8, 2026-05-18, 7d
+    section GĐ 5: Evaluation
+    Stress test missing/outlier              :e1, 2026-05-14, 3d
+    Bias check theo tỉnh/khu vực             :e2, 2026-05-15, 3d
+    Viết 5 Pillars checkpoint                :e3, 2026-05-16, 3d
 
-    section GĐ 5: Báo cáo & Slide
-    Soạn báo cáo Kỹ thuật (Team 10)  :des9, 2026-05-25, 10d
-    Nộp bài chính thức               :milestone, des10, 2026-06-04, 0d
+    section GĐ 6: Integration và báo cáo
+    Frontend nối /predict                    :f1, 2026-05-18, 4d
+    Demo end-to-end                          :f2, 2026-05-21, 2d
+    Báo cáo kỹ thuật và slide                :f3, 2026-05-25, 10d
+    Nộp bài                                  :milestone, f4, 2026-06-04, 0d
 ```
 
----
+## Phân công trách nhiệm
 
-## 📈 Theo dõi Tiến độ (Weekly Tracker)
+```mermaid
+flowchart TD
+    subgraph T1[Team 1: Phúc và Thịnh]
+        A1[Crawl dữ liệu giá]
+        A2[Crawl hoặc chuẩn bị weather]
+        A3[Build processed datasets]
+        A4[Frontend HTML/CSS/JS]
+    end
 
-### Tuần 1-2 (Khởi động) — 20/4 - 24/4/2026
+    subgraph Thanh[Thanh]
+        B1[Chốt schema với Team 1]
+        B2[Normalize real schema]
+        B3[Feature engineering]
+        B4[Train Random Forest]
+        B5[FastAPI contract]
+    end
 
-- [x] Khởi tạo repo & Git setup.
-- [x] Chốt đề tài: Dự báo giá cà phê.
-- [x] Viết tài liệu PDR định hình kiến trúc và 5 Trụ cột AI.
-- [x] Setup cấu trúc thư mục codebase (backend, model, crawler).
+    subgraph Son[Sơn]
+        C1[EDA bổ sung]
+        C2[Stress test]
+        C3[Bias check]
+        C4[5 Pillars checkpoint]
+    end
 
----
+    subgraph Team[Team 10]
+        D1[Báo cáo]
+        D2[Slide]
+        D3[Demo]
+    end
 
-### 🗓️ Tuần nghỉ lễ — 25/4 - 3/5/2026
+    A1 --> A3
+    A2 --> A3
+    A3 --> B1
+    B1 --> B2 --> B3 --> B4 --> B5
+    B4 --> C1 --> C2 --> C3 --> C4
+    B5 --> A4
+    C4 --> D1
+    A4 --> D3
+    D1 --> D2 --> D3
+```
 
-- [x] Team 2 chạy foundation week: mock data + EDA + train RF + API skeleton (chạy trước để sau nghỉ lễ chỉ thay data thật).
+## Luồng xử lý trong model
 
----
+```mermaid
+flowchart TD
+    A[Monthly CSV] --> B[normalize_real_schema]
+    B --> C[Chuẩn hóa period_start thành date]
+    B --> D[Đổi avg_price thành target historical_price_vnd]
+    C --> E[fill_missing]
+    D --> E
+    E --> F[cap_outliers]
+    F --> G[feature_engineer]
+    G --> H[lag và rolling theo area]
+    G --> I[month_sin và month_cos]
+    H --> J[encode_features one-hot]
+    I --> J
+    J --> K[split_temporal]
+    K --> L[Train 2022-2024]
+    K --> M[Test 2025]
+    L --> N[RandomForestRegressor]
+    N --> O[MAE, RMSE, R2]
+    N --> P[feature_importance]
+    N --> Q[best_model]
+```
 
-### Tuần 3 (Data + EDA) — 4/5 - 10/5/2026 (Buổi 4: 7/5)
+## Luồng request API
 
-- [ ] Team 1 crawl data thật.
-- [ ] Team 2 thay mock data = data thật, chạy lại EDA + preprocessing.
-- [ ] Chốt định dạng file CSV.
+```mermaid
+sequenceDiagram
+    participant UI as Frontend
+    participant API as FastAPI
+    participant Schema as Pydantic schema
+    participant Service as PredictorService
+    participant Model as Random Forest
 
----
+    UI->>API: POST /predict
+    API->>Schema: Validate weather, month, recent price ranges
+    Schema-->>API: Payload hợp lệ hoặc 422
+    API->>Service: Build feature row
+    Service->>Service: Map one-hot theo feature_names
+    Service->>Model: Predict giá cà phê
+    Model-->>Service: Giá dự báo
+    Service-->>API: Giá, khoảng tin cậy, top features
+    API-->>UI: JSON response + disclaimer
+```
 
-### Tuần 4 (Model) — 11/5 - 17/5/2026 (Buổi 5: 14/5)
+## Trạng thái theo milestone
 
-- [ ] Train Random Forest baseline trên data thật.
-- [ ] Trích xuất feature importance.
-- [ ] (Tùy chọn) So sánh XGBoost.
+```mermaid
+stateDiagram-v2
+    [*] --> Foundation
+    Foundation --> RealData
+    RealData --> BaselineModel
+    BaselineModel --> APIContract
+    APIContract --> Evaluation
+    Evaluation --> FrontendIntegration
+    FrontendIntegration --> ReportAndDemo
+    ReportAndDemo --> Submission
 
----
+    Foundation: Repo, mock pipeline, API skeleton
+    RealData: Processed monthly/weekly datasets
+    BaselineModel: RF baseline + feature importance
+    APIContract: /predict real-data schema
+    Evaluation: Stress test + Bias + 5 Pillars
+    FrontendIntegration: Frontend gọi API
+    ReportAndDemo: Slide + báo cáo + demo
+    Submission: Nộp bài cuối kỳ
+```
 
-### Tuần 5 (API + Integration) — 18/5 - 24/5/2026 (Buổi 6: 21/5)
+## Theo dõi tiến độ tuần
 
-- [ ] Hoàn thiện FastAPI backend (`/predict`, `/health`).
-- [ ] Team 1 kết nối frontend với API.
-- [ ] Stress test + báo cáo Robustness.
+### Tuần 1-2 — Khởi động
 
----
+- [x] Khởi tạo repo và Git setup.
+- [x] Chốt đề tài dự báo giá cà phê.
+- [x] Viết PDR và 5 trụ cột AI.
+- [x] Setup cấu trúc backend, model, crawler, frontend.
 
-### Tuần 6 (Slide + Báo cáo) — 25/5 - 4/6/2026 (Buổi 7: 28/5 | Buổi 8: 4/6)
+### Tuần nghỉ lễ — Foundation pipeline
 
-- [ ] Viết `5-pillars-checkpoint.md` — tài liệu chứng minh 5 Trụ cột AI.
-- [ ] Chuẩn bị slide thuyết trình 15 phút.
-- [ ] Tổng duyệt demo end-to-end.
+- [x] Team 2 chạy mock pipeline.
+- [x] Có FastAPI skeleton.
+- [x] Có Random Forest baseline trên mock data.
 
----
+### Tuần 3 — Data thật
 
-## 🏗️ Phân chia Công việc chi tiết (WBS)
+- [x] Team 1 có processed weekly/monthly dataset.
+- [x] Team 2 đọc và chuẩn hóa schema real-data.
+- [x] Có ranking độ phủ dữ liệu theo khu vực.
+- [ ] Phúc review lại docs data flow.
 
-| Phân hệ      | Nội dung                                   | Người phụ trách | Hỗ trợ  |
-| :----------- | :----------------------------------------- | :-------------- | :------ |
-| **Dữ liệu**  | Viết crawler thời tiết, giá cà phê lịch sử | Phúc, Thịnh     | Thanh   |
-| **AI Model** | Tiền xử lý, Train Random Forest, XGBoost   | Thanh           | Sơn     |
-| **Backend**  | API FastAPI, Validate dữ liệu (Pydantic)   | Thanh           | Sơn     |
-| **Frontend** | Giao diện Web HTML/JS/CSS hiển thị dự báo  | Phúc            | Thịnh   |
-| **Báo cáo**  | Slide thuyết trình, Báo cáo 5 Trụ cột      | Cả nhóm (T10)   | Cả nhóm |
+### Tuần 4 — Model thật
 
----
+- [x] Train Random Forest baseline trên monthly all-areas.
+- [x] Trích xuất feature importance.
+- [x] Lưu best model và metadata.
+- [ ] Sơn/Thanh đánh giá Robustness và Bias sâu hơn.
 
-## 🚩 Các cột mốc chính (Milestones)
+### Tuần 5 — API và Integration
 
-1. **M1: Nền tảng (25/4 - 3/5)** — Team 2 hoàn tất mock pipeline (EDA + RF + API skeleton) trong tuần nghỉ lễ.
-2. **M2: Dữ liệu (Đầu tháng 5 / ~7/5)** — Thu thập đủ data thật, làm sạch cơ bản.
-3. **M3: Mô hình (Giữa tháng 5 / ~14/5)** — Có model Baseline dự báo được giá, đo được sai số.
-4. **M4: Tích hợp (Cuối tháng 5 / ~21/5)** — Có API chạy thật và nối được lên Web.
-5. **M5: Nộp bài (Đầu tháng 6 / ~4/6)** — Xong slide, báo cáo bảo vệ đồ án tại Buổi 8.
+- [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
+- [x] API validate numeric ranges bằng Pydantic.
+- [ ] Team 1 nối frontend với API.
+- [ ] Demo end-to-end.
+
+### Tuần 6 — Báo cáo và slide
+
+- [ ] Viết 5 Pillars checkpoint bản cuối.
+- [ ] Chuẩn bị slide thuyết trình.
+- [ ] Tổng duyệt demo.
+
+## WBS cập nhật
+
+| Phân hệ            | Nội dung                                    | Người phụ trách | Review cần có                      |
+| :----------------- | :------------------------------------------ | :-------------- | :--------------------------------- |
+| Data crawler       | Crawl giá, weather, build processed dataset | Phúc, Thịnh     | Thanh review schema                |
+| Data understanding | Giải thích raw/weekly/monthly, coverage     | Phúc, Thanh     | Sơn review cho evaluation          |
+| AI model           | Preprocess, train RF, feature importance    | Thanh           | Sơn review metrics                 |
+| Evaluation         | Stress test, bias, 5 Pillars                | Sơn             | Thanh review technical correctness |
+| Backend API        | `/predict`, `/health`, `/model/info`        | Thanh           | Phúc review frontend contract      |
+| Frontend           | UI và gọi API                               | Phúc, Thịnh     | Thanh review payload/response      |
+| Report             | Kết quả, limitation, demo script            | Cả nhóm         | Cả nhóm review                     |
+
+## Rủi ro và cách xử lý
+
+```mermaid
+flowchart TD
+    A[Rủi ro dự án] --> B[Data coverage không đều]
+    A --> C[R2 âm ở baseline]
+    A --> D[Frontend gửi giá trị ngoài range]
+    A --> E[Team hiểu nhầm raw data là train trực tiếp]
+
+    B --> B1[Dùng ranking coverage và nói rõ bias]
+    C --> C1[Trình bày là baseline, chưa phải model cuối]
+    D --> D1[API trả 422 thay vì predict input sai range]
+    E --> E1[Docs data flow và Mermaid roadmap]
+```
+
+## Tài liệu liên quan
+
+- [`docs/discussions/2026-05-13-team-data-flow-roadmap.md`](discussions/2026-05-13-team-data-flow-roadmap.md)
+- [`docs/discussions/2026-05-13-api-handoff-team2-real-data.md`](discussions/2026-05-13-api-handoff-team2-real-data.md)
+- [`data/processed/FIELD_DESCRIPTIONS.md`](../data/processed/FIELD_DESCRIPTIONS.md)
+- [`data/processed/AREA_REAL_PRICE_DATA_RANKING.md`](../data/processed/AREA_REAL_PRICE_DATA_RANKING.md)

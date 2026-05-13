@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Foundation Week (Phase 1-3) — **HOÀN THÀNH**  
-**Cập nhật:** 2026-04-26
+**Trạng thái:** Real Data Baseline + API Contract — **ĐANG TÍCH HỢP**
+**Cập nhật:** 2026-05-13
 
 ---
 
@@ -9,22 +9,31 @@
 
 ### `backend/` — API Server (Team 2)
 
-| File                    | Mô tả                                                                                | Trụ cột AI liên quan                                          |
-| ----------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                 | —                                                             |
-| `api/routes.py`         | 3 endpoint: `/health`, `/predict`, `/model/info`                                     | Robustness (Pydantic validate), Transparency (trả giải thích) |
-| `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`     | Robustness (ràng buộc range)                                  |
-| `services/predictor.py` | `PredictorService`: load .pkl, transform input, predict + CI, explain top 3 features | Transparency, Reliability                                     |
+| File                    | Mô tả                                                                                                    | Trụ cột AI liên quan                                          |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                     | —                                                             |
+| `api/routes.py`         | 3 endpoint: `/health`, `/predict`, `/model/info`                                                         | Robustness (Pydantic validate), Transparency (trả giải thích) |
+| `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                         | Robustness (range validation)                                 |
+| `services/predictor.py` | `PredictorService`: load best model, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
 
 ### `model/` — AI/ML Pipeline (Team 2)
 
-| File               | Mô tả                                                                                                       | Trụ cột AI liên quan      |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `preprocess.py`    | Fill missing, remove outliers (IQR/Z-score), feature engineer (month_sin/cos, lag, rolling), temporal split | Robustness                |
-| `train_rf.py`      | Train Random Forest baseline; đánh giá MAE/RMSE/R²; lưu .pkl + plot feature importance                      | Reliability, Transparency |
-| `train_xgboost.py` | So sánh XGBoost (optional); graceful fallback khi thiếu libomp                                              | Reliability               |
-| `stress_test.py`   | Inject Black Swan (price crash, heat wave); đo MAE lift so với baseline                                     | Robustness                |
-| `saved/`           | Chứa `rf_baseline.pkl` và `feature_importance_rf.png`                                                       | —                         |
+| File               | Mô tả                                                                                                                        | Trụ cột AI liên quan      |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `preprocess.py`    | Normalize real monthly schema, fill missing, cap outliers, feature engineer theo `area`, one-hot categorical, temporal split | Robustness                |
+| `train_rf.py`      | Train Random Forest baseline; đánh giá MAE/RMSE/R²; lưu feature names, feature importance và promote `model/best_model`      | Reliability, Transparency |
+| `train_xgboost.py` | So sánh XGBoost (optional); graceful fallback khi thiếu libomp                                                               | Reliability               |
+| `stress_test.py`   | Inject Black Swan (price crash, heat wave); đo MAE lift so với baseline                                                      | Robustness                |
+| `best_model/`      | Metadata và model artifact được promote cho API                                                                              | Traceability              |
+
+### `data/processed/` — Dữ liệu thật đã xử lý
+
+| File/Folder                                                  | Mô tả                                                |
+| ------------------------------------------------------------ | ---------------------------------------------------- |
+| `monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính dùng train baseline real-data hiện tại |
+| `weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Dataset weekly để tham khảo hoặc future experiment   |
+| `area_real_price_data_ranking.csv`                           | Ranking coverage giá thật theo khu vực               |
+| `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                          |
 
 ### `scripts/` — Tiện ích
 
@@ -38,12 +47,14 @@
 | --------------------------- | ------------------------------------------------------------------------------------ |
 | `test_predictor_service.py` | Kiểm tra PredictorService load model và trả đủ keys; `pytest.skip` khi model chưa có |
 
-### `docs/discussions/` — Tài liệu nội bộ (Ignored by Git)
+### `docs/discussions/` — Tài liệu nội bộ
 
-| File                        | Mô tả                                                 |
-| --------------------------- | ----------------------------------------------------- |
-| `5-pillars-checkpoint.md`   | Kiểm điểm 5 trụ cột Sustainable AI (tiếng Việt)       |
-| `robustness-stress-test.md` | Báo cáo stress test tự động sinh bởi `stress_test.py` |
+| File                                        | Mô tả                                                        |
+| ------------------------------------------- | ------------------------------------------------------------ |
+| `5-pillars-checkpoint.md`                   | Kiểm điểm 5 trụ cột Sustainable AI (tiếng Việt)              |
+| `robustness-stress-test.md`                 | Báo cáo stress test tự động sinh bởi `stress_test.py`        |
+| `2026-05-13-team-data-flow-roadmap.md`      | Roadmap luồng dữ liệu thật từ crawler đến model/API/frontend |
+| `2026-05-13-api-handoff-team2-real-data.md` | API handoff contract `/predict` cho frontend                 |
 
 ### `plans/team2-foundation-week/` — Kế hoạch
 

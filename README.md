@@ -18,10 +18,11 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Data-to-AI Flow](#data-to-ai-flow)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Team Structure](#team-structure)
+- [Team Structure](#team-structure-team-10)
 
 ---
 
@@ -31,6 +32,66 @@ This project implements an **Artificial Intelligence model** designed to analyze
 
 > **Deep Dive Documentation:**
 > For an in-depth look at our core system design, including the **5 Pillars of Sustainable AI**, rationale behind our architecture, and detailed team workflows, please refer to our **[Project Design Report (PDR)](./docs/project-overview-pdr.md)**.
+
+---
+
+## Data-to-AI Flow
+
+Luồng hiện tại dùng dữ liệu thật đã xử lý theo tháng để train baseline Random Forest. Raw data crawl rất nhiều, nhưng model không dùng trực tiếp toàn bộ raw/weekly data. Team 2 chọn `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` vì độ phủ giá thật ổn định hơn, dễ giải thích hơn và phù hợp mục tiêu KISS của môn học.
+
+```mermaid
+flowchart TD
+    A[Phúc và Thịnh crawl giá cà phê] --> B[Raw daily price data]
+    C[Dữ liệu thời tiết theo khu vực] --> D[Daily weather features]
+    E[Thông tin đất theo khu vực] --> F[Static soil features]
+
+    B --> G[Build processed datasets]
+    D --> G
+    F --> G
+
+    G --> H[Weekly processed dataset]
+    G --> I[Monthly processed dataset]
+    G --> J[Area real price ranking]
+
+    H --> K[Tham khảo và future experiment]
+    J --> L[Kiểm tra coverage theo khu vực]
+    I --> M[Thanh train baseline Random Forest]
+
+    M --> N[model/best_model]
+    N --> O[FastAPI /predict]
+    O --> P[Frontend demo]
+```
+
+### Dataset chính hiện tại
+
+| Mục                 | Giá trị                                                                     |
+| :------------------ | :-------------------------------------------------------------------------- |
+| File train chính    | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` |
+| Số dòng             | 576                                                                         |
+| Số cột              | 16                                                                          |
+| Tần suất            | Monthly                                                                     |
+| Train/Test          | Train 2022-2024, Test 2025                                                  |
+| Model baseline      | `RandomForestRegressor`                                                     |
+| Best model metadata | `model/best_model/metadata.json`                                            |
+
+### Trách nhiệm theo team
+
+```mermaid
+flowchart LR
+    A[Team 1: Phúc và Thịnh<br/>Crawler + Frontend] --> B[Processed datasets]
+    B --> C[Thanh<br/>Preprocess + Train RF + API contract]
+    C --> D[Sơn<br/>Evaluation + Robustness + 5 Pillars]
+    C --> E[Frontend gọi /predict]
+    D --> F[Báo cáo kỹ thuật]
+    E --> G[Demo end-to-end]
+    F --> G
+```
+
+Tài liệu chi tiết:
+
+- [Team data flow roadmap](./docs/discussions/2026-05-13-team-data-flow-roadmap.md)
+- [Project roadmap](./docs/project-roadmap.md)
+- [API handoff real data model](./docs/discussions/2026-05-13-api-handoff-team2-real-data.md)
 
 ---
 
@@ -65,7 +126,7 @@ AI002_PROJECT/
 │   ├── train_rf.py                 # Random Forest baseline training + evaluation
 │   ├── train_xgboost.py            # Optional XGBoost comparison (requires venv)
 │   ├── stress_test.py              # Robustness stress test (Black Swan scenarios)
-│   └── saved/                      # Serialized models (.pkl)
+│   └── best_model/                 # Promoted model metadata and .pkl artifact
 │
 ├── backend/                        # API Server (Team 2)
 │   ├── main.py                     # FastAPI entry point
@@ -137,20 +198,17 @@ python3 -m pytest tests/ai-tests/test_predictor_service.py -q
 ### 5. Training the Baseline Model
 
 ```bash
-# Generate mock data first (if not present)
-python3 scripts/generate_mock_data.py
-
-# Train Random Forest baseline (tự động lưu vào model/experiments/ và cập nhật model/best_model/)
-python3 model/train_rf.py --data data/raw/mock_coffee_data.csv
+# Train Random Forest baseline trên data thật monthly
+python3 model/train_rf.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv --tag rf_real_monthly
 
 # Optional: XGBoost comparison (install in a separate venv)
-python3 model/train_xgboost.py --data data/raw/mock_coffee_data.csv
+python3 model/train_xgboost.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv
 
 # Xem lịch sử experiments
 cat model/experiments.csv
 ```
 
-### 4. Running the Web UI
+### 6. Running the Web UI
 
 Simply open `frontend/index.html` in your preferred web browser to view the dashboard.
 
