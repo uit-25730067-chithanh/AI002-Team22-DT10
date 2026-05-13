@@ -70,6 +70,15 @@ class PredictorService:
         """Kiểm tra model đã load thành công chưa."""
         return self.model is not None
 
+    @staticmethod
+    def _category_values(feature_names: list[str], prefix: str) -> set[str]:
+        marker = f"{prefix}_"
+        return {name.removeprefix(marker) for name in feature_names if name.startswith(marker)}
+
+    @staticmethod
+    def _one_hot_value(feature_name: str, prefix: str, selected_value: str) -> float:
+        return 1.0 if feature_name == f"{prefix}_{selected_value}" else 0.0
+
     def _build_feature_row(self, request: PredictionRequest) -> pd.DataFrame:
         """
         Biến đổi PredictionRequest thành DataFrame để đưa vào model.
@@ -105,15 +114,29 @@ class PredictorService:
         if self.model_info and self.model_info.feature_names:
             feature_names = self.model_info.feature_names
 
+        categorical_values = {
+            "province": request.province,
+            "area": request.area,
+            "coffee_type": request.coffee_type,
+            "price_fill_method": request.price_fill_method,
+            "dominant_soil_type": request.dominant_soil_type,
+        }
+        if request.soil_data_confidence is not None:
+            categorical_values["soil_data_confidence"] = request.soil_data_confidence
+
+        for prefix, selected_value in categorical_values.items():
+            available_values = self._category_values(feature_names, prefix)
+            if available_values and selected_value not in available_values:
+                allowed = ", ".join(sorted(available_values))
+                raise ValueError(f"Giá trị `{prefix}` không hợp lệ: {selected_value}. Giá trị hợp lệ: {allowed}")
+
         feature_row: dict[str, float] = {}
         for name in feature_names:
             value = row.get(name, 0.0)
-            if name.startswith("province_"):
-                value = 1.0 if name == f"province_{request.province}" else 0.0
-            elif name.startswith("area_"):
-                value = 1.0 if name == f"area_{request.area}" else 0.0
-            elif name.startswith("soil_data_confidence_") and request.soil_data_confidence:
-                value = 1.0 if name == f"soil_data_confidence_{request.soil_data_confidence}" else 0.0
+            for prefix, selected_value in categorical_values.items():
+                if name.startswith(f"{prefix}_"):
+                    value = self._one_hot_value(name, prefix, selected_value)
+                    break
             feature_row[name] = float(value)
         return pd.DataFrame([feature_row])
 

@@ -33,6 +33,8 @@ def predict(payload: PredictionRequest) -> PredictionResponse:
     except RuntimeError as exc:
         # Model chưa sẵn sàng (ví dụ file .pkl chưa có)
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
     except Exception as exc:
         # Lỗi không mong muốn khác
         raise HTTPException(status_code=500, detail=f"Lỗi không mong muốn: {exc}") from exc

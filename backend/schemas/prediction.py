@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -13,7 +13,10 @@ class PredictionRequest(BaseModel):
     avg_humidity_percent: Optional[float] = Field(None, ge=0.0, le=100.0)
     avg_soil_moisture_0_7cm: Optional[float] = Field(None, ge=0.0, le=1.0)
     soil_score: Optional[float] = Field(None, ge=0.0, le=5.0)
-    soil_data_confidence: Optional[str] = Field(None, max_length=30)
+    soil_data_confidence: Optional[Literal["low", "medium", "high"]] = None
+    coffee_type: str = Field("Robusta / ca phe nhan xo noi dia", min_length=1, max_length=80)
+    price_fill_method: Literal["observed", "interpolated_area", "province_proxy"] = "observed"
+    dominant_soil_type: str = Field("Dat do bazan", min_length=1, max_length=80)
     month: int = Field(..., ge=1, le=12)
     year: int = Field(2025, ge=2022, le=2030)
     latest_price_vnd_per_kg: Optional[float] = Field(None, ge=30000.0, le=200000.0)
