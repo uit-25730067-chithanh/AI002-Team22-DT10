@@ -9,12 +9,12 @@
 
 ### `backend/` — API Server (Team 2)
 
-| File                    | Mô tả                                                                                                    | Trụ cột AI liên quan                                          |
-| ----------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                     | —                                                             |
-| `api/routes.py`         | 3 endpoint: `/health`, `/predict`, `/model/info`                                                         | Robustness (Pydantic validate), Transparency (trả giải thích) |
-| `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                         | Robustness (range validation)                                 |
-| `services/predictor.py` | `PredictorService`: load best model, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
+| File                    | Mô tả                                                                                                                                 | Trụ cột AI liên quan                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                                                  | —                                                             |
+| `api/routes.py`         | 3 endpoint: `/health`, `/predict`, `/model/info`                                                                                      | Robustness (Pydantic validate), Transparency (trả giải thích) |
+| `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
+| `services/predictor.py` | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
 
 ### `model/` — AI/ML Pipeline (Team 2)
 
@@ -22,8 +22,8 @@
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `preprocess.py`    | Normalize real monthly schema, fill missing, cap outliers, feature engineer theo `area`, one-hot categorical, temporal split | Robustness                |
 | `train_rf.py`      | Train Random Forest baseline; đánh giá MAE/RMSE/R²; lưu feature names, feature importance và promote `model/best_model`      | Reliability, Transparency |
-| `train_xgboost.py` | So sánh XGBoost (optional); graceful fallback khi thiếu libomp                                                               | Reliability               |
-| `stress_test.py`   | Inject Black Swan (price crash, heat wave); đo MAE lift so với baseline                                                      | Robustness                |
+| `train_xgboost.py` | So sánh XGBoost optional trong venv riêng; graceful fallback khi thiếu libomp                                                | Reliability               |
+| `stress_test.py`   | Inject Black Swan (price crash, heat wave); đo MAE lift so với baseline, chủ yếu phục vụ evaluation                          | Robustness                |
 | `best_model/`      | Metadata và model artifact được promote cho API                                                                              | Traceability              |
 
 ### `data/processed/` — Dữ liệu thật đã xử lý

@@ -8,17 +8,17 @@ Tài liệu này giúp Thanh, Sơn, Phúc, Thịnh nhìn cùng một bức tranh
 
 ## Quyết định dữ liệu hiện tại
 
-| Nhóm dữ liệu      | File chính                                                                  | Vai trò hiện tại                                        |
-| :---------------- | :-------------------------------------------------------------------------- | :------------------------------------------------------ |
-| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật, không train trực tiếp               |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment, coverage thấp hơn monthly |
-| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính để train baseline hiện tại                |
-| Ranking coverage  | `data/processed/area_real_price_data_ranking.csv`                           | Kiểm tra khu vực nào có giá thật tốt                    |
-| Field spec        | `data/processed/FIELD_DESCRIPTIONS.md`                                      | Giải thích schema cho team                              |
+| Nhóm dữ liệu      | File chính                                                                  | Vai trò hiện tại                                                 |
+| :---------------- | :-------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật, gitignored, không train trực tiếp trong repo |
+| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment, coverage thấp hơn monthly          |
+| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính để train baseline hiện tại                         |
+| Ranking coverage  | `data/processed/area_real_price_data_ranking.csv`                           | Kiểm tra khu vực nào có giá thật tốt                             |
+| Field spec        | `data/processed/FIELD_DESCRIPTIONS.md`                                      | Giải thích schema cho team                                       |
 
 ## Vì sao chọn monthly thay vì dùng hết raw/weekly
 
-- Raw nhiều nguồn và nhiều dòng, nhưng chưa đồng đều theo khu vực/thời gian.
+- Raw nhiều nguồn và nhiều dòng, nhưng nằm trong `data/raw/` gitignored và chưa đồng đều theo khu vực/thời gian.
 - Weekly có nhiều dòng hơn nhưng coverage giá thật thấp hơn monthly.
 - Monthly có ít dòng hơn nhưng ổn định hơn, dễ giải thích hơn, hợp baseline Random Forest hơn.
 - Mục tiêu môn học là chứng minh tư duy AI bền vững, không phải nhồi dữ liệu tối đa bằng mọi giá.
@@ -93,9 +93,10 @@ sequenceDiagram
     participant Meta as metadata.json
 
     UI->>API: POST /predict với thời tiết, tháng, giá gần nhất
-    API->>API: Pydantic validate numeric ranges
+    API->>API: Pydantic validate numeric ranges và enum
     API->>P: predict(payload)
     P->>Meta: đọc feature_names đã train
+    P->>P: check category nằm trong feature_names
     P->>P: build feature row theo các cột model đã train
     P->>M: model.predict(feature_row)
     M-->>P: giá dự báo
@@ -205,6 +206,7 @@ gantt
 - Raw source list và nguồn nào là chính.
 - Cách build `data/processed/weekly` và `data/processed/monthly`.
 - Ý nghĩa `price_fill_method` và khi nào là `observed`, `interpolated_area`, `province_proxy`.
+- Có cần expose thêm `price_observations` trên frontend hay backend tự default theo `price_fill_method`.
 - Các khu vực có coverage yếu, đặc biệt `Dak R'lap`.
 - Frontend nên cho user chọn field nào, field nào để default backend.
 

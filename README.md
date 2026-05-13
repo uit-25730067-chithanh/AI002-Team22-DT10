@@ -37,7 +37,7 @@ This project implements an **Artificial Intelligence model** designed to analyze
 
 ## Data-to-AI Flow
 
-Luồng hiện tại dùng dữ liệu thật đã xử lý theo tháng để train baseline Random Forest. Raw data crawl rất nhiều, nhưng model không dùng trực tiếp toàn bộ raw/weekly data. Team 2 chọn `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` vì độ phủ giá thật ổn định hơn, dễ giải thích hơn và phù hợp mục tiêu KISS của môn học.
+Luồng hiện tại dùng dữ liệu thật đã xử lý theo tháng để train baseline Random Forest. Raw data crawl rất nhiều nhưng nằm trong `data/raw/` và bị gitignore, nên model trong repo không train trực tiếp từ raw file. Team 2 chọn `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` vì độ phủ giá thật ổn định hơn, dễ giải thích hơn và phù hợp mục tiêu KISS của môn học.
 
 ```mermaid
 flowchart TD
@@ -114,9 +114,9 @@ AI002_PROJECT/
 │
 ├── docs/                           # Documentation (PDR, Slides, References)
 ├── data/                           # Datasets (Ignored in Git)
-│   ├── raw/                        # Raw scraped data
+│   ├── raw/                        # Raw scraped data (gitignored)
 │   ├── processed/                  # Cleaned & processed data
-│   └── external/                   # External data sources
+│   └── external/                   # Optional external data sources
 │
 ├── crawler/                        # Data crawling & scraping scripts
 ├── notebooks/                      # Jupyter Notebooks for EDA & Prototyping
@@ -201,7 +201,7 @@ python3 -m pytest tests/ai-tests/test_predictor_service.py -q
 # Train Random Forest baseline trên data thật monthly
 python3 model/train_rf.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv --tag rf_real_monthly
 
-# Optional: XGBoost comparison (install in a separate venv)
+# Optional only: XGBoost comparison (install in a separate venv)
 python3 model/train_xgboost.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv
 
 # Xem lịch sử experiments

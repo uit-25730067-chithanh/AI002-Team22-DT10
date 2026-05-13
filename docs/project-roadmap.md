@@ -46,12 +46,12 @@ flowchart LR
 
 ## Quyết định dùng dữ liệu
 
-| Nhóm              | File                                                                        | Mục đích                     | Trạng thái                   |
-| :---------------- | :-------------------------------------------------------------------------- | :--------------------------- | :--------------------------- |
-| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật           | Không train trực tiếp        |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment | Chưa dùng làm baseline chính |
-| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính          | Đã dùng                      |
-| Coverage ranking  | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực      | Đã dùng để quyết định        |
+| Nhóm              | File                                                                        | Mục đích                     | Trạng thái                                   |
+| :---------------- | :-------------------------------------------------------------------------- | :--------------------------- | :------------------------------------------- |
+| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật           | Gitignored, không train trực tiếp trong repo |
+| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment | Chưa dùng làm baseline chính                 |
+| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính          | Đã dùng                                      |
+| Coverage ranking  | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực      | Đã dùng để quyết định                        |
 
 Lý do chọn monthly: ít nhiễu hơn weekly, coverage giá thật tốt hơn, dễ giải thích trong báo cáo, phù hợp KISS.
 
@@ -81,7 +81,7 @@ gantt
 
     section GĐ 4: Backend API
     Update prediction contract               :done, d1, 2026-05-13, 1d
-    Validate numeric ranges                  :done, d2, 2026-05-13, 1d
+    Validate numeric, enum và category       :done, d2, 2026-05-13, 1d
     Handoff API cho frontend                 :done, d3, 2026-05-13, 1d
 
     section GĐ 5: Evaluation
@@ -174,9 +174,10 @@ sequenceDiagram
     participant Model as Random Forest
 
     UI->>API: POST /predict
-    API->>Schema: Validate weather, month, recent price ranges
+    API->>Schema: Validate numeric ranges và enum
     Schema-->>API: Payload hợp lệ hoặc 422
     API->>Service: Build feature row
+    Service->>Service: Check category trong feature_names
     Service->>Service: Map one-hot theo feature_names
     Service->>Model: Predict giá cà phê
     Model-->>Service: Giá dự báo
@@ -239,7 +240,7 @@ stateDiagram-v2
 ### Tuần 5 — API và Integration
 
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
-- [x] API validate numeric ranges bằng Pydantic.
+- [x] API validate numeric ranges, enum và category đã train.
 - [ ] Team 1 nối frontend với API.
 - [ ] Demo end-to-end.
 
@@ -267,12 +268,12 @@ stateDiagram-v2
 flowchart TD
     A[Rủi ro dự án] --> B[Data coverage không đều]
     A --> C[R2 âm ở baseline]
-    A --> D[Frontend gửi giá trị ngoài range]
+    A --> D[Frontend gửi giá trị ngoài range hoặc ngoài category đã train]
     A --> E[Team hiểu nhầm raw data là train trực tiếp]
 
     B --> B1[Dùng ranking coverage và nói rõ bias]
     C --> C1[Trình bày là baseline, chưa phải model cuối]
-    D --> D1[API trả 422 thay vì predict input sai range]
+    D --> D1[API trả 422 thay vì predict input không hợp lệ]
     E --> E1[Docs data flow và Mermaid roadmap]
 ```
 
