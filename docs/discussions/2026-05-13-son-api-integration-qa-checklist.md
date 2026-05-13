@@ -4,7 +4,7 @@
 **Owner:** Sơn
 **Consumers:** Thanh, Phúc, Thịnh
 **Scope:** Checklist test API/frontend cho tuần integration 18/5-24/5
-**Plan:** `plans/team2-son-evaluation-pack/phase-03-api-integration-qa-checklist.md`
+**Plan:** Local-only `plans/team2-son-evaluation-pack/phase-03-api-integration-qa-checklist.md` (gitignored)
 **PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
 ## Kết luận nhanh
@@ -18,7 +18,7 @@ Checklist này dùng để Team 1 nối frontend với backend mà không đoán
 | Endpoint `/health` | Trả `status`, `model_loaded` | Thanh | Blocker | Exists local |
 | Endpoint `/predict` | Nhận request real-data hợp lệ và trả prediction/explanation/disclaimer | Thanh | Blocker | Schema available, verify with API smoke test |
 | Endpoint `/model/info` | Trả model version/features/trained_at | Thanh | Important | Exists local |
-| Province/area schema | Validate province/area theo backend real-data hiện tại | Thanh | Blocker | Schema available, verify with API smoke test |
+| Province/area validation | Pydantic schema có `province`/`area` dạng string; allowed-value check chạy trong `PredictorService` theo model features | Thanh | Blocker | Service validation available, verify with API smoke test |
 | Disclaimer in response/UI | UI phải hiển thị cảnh báo AI chỉ tham khảo | Phúc/Thịnh | Important | Needs frontend work |
 | Data limitation warning | Dak Nong/Dak R'lap/ngoài Tây Nguyên có warning | Phúc/Thịnh/Sơn | Important | Needs frontend work |
 
@@ -39,7 +39,7 @@ Checklist này dùng để Team 1 nối frontend với backend mà không đoán
 | API-11 | Invalid month/period | Month ngoài 1-12 hoặc date sai format | HTTP 422 với validation detail | Thanh | Important |
 | API-12 | Model missing | Tạm đổi path hoặc chạy khi model chưa có | HTTP 503, message hiểu được | Thanh | Important |
 | API-13 | Response transparency | Valid request | Response có top features/explanation hoặc model info đủ để UI giải thích | Thanh/Sơn | Important |
-| API-14 | Confidence output | Valid request | Có confidence interval/range nếu contract hỗ trợ | Thanh | Nice-to-have |
+| API-14 | Confidence output | Valid request | Response bắt buộc có `confidence_interval` theo `PredictionResponse` | Thanh | Important |
 | API-15 | Bias warning | Request vùng yếu coverage | UI/API hiển thị limitation | Phúc/Thịnh/Sơn | Important |
 
 ## Frontend integration checklist

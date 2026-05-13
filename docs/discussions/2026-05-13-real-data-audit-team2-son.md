@@ -2,7 +2,7 @@
 
 **Ngày:** 2026-05-13
 **Người:** Sơn
-**Plan:** `plans/team2-real-data-model-week/`
+**Plan:** Local-only `plans/team2-real-data-model-week/` (gitignored)
 **Phạm vi:** Phase 1 - Real Data Audit, hỗ trợ Phase 4 - Five Pillars Evidence
 **PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
@@ -67,7 +67,9 @@ Các cột môi trường, đất, location và `avg_price_vnd_per_kg` không th
 | `interpolated_area` | 371 | 14.7% |
 | `province_proxy` | 318 | 12.6% |
 
-## Coverage theo province
+## Area-row coverage grouped by province
+
+Lưu ý: bảng dưới tính theo số dòng area-period có giá observed, nên khác với `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` nơi province coverage được tính là một tỉnh có observed nếu ít nhất một area trong tỉnh có giá thật trong kỳ.
 
 ### Monthly observed coverage
 

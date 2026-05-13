@@ -21,8 +21,8 @@ Team 2 đã chuyển từ mock data sang real processed data cho baseline chính
 | Trụ cột | Evidence real data | File liên quan | Rủi ro còn lại |
 | --- | --- | --- | --- |
 | **Reliability** | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,874 VND/kg**, RMSE **17,261 VND/kg**, R² **-1.0213** | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final |
-| **Bias** | Audit coverage theo province: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap |
-| **Robustness** | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; API real-data schema có validation categorical theo PR #9 | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py` | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
+| **Bias** | Audit area-row coverage grouped by province: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap |
+| **Robustness** | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; Pydantic validate range/type, còn allowed-value validation chạy trong `PredictorService` theo model features | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py` | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
 | **Social Impact** | Dự báo giúp nông dân nhỏ lẻ có thêm tham khảo về giá cà phê và tránh phụ thuộc một nguồn thông tin | `README.md`, `docs/discussions/2026-05-13-api-handoff-team2-real-data.md` | Không dùng như lời khuyên giao dịch bắt buộc; UI phải hiển thị disclaimer |
 | **Transparency** | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `month`, `month_sin`, `quarter` | `model/best_model/metadata.json`, `model/train_rf.py` | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ |
 
@@ -42,7 +42,7 @@ Kết luận: baseline đã có đánh giá định lượng thật, nhưng R² 
 
 ## Bias
 
-| Province | Monthly observed coverage | Weekly observed coverage | Nhận xét |
+| Province | Monthly area-row observed rate | Weekly area-row observed rate | Nhận xét |
 | --- | ---: | ---: | --- |
 | Lam Dong | 100.0% | 94.0% | Mạnh, nên ưu tiên demo |
 | Kon Tum | 100.0% | 92.4% | Mạnh nhưng ít khu vực hơn |
@@ -61,7 +61,7 @@ Robustness hiện có:
 - Dataset processed không thiếu các feature chính dùng để train.
 - `avg_price_vnd_per_kg` đã được fill để phục vụ train thử nghiệm.
 - `observed_price_vnd_per_kg` được giữ để đánh giá độ tin cậy dữ liệu, không dùng làm target chính.
-- API schema theo PR #9 validate province/area/category để tránh input ngoài tập train.
+- Pydantic schema validate type/range cho request; `PredictorService` validate province/area/category theo `model_info.feature_names` để tránh input ngoài tập train.
 
 Điểm cần nói rõ:
 

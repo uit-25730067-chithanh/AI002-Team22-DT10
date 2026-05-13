@@ -2,8 +2,8 @@
 
 **Ngày:** 2026-05-13
 **Owner:** Sơn
-**Branch target:** `feature/team2-real-data-son`
-**Plan:** `plans/team2-son-evaluation-pack/`
+**Branch target:** `feature/team2-son_real-data-model-week`
+**Plan:** Local-only `plans/team2-son-evaluation-pack/` (gitignored)
 **PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
 ## Summary ngắn cho PR description
@@ -14,11 +14,11 @@ PR này bổ sung gói **Responsible AI Evaluation + QA** cho phần Sơn, khôn
 
 | Phase | Deliverable | File | Status |
 | --- | --- | --- | --- |
-| 1 | Team 1 real data review | Internal archive: `tmp/term/son-evaluation-pack/2026-05-13-son-team1-real-data-review.md` | Done |
-| 2 | PR #9 model evaluation | Internal archive: `tmp/term/son-evaluation-pack/2026-05-13-son-real-data-model-evaluation.md` | Done |
-| 3 | API integration QA checklist | `docs/discussions/2026-05-13-son-api-integration-qa-checklist.md` | Done |
-| 4 | Week 5 readiness review | Internal archive: `tmp/term/son-evaluation-pack/2026-05-13-son-week5-readiness-review.md` | Done |
-| 5 | PR package summary/conflict guard | `docs/discussions/2026-05-13-son-evaluation-pack-summary.md` | Done |
+| 1 | Real data audit | `docs/discussions/2026-05-13-real-data-audit-team2-son.md` | Public |
+| 2 | PR #9 model evaluation | Covered in `docs/discussions/2026-05-13-real-data-audit-team2-son.md` and `docs/discussions/5-pillars-checkpoint.md` | Public |
+| 3 | API integration QA checklist | `docs/discussions/2026-05-13-son-api-integration-qa-checklist.md` | Public |
+| 4 | 5 pillars checkpoint | `docs/discussions/5-pillars-checkpoint.md` | Public |
+| 5 | PR package summary/conflict guard | `docs/discussions/2026-05-13-son-evaluation-pack-summary.md` | Public |
 
 ## Key findings
 
@@ -40,12 +40,14 @@ PR này bổ sung gói **Responsible AI Evaluation + QA** cho phần Sơn, khôn
 
 ## Conflict-risk note
 
-Scope PR Sơn public chỉ nên gồm docs/evaluation/QA thật sự cần team:
+Scope PR #12 public gồm docs/evaluation/QA thật sự cần team:
 
 - `docs/discussions/2026-05-13-son-evaluation-pack-summary.md`
 - `docs/discussions/2026-05-13-son-api-integration-qa-checklist.md`
-- Các review chi tiết đã lưu local ở `tmp/term/son-evaluation-pack/`, không cần stage lên GitHub nếu team không cần đọc đầy đủ.
-- Có thể gồm update plan status trong `plans/team2-son-evaluation-pack/*.md` nếu cần force-add vì `plans/` đang gitignored.
+- `docs/discussions/2026-05-13-real-data-audit-team2-son.md`
+- `docs/discussions/5-pillars-checkpoint.md`
+- Các review chi tiết phụ đã lưu local ở `tmp/term/son-evaluation-pack/`, không cần stage lên GitHub nếu team không cần đọc đầy đủ.
+- Không force-add `plans/` vì đây là planning local-only và đang gitignored.
 
 Không stage các file implementation/artifact nếu xuất hiện modified local:
 
@@ -64,10 +66,10 @@ Không stage các file implementation/artifact nếu xuất hiện modified loca
 - Review Team 1 real data readiness and province/area coverage risk.
 - Evaluate PR #9 baseline metrics and transparency limitations.
 - Add API/frontend integration QA checklist for week 5.
-- Add week 5 readiness review and conflict guard.
+- Update 5 pillars checkpoint and add conflict guard.
 
 ## Scope
-Docs-only evaluation/QA. Public PR should include summary + API QA checklist only. No backend/model/API implementation changes.
+Docs-only evaluation/QA. Public PR includes real-data audit, 5 pillars checkpoint, summary, and API QA checklist. No backend/model/API implementation changes.
 
 ## Key risks documented
 - R² is negative; baseline is demo/pipeline evidence, not financial advice.
@@ -76,13 +78,13 @@ Docs-only evaluation/QA. Public PR should include summary + API QA checklist onl
 - Branch is rebased on `origin/main` after PR #9; next step is API smoke test, then real-data stress test when backend contract is verified.
 
 ## Test/verification
-- `git diff --check -- docs/discussions/*.md plans/team2-son-evaluation-pack/*.md`
+- `git diff --check -- docs/discussions/*.md`
 - `python -m pytest tests/ai-tests/test_predictor_service.py -q`
 ```
 
 ## Verification checklist
 
-- [x] PR package chỉ chứa docs/plan phần Sơn theo intended scope.
+- [x] PR package chỉ chứa docs/evaluation/QA phần Sơn theo intended scope.
 - [x] Không sửa backend/model/test artifact của Thanh.
 - [x] Có summary mapping deliverables với phases.
 - [x] Có conflict-risk note rõ cho reviewer.
