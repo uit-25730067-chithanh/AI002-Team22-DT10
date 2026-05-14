@@ -3,10 +3,10 @@
 **Ngày:** 2026-05-13
 **Người cập nhật:** Sơn
 **Phạm vi:** Team 2 real data model week - Phase 4
-**Nguồn số liệu:** PR #9 và audit note `docs/discussions/2026-05-13-real-data-audit-team2-son.md`
+**Nguồn số liệu:** PR #9 và note kiểm toán `docs/discussions/2026-05-13-real-data-audit-team2-son.md`
 **PR #9 status:** Merged 2026-05-14 local time, merge commit `e50e8a691c8aac89edce058fbf41a3cd70af913a`
 
-## Tóm tắt evidence real data
+## Tóm tắt bằng chứng dữ liệu thật
 
 Team 2 đã chuyển từ mock data sang real processed data cho baseline chính:
 
@@ -16,39 +16,39 @@ Team 2 đã chuyển từ mock data sang real processed data cho baseline chính
 - Model baseline: Random Forest `20260513_161417__rf_real_monthly`.
 - Split: train 2022-2024, test 2025.
 
-## Bảng chứng minh (Evidence Matrix)
+## Bảng chứng minh (Ma trận bằng chứng)
 
-| Trụ cột | Evidence real data | File liên quan | Rủi ro còn lại |
-| --- | --- | --- | --- |
-| **Reliability** | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,874 VND/kg**, RMSE **17,261 VND/kg**, R² **-1.0213** | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final |
-| **Bias** | Audit area-row coverage grouped by province: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap |
-| **Robustness** | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; Pydantic validate range/type, còn allowed-value validation chạy trong `PredictorService` theo model features | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py` | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
-| **Social Impact** | Dự báo giúp nông dân nhỏ lẻ có thêm tham khảo về giá cà phê và tránh phụ thuộc một nguồn thông tin | `README.md`, `docs/discussions/2026-05-13-api-handoff-team2-real-data.md` | Không dùng như lời khuyên giao dịch bắt buộc; UI phải hiển thị disclaimer |
-| **Transparency** | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `month`, `month_sin`, `quarter` | `model/best_model/metadata.json`, `model/train_rf.py` | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ |
+| Trụ cột           | Bằng chứng dữ liệu thật                                                                                                                                                                      | File liên quan                                                                                               | Rủi ro còn lại                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| **Reliability**   | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,874 VND/kg**, RMSE **17,261 VND/kg**, R² **-1.0213**                                                                     | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9                                                 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final                                 |
+| **Bias**          | Kiểm toán độ phủ area-row theo tỉnh: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu                                                                                          | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap                      |
+| **Robustness**    | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; Pydantic validate range/type, còn allowed-value validation chạy trong `PredictorService` theo model features | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py`                      | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
+| **Social Impact** | Dự báo giúp nông dân nhỏ lẻ có thêm tham khảo về giá cà phê và tránh phụ thuộc một nguồn thông tin                                                                                           | `README.md`, `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`                                    | Không dùng như lời khuyên giao dịch bắt buộc; UI phải hiển thị disclaimer                         |
+| **Transparency**  | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `month`, `month_sin`, `quarter`                                                               | `model/best_model/metadata.json`, `model/train_rf.py`                                                        | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ                        |
 
 ## Reliability
 
-| Metric | Value |
-| --- | ---: |
-| Experiment | `20260513_161417__rf_real_monthly` |
-| Train size | 420 |
-| Test size | 144 |
-| MAE | 13,874 VND/kg |
-| RMSE | 17,261 VND/kg |
-| R² | -1.0213 |
-| Feature count | 41 |
+| Metric        |                              Value |
+| ------------- | ---------------------------------: |
+| Experiment    | `20260513_161417__rf_real_monthly` |
+| Train size    |                                420 |
+| Test size     |                                144 |
+| MAE           |                      13,874 VND/kg |
+| RMSE          |                      17,261 VND/kg |
+| R²            |                            -1.0213 |
+| Feature count |                                 41 |
 
 Kết luận: baseline đã có đánh giá định lượng thật, nhưng R² âm phải được trình bày trung thực. Nguyên nhân hợp lý là phân phối giá năm 2025 lệch mạnh so với train period 2022-2024.
 
 ## Bias
 
-| Province | Monthly area-row observed rate | Weekly area-row observed rate | Nhận xét |
-| --- | ---: | ---: | --- |
-| Lam Dong | 100.0% | 94.0% | Mạnh, nên ưu tiên demo |
-| Kon Tum | 100.0% | 92.4% | Mạnh nhưng ít khu vực hơn |
-| Dak Lak | 93.1% | 76.5% | Dùng được |
-| Gia Lai | 93.1% | 75.4% | Dùng được |
-| Dak Nong | 39.6% | 21.0% | Yếu, cần cảnh báo |
+| Province | Monthly area-row observed rate | Weekly area-row observed rate | Nhận xét                  |
+| -------- | -----------------------------: | ----------------------------: | ------------------------- |
+| Lam Dong |                         100.0% |                         94.0% | Mạnh, nên ưu tiên demo    |
+| Kon Tum  |                         100.0% |                         92.4% | Mạnh nhưng ít khu vực hơn |
+| Dak Lak  |                          93.1% |                         76.5% | Dùng được                 |
+| Gia Lai  |                          93.1% |                         75.4% | Dùng được                 |
+| Dak Nong |                          39.6% |                         21.0% | Yếu, cần cảnh báo         |
 
 Khu vực nên ưu tiên khi giải thích/demo: Di Linh, Ea H'leo, Buon Ho, Bao Loc, Lam Ha, Pleiku.
 
@@ -80,18 +80,18 @@ Disclaimer bắt buộc cho UI/report:
 
 Top feature importance từ baseline real monthly:
 
-| Feature | Importance |
-| --- | ---: |
-| `rolling_avg_7d` | 0.6799 |
-| `lag_1d` | 0.2863 |
-| `month` | 0.0099 |
-| `month_sin` | 0.0080 |
-| `quarter` | 0.0056 |
-| `year` | 0.0027 |
-| `month_cos` | 0.0025 |
-| `lag_7d` | 0.0022 |
-| `rainfall_mm` | 0.0009 |
-| `humidity_pct` | 0.0008 |
+| Feature          | Importance |
+| ---------------- | ---------: |
+| `rolling_avg_7d` |     0.6799 |
+| `lag_1d`         |     0.2863 |
+| `month`          |     0.0099 |
+| `month_sin`      |     0.0080 |
+| `quarter`        |     0.0056 |
+| `year`           |     0.0027 |
+| `month_cos`      |     0.0025 |
+| `lag_7d`         |     0.0022 |
+| `rainfall_mm`    |     0.0009 |
+| `humidity_pct`   |     0.0008 |
 
 Diễn giải ngắn: model hiện dựa chủ yếu vào lịch sử giá gần nhất và trung bình trượt. Weather/soil có vai trò nhỏ trong baseline này, nên không nên diễn giải quá mức rằng thời tiết là yếu tố quyết định chính.
 
@@ -99,7 +99,7 @@ Diễn giải ngắn: model hiện dựa chủ yếu vào lịch sử giá gần
 
 - `avg_price_vnd_per_kg` là target đã fill, không phải mọi dòng đều là giá crawl trực tiếp.
 - `observed_price_vnd_per_kg` mới là giá crawl thật trực tiếp.
-- Dak Nong và Dak R'lap có coverage yếu, không nên dùng làm ví dụ chính.
+- Dak Nong và Dak R'lap có độ phủ yếu, không nên dùng làm ví dụ chính.
 - Soil score là feature giáo dục/minh họa, không thay thế khảo sát đất thật.
 - R² âm nghĩa là baseline chưa đủ tốt để ra quyết định tài chính.
 

@@ -11,15 +11,15 @@ Tài liệu này giúp Thanh, Sơn, Phúc, Thịnh nhìn cùng một bức tranh
 | Nhóm dữ liệu      | File chính                                                                  | Vai trò hiện tại                                                 |
 | :---------------- | :-------------------------------------------------------------------------- | :--------------------------------------------------------------- |
 | Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật, gitignored, không train trực tiếp trong repo |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment, coverage thấp hơn monthly          |
+| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, thử nghiệm tương lai, độ phủ thấp hơn monthly         |
 | Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính để train baseline hiện tại                         |
-| Ranking coverage  | `data/processed/area_real_price_data_ranking.csv`                           | Kiểm tra khu vực nào có giá thật tốt                             |
+| Xếp hạng độ phủ   | `data/processed/area_real_price_data_ranking.csv`                           | Kiểm tra khu vực nào có giá thật tốt                             |
 | Field spec        | `data/processed/FIELD_DESCRIPTIONS.md`                                      | Giải thích schema cho team                                       |
 
 ## Vì sao chọn monthly thay vì dùng hết raw/weekly
 
 - Raw nhiều nguồn và nhiều dòng, nhưng nằm trong `data/raw/` gitignored và chưa đồng đều theo khu vực/thời gian.
-- Weekly có nhiều dòng hơn nhưng coverage giá thật thấp hơn monthly.
+- Weekly có nhiều dòng hơn nhưng độ phủ giá thật thấp hơn monthly.
 - Monthly có ít dòng hơn nhưng ổn định hơn, dễ giải thích hơn, hợp baseline Random Forest hơn.
 - Mục tiêu môn học là chứng minh tư duy AI bền vững, không phải nhồi dữ liệu tối đa bằng mọi giá.
 
@@ -27,7 +27,7 @@ Tài liệu này giúp Thanh, Sơn, Phúc, Thịnh nhìn cùng một bức tranh
 flowchart TD
     A[Raw nhiều nguồn] --> B{Có dùng trực tiếp để train không?}
     B -->|Không| C[Lý do: nhiễu, thiếu kỳ, khác nguồn]
-    B -->|Có thể sau| D[Future experiment nếu có thời gian]
+    B -->|Có thể sau| D[Thử nghiệm tương lai nếu có thời gian]
     C --> E[Chọn processed monthly]
     E --> F[Train baseline dễ giải thích]
     F --> G[API demo ổn định hơn]
@@ -37,20 +37,20 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Phúc và Thịnh crawl giá cà phê] --> B[Raw daily price data]
-    C[Crawler thời tiết theo khu vực] --> D[Daily weather features]
-    E[Soil profile theo khu vực] --> F[Static soil features]
+    A[Phúc và Thịnh crawl giá cà phê] --> B[Dữ liệu giá thô hàng ngày]
+    C[Crawler thời tiết theo khu vực] --> D[Tính năng thời tiết hàng ngày]
+    E[Soil profile theo khu vực] --> F[Tính năng đất tĩnh]
 
-    B --> G[Build area datasets]
+    B --> G[Xây dựng bộ dữ liệu theo khu vực]
     D --> G
     F --> G
 
-    G --> H[Weekly processed dataset]
-    G --> I[Monthly processed dataset]
-    G --> J[Area data ranking]
+    G --> H[Bộ dữ liệu đã xử lý hàng tuần]
+    G --> I[Bộ dữ liệu đã xử lý hàng tháng]
+    G --> J[Xếp hạng dữ liệu khu vực]
 
-    H --> K[Tham khảo và future experiment]
-    J --> L[Chọn khu vực có coverage tốt]
+    H --> K[Tham khảo và thử nghiệm tương lai]
+    J --> L[Chọn khu vực có độ phủ tốt]
     I --> M[Thanh train baseline hiện tại]
 
     M --> N[Preprocess real schema]
@@ -58,7 +58,7 @@ flowchart TD
     O --> P[Train Random Forest]
     P --> Q[Best model và metadata]
     Q --> R[FastAPI predict]
-    R --> S[Frontend demo]
+    R --> S[Demo frontend]
 ```
 
 ## Luồng model chi tiết
@@ -119,14 +119,14 @@ flowchart LR
         E[Chốt schema processed]
         F[Preprocess real data]
         G[Train Random Forest]
-        H[FastAPI prediction contract]
+        H[Contract dự báo FastAPI]
         I[API handoff docs]
     end
 
     subgraph T2B[Sơn]
-        J[Real data audit]
-        K[Bias coverage evidence]
-        L[API integration QA checklist]
+        J[Kiểm toán dữ liệu thật]
+        K[By chứng độ phủ thiên lệch]
+        L[Danh sách kiểm tra integration API]
         M[5 Pillars checkpoint]
         Q[Stress/API follow-up]
     end
@@ -164,10 +164,10 @@ stateDiagram-v2
     DaTrainBaseline: Đã train RF baseline trên monthly all-areas
     DaCoBestModel: Đã có metadata và feature importance
     DaCapNhatAPI: /predict dùng real-data contract
-    DaCoEvaluationPack: Sơn đã có audit, QA checklist và 5 Pillars evidence
+    DaCoEvaluationPack: Sơn đã có kiểm toán, danh sách kiểm tra QA và 5 Pillars bằng chứng
     ChoFrontendNoiAPI: Phúc/Thịnh nối UI
     ChoStressTestAPI: Sơn/Thanh kiểm tra stress/API integration follow-up
-    ChoBaoCao: Cả nhóm chuyển evidence vào slide/report
+    ChoBaoCao: Cả nhóm chuyển bằng chứng vào slide/report
 ```
 
 ## Cột mốc theo tuần
@@ -190,8 +190,8 @@ gantt
     Update API contract real data                :done, m4, 2026-05-13, 1d
 
     section Evaluation - Sơn/Thanh
-    Real data audit và bias coverage             :done, e0, 2026-05-13, 1d
-    API integration QA checklist                 :done, e1, 2026-05-13, 1d
+    Kiểm toán dữ liệu thật và bias độ phủ             :done, e0, 2026-05-13, 1d
+    Danh sách kiểm tra integration API                 :done, e1, 2026-05-13, 1d
     Viết 5 Pillars checkpoint                    :done, e2, 2026-05-13, 1d
     Stress test API/integration follow-up        :e3, 2026-05-14, 3d
 
@@ -211,15 +211,15 @@ gantt
 - Cách build `data/processed/weekly` và `data/processed/monthly`.
 - Ý nghĩa `price_fill_method` và khi nào là `observed`, `interpolated_area`, `province_proxy`.
 - Có cần expose thêm `price_observations` trên frontend hay backend tự default theo `price_fill_method`.
-- Các khu vực có coverage yếu, đặc biệt `Dak R'lap`.
+- Các khu vực có độ phủ yếu, đặc biệt `Dak R'lap`.
 - Frontend nên cho user chọn field nào, field nào để default backend.
 
 ## Phần Sơn đã cover trong PR #12 và follow-up
 
-- Đã có real data audit cho monthly/weekly, coverage theo tỉnh/khu vực và cảnh báo Dak Nong/Dak R'lap.
+- Đã có kiểm toán dữ liệu thật cho monthly/weekly, độ phủ theo tỉnh/khu vực và cảnh báo Dak Nong/Dak R'lap.
 - Đã có 5 Pillars checkpoint real-data, gồm Reliability metrics, Bias risk, Robustness validation, Social Impact disclaimer và Transparency feature importance.
-- Đã có API/frontend integration QA checklist cho `/health`, `/predict`, `/model/info`, unknown category, invalid range và model missing.
-- Follow-up còn lại: chạy smoke test/stress test ở tuần integration, rồi chuyển evidence vào slide/report cuối kỳ.
+- Đã có danh sách kiểm tra integration API/frontend cho `/health`, `/predict`, `/model/info`, unknown category, invalid range và model missing.
+- Follow-up còn lại: chạy smoke test/stress test ở tuần integration, rồi chuyển bằng chứng vào slide/report cuối kỳ.
 
 Tài liệu Sơn liên quan:
 

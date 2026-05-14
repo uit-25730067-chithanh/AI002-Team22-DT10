@@ -1,29 +1,29 @@
-# Stress Test Report — Robustness Pillar
+# Báo cáo Stress Test — Trụ cột Robustness
 
-**Date:** 2026-04-26
-**Model:** Random Forest Baseline
+**Ngày:** 2026-04-26
+**Mô hình:** Random Forest Baseline
 **Dataset:** mock_coffee_data.csv
 
-## Baseline (Normal Test Set)
+## Baseline (Tập test bình thường)
 
-- MAE:  2,538 VND/kg
+- MAE: 2,538 VND/kg
 - RMSE: 3,170 VND/kg
 
-## Black Swan Scenarios
+## Kịch bản Black Swan
 
-### price_crash
+### price_crash (Giá sụp)
 
-- MAE:  4,778 VND/kg (+88.3%)
+- MAE: 4,778 VND/kg (+88.3%)
 - RMSE: 7,895 VND/kg (+149.1%)
 
-### heat_wave
+### heat_wave (Nóng khắc nghiệt)
 
-- MAE:  2,535 VND/kg (+-0.1%)
+- MAE: 2,535 VND/kg (+-0.1%)
 - RMSE: 3,166 VND/kg (+-0.1%)
 
-### both
+### both (Cả hai)
 
-- MAE:  4,743 VND/kg (+86.9%)
+- MAE: 4,743 VND/kg (+86.9%)
 - RMSE: 7,766 VND/kg (+145.0%)
 
 ## Ghi nhận
