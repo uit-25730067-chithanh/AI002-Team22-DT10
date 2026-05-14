@@ -1,12 +1,12 @@
-# Soil Score Guide
+# Hướng dẫn Soil Score (Điểm Đất)
 
-| soil_score | Meaning for AI model | Assignment rule |
+| soil_score | Ý nghĩa cho mô hình AI | Quy tắc gán |
 |---:|---|---|
-| 5 | Very suitable for coffee | Basaltic red soil or ferralsol on basalt, good drainage, strongly associated with coffee areas |
-| 4 | Suitable | Basaltic or red-yellow soil, but only broad area evidence is available |
-| 3 | Medium | Grey/mixed soil, still usable but not the preferred coffee soil group |
-| 2 | Low suitability | Sloped, degraded, nutrient-poor, or water-limited soil is reported |
-| 1 | Unknown or unsuitable | No reliable soil evidence or the area is not known as a coffee-growing area |
+| 5 | Rất phù hợp trồng cà phê | Đất đỏ bazan hoặc ferralsol trên bazan, thoát nước tốt, liên quan mạnh với vùng trồng cà phê |
+| 4 | Phù hợp | Đất bazan hoặc đỏ-vàng, nhưng chỉ có bằng chứng ở phạm vi rộng |
+| 3 | Trung bình | Đất xám/kết hợp, vẫn dùng được nhưng không phải nhóm đất cà phê ưu tiên |
+| 2 | Phù hợp thấp | Đất dốc, suy thoái, nghèo dinh dưỡng, hoặc hạn chế nước được báo cáo |
+| 1 | Không rõ hoặc không phù hợp | Không có bằng chứng đất đáng tin cậy hoặc khu vực không được biết là vùng trồng cà phê |
 
-The score is a simple educational feature. It is not a replacement for a full
-soil survey, GIS layer, or farm-level agronomic assessment.
+Điểm số này là tính năng giáo dục đơn giản. Không thay thế khảo sát đất đầy đủ,
+lớp GIS, hoặc đánh giá nông nghiệp cấp trang trại.
