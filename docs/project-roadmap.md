@@ -13,7 +13,7 @@ flowchart TD
     E --> F[Team 2: Thanh train baseline]
     F --> G[Best model và metadata]
     G --> H[FastAPI backend]
-    H --> I[Frontend demo]
+    H --> I[Demo frontend]
     F --> J[Sơn đánh giá Robustness, Bias, 5 Pillars]
     J --> K[Báo cáo kỹ thuật]
     I --> L[Demo cuối kỳ]
@@ -31,9 +31,9 @@ flowchart LR
     D --> E[Weekly all-areas]
     D --> F[Monthly all-areas]
     D --> G[Per-area files]
-    D --> H[Area coverage ranking]
+    D --> H[Xếp hạng độ phủ khu vực]
 
-    E --> I[Future experiment]
+    E --> I[Thử nghiệm tương lai]
     G --> J[Debug từng khu vực]
     H --> K[Chọn vùng có dữ liệu tốt]
     F --> L[Dataset train chính]
@@ -46,14 +46,14 @@ flowchart LR
 
 ## Quyết định dùng dữ liệu
 
-| Nhóm              | File                                                                        | Mục đích                     | Trạng thái                                   |
-| :---------------- | :-------------------------------------------------------------------------- | :--------------------------- | :------------------------------------------- |
-| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật           | Gitignored, không train trực tiếp trong repo |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, future experiment | Chưa dùng làm baseline chính                 |
-| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính          | Đã dùng                                      |
-| Coverage ranking  | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực      | Đã dùng để quyết định                        |
+| Nhóm              | File                                                                        | Mục đích                        | Trạng thái                                   |
+| :---------------- | :-------------------------------------------------------------------------- | :------------------------------ | :------------------------------------------- |
+| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật              | Gitignored, không train trực tiếp trong repo |
+| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, thử nghiệm tương lai | Chưa dùng làm baseline chính                 |
+| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính             | Đã dùng                                      |
+| Xếp hạng độ phủ   | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực         | Đã dùng để quyết định                        |
 
-Lý do chọn monthly: ít nhiễu hơn weekly, coverage giá thật tốt hơn, dễ giải thích trong báo cáo, phù hợp KISS.
+Lý do chọn monthly: ít nhiễu hơn weekly, độ phủ giá thật tốt hơn, dễ giải thích trong báo cáo, phù hợp KISS.
 
 ## Roadmap tổng thể
 
@@ -85,8 +85,8 @@ gantt
     Handoff API cho frontend                 :done, d3, 2026-05-13, 1d
 
     section GĐ 5: Evaluation
-    Real data audit và bias coverage         :done, e0, 2026-05-13, 1d
-    API integration QA checklist             :done, e1, 2026-05-13, 1d
+    Kiểm toán dữ liệu thật và bias độ phủ         :done, e0, 2026-05-13, 1d
+    Danh sách kiểm tra integration API             :done, e1, 2026-05-13, 1d
     5 Pillars checkpoint real-data           :done, e2, 2026-05-13, 1d
     Stress test API/integration follow-up    :e3, 2026-05-14, 3d
 
@@ -117,9 +117,9 @@ flowchart TD
     end
 
     subgraph Son[Sơn]
-        C1[Real data audit]
-        C2[Bias coverage evidence]
-        C3[API integration QA checklist]
+        C1[Kiểm toán dữ liệu thật]
+        C2[By chứng độ phủ thiên lệch]
+        C3[Danh sách kiểm tra integration API]
         C4[5 Pillars checkpoint]
         C5[Stress/API follow-up]
     end
@@ -204,7 +204,7 @@ stateDiagram-v2
     RealData: Processed monthly/weekly datasets
     BaselineModel: RF baseline + feature importance
     APIContract: /predict real-data schema
-    Evaluation: Real data audit + Bias + 5 Pillars done, stress/API follow-up pending
+    Evaluation: Kiểm toán dữ liệu thật + Bias + 5 Pillars done, stress/API follow-up pending
     FrontendIntegration: Frontend gọi API
     ReportAndDemo: Slide + báo cáo + demo
     Submission: Nộp bài cuối kỳ
@@ -229,7 +229,7 @@ stateDiagram-v2
 
 - [x] Team 1 có processed weekly/monthly dataset.
 - [x] Team 2 đọc và chuẩn hóa schema real-data.
-- [x] Có ranking độ phủ dữ liệu theo khu vực.
+- [x] Có xếp hạng độ phủ dữ liệu theo khu vực.
 - [ ] Phúc review lại docs data flow.
 
 ### Tuần 4 — Model thật
@@ -237,21 +237,21 @@ stateDiagram-v2
 - [x] Train Random Forest baseline trên monthly all-areas.
 - [x] Trích xuất feature importance.
 - [x] Lưu best model và metadata.
-- [x] Sơn bổ sung real data audit, bias coverage evidence và 5 Pillars checkpoint trong PR #12.
+- [x] Sơn bổ sung kiểm toán dữ liệu thật, bias độ phủ bằng chứng và 5 Pillars checkpoint trong PR #12.
 - [ ] Stress test real-data/API integration follow-up sau khi frontend/backend ổn định.
 
 ### Tuần 5 — API và Integration
 
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
 - [x] API validate numeric ranges, enum và category đã train.
-- [x] Sơn bổ sung API/frontend integration QA checklist cho Team 1.
+- [x] Sơn bổ sung danh sách kiểm tra integration API/frontend cho Team 1.
 - [ ] Team 1 nối frontend với API.
 - [ ] Demo end-to-end.
 
 ### Tuần 6 — Báo cáo và slide
 
 - [x] Có 5 Pillars checkpoint real-data từ PR #12.
-- [ ] Chuyển evidence 5 Pillars vào slide/report cuối kỳ.
+- [ ] Chuyển bằng chứng 5 Pillars vào slide/report cuối kỳ.
 - [ ] Chuẩn bị slide thuyết trình.
 - [ ] Tổng duyệt demo.
 
@@ -260,7 +260,7 @@ stateDiagram-v2
 | Phân hệ            | Nội dung                                    | Người phụ trách | Review cần có                      |
 | :----------------- | :------------------------------------------ | :-------------- | :--------------------------------- |
 | Data crawler       | Crawl giá, weather, build processed dataset | Phúc, Thịnh     | Thanh review schema                |
-| Data understanding | Giải thích raw/weekly/monthly, coverage     | Phúc, Thanh     | Sơn review cho evaluation          |
+| Data understanding | Giải thích raw/weekly/monthly, độ phủ       | Phúc, Thanh     | Sơn review cho evaluation          |
 | AI model           | Preprocess, train RF, feature importance    | Thanh           | Sơn review metrics                 |
 | Evaluation         | Stress test, bias, 5 Pillars                | Sơn             | Thanh review technical correctness |
 | Backend API        | `/predict`, `/health`, `/model/info`        | Thanh           | Phúc review frontend contract      |
@@ -271,12 +271,12 @@ stateDiagram-v2
 
 ```mermaid
 flowchart TD
-    A[Rủi ro dự án] --> B[Data coverage không đều]
+    A[Rủi ro dự án] --> B[Độ phủ dữ liệu không đều]
     A --> C[R2 âm ở baseline]
     A --> D[Frontend gửi giá trị ngoài range hoặc ngoài category đã train]
     A --> E[Team hiểu nhầm raw data là train trực tiếp]
 
-    B --> B1[Dùng ranking coverage và nói rõ bias]
+    B --> B1[Dùng xếp hạng độ phủ và nói rõ thiên lệch]
     C --> C1[Trình bày là baseline, chưa phải model cuối]
     D --> D1[API trả 422 thay vì predict input không hợp lệ]
     E --> E1[Docs data flow và Mermaid roadmap]

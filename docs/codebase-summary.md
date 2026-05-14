@@ -28,12 +28,12 @@
 
 ### `data/processed/` — Dữ liệu thật đã xử lý
 
-| File/Folder                                                  | Mô tả                                                |
-| ------------------------------------------------------------ | ---------------------------------------------------- |
-| `monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính dùng train baseline real-data hiện tại |
-| `weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Dataset weekly để tham khảo hoặc future experiment   |
-| `area_real_price_data_ranking.csv`                           | Ranking coverage giá thật theo khu vực               |
-| `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                          |
+| File/Folder                                                  | Mô tả                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------- |
+| `monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính dùng train baseline real-data hiện tại  |
+| `weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Dataset weekly để tham khảo hoặc thử nghiệm tương lai |
+| `area_real_price_data_ranking.csv`                           | Xếp hạng độ phủ giá thật theo khu vực                 |
+| `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                           |
 
 ### `scripts/` — Tiện ích
 
