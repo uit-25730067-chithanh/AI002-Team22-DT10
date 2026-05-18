@@ -8,7 +8,7 @@
 
 ## 1. Tóm tắt ngắn để báo miệng
 
-Tuần 4, anh đã đưa pipeline model sang dữ liệu thật: normalize schema monthly CSV, tạo feature theo khu vực/thời gian, split train/test theo thời gian, train Random Forest baseline và lưu promoted artifact/metadata/feature importance. Model hiện là baseline thật, chưa phải model cuối; R² còn âm nên cần báo cáo trung thực, nhưng pipeline đã chạy end-to-end và có bằng chứng Reliability/Transparency rõ ràng.
+Tuần 4, anh đã đưa pipeline model sang dữ liệu thật: normalize schema monthly CSV, tạo feature theo khu vực/thời gian, split train/test theo thời gian, train Random Forest baseline và lưu model hiện tại được promote cho API kèm metadata/feature importance. Model hiện là baseline thật, chưa phải model cuối; R² còn âm nên cần báo cáo trung thực, nhưng pipeline đã chạy end-to-end và có bằng chứng Reliability/Transparency rõ ràng.
 
 ## 2. Mapping theo roadmap
 
@@ -16,19 +16,19 @@ Tuần 4, anh đã đưa pipeline model sang dữ liệu thật: normalize schem
 | --------------------------------------------------- | ------------ | -------------------------------------------- | ------------------------------------------------------------------------------- |
 | Train Random Forest baseline trên monthly all-areas | Xong         | Train baseline trên dataset monthly thật     | `model/train_rf.py`, `model/experiments.csv`                                    |
 | Trích xuất feature importance                       | Xong         | Lưu top features trong metadata              | `model/best_model/metadata.json`                                                |
-| Lưu promoted artifact và metadata                   | Xong         | Promote artifact real-data hiện tại cho API  | `model/best_model/metadata.json`; `model.pkl` được generate local và gitignored |
+| Lưu model hiện tại và metadata                      | Xong         | Promote model real-data hiện tại cho API     | `model/best_model/metadata.json`; `model.pkl` được generate local và gitignored |
 | Sơn bổ sung audit/5 Pillars PR #12                  | Xong bởi Sơn | Thanh chỉ tham chiếu khi sync roadmap/report | `docs/discussions/5-pillars-checkpoint.md`                                      |
 | Stress test real-data/API follow-up                 | Chưa xong    | Chờ frontend/backend ổn định                 | Không nhận là việc đã xong                                                      |
 
 ## 3. PR/code liên quan
 
-| PR/Commit                     | Nội dung                                                   | Trạng thái |
-| ----------------------------- | ---------------------------------------------------------- | ---------- |
-| PR #7                         | Cập nhật experiment tracking và fallback temporal split    | Đã merge   |
-| PR #9                         | Implement real data model baseline                         | Đã merge   |
-| `model/preprocess.py`         | Normalize real schema, feature engineering, temporal split | Đã dùng    |
-| `model/train_rf.py`           | Train RF, lưu feature names/importances, promote artifact  | Đã dùng    |
-| `model/experiment_tracker.py` | Lưu lịch sử experiment theo timestamp                      | Đã dùng    |
+| PR/Commit                     | Nội dung                                                        | Trạng thái |
+| ----------------------------- | --------------------------------------------------------------- | ---------- |
+| PR #7                         | Cập nhật experiment tracking và fallback temporal split         | Đã merge   |
+| PR #9                         | Implement real data model baseline                              | Đã merge   |
+| `model/preprocess.py`         | Normalize real schema, feature engineering, temporal split      | Đã dùng    |
+| `model/train_rf.py`           | Train RF, lưu feature names/importances, promote model hiện tại | Đã dùng    |
+| `model/experiment_tracker.py` | Lưu lịch sử experiment theo timestamp                           | Đã dùng    |
 
 ## 4. Kết quả baseline theo workspace hiện tại
 
@@ -47,7 +47,7 @@ Theo `model/best_model/metadata.json` trong workspace hiện tại:
 
 Ghi chú trình bày: R² âm cho thấy baseline chưa bắt được phân phối năm 2025 tốt. Không nên nói model đã tốt; nên nói model đã chạy thật, có metric thật, có limitation rõ.
 
-Lưu ý triển khai: repo chỉ track metadata của artifact đang được promote; file `model/best_model/model.pkl` bị gitignore nên cần train/generate local hoặc cung cấp artifact ngoài repo trước khi backend dùng model thật. Tên thư mục `best_model` là convention kỹ thuật hiện tại, không nên hiểu là metric-best tuyệt đối.
+Lưu ý triển khai: repo chỉ track metadata của model hiện tại được promote; file `model/best_model/model.pkl` bị gitignore nên cần train/generate local hoặc cung cấp artifact ngoài repo trước khi backend dùng model thật. Tên thư mục `best_model` là convention kỹ thuật hiện tại, không nên hiểu là model tốt nhất tuyệt đối theo metric.
 
 ## 5. Top feature importance
 
@@ -83,5 +83,5 @@ Lưu ý triển khai: repo chỉ track metadata của artifact đang được pr
 ## 8. Tin nhắn ngắn có thể gửi team
 
 ```text
-Tuần 4 phần của anh đã train baseline thật trên monthly all-areas: normalize schema, tạo feature theo area/thời gian, split temporal, train Random Forest, lưu promoted artifact + metadata + feature importance. Kết quả hiện là baseline thật, MAE khoảng 13.9k VND/kg, RMSE khoảng 17.3k VND/kg, R² âm nên mình sẽ nói rõ limitation. Điểm chính là pipeline model đã chạy end-to-end và có feature importance để giải thích.
+Tuần 4 phần của anh đã train baseline thật trên monthly all-areas: normalize schema, tạo feature theo area/thời gian, split temporal, train Random Forest, lưu model hiện tại được promote cho API + metadata + feature importance. Kết quả hiện là baseline thật, MAE khoảng 13.9k VND/kg, RMSE khoảng 17.3k VND/kg, R² âm nên mình sẽ nói rõ limitation. Điểm chính là pipeline model đã chạy end-to-end và có feature importance để giải thích.
 ```
