@@ -8,7 +8,7 @@
 
 ## 1. Tóm tắt ngắn để báo miệng
 
-Tuần 5, anh cập nhật backend để dùng model real-data: `/predict` nhận payload theo schema thật, validate numeric ranges/enum/category đã train, trả prediction kèm confidence interval, top features, model version và disclaimer. Anh cũng viết handoff note cho Phúc/Thịnh nối frontend và mở PR #11 để sync README, roadmap, codebase summary, data-flow docs. Frontend integration và demo end-to-end vẫn chưa có bằng chứng hoàn tất trong repo.
+Tuần 5, anh cập nhật backend để dùng model real-data: `/predict` nhận payload theo schema thật, validate numeric ranges/enum/category đã train, trả prediction kèm confidence interval, top features, model version và disclaimer. Anh cũng viết handoff note cho Phúc/Thịnh nối frontend và mở PR #11 để sync README, roadmap, codebase summary, data-flow docs. Lưu ý khi checkout sạch: `model/best_model/model.pkl` bị gitignore, nên cần train/generate model local hoặc cung cấp artifact trước khi frontend gọi `/predict` thật. Frontend integration và demo end-to-end vẫn chưa có bằng chứng hoàn tất trong repo.
 
 ## 2. Mapping theo roadmap
 
@@ -27,6 +27,8 @@ Tuần 5, anh cập nhật backend để dùng model real-data: `/predict` nhậ
 | `GET /health`     | Kiểm tra backend và model load state | UI có thể dùng kiểm tra server sống |
 | `GET /model/info` | Lấy metadata model/version/features  | Có thể hiển thị thông tin model     |
 | `POST /predict`   | Dự báo giá cà phê                    | Form cần map đúng field real-data   |
+
+Điều kiện trước khi frontend test `/predict`: backend phải load được `model/best_model/model.pkl`. Nếu checkout sạch chưa có artifact này, `/health` sẽ báo model chưa load và `/predict` chưa sẵn sàng để demo.
 
 ## 4. Request/response cần nhắc Team 1
 
@@ -85,7 +87,7 @@ Các việc cần đảm bảo trước khi chốt tuần 5/6:
 
 - **Feature leakage:** historical features phải dùng dữ liệu quá khứ, không dùng current target.
 - **Response JSON:** frontend sẽ nhận `confidence_interval` dạng mảng JSON dù backend dùng tuple.
-- **Regression tests:** cần giữ test predictor response, unknown category và schema validation.
+- **Regression tests:** đã có test predictor response và unknown category; còn thiếu test invalid-range/schema validation nếu muốn chốt robustness đầy đủ.
 - **Verification:** chạy pytest, compileall và `git diff --check` trước khi merge/chốt báo cáo.
 
 ## 9. Việc chưa đánh dấu hoàn tất
