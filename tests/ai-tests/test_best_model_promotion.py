@@ -15,10 +15,17 @@ def _write_experiments_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
-def _make_experiment(root: Path, experiment_id: str, *, feature_names: list[str] | None = None) -> None:
+def _make_experiment(
+    root: Path,
+    experiment_id: str,
+    *,
+    feature_names: list[str] | None = None,
+    with_model: bool = True,
+) -> None:
     exp_dir = root / experiment_id
     exp_dir.mkdir(parents=True)
-    (exp_dir / "rf_baseline.pkl").write_bytes(b"model-bytes")
+    if with_model:
+        (exp_dir / "rf_baseline.pkl").write_bytes(b"model-bytes")
     (exp_dir / "metrics.json").write_text(
         json.dumps({"train_size": 10, "test_size": 3, "feature_count": len(feature_names or [])}),
         encoding="utf-8",
@@ -220,3 +227,46 @@ def test_best_model_metadata_keeps_backend_fields(tmp_path, monkeypatch) -> None
     assert metadata["train_size"] == 10
     assert metadata["test_size"] == 3
     assert metadata["feature_count"] == 2
+
+
+def test_best_model_falls_back_when_metric_best_artifact_missing(tmp_path, monkeypatch) -> None:
+    experiments_root, best_model_dir, csv_path = _configure_tracker(tmp_path, monkeypatch)
+    _make_experiment(experiments_root, "20260513_000000__rf_real_monthly", with_model=False)
+    _make_experiment(experiments_root, "20260514_000000__rf_real_monthly")
+    _write_experiments_csv(
+        csv_path,
+        [
+            {
+                "experiment_id": "20260513_000000__rf_real_monthly",
+                "timestamp": "2026-05-13T00:00:00+00:00",
+                "tag": "rf_real_monthly",
+                "model_type": "RandomForestRegressor",
+                "mae": "3000",
+                "rmse": "3500",
+                "r2": "0.1",
+                "best": "false",
+            },
+            {
+                "experiment_id": "20260514_000000__rf_real_monthly",
+                "timestamp": "2026-05-14T00:00:00+00:00",
+                "tag": "rf_real_monthly",
+                "model_type": "RandomForestRegressor",
+                "mae": "4000",
+                "rmse": "4500",
+                "r2": "0.0",
+                "best": "false",
+            },
+        ],
+    )
+
+    best_path = experiment_tracker.update_best_model(
+        metric_key="mae",
+        mode="min",
+        tag_prefix="rf_real",
+        fallback_experiment_id="20260514_000000__rf_real_monthly",
+    )
+
+    metadata = json.loads((best_model_dir / "metadata.json").read_text(encoding="utf-8"))
+    assert best_path == best_model_dir / "model.pkl"
+    assert metadata["experiment_id"] == "20260514_000000__rf_real_monthly"
+    assert metadata["selection_note"] == "fallback_current_run_missing_best_artifact"
