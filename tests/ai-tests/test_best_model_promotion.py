@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from model import experiment_tracker
+from model import train_rf
 
 
 HEADERS = ["experiment_id", "timestamp", "tag", "model_type", "mae", "rmse", "r2", "best"]
@@ -270,3 +271,67 @@ def test_best_model_falls_back_when_metric_best_artifact_missing(tmp_path, monke
     assert best_path == best_model_dir / "model.pkl"
     assert metadata["experiment_id"] == "20260514_000000__rf_real_monthly"
     assert metadata["selection_note"] == "fallback_current_run_missing_best_artifact"
+
+
+def test_non_real_training_uses_unscoped_best_model_when_no_real_runs(monkeypatch) -> None:
+    calls = []
+
+    def fake_update_best_model(**kwargs):
+        calls.append(kwargs)
+        return Path("model/best_model/model.pkl")
+
+    monkeypatch.setattr(train_rf, "list_experiments", lambda: [{"tag": "rf_baseline"}])
+    monkeypatch.setattr(train_rf, "update_best_model", fake_update_best_model)
+
+    best_path = train_rf._update_best_model_after_training("rf_baseline", "20260510_000000__rf_baseline")
+
+    assert best_path == Path("model/best_model/model.pkl")
+    assert calls == [{"metric_key": "mae", "mode": "min"}]
+
+
+def test_non_real_training_keeps_real_scoped_best_when_real_runs_exist(monkeypatch) -> None:
+    calls = []
+
+    def fake_update_best_model(**kwargs):
+        calls.append(kwargs)
+        return Path("model/best_model/model.pkl")
+
+    monkeypatch.setattr(train_rf, "list_experiments", lambda: [{"tag": "rf_real_monthly"}])
+    monkeypatch.setattr(train_rf, "update_best_model", fake_update_best_model)
+
+    best_path = train_rf._update_best_model_after_training("rf_baseline", "20260510_000000__rf_baseline")
+
+    assert best_path == Path("model/best_model/model.pkl")
+    assert calls == [{"metric_key": "mae", "mode": "min", "tag_prefix": "rf_real"}]
+
+
+def test_best_model_ignores_corrupt_metadata_json(tmp_path, monkeypatch) -> None:
+    experiments_root, best_model_dir, csv_path = _configure_tracker(tmp_path, monkeypatch)
+    experiment_id = "20260514_000000__rf_real_monthly"
+    _make_experiment(experiments_root, experiment_id, feature_names=["lag_1d", "month"])
+    (experiments_root / experiment_id / "metrics.json").write_text("{bad json", encoding="utf-8")
+    (experiments_root / experiment_id / "feature_names.json").write_text("{bad json", encoding="utf-8")
+    _write_experiments_csv(
+        csv_path,
+        [
+            {
+                "experiment_id": experiment_id,
+                "timestamp": "2026-05-14T00:00:00+00:00",
+                "tag": "rf_real_monthly",
+                "model_type": "RandomForestRegressor",
+                "mae": "4000",
+                "rmse": "4500",
+                "r2": "0.0",
+                "best": "false",
+            }
+        ],
+    )
+
+    best_path = experiment_tracker.update_best_model(metric_key="mae", mode="min", tag_prefix="rf_real")
+
+    metadata = json.loads((best_model_dir / "metadata.json").read_text(encoding="utf-8"))
+    assert best_path == best_model_dir / "model.pkl"
+    assert metadata["experiment_id"] == experiment_id
+    assert "train_size" not in metadata
+    assert "feature_names" not in metadata
+    assert metadata["top_features"] == {"lag_1d": 0.9, "rolling_avg_7d": 0.8, "month": 0.1}
