@@ -1,12 +1,14 @@
 {
-  "experiment_id": "20260513_161417__rf_real_monthly",
-  "timestamp": "2026-05-13T09:14:18.054459+00:00",
+  "experiment_id": "20260513_155830__rf_real_monthly",
+  "timestamp": "2026-05-13T08:58:31.081205+00:00",
   "tag": "rf_real_monthly",
   "model_type": "RandomForestRegressor",
-  "mae": 13874.316805555554,
-  "rmse": 17260.98140470296,
-  "r2": -1.0212678423730517,
-  "train_size": 420,
+  "mae": 13551.709861111112,
+  "rmse": 16754.404037928565,
+  "r2": -0.9043679595401292,
+  "model_path": "model/best_model/model.pkl",
+  "source_experiment": "model/experiments/20260513_155830__rf_real_monthly",
+  "train_size": 432,
   "test_size": 144,
   "feature_count": 41,
   "feature_names": [
@@ -53,17 +55,15 @@
     "soil_data_confidence_medium"
   ],
   "top_features": {
-    "rolling_avg_7d": 0.6798883572311674,
-    "lag_1d": 0.286304627771271,
-    "month": 0.009869947120390396,
-    "month_sin": 0.007994083360233953,
-    "quarter": 0.0055796186215887455,
-    "year": 0.00270816609351789,
-    "month_cos": 0.002541402499575826,
-    "lag_7d": 0.0022477665125342876,
-    "rainfall_mm": 0.0008646728169113126,
-    "humidity_pct": 0.0007589404633864485
-  },
-  "model_path": "model/best_model/model.pkl",
-  "source_experiment": "model/experiments/20260513_161417__rf_real_monthly"
+    "rolling_avg_7d": 0.7279603388664492,
+    "lag_1d": 0.22232438213956215,
+    "year": 0.019645626951741203,
+    "month": 0.011341995011987835,
+    "month_sin": 0.007832647693991847,
+    "quarter": 0.0042698311917303755,
+    "month_cos": 0.0024488772099527994,
+    "lag_7d": 0.0015213992946838607,
+    "price_observations": 0.0010686466774487266,
+    "humidity_pct": 0.00042802150275299977
+  }
 }

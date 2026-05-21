@@ -200,7 +200,7 @@ def append_experiment_csv(
 
     file_exists = CSV_PATH.is_file()
     with open(CSV_PATH, "a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
+        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
         if not file_exists:
             writer.writeheader()
         writer.writerow(row)
@@ -220,25 +220,35 @@ def get_latest_experiment() -> Path | None:
 def update_best_model(
     metric_key: str = "mae",
     mode: str = "min",
+    tag_prefix: str | None = None,
+    fallback_experiment_id: str | None = None,
 ) -> Path | None:
     """Đánh giá tất cả thử nghiệm và copy model tốt nhất vào model/best_model/.
 
     Args:
         metric_key: Chỉ số để tối ưu ('mae', 'rmse', hoặc 'r2').
         mode: 'min' cho càng thấp càng tốt, 'max' cho càng cao càng tốt.
+        tag_prefix: Nếu có, chỉ xét các experiment có tag bắt đầu bằng prefix này.
+        fallback_experiment_id: Experiment dự phòng khi experiment tốt nhất thiếu artifact model.
 
     Returns:
         Đường dẫn tới model tốt nhất vừa copy, hoặc None nếu chưa có thử nghiệm.
     """
     _ensure_dirs()
+    if mode not in {"min", "max"}:
+        raise ValueError("mode phải là 'min' hoặc 'max'")
+
     if not CSV_PATH.is_file():
         return None
 
     # Đọc tất cả thử nghiệm từ CSV
-    experiments = []
+    experiments: list[dict[str, Any]] = []
     with open(CSV_PATH, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
+        fieldnames = reader.fieldnames or []
         for row in reader:
+            if tag_prefix and not row.get("tag", "").startswith(tag_prefix):
+                continue
             try:
                 row[metric_key] = float(row[metric_key])
             except (ValueError, KeyError):
@@ -249,23 +259,35 @@ def update_best_model(
         return None
 
     # Xác định thử nghiệm tốt nhất
-    best = min(experiments, key=lambda r: r[metric_key]) if mode == "min" else max(experiments, key=lambda r: r[metric_key])
+    target_metric = (
+        min(row[metric_key] for row in experiments)
+        if mode == "min"
+        else max(row[metric_key] for row in experiments)
+    )
+    tied = [row for row in experiments if row[metric_key] == target_metric]
+    best = max(tied, key=lambda r: (r.get("timestamp", ""), r.get("experiment_id", "")))
+    selection_note = None
+
+    best_artifact = _get_experiment_model_file(best["experiment_id"])
+    if best_artifact is None and fallback_experiment_id:
+        fallback = next((row for row in experiments if row["experiment_id"] == fallback_experiment_id), None)
+        fallback_artifact = _get_experiment_model_file(fallback_experiment_id)
+        if fallback and fallback_artifact is not None:
+            best = fallback
+            best_artifact = fallback_artifact
+            selection_note = "fallback_current_run_missing_best_artifact"
+
+    if best_artifact is None:
+        return None
+
     exp_id = best["experiment_id"]
     exp_dir = EXPERIMENTS_ROOT / exp_id
 
-    if not exp_dir.is_dir():
-        return None
-
-    # Tìm file model trong thư mục thử nghiệm (xác định: sắp xếp theo tên)
-    model_files = sorted(exp_dir.glob("*.pkl"), key=lambda p: p.name)
-    if not model_files:
-        return None
-
-    src_model = model_files[0]
     dest_model = BEST_MODEL_DIR / "model.pkl"
-    shutil.copy2(src_model, dest_model)
+    shutil.copy2(best_artifact, dest_model)
 
     # Ghi metadata cho model tốt nhất (đảm bảo tất cả metrics là float)
+    experiment_metadata = _load_experiment_metadata(exp_dir)
     metadata = {
         "experiment_id": exp_id,
         "timestamp": best.get("timestamp", _datetime_iso()),
@@ -277,6 +299,9 @@ def update_best_model(
         "model_path": str(dest_model),
         "source_experiment": str(exp_dir),
     }
+    metadata.update(experiment_metadata)
+    if selection_note:
+        metadata["selection_note"] = selection_note
     meta_path = BEST_MODEL_DIR / "metadata.json"
     meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -284,16 +309,71 @@ def update_best_model(
     rows = []
     with open(CSV_PATH, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
+        fieldnames = reader.fieldnames or fieldnames
         for row in reader:
             row["best"] = "true" if row["experiment_id"] == exp_id else "false"
             rows.append(row)
 
+    if "best" not in fieldnames:
+        fieldnames = [*fieldnames, "best"]
+
     with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=reader.fieldnames or [])
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
     return dest_model
+
+
+def _get_experiment_model_file(experiment_id: str) -> Path | None:
+    exp_dir = EXPERIMENTS_ROOT / experiment_id
+    if not exp_dir.is_dir():
+        return None
+    model_files = sorted(exp_dir.glob("*.pkl"), key=lambda p: p.name)
+    return model_files[0] if model_files else None
+
+
+def _load_experiment_metadata(exp_dir: Path) -> dict[str, Any]:
+    metadata: dict[str, Any] = {}
+
+    metrics_path = exp_dir / "metrics.json"
+    if metrics_path.is_file():
+        metrics = _read_json_file(metrics_path)
+        if isinstance(metrics, dict):
+            for key in ("train_size", "test_size", "feature_count"):
+                if key in metrics:
+                    metadata[key] = metrics[key]
+
+    feature_names_path = exp_dir / "feature_names.json"
+    if feature_names_path.is_file():
+        feature_names = _read_json_file(feature_names_path)
+        if isinstance(feature_names, list):
+            metadata["feature_names"] = feature_names
+
+    importance_path = exp_dir / "feature_importance.csv"
+    if importance_path.is_file():
+        with open(importance_path, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            feature_col = reader.fieldnames[0] if reader.fieldnames else None
+            if feature_col is not None:
+                top_features = {}
+                for row in reader:
+                    if len(top_features) >= 10:
+                        break
+                    try:
+                        top_features[row[feature_col]] = float(row["importance"])
+                    except (KeyError, ValueError):
+                        continue
+                metadata["top_features"] = top_features
+
+    return metadata
+
+
+def _read_json_file(path: Path) -> Any | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
 
 
 def list_experiments() -> list[dict[str, Any]]:

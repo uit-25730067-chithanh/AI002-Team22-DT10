@@ -69,7 +69,7 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
       "explanation": "rolling_avg_7d có mức quan trọng cao với giá trị hiện tại."
     }
   ],
-  "model_version": "20260513_161417__rf_real_monthly",
+  "model_version": "20260513_155830__rf_real_monthly",
   "disclaimer": "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
 }
 ```
@@ -78,12 +78,12 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
 
 | Metric     |                            Giá trị |
 | ---------- | ---------------------------------: |
-| Experiment | `20260513_161417__rf_real_monthly` |
-| Train size |                                420 |
+| Experiment | `20260513_155830__rf_real_monthly` |
+| Train size |                                432 |
 | Test size  |                                144 |
-| MAE        |                      13,874 VND/kg |
-| RMSE       |                      17,261 VND/kg |
-| R²         |                            -1.0213 |
+| MAE        |                      13,552 VND/kg |
+| RMSE       |                      16,754 VND/kg |
+| R²         |                            -0.9044 |
 
 R² âm cho thấy distribution 2025 lệch mạnh so với 2022-2024; báo cáo cần nói rõ đây là baseline thật, chưa phải model cuối.
 

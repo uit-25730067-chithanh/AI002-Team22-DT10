@@ -13,29 +13,29 @@ Team 2 đã chuyển từ mock data sang real processed data cho baseline chính
 - Dataset chính: `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv`.
 - Monthly dataset: **576** rows, **16** columns, **498/576** rows có observed price (**86.5%**).
 - Weekly dataset: **2,520** rows, **1,831/2,520** rows có observed price (**72.7%**), dùng cho phân tích phụ.
-- Model baseline: Random Forest `20260513_161417__rf_real_monthly`.
+- Model baseline: Random Forest `20260513_155830__rf_real_monthly` sau PR #14.
 - Split: train 2022-2024, test 2025.
 
 ## Bảng chứng minh (Ma trận bằng chứng)
 
 | Trụ cột           | Bằng chứng dữ liệu thật                                                                                                                                                                      | File liên quan                                                                                               | Rủi ro còn lại                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| **Reliability**   | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,874 VND/kg**, RMSE **17,261 VND/kg**, R² **-1.0213**                                                                     | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9                                                 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final                                 |
+| **Reliability**   | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,552 VND/kg**, RMSE **16,754 VND/kg**, R² **-0.9044**                                                                     | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9/#14                                                 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final                                 |
 | **Bias**          | Kiểm toán độ phủ area-row theo tỉnh: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu                                                                                          | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap                      |
 | **Robustness**    | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; Pydantic validate range/type, còn allowed-value validation chạy trong `PredictorService` theo model features | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py`                      | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
 | **Social Impact** | Dự báo giúp nông dân nhỏ lẻ có thêm tham khảo về giá cà phê và tránh phụ thuộc một nguồn thông tin                                                                                           | `README.md`, `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`                                    | Không dùng như lời khuyên giao dịch bắt buộc; UI phải hiển thị disclaimer                         |
-| **Transparency**  | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `month`, `month_sin`, `quarter`                                                               | `model/best_model/metadata.json`, `model/train_rf.py`                                                        | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ                        |
+| **Transparency**  | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `year`, `month`, `month_sin`                                                               | `model/best_model/metadata.json`, `model/train_rf.py`                                                        | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ                        |
 
 ## Reliability
 
 | Metric        |                              Value |
 | ------------- | ---------------------------------: |
-| Experiment    | `20260513_161417__rf_real_monthly` |
-| Train size    |                                420 |
+| Experiment    | `20260513_155830__rf_real_monthly` |
+| Train size    |                                432 |
 | Test size     |                                144 |
-| MAE           |                      13,874 VND/kg |
-| RMSE          |                      17,261 VND/kg |
-| R²            |                            -1.0213 |
+| MAE           |                      13,552 VND/kg |
+| RMSE          |                      16,754 VND/kg |
+| R²            |                            -0.9044 |
 | Feature count |                                 41 |
 
 Kết luận: baseline đã có đánh giá định lượng thật, nhưng R² âm phải được trình bày trung thực. Nguyên nhân hợp lý là phân phối giá năm 2025 lệch mạnh so với train period 2022-2024.
@@ -82,12 +82,12 @@ Top feature importance từ baseline real monthly:
 
 | Feature          | Importance |
 | ---------------- | ---------: |
-| `rolling_avg_7d` |     0.6799 |
-| `lag_1d`         |     0.2863 |
-| `month`          |     0.0099 |
-| `month_sin`      |     0.0080 |
-| `quarter`        |     0.0056 |
-| `year`           |     0.0027 |
+| `rolling_avg_7d` |     0.7280 |
+| `lag_1d`         |     0.2223 |
+| `year`           |     0.0196 |
+| `month`          |     0.0113 |
+| `month_sin`      |     0.0078 |
+| `quarter`        |     0.0043 |
 | `month_cos`      |     0.0025 |
 | `lag_7d`         |     0.0022 |
 | `rainfall_mm`    |     0.0009 |

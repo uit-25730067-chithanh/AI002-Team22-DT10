@@ -115,18 +115,18 @@ PR #9 đã merge phần Thanh:
 - Phase 3: Random Forest baseline.
 - Phase 5: API handoff.
 
-Sau merge và rebase trên `origin/main`, việc còn lại của Team 2 là chạy API smoke test, xác nhận response mẫu, và chạy stress test trước tuần integration.
+Sau PR #14, `model/best_model/metadata.json` đã được đồng bộ lại về experiment real-data có MAE thấp nhất trong nhóm `rf_real_*`. Việc còn lại của Team 2 là chạy API smoke test, xác nhận response mẫu, và chạy stress test trước tuần integration.
 
 Số liệu model chính từ PR #9:
 
 | Metric        |                              Value |
 | ------------- | ---------------------------------: |
-| Experiment    | `20260513_161417__rf_real_monthly` |
-| Train size    |                                420 |
+| Experiment    | `20260513_155830__rf_real_monthly` |
+| Train size    |                                432 |
 | Test size     |                                144 |
-| MAE           |                      13,874 VND/kg |
-| RMSE          |                      17,261 VND/kg |
-| R²            |                            -1.0213 |
+| MAE           |                      13,552 VND/kg |
+| RMSE          |                      16,754 VND/kg |
+| R²            |                            -0.9044 |
 | Feature count |                                 41 |
 
 R² âm là tín hiệu cần ghi thẳng trong báo cáo: phân phối giá 2025 lệch mạnh so với giai đoạn train 2022-2024, nên baseline hiện dùng để minh họa pipeline đáng tin cậy, chưa phải model final để ra quyết định tài chính.

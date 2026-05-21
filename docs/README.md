@@ -14,6 +14,7 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 - [Real Data Audit](discussions/2026-05-13-real-data-audit-team2-son.md): Kiểm toán độ phủ monthly/weekly, bias risk và lựa chọn dataset baseline.
 - [API Integration QA Checklist](discussions/2026-05-13-son-api-integration-qa-checklist.md): Danh sách kiểm tra edge cases cho tuần frontend/backend integration.
 - [5 Pillars Checkpoint](discussions/5-pillars-checkpoint.md): Ma trận bằng chứng Reliability, Bias, Robustness, Social Impact, Transparency.
+- [Report Index](report/README.md): Chỉ mục note báo cáo theo tuần/milestone sau khi reorganize report docs.
 - [Sửa lỗi (Troubleshooting)](troubleshooting.md): Hướng dẫn khắc phục các lỗi thường gặp khi chạy dự án.
 
 ## 🧭 Luồng đọc nhanh cho thành viên mới
@@ -26,7 +27,8 @@ flowchart TD
     D --> E[Team data flow roadmap]
     E --> F[API handoff real data]
     F --> G[Sơn evaluation pack]
-    G --> H[Codebase summary]
+    G --> H[Report index]
+    H --> I[Codebase summary]
 ```
 
 ## 🔗 Tài liệu theo vai trò
@@ -40,6 +42,7 @@ flowchart LR
     E[Thanh] --> B
     E --> F[Project roadmap]
     E --> G[Codebase summary]
+    E --> L[Report index]
 
     H[Sơn] --> B
     H --> I[Kiểm toán dữ liệu thật]

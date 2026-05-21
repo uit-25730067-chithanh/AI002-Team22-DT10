@@ -43,9 +43,10 @@
 
 ### `tests/ai-tests/` — Kiểm thử
 
-| File                        | Mô tả                                                                                |
-| --------------------------- | ------------------------------------------------------------------------------------ |
-| `test_predictor_service.py` | Kiểm tra PredictorService load model và trả đủ keys; `pytest.skip` khi model chưa có |
+| File                           | Mô tả                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
+| `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; `pytest.skip` khi model chưa có |
+| `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run theo metric                    |
 
 ### `docs/discussions/` — Tài liệu nội bộ
 
@@ -55,6 +56,12 @@
 | `robustness-stress-test.md`                 | Báo cáo stress test tự động sinh bởi `stress_test.py`        |
 | `2026-05-13-team-data-flow-roadmap.md`      | Roadmap luồng dữ liệu thật từ crawler đến model/API/frontend |
 | `2026-05-13-api-handoff-team2-real-data.md` | API handoff contract `/predict` cho frontend                 |
+
+### `docs/report/` — Note báo cáo theo tuần
+
+| File        | Mô tả                                                  |
+| ----------- | ------------------------------------------------------ |
+| `README.md` | Chỉ mục report notes theo roadmap, owner và trạng thái |
 
 ### `plans/team2-foundation-week/` — Kế hoạch
 
