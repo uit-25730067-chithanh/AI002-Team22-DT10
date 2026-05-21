@@ -36,28 +36,28 @@ Theo `model/best_model/metadata.json` trong workspace hiện tại:
 
 | Mục           |                            Giá trị |
 | ------------- | ---------------------------------: |
-| Experiment    | `20260513_161417__rf_real_monthly` |
+| Experiment    | `20260513_155830__rf_real_monthly` |
 | Model         |            `RandomForestRegressor` |
-| Train size    |                                420 |
+| Train size    |                                432 |
 | Test size     |                                144 |
 | Feature count |                                 41 |
-| MAE           |                      13,874 VND/kg |
-| RMSE          |                      17,261 VND/kg |
-| R²            |                            -1.0213 |
+| MAE           |                      13,552 VND/kg |
+| RMSE          |                      16,754 VND/kg |
+| R²            |                            -0.9044 |
 
 Ghi chú trình bày: R² âm cho thấy baseline chưa bắt được phân phối năm 2025 tốt. Không nên nói model đã tốt; nên nói model đã chạy thật, có metric thật, có limitation rõ.
 
-Lưu ý triển khai: repo chỉ track metadata của model hiện tại được promote; file `model/best_model/model.pkl` bị gitignore nên cần train/generate local hoặc cung cấp artifact ngoài repo trước khi backend dùng model thật. Tên thư mục `best_model` là convention kỹ thuật hiện tại, không nên hiểu là model tốt nhất tuyệt đối theo metric.
+Lưu ý triển khai: repo chỉ track metadata của model hiện tại được promote; file `model/best_model/model.pkl` bị gitignore nên cần train/generate local hoặc cung cấp artifact ngoài repo trước khi backend dùng model thật. Sau PR #14, `best_model` được chọn theo MAE thấp nhất trong nhóm `rf_real_*`, không lấy nhầm mock/test runs.
 
 ## 5. Top feature importance
 
 | Feature          | Importance | Ý nghĩa khi giải thích            |
 | ---------------- | ---------: | --------------------------------- |
-| `rolling_avg_7d` |     0.6799 | Giá gần đây là tín hiệu mạnh nhất |
-| `lag_1d`         |     0.2863 | Giá kỳ trước ảnh hưởng lớn        |
-| `month`          |     0.0099 | Có yếu tố mùa vụ nhưng nhỏ        |
-| `month_sin`      |     0.0080 | Chu kỳ tháng có đóng góp nhỏ      |
-| `quarter`        |     0.0056 | Quý có đóng góp nhỏ               |
+| `rolling_avg_7d` |     0.7280 | Giá gần đây là tín hiệu mạnh nhất |
+| `lag_1d`         |     0.2223 | Giá kỳ trước ảnh hưởng lớn        |
+| `year`           |     0.0196 | Chênh lệch năm có đóng góp nhỏ    |
+| `month`          |     0.0113 | Có yếu tố mùa vụ nhưng nhỏ        |
+| `month_sin`      |     0.0078 | Chu kỳ tháng có đóng góp nhỏ      |
 
 Điểm cần nói rõ: model phụ thuộc nhiều vào historical price, hợp lý với bài toán giá nhưng cần cẩn thận khi thị trường biến động mạnh.
 
@@ -83,5 +83,5 @@ Lưu ý triển khai: repo chỉ track metadata của model hiện tại đượ
 ## 8. Tin nhắn ngắn có thể gửi team
 
 ```text
-Tuần 4 phần của anh đã train baseline thật trên monthly all-areas: normalize schema, tạo feature theo area/thời gian, split temporal, train Random Forest, lưu model hiện tại được promote cho API + metadata + feature importance. Kết quả hiện là baseline thật, MAE khoảng 13.9k VND/kg, RMSE khoảng 17.3k VND/kg, R² âm nên mình sẽ nói rõ limitation. Điểm chính là pipeline model đã chạy end-to-end và có feature importance để giải thích.
+Tuần 4 phần của anh đã train baseline thật trên monthly all-areas: normalize schema, tạo feature theo area/thời gian, split temporal, train Random Forest, lưu model hiện tại được promote cho API + metadata + feature importance. Kết quả hiện là baseline thật, MAE khoảng 13.6k VND/kg, RMSE khoảng 16.8k VND/kg, R² âm nên mình sẽ nói rõ limitation. Điểm chính là pipeline model đã chạy end-to-end và có feature importance để giải thích.
 ```

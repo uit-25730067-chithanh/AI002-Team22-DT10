@@ -78,8 +78,10 @@ Tuần 5, anh cập nhật backend để dùng model real-data: `/predict` nhậ
 | ------ | -------------------------------------- | ------------------------------------------------------------------------------- |
 | PR #11 | Open, merge clean                      | Sync README, roadmap, codebase summary, field descriptions và data-flow wording |
 | PR #12 | Merged, của Sơn                        | Evaluation pack, real-data audit, API QA checklist, 5 Pillars checkpoint        |
+| PR #13 | Merged                                 | Reorganize report notes vào `docs/report/`                                      |
+| PR #14 | Merged                                 | Promote best real-data model theo metric trong `rf_real_*`                      |
 
-Cách nói trong họp: PR #12 là phần Sơn. Thanh chỉ sync vào roadmap/docs để cả nhóm nhìn cùng một flow.
+Cách nói trong họp: PR #12 là phần Sơn. PR #13/#14 đã được sync lại vào PR #11 để docs/report và số liệu model không lệch `origin/main`.
 
 ## 8. Follow-up kỹ thuật cần chốt
 

@@ -12,13 +12,13 @@ PR này bổ sung gói **Responsible AI Evaluation + QA** cho phần Sơn, khôn
 
 ## Deliverables mapping
 
-| Phase | Deliverable | File | Status |
-| --- | --- | --- | --- |
-| 1 | Real data audit | `docs/discussions/2026-05-13-real-data-audit-team2-son.md` | Public |
-| 2 | PR #9 model evaluation | Covered in `docs/discussions/2026-05-13-real-data-audit-team2-son.md` and `docs/discussions/5-pillars-checkpoint.md` | Public |
-| 3 | API integration QA checklist | `docs/discussions/2026-05-13-son-api-integration-qa-checklist.md` | Public |
-| 4 | 5 pillars checkpoint | `docs/discussions/5-pillars-checkpoint.md` | Public |
-| 5 | PR package summary/conflict guard | `docs/discussions/2026-05-13-son-evaluation-pack-summary.md` | Public |
+| Phase | Deliverable                        | File                                                                                                                 | Status |
+| ----- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1     | Kiểm toán dữ liệu thật             | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`                                                           | Public |
+| 2     | PR #9 model evaluation             | Covered in `docs/discussions/2026-05-13-real-data-audit-team2-son.md` and `docs/discussions/5-pillars-checkpoint.md` | Public |
+| 3     | Danh sách kiểm tra integration API | `docs/discussions/2026-05-13-son-api-integration-qa-checklist.md`                                                    | Public |
+| 4     | 5 pillars checkpoint               | `docs/discussions/5-pillars-checkpoint.md`                                                                           | Public |
+| 5     | PR package summary/conflict guard  | `docs/discussions/2026-05-13-son-evaluation-pack-summary.md`                                                         | Public |
 
 ## Key findings
 
@@ -30,13 +30,13 @@ PR này bổ sung gói **Responsible AI Evaluation + QA** cho phần Sơn, khôn
 
 ## 5 Pillars contribution
 
-| Pillar | Contribution |
-| --- | --- |
-| Reliability | Đọc metrics thật, diễn giải MAE/RMSE/R², không né R² âm |
-| Bias | Nêu coverage risk theo province/area, đặc biệt Dak Nong/Dak R'lap |
-| Robustness | Chuẩn bị QA checklist input validation/API failure |
-| Social Impact | Bắt buộc disclaimer AI chỉ tham khảo |
-| Transparency | Diễn giải feature importance và limitation |
+| Pillar        | Contribution                                                      |
+| ------------- | ----------------------------------------------------------------- |
+| Reliability   | Đọc metrics thật, diễn giải MAE/RMSE/R², không né R² âm           |
+| Bias          | Nêu rủi ro độ phủ theo province/area, đặc biệt Dak Nong/Dak R'lap |
+| Robustness    | Chuẩn bị QA checklist input validation/API failure                |
+| Social Impact | Bắt buộc disclaimer AI chỉ tham khảo                              |
+| Transparency  | Diễn giải feature importance và limitation                        |
 
 ## Conflict-risk note
 
@@ -62,6 +62,7 @@ Không stage các file implementation/artifact nếu xuất hiện modified loca
 
 ```markdown
 ## Summary
+
 - Add Sơn responsible AI evaluation pack for real-data week.
 - Review Team 1 real data readiness and province/area coverage risk.
 - Evaluate PR #9 baseline metrics and transparency limitations.
@@ -69,15 +70,18 @@ Không stage các file implementation/artifact nếu xuất hiện modified loca
 - Update 5 pillars checkpoint and add conflict guard.
 
 ## Scope
+
 Docs-only evaluation/QA. Public PR includes real-data audit, 5 pillars checkpoint, summary, and API QA checklist. No backend/model/API implementation changes.
 
 ## Key risks documented
+
 - R² is negative; baseline is demo/pipeline evidence, not financial advice.
-- Dak Nong/Dak R'lap coverage is weak; avoid as main demo.
+- Dak Nong/Dak R'lap độ phủ yếu; tránh làm demo chính.
 - Model depends heavily on lag/rolling price features.
 - Branch is rebased on `origin/main` after PR #9; next step is API smoke test, then real-data stress test when backend contract is verified.
 
 ## Test/verification
+
 - `git diff --check -- docs/discussions/*.md`
 - `python -m pytest tests/ai-tests/test_predictor_service.py -q`
 ```
