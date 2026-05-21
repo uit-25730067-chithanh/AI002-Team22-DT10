@@ -125,7 +125,7 @@ flowchart LR
 
     subgraph T2B[Sơn]
         J[Kiểm toán dữ liệu thật]
-        K[By chứng độ phủ thiên lệch]
+        K[Bằng chứng độ phủ thiên lệch]
         L[Danh sách kiểm tra integration API]
         M[5 Pillars checkpoint]
         Q[Stress/API follow-up]

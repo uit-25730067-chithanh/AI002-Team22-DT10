@@ -118,7 +118,7 @@ flowchart TD
 
     subgraph Son[Sơn]
         C1[Kiểm toán dữ liệu thật]
-        C2[By chứng độ phủ thiên lệch]
+        C2[Bằng chứng độ phủ thiên lệch]
         C3[Danh sách kiểm tra integration API]
         C4[5 Pillars checkpoint]
         C5[Stress/API follow-up]
