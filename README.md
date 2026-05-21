@@ -128,7 +128,7 @@ AI002_PROJECT/
 │   ├── train_rf.py                 # Random Forest baseline training + evaluation
 │   ├── train_xgboost.py            # Optional XGBoost comparison (requires venv)
 │   ├── stress_test.py              # Robustness stress test (Black Swan scenarios)
-│   └── best_model/                 # Promoted model metadata and .pkl artifact
+│   └── best_model/                 # Promoted model metadata (metadata.json committed, .pkl gitignored)
 │
 ├── backend/                        # API Server (Team 2)
 │   ├── main.py                     # FastAPI entry point
