@@ -228,6 +228,8 @@ def update_best_model(
     Args:
         metric_key: Chỉ số để tối ưu ('mae', 'rmse', hoặc 'r2').
         mode: 'min' cho càng thấp càng tốt, 'max' cho càng cao càng tốt.
+        tag_prefix: Nếu có, chỉ xét các experiment có tag bắt đầu bằng prefix này.
+        fallback_experiment_id: Experiment dự phòng khi experiment tốt nhất thiếu artifact model.
 
     Returns:
         Đường dẫn tới model tốt nhất vừa copy, hoặc None nếu chưa có thử nghiệm.
