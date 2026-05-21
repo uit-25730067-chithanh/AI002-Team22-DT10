@@ -18,8 +18,8 @@
 
 ### heat_wave (Nóng khắc nghiệt)
 
-- MAE: 2,535 VND/kg (+-0.1%)
-- RMSE: 3,166 VND/kg (+-0.1%)
+- MAE: 2,535 VND/kg (-0.1%)
+- RMSE: 3,166 VND/kg (-0.1%)
 
 ### both (Cả hai)
 
