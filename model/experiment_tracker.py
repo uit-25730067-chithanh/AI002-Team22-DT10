@@ -338,15 +338,17 @@ def _load_experiment_metadata(exp_dir: Path) -> dict[str, Any]:
 
     metrics_path = exp_dir / "metrics.json"
     if metrics_path.is_file():
-        metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-        for key in ("train_size", "test_size", "feature_count"):
-            if key in metrics:
-                metadata[key] = metrics[key]
+        metrics = _read_json_file(metrics_path)
+        if isinstance(metrics, dict):
+            for key in ("train_size", "test_size", "feature_count"):
+                if key in metrics:
+                    metadata[key] = metrics[key]
 
     feature_names_path = exp_dir / "feature_names.json"
     if feature_names_path.is_file():
-        feature_names = json.loads(feature_names_path.read_text(encoding="utf-8"))
-        metadata["feature_names"] = feature_names
+        feature_names = _read_json_file(feature_names_path)
+        if isinstance(feature_names, list):
+            metadata["feature_names"] = feature_names
 
     importance_path = exp_dir / "feature_importance.csv"
     if importance_path.is_file():
@@ -365,6 +367,13 @@ def _load_experiment_metadata(exp_dir: Path) -> dict[str, Any]:
                 metadata["top_features"] = top_features
 
     return metadata
+
+
+def _read_json_file(path: Path) -> Any | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
 
 
 def list_experiments() -> list[dict[str, Any]]:
