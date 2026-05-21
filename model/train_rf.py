@@ -136,15 +136,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
             fallback_experiment_id=exp_dir.name,
         )
     else:
-        best_model_path = update_best_model(metric_key="mae", mode="min")
-        if best_model_path is not None:
-            meta_path = Path(best_model_path).parent / "metadata.json"
-            if meta_path.exists():
-                metadata = json.loads(meta_path.read_text(encoding="utf-8"))
-                if metadata.get("experiment_id") == exp_dir.name:
-                    metadata["feature_names"] = list(X_train.columns)
-                    metadata["top_features"] = {k: float(v) for k, v in importances.head(10).to_dict().items()}
-                    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+        best_model_path = update_best_model(metric_key="mae", mode="min", tag_prefix="rf_real")
     print(f"Best model cập nhật: {best_model_path}")
 
     return {
