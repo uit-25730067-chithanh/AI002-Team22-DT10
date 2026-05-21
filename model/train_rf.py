@@ -22,11 +22,28 @@ from experiment_tracker import (
     append_experiment_csv,
     build_params,
     create_experiment,
+    list_experiments,
     save_metrics,
     save_params,
     update_best_model,
 )
 from preprocess import preprocess_pipeline, split_temporal
+
+
+def _update_best_model_after_training(tag: str, experiment_id: str) -> Path | None:
+    if tag.startswith("rf_real"):
+        return update_best_model(
+            metric_key="mae",
+            mode="min",
+            tag_prefix="rf_real",
+            fallback_experiment_id=experiment_id,
+        )
+
+    has_real_experiment = any(row.get("tag", "").startswith("rf_real") for row in list_experiments())
+    if has_real_experiment:
+        return update_best_model(metric_key="mae", mode="min", tag_prefix="rf_real")
+
+    return update_best_model(metric_key="mae", mode="min")
 
 
 def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
@@ -127,16 +144,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
 
     # 11. Append to experiments CSV và cập nhật best model
     append_experiment_csv(exp_dir, tag, "RandomForestRegressor", metrics)
-    should_promote_current = tag.startswith("rf_real")
-    if should_promote_current:
-        best_model_path = update_best_model(
-            metric_key="mae",
-            mode="min",
-            tag_prefix="rf_real",
-            fallback_experiment_id=exp_dir.name,
-        )
-    else:
-        best_model_path = update_best_model(metric_key="mae", mode="min", tag_prefix="rf_real")
+    best_model_path = _update_best_model_after_training(tag, exp_dir.name)
     print(f"Best model cập nhật: {best_model_path}")
 
     return {
