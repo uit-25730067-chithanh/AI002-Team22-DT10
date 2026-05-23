@@ -146,9 +146,41 @@ def test_rule_loader_rejects_non_numeric_thresholds(tmp_path, monkeypatch) -> No
         farming_advisory.load_farming_advisory_rules.cache_clear()
 
 
+def test_rule_loader_rejects_boolean_thresholds(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["thresholds"]["heavy_rainfall"] = True
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="ngưỡng cảnh báo không hợp lệ"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
 def test_rule_loader_rejects_non_numeric_penalties(tmp_path, monkeypatch) -> None:
     rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
     rules["penalties"]["heavy_rainfall"] = None
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="penalty cảnh báo không hợp lệ"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
+def test_rule_loader_rejects_boolean_penalties(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["penalties"]["heavy_rainfall"] = False
     rule_path = tmp_path / "farming_advisory_rules.json"
     rule_path.write_text(json.dumps(rules), encoding="utf-8")
 

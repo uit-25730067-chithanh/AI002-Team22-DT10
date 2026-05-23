@@ -32,6 +32,10 @@ REQUIRED_WARNING_KEYS = {
 }
 
 
+def _is_number(value: Any) -> bool:
+    return type(value) in (int, float)
+
+
 @lru_cache(maxsize=1)
 def load_farming_advisory_rules() -> dict[str, Any]:
     try:
@@ -70,9 +74,9 @@ def _validate_farming_advisory_rules(rules: dict[str, Any]) -> None:
         raise RuntimeError("File rule canh tác thiếu penalty cho cảnh báo bắt buộc")
     if not REQUIRED_WARNING_KEYS.issubset(warning_labels):
         raise RuntimeError("File rule canh tác thiếu nhãn cảnh báo bắt buộc")
-    if not all(isinstance(thresholds[key], (int, float)) for key in REQUIRED_THRESHOLD_KEYS):
+    if not all(_is_number(thresholds[key]) for key in REQUIRED_THRESHOLD_KEYS):
         raise RuntimeError("File rule canh tác có ngưỡng cảnh báo không hợp lệ")
-    if not all(isinstance(penalties[key], (int, float)) for key in REQUIRED_WARNING_KEYS):
+    if not all(_is_number(penalties[key]) for key in REQUIRED_WARNING_KEYS):
         raise RuntimeError("File rule canh tác có penalty cảnh báo không hợp lệ")
 
 

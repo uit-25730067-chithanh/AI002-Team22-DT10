@@ -4,6 +4,13 @@ from pydantic import BaseModel, Field
 
 
 DEFAULT_PREDICTION_DISCLAIMER = "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
+FarmingAction = Literal[
+    "post_harvest_care",
+    "flowering_care",
+    "growth_care",
+    "harvest",
+    "off_season",
+]
 
 
 class PredictionRequest(BaseModel):
@@ -37,19 +44,13 @@ class FeatureExplanation(BaseModel):
 
 
 class FarmingRecommendation(BaseModel):
-    action: Literal[
-        "post_harvest_care",
-        "flowering_care",
-        "growth_care",
-        "harvest",
-        "off_season",
-    ]
+    action: FarmingAction
     season_type: Literal["dry_season", "rainy_season", "main_season", "off_season"]
     confidence: float = Field(..., ge=0.0, le=1.0)
     reasoning: str
     warnings: list[str]
     next_action_month: int = Field(..., ge=1, le=12)
-    next_action: str
+    next_action: FarmingAction
     advisory_type: Literal["rule_based"] = "rule_based"
 
 

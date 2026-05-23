@@ -121,9 +121,9 @@ Có thể test nhanh contract bằng Swagger UI tại `http://localhost:8000/doc
 | Khoảng dao động          | `confidence_interval`                                                      | Hiển thị dạng `82.000 - 94.900 VND/kg`                                              |
 | Giải thích dự báo        | `top_features`                                                             | Render 1-3 dòng lý do ảnh hưởng chính, dùng `explanation` nếu muốn nhanh            |
 | Phiên bản model          | `model_version`                                                            | Có thể để nhỏ ở footer/debug info để trace khi báo lỗi                              |
-| Gợi ý chăm sóc mùa vụ    | `farming_recommendation.action`, `season_type`, `confidence`, `reasoning`  | Render thành card gợi ý mùa vụ; `reasoning` là text tiếng Việt có thể hiển thị thẳng |
+| Gợi ý chăm sóc mùa vụ    | `farming_recommendation.action`, `farming_recommendation.season_type`, `farming_recommendation.confidence`, `farming_recommendation.reasoning` | Render thành card gợi ý mùa vụ; `reasoning` là text tiếng Việt có thể hiển thị thẳng |
 | Cảnh báo điều kiện       | `farming_recommendation.warnings`                                          | Map sang nhãn tiếng Việt; nếu rỗng thì không cần hiện badge cảnh báo                |
-| Bước tiếp theo           | `next_action_month`, `next_action`                                         | Hiển thị text phụ kiểu `Tháng tiếp theo: Thu hoạch`                                 |
+| Bước tiếp theo           | `farming_recommendation.next_action_month`, `farming_recommendation.next_action` | Hiển thị text phụ kiểu `Tháng tiếp theo: Thu hoạch`                                 |
 | Disclaimer               | `disclaimer`                                                               | Luôn hiển thị gần cuối kết quả                                                      |
 
 ## Mapping UI cho `farming_recommendation`
