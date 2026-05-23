@@ -4,16 +4,6 @@
 
 Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend tuần 18/5-24/5.
 
-## UI mode đã chốt
-
-Frontend dùng hướng **form nhập thông số + advisory card**, không làm chatbot hay Q&A tự do.
-User nhập/chọn các thông số có cấu trúc, gọi `POST /predict`, rồi UI render 2 nhóm kết quả:
-
-- Card dự báo giá.
-- Card gợi ý chăm sóc mùa vụ từ `farming_recommendation`.
-
-Các câu hỏi kỹ thuật chi tiết như "vặt chồi bao lâu" không thuộc API contract hiện tại. Nếu cần hiển thị, nên đặt ở phần FAQ tĩnh hoặc note hướng dẫn riêng, không gọi đây là agent chat nông nghiệp.
-
 ## Endpoint dự kiến
 
 - `POST /predict`
@@ -96,7 +86,7 @@ Các câu hỏi kỹ thuật chi tiết như "vặt chồi bao lâu" không thu�
 
 ## Field mới: `farming_recommendation`
 
-Request payload không đổi. Backend chỉ thêm field mới trong response để frontend hiển thị **advisory card** về gợi ý chăm sóc mùa vụ dựa trên rule.
+Request payload không đổi. Backend chỉ thêm field mới trong response để frontend có thể hiển thị gợi ý chăm sóc mùa vụ bên cạnh kết quả dự báo giá.
 
 | Field               | Ý nghĩa                                                                                                               | Gợi ý render                         |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -112,8 +102,6 @@ Request payload không đổi. Backend chỉ thêm field mới trong response đ
 Lưu ý wording cho UI/report: dùng "gợi ý canh tác dựa trên rule", không viết "model AI canh tác đã được huấn luyện". Phần này hỗ trợ minh bạch và social impact, nhưng chưa phải mô hình học máy cho canh tác.
 
 Nếu nhận `warnings=["advisory_config_unavailable"]`, frontend nên vẫn hiển thị kết quả dự báo giá, nhưng card canh tác cần báo nhẹ rằng cấu hình gợi ý mùa vụ chưa sẵn sàng và người dùng nên kiểm tra lại với nguồn địa phương.
-
-Lưu ý scope UI: không hiển thị như chatbot, không promise trả lời câu hỏi tự do. UI nên dùng heading như "Gợi ý chăm sóc mùa vụ" hoặc "Gợi ý canh tác theo mùa vụ".
 
 ## Ghi chú model hiện tại
 
