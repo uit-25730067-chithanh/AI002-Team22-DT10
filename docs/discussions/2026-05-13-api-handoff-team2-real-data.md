@@ -104,12 +104,14 @@ Request payload không đổi. Backend chỉ thêm field mới trong response đ
 | `season_type`       | Nhóm mùa: `dry_season`, `rainy_season`, `main_season`, `off_season`                                                   | Badge mùa vụ                         |
 | `confidence`        | Độ tin cậy rule, từ 0 đến 1                                                                                           | Hiển thị phần trăm                   |
 | `reasoning`         | Diễn giải tiếng Việt                                                                                                  | Hiển thị trực tiếp cho user          |
-| `warnings`          | Mã cảnh báo: `low_soil_moisture`, `heavy_rainfall`, `heat_stress`, `low_soil_suitability`, `low_soil_data_confidence` | Map badge/icon nếu kịp               |
+| `warnings`          | Mã cảnh báo: `low_soil_moisture`, `heavy_rainfall`, `heat_stress`, `low_soil_suitability`, `low_soil_data_confidence`, `advisory_config_unavailable` | Map badge/icon nếu kịp               |
 | `next_action_month` | Tháng tiếp theo backend xét rule                                                                                      | Text phụ                             |
 | `next_action`       | Hành động rule của tháng tiếp theo                                                                                    | Text phụ                             |
 | `advisory_type`     | Hiện là `rule_based`                                                                                                  | Có thể ẩn hoặc show nhỏ để minh bạch |
 
 Lưu ý wording cho UI/report: dùng "gợi ý canh tác dựa trên rule", không viết "model AI canh tác đã được huấn luyện". Phần này hỗ trợ minh bạch và social impact, nhưng chưa phải mô hình học máy cho canh tác.
+
+Nếu nhận `warnings=["advisory_config_unavailable"]`, frontend nên vẫn hiển thị kết quả dự báo giá, nhưng card canh tác cần báo nhẹ rằng cấu hình gợi ý mùa vụ chưa sẵn sàng và người dùng nên kiểm tra lại với nguồn địa phương.
 
 Lưu ý scope UI: không hiển thị như chatbot, không promise trả lời câu hỏi tự do. UI nên dùng heading như "Gợi ý chăm sóc mùa vụ" hoặc "Gợi ý canh tác theo mùa vụ".
 

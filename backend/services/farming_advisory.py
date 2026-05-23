@@ -42,7 +42,7 @@ def load_farming_advisory_rules() -> dict[str, Any]:
         raise RuntimeError("File rule canh tác không hợp lệ") from exc
 
     required_sections = {"month_rules", "thresholds", "penalties", "warning_labels"}
-    if not required_sections.issubset(rules):
+    if not isinstance(rules, dict) or not required_sections.issubset(rules.keys()):
         raise RuntimeError("File rule canh tác thiếu cấu hình bắt buộc")
     _validate_farming_advisory_rules(rules)
     return rules
@@ -70,6 +70,10 @@ def _validate_farming_advisory_rules(rules: dict[str, Any]) -> None:
         raise RuntimeError("File rule canh tác thiếu penalty cho cảnh báo bắt buộc")
     if not REQUIRED_WARNING_KEYS.issubset(warning_labels):
         raise RuntimeError("File rule canh tác thiếu nhãn cảnh báo bắt buộc")
+    if not all(isinstance(thresholds[key], (int, float)) for key in REQUIRED_THRESHOLD_KEYS):
+        raise RuntimeError("File rule canh tác có ngưỡng cảnh báo không hợp lệ")
+    if not all(isinstance(penalties[key], (int, float)) for key in REQUIRED_WARNING_KEYS):
+        raise RuntimeError("File rule canh tác có penalty cảnh báo không hợp lệ")
 
 
 class FarmingAdvisoryService:

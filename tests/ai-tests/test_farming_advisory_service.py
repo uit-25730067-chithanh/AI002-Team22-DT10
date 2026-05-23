@@ -116,6 +116,52 @@ def test_rule_loader_rejects_invalid_section_shape(tmp_path, monkeypatch) -> Non
         farming_advisory.load_farming_advisory_rules.cache_clear()
 
 
+def test_rule_loader_rejects_invalid_top_level_shape(tmp_path, monkeypatch) -> None:
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(["month_rules", "thresholds", "penalties", "warning_labels"]), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="thiếu cấu hình bắt buộc"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
+def test_rule_loader_rejects_non_numeric_thresholds(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["thresholds"]["heavy_rainfall"] = "250"
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="ngưỡng cảnh báo không hợp lệ"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
+def test_rule_loader_rejects_non_numeric_penalties(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["penalties"]["heavy_rainfall"] = None
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="penalty cảnh báo không hợp lệ"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
 def test_reasoning_falls_back_when_warning_label_missing() -> None:
     reasoning = FarmingAdvisoryService._build_reasoning(
         "Base reasoning.",
