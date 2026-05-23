@@ -195,13 +195,17 @@ class PredictorService:
         tree_preds = np.array([est.predict(feature_values)[0] for est in self.model.estimators_], dtype=float)
         pred_std = float(tree_preds.std())
         margin = 1.96 * pred_std  # ước lượng ~95% CI giả định phân phối chuẩn
+        try:
+            farming_recommendation = self.farming_advisory.recommend(request)
+        except RuntimeError:
+            farming_recommendation = self.farming_advisory.fallback_recommendation(request)
 
         return {
             "predicted_price_vnd": round(prediction, 2),
             "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
-            "farming_recommendation": self.farming_advisory.recommend(request),
+            "farming_recommendation": farming_recommendation,
             "disclaimer": DEFAULT_PREDICTION_DISCLAIMER,
         }
 

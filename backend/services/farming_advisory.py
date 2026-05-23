@@ -12,6 +12,24 @@ except ModuleNotFoundError:
 
 
 RULES_PATH = Path(__file__).resolve().parents[2] / "data" / "processed" / "farming_advisory_rules.json"
+REQUIRED_MONTH_KEYS = {str(month) for month in range(1, 13)}
+REQUIRED_MONTH_RULE_FIELDS = {"action", "season_type", "reasoning"}
+REQUIRED_THRESHOLD_KEYS = {
+    "base_confidence",
+    "min_confidence",
+    "max_confidence",
+    "low_soil_moisture",
+    "heavy_rainfall",
+    "heat_stress",
+    "low_soil_score",
+}
+REQUIRED_WARNING_KEYS = {
+    "low_soil_moisture",
+    "heavy_rainfall",
+    "heat_stress",
+    "low_soil_suitability",
+    "low_soil_data_confidence",
+}
 
 
 @lru_cache(maxsize=1)
@@ -26,7 +44,32 @@ def load_farming_advisory_rules() -> dict[str, Any]:
     required_sections = {"month_rules", "thresholds", "penalties", "warning_labels"}
     if not required_sections.issubset(rules):
         raise RuntimeError("File rule canh tác thiếu cấu hình bắt buộc")
+    _validate_farming_advisory_rules(rules)
     return rules
+
+
+def _validate_farming_advisory_rules(rules: dict[str, Any]) -> None:
+    month_rules = rules["month_rules"]
+    thresholds = rules["thresholds"]
+    penalties = rules["penalties"]
+    warning_labels = rules["warning_labels"]
+
+    if not all(isinstance(section, dict) for section in [month_rules, thresholds, penalties, warning_labels]):
+        raise RuntimeError("File rule canh tác có cấu trúc section không hợp lệ")
+    if not REQUIRED_MONTH_KEYS.issubset(month_rules):
+        raise RuntimeError("File rule canh tác thiếu rule cho đủ 12 tháng")
+    for month in REQUIRED_MONTH_KEYS:
+        if not isinstance(month_rules[month], dict):
+            raise RuntimeError(f"File rule canh tác có rule tháng {month} không hợp lệ")
+        if not REQUIRED_MONTH_RULE_FIELDS.issubset(month_rules[month]):
+            raise RuntimeError(f"File rule canh tác thiếu field cho tháng {month}")
+
+    if not REQUIRED_THRESHOLD_KEYS.issubset(thresholds):
+        raise RuntimeError("File rule canh tác thiếu ngưỡng cảnh báo bắt buộc")
+    if not REQUIRED_WARNING_KEYS.issubset(penalties):
+        raise RuntimeError("File rule canh tác thiếu penalty cho cảnh báo bắt buộc")
+    if not REQUIRED_WARNING_KEYS.issubset(warning_labels):
+        raise RuntimeError("File rule canh tác thiếu nhãn cảnh báo bắt buộc")
 
 
 class FarmingAdvisoryService:
@@ -78,7 +121,7 @@ class FarmingAdvisoryService:
             max(thresholds["min_confidence"], thresholds["base_confidence"] - penalties),
         )
         next_action_month = 1 if request.month == 12 else request.month + 1
-        next_action = month_rules[str(next_action_month)]["action"]
+        next_action = month_rules.get(str(next_action_month), {"action": "off_season"})["action"]
         reasoning = self._build_reasoning(base_reasoning, warnings, rules["warning_labels"])
 
         return {
@@ -93,6 +136,23 @@ class FarmingAdvisoryService:
         }
 
     @staticmethod
+    def fallback_recommendation(request: PredictionRequest) -> dict[str, Any]:
+        next_action_month = 1 if request.month == 12 else request.month + 1
+        return {
+            "action": "off_season",
+            "season_type": "off_season",
+            "confidence": 0.4,
+            "reasoning": (
+                "Không thể tải cấu hình rule canh tác tại thời điểm dự báo. "
+                "Hệ thống vẫn trả kết quả giá, nhưng gợi ý canh tác cần kiểm tra lại với nguồn địa phương."
+            ),
+            "warnings": ["advisory_config_unavailable"],
+            "next_action_month": next_action_month,
+            "next_action": "off_season",
+            "advisory_type": "rule_based",
+        }
+
+    @staticmethod
     def _build_reasoning(base_reasoning: str, warnings: list[str], warning_labels: dict[str, str]) -> str:
         if not warnings:
             return (
@@ -100,7 +160,7 @@ class FarmingAdvisoryService:
                 "Đây là gợi ý rule-based để tham khảo."
             )
 
-        details = "; ".join(warning_labels[warning] for warning in warnings)
+        details = "; ".join(warning_labels.get(warning, warning) for warning in warnings)
         return (
             f"{base_reasoning} Cảnh báo hiện tại: {details}. Đây là gợi ý rule-based để tham khảo, "
             "không thay thế tư vấn nông nghiệp tại địa phương."

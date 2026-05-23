@@ -1,4 +1,9 @@
+import json
+
+import pytest
+
 from backend.schemas.prediction import PredictionRequest
+import backend.services.farming_advisory as farming_advisory
 from backend.services.farming_advisory import FarmingAdvisoryService
 
 
@@ -77,3 +82,55 @@ def test_missing_optional_soil_fields_still_returns_valid_output() -> None:
     assert result["action"] == "harvest"
     assert result["warnings"] == []
     assert result["next_action_month"] == 12
+
+
+def test_rule_loader_rejects_missing_month_rule(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["month_rules"].pop("12")
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="đủ 12 tháng"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
+def test_rule_loader_rejects_invalid_section_shape(tmp_path, monkeypatch) -> None:
+    rules = json.loads(farming_advisory.RULES_PATH.read_text(encoding="utf-8"))
+    rules["thresholds"] = []
+    rule_path = tmp_path / "farming_advisory_rules.json"
+    rule_path.write_text(json.dumps(rules), encoding="utf-8")
+
+    monkeypatch.setattr(farming_advisory, "RULES_PATH", rule_path)
+    farming_advisory.load_farming_advisory_rules.cache_clear()
+
+    try:
+        with pytest.raises(RuntimeError, match="section không hợp lệ"):
+            farming_advisory.load_farming_advisory_rules()
+    finally:
+        farming_advisory.load_farming_advisory_rules.cache_clear()
+
+
+def test_reasoning_falls_back_when_warning_label_missing() -> None:
+    reasoning = FarmingAdvisoryService._build_reasoning(
+        "Base reasoning.",
+        ["new_warning_code"],
+        {},
+    )
+
+    assert "new_warning_code" in reasoning
+
+
+def test_fallback_recommendation_keeps_response_shape() -> None:
+    result = FarmingAdvisoryService.fallback_recommendation(_make_request(month=12))
+
+    assert result["action"] == "off_season"
+    assert result["season_type"] == "off_season"
+    assert result["warnings"] == ["advisory_config_unavailable"]
+    assert result["next_action_month"] == 1
+    assert result["advisory_type"] == "rule_based"
