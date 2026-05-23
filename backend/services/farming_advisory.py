@@ -14,6 +14,8 @@ except ModuleNotFoundError:
 RULES_PATH = Path(__file__).resolve().parents[2] / "data" / "processed" / "farming_advisory_rules.json"
 REQUIRED_MONTH_KEYS = {str(month) for month in range(1, 13)}
 REQUIRED_MONTH_RULE_FIELDS = {"action", "season_type", "reasoning"}
+ALLOWED_ACTIONS = {"post_harvest_care", "flowering_care", "growth_care", "harvest", "off_season"}
+ALLOWED_SEASON_TYPES = {"dry_season", "rainy_season", "main_season", "off_season"}
 REQUIRED_THRESHOLD_KEYS = {
     "base_confidence",
     "min_confidence",
@@ -34,6 +36,10 @@ REQUIRED_WARNING_KEYS = {
 
 def _is_number(value: Any) -> bool:
     return type(value) in (int, float)
+
+
+def _is_string(value: Any) -> bool:
+    return isinstance(value, str)
 
 
 @lru_cache(maxsize=1)
@@ -67,6 +73,12 @@ def _validate_farming_advisory_rules(rules: dict[str, Any]) -> None:
             raise RuntimeError(f"File rule canh tác có rule tháng {month} không hợp lệ")
         if not REQUIRED_MONTH_RULE_FIELDS.issubset(month_rules[month]):
             raise RuntimeError(f"File rule canh tác thiếu field cho tháng {month}")
+        if month_rules[month]["action"] not in ALLOWED_ACTIONS:
+            raise RuntimeError(f"File rule canh tác có action tháng {month} không hợp lệ")
+        if month_rules[month]["season_type"] not in ALLOWED_SEASON_TYPES:
+            raise RuntimeError(f"File rule canh tác có season_type tháng {month} không hợp lệ")
+        if not _is_string(month_rules[month]["reasoning"]):
+            raise RuntimeError(f"File rule canh tác có reasoning tháng {month} không hợp lệ")
 
     if not REQUIRED_THRESHOLD_KEYS.issubset(thresholds):
         raise RuntimeError("File rule canh tác thiếu ngưỡng cảnh báo bắt buộc")
@@ -78,6 +90,8 @@ def _validate_farming_advisory_rules(rules: dict[str, Any]) -> None:
         raise RuntimeError("File rule canh tác có ngưỡng cảnh báo không hợp lệ")
     if not all(_is_number(penalties[key]) for key in REQUIRED_WARNING_KEYS):
         raise RuntimeError("File rule canh tác có penalty cảnh báo không hợp lệ")
+    if not all(_is_string(warning_labels[key]) for key in REQUIRED_WARNING_KEYS):
+        raise RuntimeError("File rule canh tác có nhãn cảnh báo không hợp lệ")
 
 
 class FarmingAdvisoryService:
