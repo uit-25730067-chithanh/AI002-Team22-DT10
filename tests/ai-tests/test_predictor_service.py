@@ -89,8 +89,11 @@ def test_predictor_service_after_model_training(tmp_path) -> None:
     assert "predicted_price_vnd" in result
     assert "confidence_interval" in result
     assert "top_features" in result
+    assert "farming_recommendation" in result
     assert "disclaimer" in result
     assert len(result["top_features"]) == 3  # top 3 features giải thích
+    assert result["farming_recommendation"]["action"] == "harvest"
+    assert result["farming_recommendation"]["advisory_type"] == "rule_based"
 
 
 def test_predictor_service_rejects_unknown_area(tmp_path) -> None:
@@ -106,3 +109,26 @@ def test_predictor_service_rejects_unknown_area(tmp_path) -> None:
 
     with pytest.raises(ValueError, match="area"):
         predictor.predict(payload)
+
+
+def test_predictor_service_falls_back_when_advisory_config_fails(tmp_path, monkeypatch) -> None:
+    predictor = _make_test_predictor(tmp_path)
+    payload = PredictionRequest(
+        province="Dak Lak",
+        area="Buon Ho",
+        avg_temperature_c=26.0,
+        total_rainfall_mm=20.0,
+        soil_data_confidence="medium",
+        month=11,
+    )
+
+    def _raise_runtime_error(_request):
+        raise RuntimeError("broken advisory config")
+
+    monkeypatch.setattr(predictor.farming_advisory, "recommend", _raise_runtime_error)
+
+    result = predictor.predict(payload)
+
+    assert "predicted_price_vnd" in result
+    assert result["farming_recommendation"]["action"] == "off_season"
+    assert result["farming_recommendation"]["warnings"] == ["advisory_config_unavailable"]

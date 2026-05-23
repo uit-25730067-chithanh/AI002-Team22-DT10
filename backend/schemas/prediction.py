@@ -3,7 +3,14 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
-DEFAULT_PREDICTION_DISCLAIMER = "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
+DEFAULT_PREDICTION_DISCLAIMER = "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
+FarmingAction = Literal[
+    "post_harvest_care",
+    "flowering_care",
+    "growth_care",
+    "harvest",
+    "off_season",
+]
 
 
 class PredictionRequest(BaseModel):
@@ -36,6 +43,17 @@ class FeatureExplanation(BaseModel):
     explanation: str      # diễn giải bằng ngôn ngữ tự nhiên
 
 
+class FarmingRecommendation(BaseModel):
+    action: FarmingAction
+    season_type: Literal["dry_season", "rainy_season", "main_season", "off_season"]
+    confidence: float = Field(..., ge=0.0, le=1.0)
+    reasoning: str
+    warnings: list[str]
+    next_action_month: int = Field(..., ge=1, le=12)
+    next_action: FarmingAction
+    advisory_type: Literal["rule_based"] = "rule_based"
+
+
 class PredictionResponse(BaseModel):
     """Đầu ra dự báo — bao gồm giá dự đoán, khoảng tin cậy và lý giải."""
 
@@ -43,4 +61,5 @@ class PredictionResponse(BaseModel):
     confidence_interval: tuple[float, float]  # khoảng tin cậy 95% (ước lượng từ variance cây)
     top_features: list[FeatureExplanation]      # top 3 đặc trưng ảnh hưởng nhất
     model_version: str                  # phiên bản model để traceability
+    farming_recommendation: FarmingRecommendation
     disclaimer: str = DEFAULT_PREDICTION_DISCLAIMER
