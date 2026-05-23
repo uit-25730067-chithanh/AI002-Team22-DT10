@@ -4,6 +4,16 @@
 
 Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend tuần 18/5-24/5.
 
+## UI mode đã chốt
+
+Frontend dùng hướng **form nhập thông số + advisory card**, không làm chatbot hay Q&A tự do.
+User nhập/chọn các thông số có cấu trúc, gọi `POST /predict`, rồi UI render 2 nhóm kết quả:
+
+- Card dự báo giá.
+- Card gợi ý chăm sóc mùa vụ từ `farming_recommendation`.
+
+Các câu hỏi kỹ thuật chi tiết như "vặt chồi bao lâu" không thuộc API contract hiện tại. Nếu cần hiển thị, nên đặt ở phần FAQ tĩnh hoặc note hướng dẫn riêng, không gọi đây là agent chat nông nghiệp.
+
 ## Endpoint dự kiến
 
 - `POST /predict`
@@ -70,9 +80,38 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
     }
   ],
   "model_version": "20260513_155830__rf_real_monthly",
-  "disclaimer": "Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế."
+  "farming_recommendation": {
+    "action": "harvest",
+    "season_type": "main_season",
+    "confidence": 0.85,
+    "reasoning": "Tháng 11 là giai đoạn thu hoạch chính ở Tây Nguyên. Điều kiện đất và thời tiết hiện tại không có cảnh báo lớn. Đây là gợi ý rule-based để tham khảo.",
+    "warnings": [],
+    "next_action_month": 12,
+    "next_action": "harvest",
+    "advisory_type": "rule_based"
+  },
+  "disclaimer": "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
 }
 ```
+
+## Field mới: `farming_recommendation`
+
+Request payload không đổi. Backend chỉ thêm field mới trong response để frontend hiển thị **advisory card** về gợi ý chăm sóc mùa vụ dựa trên rule.
+
+| Field               | Ý nghĩa                                                                                                               | Gợi ý render                         |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `action`            | Mã hành động chính: `post_harvest_care`, `flowering_care`, `growth_care`, `harvest`, `off_season`                     | Map sang tiêu đề tiếng Việt          |
+| `season_type`       | Nhóm mùa: `dry_season`, `rainy_season`, `main_season`, `off_season`                                                   | Badge mùa vụ                         |
+| `confidence`        | Độ tin cậy rule, từ 0 đến 1                                                                                           | Hiển thị phần trăm                   |
+| `reasoning`         | Diễn giải tiếng Việt                                                                                                  | Hiển thị trực tiếp cho user          |
+| `warnings`          | Mã cảnh báo: `low_soil_moisture`, `heavy_rainfall`, `heat_stress`, `low_soil_suitability`, `low_soil_data_confidence` | Map badge/icon nếu kịp               |
+| `next_action_month` | Tháng tiếp theo backend xét rule                                                                                      | Text phụ                             |
+| `next_action`       | Hành động rule của tháng tiếp theo                                                                                    | Text phụ                             |
+| `advisory_type`     | Hiện là `rule_based`                                                                                                  | Có thể ẩn hoặc show nhỏ để minh bạch |
+
+Lưu ý wording cho UI/report: dùng "gợi ý canh tác dựa trên rule", không viết "model AI canh tác đã được huấn luyện". Phần này hỗ trợ minh bạch và social impact, nhưng chưa phải mô hình học máy cho canh tác.
+
+Lưu ý scope UI: không hiển thị như chatbot, không promise trả lời câu hỏi tự do. UI nên dùng heading như "Gợi ý chăm sóc mùa vụ" hoặc "Gợi ý canh tác theo mùa vụ".
 
 ## Ghi chú model hiện tại
 
@@ -89,4 +128,4 @@ R² âm cho thấy distribution 2025 lệch mạnh so với 2022-2024; báo cáo
 
 ## Disclaimer UI bắt buộc
 
-Frontend nên hiển thị câu: `Dự báo chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc quyết định bán hàng thực tế.`
+Frontend nên hiển thị câu: `Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương.`
