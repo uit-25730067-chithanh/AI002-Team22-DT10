@@ -103,6 +103,67 @@ Lưu ý wording cho UI/report: dùng "gợi ý canh tác dựa trên rule", khô
 
 Nếu nhận `warnings=["advisory_config_unavailable"]`, frontend nên vẫn hiển thị kết quả dự báo giá, nhưng card canh tác cần báo nhẹ rằng cấu hình gợi ý mùa vụ chưa sẵn sàng và người dùng nên kiểm tra lại với nguồn địa phương.
 
+## Luồng frontend gọi API
+
+1. Gọi `GET /health` khi mở màn hình hoặc trước lúc demo để kiểm tra backend và model đã sẵn sàng.
+2. User nhập/chọn field trong form, frontend build payload theo `Request mẫu`.
+3. Gửi `POST /predict`.
+4. Nếu response `200`, frontend render kết quả giá và `farming_recommendation`.
+5. Nếu response lỗi, frontend hiển thị lỗi ngắn gọn theo bảng `Xử lý lỗi frontend`.
+
+Có thể test nhanh contract bằng Swagger UI tại `http://localhost:8000/docs` khi backend đang chạy.
+
+## Frontend render response như thế nào
+
+| Nhóm UI                  | Field backend trả về                                                       | Cách hiển thị gợi ý                                                                 |
+| ------------------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Kết quả dự báo giá       | `predicted_price_vnd`                                                      | Format VND/kg, làm số chính của card dự báo                                         |
+| Khoảng dao động          | `confidence_interval`                                                      | Hiển thị dạng `82.000 - 94.900 VND/kg`                                              |
+| Giải thích dự báo        | `top_features`                                                             | Render 1-3 dòng lý do ảnh hưởng chính, dùng `explanation` nếu muốn nhanh            |
+| Phiên bản model          | `model_version`                                                            | Có thể để nhỏ ở footer/debug info để trace khi báo lỗi                              |
+| Gợi ý chăm sóc mùa vụ    | `farming_recommendation.action`, `season_type`, `confidence`, `reasoning`  | Render thành card gợi ý mùa vụ; `reasoning` là text tiếng Việt có thể hiển thị thẳng |
+| Cảnh báo điều kiện       | `farming_recommendation.warnings`                                          | Map sang nhãn tiếng Việt; nếu rỗng thì không cần hiện badge cảnh báo                |
+| Bước tiếp theo           | `next_action_month`, `next_action`                                         | Hiển thị text phụ kiểu `Tháng tiếp theo: Thu hoạch`                                 |
+| Disclaimer               | `disclaimer`                                                               | Luôn hiển thị gần cuối kết quả                                                      |
+
+## Mapping UI cho `farming_recommendation`
+
+| `action`            | Nhãn tiếng Việt gợi ý     |
+| ------------------- | ------------------------- |
+| `post_harvest_care` | Chăm sóc sau thu hoạch    |
+| `flowering_care`    | Chăm sóc giai đoạn ra hoa |
+| `growth_care`       | Chăm sóc giai đoạn sinh trưởng |
+| `harvest`           | Thu hoạch                 |
+| `off_season`        | Theo dõi ngoài mùa chính  |
+
+| `season_type`  | Nhãn tiếng Việt gợi ý |
+| -------------- | --------------------- |
+| `dry_season`   | Mùa khô               |
+| `rainy_season` | Mùa mưa               |
+| `main_season`  | Mùa chính             |
+| `off_season`   | Ngoài mùa chính       |
+
+| Warning code                    | Nhãn tiếng Việt gợi ý                                           |
+| ------------------------------- | --------------------------------------------------------------- |
+| `low_soil_moisture`             | Độ ẩm đất thấp, cần theo dõi tưới nước                          |
+| `heavy_rainfall`                | Lượng mưa cao, cần chú ý thoát nước                             |
+| `heat_stress`                   | Nhiệt độ cao, cây có thể chịu stress nhiệt                      |
+| `low_soil_suitability`          | Điểm phù hợp đất thấp, nên kiểm tra điều kiện đất               |
+| `low_soil_data_confidence`      | Độ tin cậy dữ liệu đất thấp                                     |
+| `advisory_config_unavailable`   | Chưa tải được cấu hình gợi ý mùa vụ, chỉ nên xem dự báo giá trước |
+
+`confidence` là số từ 0 đến 1. Frontend có thể hiển thị `Math.round(confidence * 100) + "%"`.
+
+## Xử lý lỗi frontend
+
+| Trường hợp                        | Backend trả về                      | Frontend nên xử lý                                                                 |
+| --------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------- |
+| Input sai range hoặc thiếu field  | `422` từ Pydantic                   | Báo user kiểm tra lại field nhập; ưu tiên highlight field tương ứng nếu UI có form |
+| Category ngoài tập train          | `422` với message từ backend        | Báo giá trị tỉnh/khu vực/loại đất chưa nằm trong dữ liệu train hiện tại            |
+| Model chưa load hoặc thiếu `.pkl` | `503`                               | Báo backend/model chưa sẵn sàng; không gọi lại liên tục                            |
+| Lỗi không mong muốn               | `500`                               | Báo lỗi hệ thống ngắn gọn và nhờ thử lại sau                                       |
+| `advisory_config_unavailable`     | `200` + warning trong recommendation | Vẫn hiển thị card giá; card gợi ý mùa vụ báo cấu hình gợi ý chưa sẵn sàng          |
+
 ## Ghi chú model hiện tại
 
 | Metric     |                            Giá trị |
