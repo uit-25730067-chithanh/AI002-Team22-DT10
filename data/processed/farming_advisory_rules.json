@@ -1,0 +1,87 @@
+{
+  "month_rules": {
+    "1": {
+      "action": "post_harvest_care",
+      "season_type": "dry_season",
+      "reasoning": "Tháng 1 phù hợp chăm sóc sau thu hoạch, phục hồi cây và chuẩn bị nước tưới mùa khô."
+    },
+    "2": {
+      "action": "flowering_care",
+      "season_type": "dry_season",
+      "reasoning": "Tháng 2 là giai đoạn mùa khô, cần theo dõi ra hoa và nhu cầu tưới nước."
+    },
+    "3": {
+      "action": "flowering_care",
+      "season_type": "dry_season",
+      "reasoning": "Tháng 3 là giai đoạn chăm sóc ra hoa, cần hạn chế thiếu nước kéo dài."
+    },
+    "4": {
+      "action": "flowering_care",
+      "season_type": "dry_season",
+      "reasoning": "Tháng 4 là cuối mùa khô, cần theo dõi nước tưới và sức khỏe cây trước mùa mưa."
+    },
+    "5": {
+      "action": "growth_care",
+      "season_type": "rainy_season",
+      "reasoning": "Tháng 5 bắt đầu mùa mưa, phù hợp chăm sóc sinh trưởng và kế hoạch bón phân."
+    },
+    "6": {
+      "action": "growth_care",
+      "season_type": "rainy_season",
+      "reasoning": "Tháng 6 thuộc mùa mưa, cần chăm sóc sinh trưởng và phòng nấm bệnh."
+    },
+    "7": {
+      "action": "growth_care",
+      "season_type": "rainy_season",
+      "reasoning": "Tháng 7 thuộc mùa mưa, cần theo dõi dinh dưỡng, thoát nước và sâu bệnh."
+    },
+    "8": {
+      "action": "growth_care",
+      "season_type": "rainy_season",
+      "reasoning": "Tháng 8 thuộc mùa mưa, cần duy trì chăm sóc sinh trưởng và phòng bệnh."
+    },
+    "9": {
+      "action": "growth_care",
+      "season_type": "rainy_season",
+      "reasoning": "Tháng 9 cuối mùa mưa, cần theo dõi độ ẩm và chuẩn bị giai đoạn trái chín."
+    },
+    "10": {
+      "action": "harvest",
+      "season_type": "main_season",
+      "reasoning": "Tháng 10 bắt đầu giai đoạn thu hoạch chính ở nhiều vùng cà phê Tây Nguyên."
+    },
+    "11": {
+      "action": "harvest",
+      "season_type": "main_season",
+      "reasoning": "Tháng 11 là giai đoạn thu hoạch chính ở Tây Nguyên."
+    },
+    "12": {
+      "action": "harvest",
+      "season_type": "main_season",
+      "reasoning": "Tháng 12 vẫn thuộc giai đoạn thu hoạch và chuẩn bị chăm sóc sau thu hoạch."
+    }
+  },
+  "thresholds": {
+    "base_confidence": 0.85,
+    "min_confidence": 0.4,
+    "max_confidence": 0.95,
+    "low_soil_moisture": 0.18,
+    "heavy_rainfall": 250.0,
+    "heat_stress": 34.0,
+    "low_soil_score": 3.0
+  },
+  "penalties": {
+    "low_soil_moisture": 0.07,
+    "heavy_rainfall": 0.05,
+    "heat_stress": 0.05,
+    "low_soil_suitability": 0.1,
+    "low_soil_data_confidence": 0.08
+  },
+  "warning_labels": {
+    "low_soil_moisture": "độ ẩm đất thấp",
+    "heavy_rainfall": "lượng mưa cao, cần chú ý thoát nước và nấm bệnh",
+    "heat_stress": "nhiệt độ cao có thể gây stress nhiệt",
+    "low_soil_suitability": "điểm đất thấp hơn nhóm đất cà phê ưu tiên",
+    "low_soil_data_confidence": "độ tin cậy dữ liệu đất thấp"
+  }
+}

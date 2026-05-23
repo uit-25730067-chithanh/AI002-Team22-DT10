@@ -12,8 +12,10 @@ import pandas as pd
 # Import schema; fallback để chạy được cả từ root và từ thư mục backend
 try:
     from backend.schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
+    from backend.services.farming_advisory import FarmingAdvisoryService
 except ModuleNotFoundError:
     from schemas.prediction import DEFAULT_PREDICTION_DISCLAIMER, PredictionRequest
+    from services.farming_advisory import FarmingAdvisoryService
 
 
 @dataclass
@@ -35,6 +37,7 @@ class PredictorService:
         self.model_path = Path(model_path)
         self.model: Any | None = None
         self.model_info: ModelInfo | None = None
+        self.farming_advisory = FarmingAdvisoryService()
 
     def load_model(self) -> bool:
         """Load model từ file .pkl; trả về False nếu file chưa có."""
@@ -198,6 +201,7 @@ class PredictorService:
             "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
+            "farming_recommendation": self.farming_advisory.recommend(request),
             "disclaimer": DEFAULT_PREDICTION_DISCLAIMER,
         }
 

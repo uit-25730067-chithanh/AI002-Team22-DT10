@@ -89,8 +89,11 @@ def test_predictor_service_after_model_training(tmp_path) -> None:
     assert "predicted_price_vnd" in result
     assert "confidence_interval" in result
     assert "top_features" in result
+    assert "farming_recommendation" in result
     assert "disclaimer" in result
     assert len(result["top_features"]) == 3  # top 3 features giải thích
+    assert result["farming_recommendation"]["action"] == "harvest"
+    assert result["farming_recommendation"]["advisory_type"] == "rule_based"
 
 
 def test_predictor_service_rejects_unknown_area(tmp_path) -> None:
