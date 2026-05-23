@@ -4,6 +4,14 @@
 
 Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend tuần 18/5-24/5.
 
+## Giới hạn dữ liệu thời tiết và năm demo
+
+Phần demo hiện nên giới hạn ở năm 2025 vì dataset đã xử lý có dữ liệu giá, thời tiết và đất đến hết năm 2025. Backend hiện không có model riêng để dự báo thời tiết tương lai.
+
+Các field thời tiết như `avg_temperature_c`, `total_rainfall_mm`, `avg_humidity_percent`, `avg_soil_moisture_0_7cm` phải đến từ dữ liệu đã chuẩn bị sẵn hoặc do frontend/user nhập. API chỉ dùng các giá trị này làm input để dự báo giá và tạo gợi ý canh tác rule-based; API không tự sinh dự báo thời tiết.
+
+Khi viết báo cáo hoặc UI copy, nên nói: "gợi ý canh tác dựa trên dữ liệu thời tiết/đất đầu vào và rule mùa vụ". Không nên nói hệ thống đã có model dự báo thời tiết hoặc model AI riêng để lập kế hoạch canh tác.
+
 ## Endpoint dự kiến
 
 - `POST /predict`
@@ -40,8 +48,8 @@ Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend 
 | `province`                     | Có       | Tỉnh trồng cà phê                                                                      |
 | `area`                         | Có       | Khu vực/huyện, ví dụ `Buon Ho`                                                         |
 | `month`                        | Có       | Tháng cần dự báo, 1-12                                                                 |
-| `avg_temperature_c`            | Có       | Có thể lấy default/latest từ data nếu UI chưa nhập                                     |
-| `total_rainfall_mm`            | Có       | Có thể lấy default/latest từ data nếu UI chưa nhập                                     |
+| `avg_temperature_c`            | Có       | Lấy từ dữ liệu thời tiết đã chuẩn bị hoặc user nhập; backend không dự báo field này     |
+| `total_rainfall_mm`            | Có       | Lấy từ dữ liệu thời tiết đã chuẩn bị hoặc user nhập; backend không dự báo field này     |
 | `avg_humidity_percent`         | Không    | Backend default 75 nếu thiếu                                                           |
 | `avg_soil_moisture_0_7cm`      | Không    | Backend default 0.24 nếu thiếu                                                         |
 | `soil_score`                   | Không    | Backend default 5 nếu thiếu                                                            |
