@@ -1,4 +1,6 @@
-from fastapi import APIRouter, HTTPException
+import os
+import secrets
+from fastapi import APIRouter, HTTPException, Header, Depends
 
 # Import schema và service; fallback để chạy được cả từ root và từ thư mục backend
 try:
@@ -9,6 +11,18 @@ except ModuleNotFoundError:
     from services.predictor import PredictorService
 
 router = APIRouter()
+
+
+def verify_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> None:
+    """Kiểm tra API key cho protected endpoints."""
+    expected_key = os.getenv("AI002_API_KEY")
+    if not expected_key:
+        raise HTTPException(
+            status_code=503,
+            detail="API key config missing - set AI002_API_KEY env var"
+        )
+    if not x_api_key or not secrets.compare_digest(x_api_key, expected_key):
+        raise HTTPException(status_code=401, detail="Invalid API key")
 
 # Khởi tạo predictor và load model ngay khi module import (module-level singleton)
 predictor = PredictorService()
@@ -21,8 +35,18 @@ def health() -> dict:
     return {"status": "ok", "model_loaded": predictor.is_loaded()}
 
 
+@router.get("/debug/env")
+def debug_env() -> dict:
+    """Debug endpoint để kiểm tra env var (chỉ dùng cho development)."""
+    return {
+        "AI002_API_KEY_set": bool(os.getenv("AI002_API_KEY")),
+        "AI002_API_KEY_length": len(os.getenv("AI002_API_KEY", "")),
+        "AI002_API_KEY_prefix": os.getenv("AI002_API_KEY", "")[:8] + "..." if os.getenv("AI002_API_KEY") else None,
+    }
+
+
 @router.post("/predict", response_model=PredictionResponse)
-def predict(payload: PredictionRequest) -> PredictionResponse:
+def predict(payload: PredictionRequest, _auth: None = Depends(verify_api_key)) -> PredictionResponse:
     """
     Dự báo giá cà phê dựa trên đầu vào thời tiết + giá lịch sử.
     Tự động validate bởi Pydantic (Trụ cột Robustness).
@@ -41,6 +65,6 @@ def predict(payload: PredictionRequest) -> PredictionResponse:
 
 
 @router.get("/model/info")
-def model_info() -> dict:
+def model_info(_auth: None = Depends(verify_api_key)) -> dict:
     """Trả về thông tin model: version, danh sách features, thời gian train."""
     return predictor.get_model_info()
