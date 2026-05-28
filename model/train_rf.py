@@ -4,6 +4,8 @@ Lưu model .pkl và in ra metrics MAE/RMSE/R^2.
 Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import sys
@@ -18,7 +20,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # Đảm bảo import preprocess và tracker từ cùng thư mục
 sys.path.insert(0, str(Path(__file__).parent))
-from experiment_tracker import (
+from experiment_tracker import (  # noqa: E402
     append_experiment_csv,
     build_params,
     create_experiment,
@@ -27,7 +29,7 @@ from experiment_tracker import (
     save_params,
     update_best_model,
 )
-from preprocess import preprocess_pipeline, split_temporal
+from preprocess import preprocess_pipeline, split_temporal  # noqa: E402
 
 
 def _update_best_model_after_training(tag: str, experiment_id: str) -> Path | None:
@@ -98,7 +100,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         "feature_count": len(X_train.columns),
     }
 
-    print(f"\n=== Kết quả Random Forest Baseline ===")
+    print("\n=== Kết quả Random Forest Baseline ===")
     print(f"MAE  = {mae:,.0f} VND/kg")
     print(f"RMSE = {rmse:,.0f} VND/kg")
     print(f"R^2  = {r2:.4f}")
@@ -109,7 +111,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         index=X_train.columns,
     ).sort_values(ascending=False)
 
-    print(f"\n=== Feature Importance (Top 10) ===")
+    print("\n=== Feature Importance (Top 10) ===")
     for feat, imp in importances.head(10).items():
         print(f"  {feat}: {imp:.4f}")
 

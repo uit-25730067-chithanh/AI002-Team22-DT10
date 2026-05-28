@@ -3,7 +3,10 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
-DEFAULT_PREDICTION_DISCLAIMER = "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
+DEFAULT_PREDICTION_DISCLAIMER = (
+    "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, "
+    "không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
+)
 FarmingAction = Literal[
     "post_harvest_care",
     "flowering_care",

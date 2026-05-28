@@ -4,6 +4,8 @@ Cover Trụ cột Robustness bằng báo cáo thay vì module phức tạp.
 Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import sys
@@ -15,14 +17,14 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).parent))
-from experiment_tracker import (
+from experiment_tracker import (  # noqa: E402
     build_params,
     create_experiment,
     get_latest_experiment,
     save_metrics,
     save_params,
 )
-from preprocess import feature_engineer, fill_missing, split_temporal
+from preprocess import feature_engineer, fill_missing, split_temporal  # noqa: E402
 
 
 def inject_black_swan(df: pd.DataFrame, scenario: str) -> pd.DataFrame:

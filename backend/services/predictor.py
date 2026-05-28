@@ -56,11 +56,11 @@ class PredictorService:
         if meta_path.exists():
             try:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
-                version = f"{meta.get('experiment_id', 'unknown')}"
-                trained_at = meta.get("timestamp", trained_at)
-                feature_names = list(meta.get("feature_names", feature_names))
-            except Exception:
-                pass
+            except (OSError, json.JSONDecodeError, TypeError):
+                meta = {}
+            version = f"{meta.get('experiment_id', 'unknown')}" if meta else version
+            trained_at = meta.get("timestamp", trained_at) if meta else trained_at
+            feature_names = list(meta.get("feature_names", feature_names)) if meta else feature_names
 
         self.model_info = ModelInfo(
             version=version,
@@ -91,7 +91,11 @@ class PredictorService:
         soil_moisture = request.avg_soil_moisture_0_7cm if request.avg_soil_moisture_0_7cm is not None else 0.24
         soil_score = request.soil_score if request.soil_score is not None else 5.0
         latest_price = request.latest_price_vnd_per_kg if request.latest_price_vnd_per_kg is not None else 90000.0
-        rolling_price = request.rolling_avg_price_vnd_per_kg if request.rolling_avg_price_vnd_per_kg is not None else latest_price
+        rolling_price = (
+            request.rolling_avg_price_vnd_per_kg
+            if request.rolling_avg_price_vnd_per_kg is not None
+            else latest_price
+        )
         price_observations = request.price_observations
         if price_observations is None:
             price_observations = 1.0 if request.price_fill_method == "observed" else 0.0
@@ -174,7 +178,10 @@ class PredictorService:
                     "feature": feature,
                     "importance": round(importance, 4),
                     "input_value": round(value, 4),
-                    "explanation": f"{feature} có mức quan trọng cao ({importance:.2%}) với giá trị hiện tại {value:.2f}.",
+                    "explanation": (
+                        f"{feature} có mức quan trọng cao ({importance:.2%}) "
+                        f"với giá trị hiện tại {value:.2f}."
+                    ),
                 }
             )
         return explanations
@@ -220,7 +227,8 @@ class PredictorService:
                 "trained_at": None,
             }
 
-        assert self.model_info is not None
+        if self.model_info is None:
+            raise RuntimeError("Model metadata chưa được load")
         return {
             "model_loaded": True,
             "model_path": str(self.model_path),
