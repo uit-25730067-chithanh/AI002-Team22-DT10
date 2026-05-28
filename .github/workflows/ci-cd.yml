@@ -1,0 +1,30 @@
+name: CI/CD Backend
+
+on:
+  push:
+    branches: [main]
+    paths: ['backend/**', 'model/**', 'requirements.txt']
+  pull_request:
+    branches: [main]
+    paths: ['backend/**', 'model/**', 'requirements.txt']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - run: pip install -r requirements.txt
+      - run: python3 -m pytest tests/ai-tests/ -q
+      - run: pip install flake8 bandit
+      - run: flake8 backend/ model/ --max-line-length=120
+      - run: bandit -r backend/ -f json -o bandit-report.json || true
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

@@ -19,7 +19,7 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 sys.path.insert(0, str(Path(__file__).parent))
-from experiment_tracker import (
+from experiment_tracker import (  # noqa: E402
     append_experiment_csv,
     build_params,
     create_experiment,
@@ -27,7 +27,7 @@ from experiment_tracker import (
     save_params,
     update_best_model,
 )
-from preprocess import preprocess_pipeline, split_temporal
+from preprocess import preprocess_pipeline, split_temporal  # noqa: E402
 
 
 def try_import_xgboost():
@@ -78,7 +78,7 @@ def train_and_compare(data_path: str, tag: str = "xgboost") -> dict:
         "test_size": len(X_test),
     }
 
-    print(f"\n=== Kết quả XGBoost ===")
+    print("\n=== Kết quả XGBoost ===")
     print(f"MAE  = {mae:,.0f} VND/kg")
     print(f"RMSE = {rmse:,.0f} VND/kg")
     print(f"R^2  = {r2:.4f}")

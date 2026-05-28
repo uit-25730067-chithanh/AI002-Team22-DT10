@@ -53,7 +53,15 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
         raise ValueError("Không còn dòng hợp lệ sau khi chuẩn hóa date và historical_price_vnd")
 
-    for col in ["avg_temp_c", "rainfall_mm", "humidity_pct", "avg_soil_moisture_0_7cm", "soil_score", "price_observations"]:
+    numeric_cols = [
+        "avg_temp_c",
+        "rainfall_mm",
+        "humidity_pct",
+        "avg_soil_moisture_0_7cm",
+        "soil_score",
+        "price_observations",
+    ]
+    for col in numeric_cols:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
 
@@ -135,7 +143,9 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
         grouped_price = df.groupby("area", sort=False)["historical_price_vnd"]
         df["lag_1d"] = grouped_price.shift(1)
         df["lag_7d"] = grouped_price.shift(7)
-        df["rolling_avg_7d"] = df.groupby("area", sort=False)["lag_1d"].transform(lambda s: s.rolling(window=7, min_periods=1).mean())
+        df["rolling_avg_7d"] = df.groupby("area", sort=False)["lag_1d"].transform(
+            lambda s: s.rolling(window=7, min_periods=1).mean()
+        )
     else:
         df["lag_1d"] = df["historical_price_vnd"].shift(1)
         df["lag_7d"] = df["historical_price_vnd"].shift(7)
@@ -172,7 +182,12 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def split_temporal(df: pd.DataFrame, train_end: str = "2024-12-31", test_start: str = "2025-01-01", train_ratio: float = 0.8) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+def split_temporal(
+    df: pd.DataFrame,
+    train_end: str = "2024-12-31",
+    test_start: str = "2025-01-01",
+    train_ratio: float = 0.8,
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     """
     Chia train/test theo thời gian (không random shuffle — tránh data leakage trong time-series).
 
