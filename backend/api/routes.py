@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import secrets
 from fastapi import APIRouter, HTTPException, Header, Depends
@@ -24,6 +26,7 @@ def verify_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key
     if not x_api_key or not secrets.compare_digest(x_api_key, expected_key):
         raise HTTPException(status_code=401, detail="Invalid API key")
 
+
 # Khởi tạo predictor và load model ngay khi module import (module-level singleton)
 predictor = PredictorService()
 predictor.load_model()
@@ -33,16 +36,6 @@ predictor.load_model()
 def health() -> dict:
     """Kiểm tra trạng thái API và xem model đã load thành công chưa."""
     return {"status": "ok", "model_loaded": predictor.is_loaded()}
-
-
-@router.get("/debug/env")
-def debug_env() -> dict:
-    """Debug endpoint để kiểm tra env var (chỉ dùng cho development)."""
-    return {
-        "AI002_API_KEY_set": bool(os.getenv("AI002_API_KEY")),
-        "AI002_API_KEY_length": len(os.getenv("AI002_API_KEY", "")),
-        "AI002_API_KEY_prefix": os.getenv("AI002_API_KEY", "")[:8] + "..." if os.getenv("AI002_API_KEY") else None,
-    }
 
 
 @router.post("/predict", response_model=PredictionResponse)
