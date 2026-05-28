@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import os
 import secrets
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Header, Depends
 
 # Import schema và service; fallback để chạy được cả từ root và từ thư mục backend
@@ -15,7 +17,7 @@ except ModuleNotFoundError:
 router = APIRouter()
 
 
-def verify_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> None:
+def verify_api_key(x_api_key: Optional[str] = Header(default=None, alias="X-API-Key")) -> None:
     """Kiểm tra API key cho protected endpoints."""
     expected_key = os.getenv("AI002_API_KEY")
     if not expected_key:
