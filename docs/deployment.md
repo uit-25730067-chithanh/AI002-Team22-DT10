@@ -57,7 +57,7 @@ Thay đổi frontend, crawler, docs sẽ không trigger deploy.
 1. Vào GitHub repo: Settings → Secrets and variables → Actions
 2. Thêm secret:
    - Name: `RENDER_DEPLOY_HOOK_URL`
-   - Value: `https://api.render.com/deploy/srv-d8b8tqbeo5us73and3ag?key=sTgx4sYlFBY`
+   - Value: `<render-deploy-hook-url>`
 
 ### Disable Render Native Integration
 
