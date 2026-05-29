@@ -15,6 +15,7 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 - [API Integration QA Checklist](discussions/2026-05-13-son-api-integration-qa-checklist.md): Danh sách kiểm tra edge cases cho tuần frontend/backend integration.
 - [5 Pillars Checkpoint](discussions/5-pillars-checkpoint.md): Ma trận bằng chứng Reliability, Bias, Robustness, Social Impact, Transparency.
 - [Report Index](report/README.md): Chỉ mục note báo cáo theo tuần/milestone sau khi reorganize report docs.
+- [Hướng dẫn chạy Backend Local và Self-host](self-host-guide.md): Checklist chạy API cho frontend, demo nội bộ và server do backend chọn.
 - [Sửa lỗi (Troubleshooting)](troubleshooting.md): Hướng dẫn khắc phục các lỗi thường gặp khi chạy dự án.
 
 ## 🧭 Luồng đọc nhanh cho thành viên mới
@@ -31,13 +32,23 @@ flowchart TD
     H --> I[Codebase summary]
 ```
 
+## Luồng đọc theo nhu cầu
+
+| Bạn cần làm gì? | Đọc tài liệu nào trước | Kết quả cần đạt |
+| --- | --- | --- |
+| Hiểu dự án trong 10 phút | `README.md`, `project-overview-pdr.md` | Nắm đề tài, team, 5 trụ cột |
+| Nối frontend với backend | `discussions/2026-05-13-api-handoff-team2-real-data.md`, `self-host-guide.md` | Biết payload, response, API key, lỗi thường gặp |
+| Chạy API để demo | `self-host-guide.md`, `troubleshooting.md` | Mở được `/health`, `/docs`, `/model/info` |
+| Deploy backend cho cả team | Người phụ trách backend chọn nền tảng, sau đó chia sẻ base URL + API key nội bộ | Frontend biết URL, header auth và cách báo lỗi |
+| Viết báo cáo cuối kỳ | `5-pillars-checkpoint.md`, `project-roadmap.md`, `report/README.md` | Có bằng chứng Reliability/Bias/Robustness/Social Impact/Transparency |
+
 ## 🔗 Tài liệu theo vai trò
 
 ```mermaid
 flowchart LR
     A[Phúc và Thịnh] --> B[Data flow roadmap]
     A --> C[API handoff real data]
-    A --> D[Frontend integration]
+    A --> D[Self-host guide]
 
     E[Thanh] --> B
     E --> F[Project roadmap]

@@ -94,6 +94,7 @@ Tài liệu chi tiết:
 - [API handoff real data model](./docs/discussions/2026-05-13-api-handoff-team2-real-data.md)
 - [Sơn evaluation pack summary](./docs/discussions/2026-05-13-son-evaluation-pack-summary.md)
 - [5 Pillars checkpoint](./docs/discussions/5-pillars-checkpoint.md)
+- [Hướng dẫn chạy Backend Local và Self-host](./docs/self-host-guide.md)
 
 ---
 
@@ -190,11 +191,13 @@ uvicorn backend.main:app --reload
 
 **Tip:** Navigate to `http://localhost:8000/docs` for interactive Swagger UI.
 
+Để chạy backend cho frontend hoặc tự host trên máy/server bất kỳ, xem [Hướng dẫn chạy Backend Local và Self-host](./docs/self-host-guide.md).
+
 ### 4. Running Tests
 
 ```bash
-# Predictor service tests (skip gracefully if model not yet trained)
-python3 -m pytest tests/ai-tests/test_predictor_service.py -q
+# Full AI/backend tests
+python3 -m pytest tests/ai-tests -q
 ```
 
 ### 5. Training the Baseline Model

@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Real Data Baseline + API Contract — **ĐANG TÍCH HỢP**
-**Cập nhật:** 2026-05-13
+**Trạng thái:** Real Data Baseline + Protected API Contract — **ĐANG TÍCH HỢP**
+**Cập nhật:** 2026-05-28
 
 ---
 
@@ -12,7 +12,7 @@
 | File                    | Mô tả                                                                                                                                 | Trụ cột AI liên quan                                          |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                                                  | —                                                             |
-| `api/routes.py`         | 3 endpoint: `/health`, `/predict`, `/model/info`                                                                                      | Robustness (Pydantic validate), Transparency (trả giải thích) |
+| `api/routes.py`         | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key`                                 | Robustness (Pydantic validate), Transparency (trả giải thích) |
 | `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
 | `services/predictor.py` | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
 
@@ -47,6 +47,7 @@
 | ------------------------------ | ------------------------------------------------------------------------------------ |
 | `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; `pytest.skip` khi model chưa có |
 | `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run theo metric                    |
+| `test_api_security.py`         | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config             |
 
 ### `docs/discussions/` — Tài liệu nội bộ
 
@@ -56,6 +57,14 @@
 | `robustness-stress-test.md`                 | Báo cáo stress test tự động sinh bởi `stress_test.py`        |
 | `2026-05-13-team-data-flow-roadmap.md`      | Roadmap luồng dữ liệu thật từ crawler đến model/API/frontend |
 | `2026-05-13-api-handoff-team2-real-data.md` | API handoff contract `/predict` cho frontend                 |
+
+### `docs/` — Tài liệu vận hành và bàn giao
+
+| File | Mô tả |
+| --- | --- |
+| `README.md` | Chỉ mục tài liệu theo vai trò và nhu cầu đọc |
+| `self-host-guide.md` | Hướng dẫn chạy backend local, test API key, systemd và Nginx |
+| `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
 
 ### `docs/report/` — Note báo cáo theo tuần
 

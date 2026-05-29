@@ -1,14 +1,7 @@
-# ===== Python =====
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.egg-info/
-dist/
-build/
-.env
-venv/
-env/
+# Specific exclusions requested by the user
+CLAUDE.md
+AGENTS.md
+plans/
 
 # ===== Data (files lớn, không push lên git) =====
 data/raw/
@@ -26,24 +19,57 @@ model/best_model/*.pkl
 *.swp
 *.swo
 
-# ===== OS =====
-**/.DS_Store
-**/.Thumbs.db
-
-# ===== Misc =====
-*.log
-*.tmp
-
-# ===== AI Tooling Exclusions =====
-.github/copilot-instructions.md
-.cursorrules
-CLAUDE.md
-AGENTS.md
+# AI tooling
+.claude/
+!.claude/rules/
+.claude/memory/
+.claude/skills/.venv/
+.claude/hooks/.logs/
+.claude/sessions/
+.claude/backups/
+.claude/*.json
 .windsurf/
 .opencode/
-.claude/
-.agents/
-plans/
-logs/
-tmp/
+.cursorrules/
 
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Environment variables
+.env
+.env.local
+
+# Build/Dist
+build/
+dist/
+*.egg-info/
+
+# Temp
+tmp/
+notes/
+scratch/
+slide/
+docs/journals
+
+# GitHub Project Management
+.github-management/
