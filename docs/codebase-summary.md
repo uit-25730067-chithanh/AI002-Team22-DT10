@@ -15,6 +15,7 @@
 | `api/routes.py`         | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key`                                 | Robustness (Pydantic validate), Transparency (trả giải thích) |
 | `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
 | `services/predictor.py` | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
+| `services/farming_advisory.py`| `FarmingAdvisoryService`: cung cấp khuyến nghị canh tác theo luật (rule-based) dựa trên tháng, lượng mưa và điểm chất lượng đất | Social Impact, Robustness                                     |
 
 ### `model/` — AI/ML Pipeline (Team 2)
 
@@ -48,6 +49,7 @@
 | `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; sử dụng model fixture trong tmp_path để test |
 | `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run theo metric                    |
 | `test_api_security.py`         | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config             |
+| `test_farming_advisory_service.py` | Kiểm tra FarmingAdvisoryService trả về khuyến nghị đúng theo quy tắc lượng mưa, tháng, và điểm đất |
 
 ### `docs/discussions/` — Tài liệu nội bộ
 

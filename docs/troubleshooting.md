@@ -30,7 +30,7 @@ _(Bản nháp - Sẽ được bổ sung liên tục trong quá trình dev)_
 ## 6. Gọi endpoint protected bị `503 Service Unavailable`
 
 **Lỗi:** Backend trả thông báo thiếu `AI002_API_KEY` hoặc model chưa sẵn sàng.
-**Cách sửa:** Kiểm tra biến môi trường `AI002_API_KEY` đã được set trong terminal/server chưa. Nếu lỗi liên quan model, kiểm tra `model/best_model/model.pkl` và chạy lại train/promote model nếu thiếu.
+**Cách sửa:** Kiểm tra biến môi trường `AI002_API_KEY` đã được set trong terminal/server chưa. Nếu lỗi liên quan model, kiểm tra `model/best_model/model.pkl` (file này đã được commit sẵn trong repo để demo tiện lợi, nhưng có thể bị hỏng hoặc mất trong quá trình clone/merge). Nếu bị mất hoặc hỏng, hãy chạy lệnh train và promote model để tạo lại.
 
 ## 7. Frontend gửi request bị `422 Unprocessable Entity`
 

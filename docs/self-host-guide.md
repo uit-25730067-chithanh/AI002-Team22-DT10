@@ -88,7 +88,7 @@ Kết quả thường gặp:
 | --- | --- | --- |
 | `200` | API chạy đúng | Có thể nối frontend |
 | `401` | Thiếu hoặc sai API key | Kiểm tra header `X-API-Key` |
-| `503` | Thiếu cấu hình hoặc model chưa sẵn sàng | Kiểm tra `AI002_API_KEY`, `model/best_model/model.pkl` |
+| `503` | Thiếu cấu hình hoặc model chưa sẵn sàng | Kiểm tra `AI002_API_KEY` và file `model/best_model/model.pkl` (đã được commit sẵn trong repo) |
 | `422` | Payload sai schema hoặc category ngoài tập train | So lại với API handoff doc |
 
 ## 6. Self-host trên Linux bằng systemd
