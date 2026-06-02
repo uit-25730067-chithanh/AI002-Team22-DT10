@@ -21,3 +21,18 @@ _(Bản nháp - Sẽ được bổ sung liên tục trong quá trình dev)_
 
 **Lỗi:** Trình duyệt báo đỏ `Blocked by CORS policy` khi Frontend (HTML) gọi API.
 **Cách sửa:** Báo cho Team 2 thêm domain của Frontend vào phần cấu hình `CORSMiddleware` bên trong file `main.py` của FastAPI.
+
+## 5. Gọi `/predict` hoặc `/model/info` bị `401 Unauthorized`
+
+**Lỗi:** Backend trả `{"detail":"Invalid API key"}`.
+**Cách sửa:** Frontend hoặc `curl` phải gửi header `X-API-Key` đúng với key demo nội bộ. Không đặt key thật trong file được commit lên Git.
+
+## 6. Gọi endpoint protected bị `503 Service Unavailable`
+
+**Lỗi:** Backend trả thông báo thiếu `AI002_API_KEY` hoặc model chưa sẵn sàng.
+**Cách sửa:** Kiểm tra biến môi trường `AI002_API_KEY` đã được set trong terminal/server chưa. Nếu lỗi liên quan model, kiểm tra `model/best_model/model.pkl` và chạy lại train/promote model nếu thiếu.
+
+## 7. Frontend gửi request bị `422 Unprocessable Entity`
+
+**Lỗi:** Payload sai field, sai range hoặc category không nằm trong tập train.
+**Cách sửa:** So lại request với `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`. Các field như `province`, `area`, `coffee_type`, `price_fill_method`, `dominant_soil_type` phải khớp nhóm giá trị backend đã train.

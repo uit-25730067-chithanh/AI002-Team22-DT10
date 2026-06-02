@@ -14,7 +14,7 @@ model/best_model/*.pkl
 
 # ===== Jupyter Notebook =====
 .ipynb_checkpoints/
-
+*.ipynb_checkpoints
 
 # ClaudeKit / AI tooling
 .claude/
@@ -26,6 +26,8 @@ model/best_model/*.pkl
 .claude/backups/
 .claude/*.json
 .windsurf/
+.opencode/
+.cursorrules/
 
 # macOS
 .DS_Store
@@ -49,7 +51,6 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
-*.ipynb_checkpoints
 
 # Environment variables
 .env
@@ -64,8 +65,8 @@ dist/
 tmp/
 notes/
 scratch/
+slide/
 docs/journals
 
 # GitHub Project Management
 .github-management/
-
