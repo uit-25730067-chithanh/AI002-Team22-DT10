@@ -45,7 +45,7 @@
 
 | File                           | Mô tả                                                                                |
 | ------------------------------ | ------------------------------------------------------------------------------------ |
-| `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; `pytest.skip` khi model chưa có |
+| `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; sử dụng model fixture trong tmp_path để test |
 | `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run theo metric                    |
 | `test_api_security.py`         | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config             |
 

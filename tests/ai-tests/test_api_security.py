@@ -1,4 +1,4 @@
-"""Test API security: API key guard và CORS behavior."""
+"""Test API security: API key guard."""
 
 import os
 from fastapi.testclient import TestClient
@@ -65,7 +65,7 @@ def test_model_info_correct_key_returns_200(monkeypatch):
     response = client.get("/model/info", headers={"X-API-Key": "test-demo-key"})
     assert response.status_code == 200
     data = response.json()
-    assert "model_version" in data or "experiment_id" in data
+    assert "model_version" in data
 
 
 def test_predict_missing_key_returns_401(monkeypatch):
@@ -76,10 +76,10 @@ def test_predict_missing_key_returns_401(monkeypatch):
         "area": "Cu M'gar",
         "month": 5,
         "year": 2025,
-        "avg_temp_c": 25.0,
-        "humidity_pct": 80.0,
-        "rainfall_mm": 150.0,
-        "avg_soil_moisture_0_7cm": 30.0,
+        "avg_temperature_c": 25.0,
+        "avg_humidity_percent": 80.0,
+        "total_rainfall_mm": 150.0,
+        "avg_soil_moisture_0_7cm": 0.3,
         "soil_score": 0.7,
         "coffee_type": "Robusta / ca phe nhan xo noi dia",
         "price_observations": 100,
@@ -96,10 +96,10 @@ def test_predict_wrong_key_returns_401(monkeypatch):
         "area": "Cu M'gar",
         "month": 5,
         "year": 2025,
-        "avg_temp_c": 25.0,
-        "humidity_pct": 80.0,
-        "rainfall_mm": 150.0,
-        "avg_soil_moisture_0_7cm": 30.0,
+        "avg_temperature_c": 25.0,
+        "avg_humidity_percent": 80.0,
+        "total_rainfall_mm": 150.0,
+        "avg_soil_moisture_0_7cm": 0.3,
         "soil_score": 0.7,
         "coffee_type": "Robusta / ca phe nhan xo noi dia",
         "price_observations": 100,
@@ -116,10 +116,10 @@ def test_predict_correct_key_returns_200(monkeypatch):
         "area": "Cu M'gar",
         "month": 5,
         "year": 2025,
-        "avg_temp_c": 25.0,
-        "humidity_pct": 80.0,
-        "rainfall_mm": 150.0,
-        "avg_soil_moisture_0_7cm": 30.0,
+        "avg_temperature_c": 25.0,
+        "avg_humidity_percent": 80.0,
+        "total_rainfall_mm": 150.0,
+        "avg_soil_moisture_0_7cm": 0.3,
         "soil_score": 0.7,
         "coffee_type": "Robusta / ca phe nhan xo noi dia",
         "price_observations": 100,
@@ -128,7 +128,9 @@ def test_predict_correct_key_returns_200(monkeypatch):
     # Có thể 200, 422 (validation), hoặc 503 nếu model chưa load
     # Chỉ verify auth pass (không phải 401/503 config)
     assert response.status_code in [200, 422, 503]
-    assert response.status_code not in [401]  # Auth phải pass
+    assert response.status_code != 401  # Auth phải pass
+    if response.status_code == 503:
+        assert "config" not in response.json().get("detail", "").lower()
 
 
 def test_missing_env_var_returns_503(monkeypatch):
