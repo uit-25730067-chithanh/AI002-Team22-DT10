@@ -238,21 +238,21 @@ stateDiagram-v2
 - [x] Trích xuất feature importance.
 - [x] Lưu best model và metadata.
 - [x] Sơn bổ sung kiểm toán dữ liệu thật, bias độ phủ bằng chứng và 5 Pillars checkpoint trong PR #12.
-- [ ] Stress test real-data/API integration follow-up sau khi frontend/backend ổn định.
+- [x] Chạy stress test tự động cho kịch bản cực đoan (Black Swan) trên dữ liệu thật.
 
 ### Tuần 5 — API và Integration
 
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
 - [x] API validate numeric ranges, enum và category đã train.
 - [x] Sơn bổ sung danh sách kiểm tra integration API/frontend cho Team 1.
-- [ ] Team 1 nối frontend với API.
+- [ ] Team 1 nối frontend với API (local pending push từ Phúc).
 - [ ] Demo end-to-end.
 
 ### Tuần 6 — Báo cáo và slide
 
 - [x] Có 5 Pillars checkpoint real-data từ PR #12.
-- [ ] Chuyển bằng chứng 5 Pillars vào slide/report cuối kỳ.
-- [ ] Chuẩn bị slide thuyết trình.
+- [x] Chuyển bằng chứng 5 Pillars và stress test vào slide/report cuối kỳ.
+- [x] Chuẩn bị slide thuyết trình (final_presentation_slides.md).
 - [ ] Tổng duyệt demo.
 
 ## WBS cập nhật

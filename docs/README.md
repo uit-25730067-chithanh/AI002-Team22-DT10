@@ -7,6 +7,7 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 - [Project Overview (PDR)](project-overview-pdr.md): Kiến trúc cốt lõi, 5 Trụ cột AI Bền vững và phân công nhiệm vụ.
 - [Tiêu chuẩn Code (Code Standards)](code-standards.md): Các quy tắc lập trình, quy trình Git và ràng buộc AI.
 - [Tóm tắt Codebase (Codebase Summary)](codebase-summary.md): Giải thích chi tiết các phân hệ (`backend`, `model`, `crawler`, `frontend`).
+- [Kiến trúc Hệ thống (System Architecture)](system-architecture.md): Sơ đồ luồng dữ liệu, kiến trúc API FastAPI và tích hợp 5 Trụ cột AI Bền vững.
 - [Lộ trình Dự án (Roadmap)](project-roadmap.md): Lịch trình phát triển, biểu đồ Gantt và phân công WBS.
 - [Team Data Flow Roadmap](discussions/2026-05-13-team-data-flow-roadmap.md): Luồng dữ liệu thật từ crawler → processed dataset → model → API → frontend.
 - [API Handoff Real Data](discussions/2026-05-13-api-handoff-team2-real-data.md): Contract `/predict` cho frontend khi dùng model real-data.

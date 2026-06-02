@@ -59,7 +59,7 @@ flowchart TD
 
     M --> N[model/best_model]
     N --> O[FastAPI /predict]
-    O --> P[Frontend demo]
+    O --> P[Frontend demo<br/>(local pending push)]
 ```
 
 ### Dataset chính hiện tại
@@ -129,7 +129,7 @@ AI002_PROJECT/
 │   ├── train_rf.py                 # Random Forest baseline training + evaluation
 │   ├── train_xgboost.py            # Optional XGBoost comparison (requires venv)
 │   ├── stress_test.py              # Robustness stress test (Black Swan scenarios)
-│   └── best_model/                 # Promoted model metadata (metadata.json committed, .pkl gitignored)
+│   └── best_model/                 # Promoted model metadata (metadata.json and model.pkl are committed for demo convenience)
 │
 ├── backend/                        # API Server (Team 2)
 │   ├── main.py                     # FastAPI entry point
@@ -140,7 +140,7 @@ AI002_PROJECT/
 ├── tests/ai-tests/                 # Pytest suite
 │   └── test_predictor_service.py   # PredictorService unit tests
 │
-└── frontend/                       # Web Interface (Team 1)
+└── frontend/                       # Web Interface (Team 1 - local pending push)
 ```
 
 > _For detailed team responsibilities across these modules, see the [Team Workflows](./docs/project-overview-pdr.md#4-phân-công-công-việc)._
@@ -215,7 +215,8 @@ cat model/experiments.csv
 
 ### 6. Running the Web UI
 
-Simply open `frontend/index.html` in your preferred web browser to view the dashboard.
+> [!NOTE]
+> Mã nguồn của Web UI hiện đang ở máy local của Phúc (Team 1) và đang chuẩn bị được push lên repository. Khi code được push, các file UI sẽ nằm trong thư mục `frontend/`. Hiện tại, bạn có thể chạy FastAPI backend server và kiểm thử các API endpoints qua Swagger UI (`/docs`).
 
 ---
 

@@ -97,14 +97,14 @@
 ---
 
 ## Slide 8: Responsible AI - Trục Robustness (Kháng nhiễu)
-* **Bảo vệ 1: Khử nhiễu cảm biến lỗi (Sanitizer)**
-  - Nếu nhiệt độ $\le 5^\circ C$ hoặc $> 48^\circ C$ (nhiệt độ bất thường do trạm khí tượng hỏng) -> tự động thay thế bằng trị số trung bình lịch sử vùng.
-  - Lượng mưa âm -> gán bằng 0.
-* **Bảo vệ 2: Chống bẻ lái hệ thống (LLM Guardrails)**
-  - Xác thực đầu vào chặt chẽ qua Pydantic schema.
-  - Config hệ thống nhắc nhở giới hạn LLM giải thích dựa trên dữ liệu thật, chặn đứng tấn công bẻ lái thông tin giá cả.
+* **Bảo vệ 1: Validate request ở tầng API**
+  - Pydantic schema chặn nhiệt độ, lượng mưa, độ ẩm, tháng, năm nằm ngoài range hợp lý.
+  - API key bảo vệ `/predict` và `/model/info`.
+* **Bảo vệ 2: Category guard theo model đã train**
+  - `PredictorService` chỉ chấp nhận `province`, `area`, `coffee_type`, `dominant_soil_type` nằm trong tập feature của model.
+  - Input ngoài tập train bị trả `422` thay vì dự báo âm thầm.
 * **Speaker Notes:**
-  > Để đảm bảo tính kháng nhiễu (Robustness), hệ thống lập trình lớp lọc dữ liệu cảm biến lỗi. Ví dụ, nếu nhiệt độ đột ngột nhảy lên 50 độ do lỗi thiết bị, hệ thống tự động gán giá trị trung bình lịch sử để mô hình AI không dự đoán sai lệch. Đồng thời, API chặn đứng các payload độc hại cố tình phá hoại logic hệ thống.
+  > Trong repo hiện tại, lớp Robustness được hiện thực bằng validate ở tầng API và kiểm tra category theo model đã train. Nhóm không claim có một sanitizer riêng hay một lớp guardrails cho LLM production, vì các thành phần đó chưa có trong codebase này.
 
 ---
 

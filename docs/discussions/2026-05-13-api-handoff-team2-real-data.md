@@ -1,5 +1,20 @@
 # API Handoff Team 2 Real Data Model — 13/05/2026
 
+> [!IMPORTANT]
+> **Trạng thái tích hợp Frontend:** Mã nguồn chính thức của Web UI hiện vẫn đang nằm ở máy local của Phúc (Team 1) và đang chuẩn bị để push lên GitHub. Dưới đây là các hướng dẫn và checklist để Phúc thực hiện tích hợp và kiểm thử khi push code.
+
+## Hướng dẫn & Checklist tích hợp cho Team 1 (Phúc)
+Phúc cần đảm bảo các bước sau khi tích hợp mã nguồn frontend local vào repo:
+1. [ ] **Thêm tài nguyên UI:** Commit đầy đủ các file UI gồm `frontend/index.html`, các file CSS và JS liên quan vào thư mục `frontend/` của repository.
+2. [ ] **Cấu hình API Endpoint:** Đảm bảo mã nguồn JavaScript gọi đúng endpoint API của backend. Khi chạy local dùng `http://localhost:8000`. Khi deploy self-host hoặc dùng shared API, cấu hình base URL tương ứng.
+3. [ ] **Cấu hình Bảo mật (API Key):** Các API protected như `/predict` và `/model/info` yêu cầu gửi kèm header `X-API-Key`. Hãy thiết lập cơ chế gửi header này đúng cách. Không hardcode API key thật lên Git.
+4. [ ] **Kiểm thử các Endpoint:**
+   - [ ] Kiểm thử `GET /health` (trả về trạng thái OK và model load state).
+   - [ ] Kiểm thử `GET /model/info` (trả về thông tin metadata của model).
+   - [ ] Kiểm thử `POST /predict` (gửi request mẫu bên dưới, nhận response thành công 200).
+
+---
+
 ## Scope
 
 Note này dành cho Phúc/Thịnh khi chuẩn bị nối frontend với backend tuần 18/5-24/5.

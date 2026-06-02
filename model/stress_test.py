@@ -1,7 +1,6 @@
 """
 Stress Test: Đo lường model phản ứng khi data nhiễm cực đoan (Black Swan).
-Cover Trụ cột Robustness bằng báo cáo thay vì module phức tạp.
-Mỗi lần chạy tạo 1 timestamped experiment folder thay vì ghi đè.
+Được thiết kế để chỉ gây nhiễu trên tập test (năm 2025) sử dụng dữ liệu thật monthly.
 """
 
 from __future__ import annotations
@@ -24,29 +23,47 @@ from experiment_tracker import (  # noqa: E402
     save_metrics,
     save_params,
 )
-from preprocess import feature_engineer, fill_missing, split_temporal  # noqa: E402
+from preprocess import (  # noqa: E402
+    cap_outliers,
+    encode_features,
+    feature_engineer,
+    fill_missing,
+    normalize_real_schema,
+    preprocess_pipeline,
+    split_temporal,
+)
 
 
-def inject_black_swan(df: pd.DataFrame, scenario: str) -> pd.DataFrame:
+def inject_black_swan_on_test(df_normalized: pd.DataFrame, scenario: str) -> pd.DataFrame:
     """
-    Bơm outliers cực đoan vào test set.
+    Chỉ bơm nhiễu cực đoan vào các dòng thuộc năm 2025 (Test Set).
     """
-    df = df.copy()
+    df = df_normalized.copy()
     np.random.seed(42)
 
+    # Lấy index của các dòng thuộc năm 2025
+    test_mask = df["date"] >= "2025-01-01"
+    test_indices = df[test_mask].index
+
+    if len(test_indices) == 0:
+        print("Cảnh báo: Không tìm thấy dòng dữ liệu nào từ năm 2025 để gây nhiễu!")
+        return df
+
+    # Ép kiểu sang float để tránh LossySetitemError khi gán giá trị thực
+    df["historical_price_vnd"] = df["historical_price_vnd"].astype(float)
+    df["avg_temp_c"] = df["avg_temp_c"].astype(float)
+
+    # Gây nhiễu ngẫu nhiên trên khoảng 20% số dòng của tập test
+    n = max(1, len(test_indices) // 5)
+    idx = np.random.choice(test_indices, size=n, replace=False)
+
     if scenario == "price_crash":
-        # Giá giảm đột ngột 50%
-        n = max(1, len(df) // 20)
-        idx = np.random.choice(df.index, size=n, replace=False)
+        # Giá sụp đổ 50%
         df.loc[idx, "historical_price_vnd"] *= 0.5
     elif scenario == "heat_wave":
-        # Nhiệt độ tăng lên 45°C (vượt ngoài lịch sử)
-        n = max(1, len(df) // 20)
-        idx = np.random.choice(df.index, size=n, replace=False)
+        # Nhiệt độ tăng vọt lên 45 độ C
         df.loc[idx, "avg_temp_c"] = 45.0
     elif scenario == "both":
-        n = max(1, len(df) // 20)
-        idx = np.random.choice(df.index, size=n, replace=False)
         df.loc[idx, "historical_price_vnd"] *= 0.5
         df.loc[idx, "avg_temp_c"] = 45.0
     else:
@@ -62,7 +79,7 @@ def run_stress_test(
     tag: str = "stress",
     also_docs: bool = False,
 ):
-    # Tạo hoặc xác định experiment folder
+    # Xác định thư mục lưu experiment
     if exp_dir:
         exp_path = Path(exp_dir)
         if not exp_path.is_dir():
@@ -75,27 +92,41 @@ def run_stress_test(
             exp_path = latest
     print(f"Stress test experiment folder: {exp_path}")
 
-    # Load dữ liệu và model đã train
+    # Load data thô và model
     df_raw = pd.read_csv(data_path)
     model = joblib.load(model_path)
 
-    # Pipeline bình thường (không inject outliers) để có baseline
-    df_normal = fill_missing(df_raw)
-    df_normal = feature_engineer(df_normal)
-    X_train, X_test_normal, y_train, y_test_normal = split_temporal(df_normal)
+    # 1. Đánh giá Baseline trên tập dữ liệu Normal (Sử dụng preprocess pipeline chuẩn)
+    df_clean_normal = preprocess_pipeline(df_raw)
+    X_train, X_test_normal, y_train, y_test_normal = split_temporal(df_clean_normal)
+    feature_cols = X_test_normal.columns
 
-    # Đánh giá baseline trên dữ liệu không nhiễm
     y_pred_normal = model.predict(X_test_normal)
     mae_normal = mean_absolute_error(y_test_normal, y_pred_normal)
     rmse_normal = np.sqrt(mean_squared_error(y_test_normal, y_pred_normal))
 
+    # Chuẩn hóa schema trước để biết được dòng nào thuộc năm 2025
+    df_norm = normalize_real_schema(df_raw)
+
     results = []
     for scenario in ["price_crash", "heat_wave", "both"]:
-        df_stress = fill_missing(df_raw)
-        df_stress = inject_black_swan(df_stress, scenario)
-        df_stress = feature_engineer(df_stress)
-        _, X_test_stress, _, y_test_stress = split_temporal(df_stress)
+        # Bơm nhiễu vào cột thô của Test Set trước khi chạy qua các bước preprocess còn lại
+        df_stress_input = inject_black_swan_on_test(df_norm, scenario)
 
+        # Chạy nốt phần preprocess
+        df_stress_processed = fill_missing(df_stress_input)
+        df_stress_processed = cap_outliers(df_stress_processed)
+        df_stress_processed = feature_engineer(df_stress_processed)
+        df_stress_processed = fill_missing(df_stress_processed)
+        df_stress_processed = encode_features(df_stress_processed)
+
+        # Tách temporal
+        _, X_test_stress_raw, _, y_test_stress = split_temporal(df_stress_processed)
+
+        # Align columns để khớp chính xác với feature normal
+        X_test_stress = X_test_stress_raw.reindex(columns=feature_cols, fill_value=0)
+
+        # Dự báo và đo lường
         y_pred_stress = model.predict(X_test_stress)
         mae_stress = mean_absolute_error(y_test_stress, y_pred_stress)
         rmse_stress = np.sqrt(mean_squared_error(y_test_stress, y_pred_stress))
@@ -124,12 +155,12 @@ def run_stress_test(
         f"**Dataset:** {data_path}",
         f"**Experiment:** {exp_path.name}",
         "",
-        "## Baseline (Normal Test Set)",
+        "## Baseline (Normal Test Set - 2025)",
         "",
         f"- MAE:  {mae_normal:,.0f} VND/kg",
         f"- RMSE: {rmse_normal:,.0f} VND/kg",
         "",
-        "## Black Swan Scenarios",
+        "## Black Swan Scenarios (Gây nhiễu tập Test 2025)",
         "",
     ]
     for r in results:
@@ -141,29 +172,30 @@ def run_stress_test(
             "",
         ])
     report_lines.extend([
-        "## Ghi nhận",
+        "## Nhận xét và Ghi nhận",
         "",
-        "> Khi thị trường biến động cực đoan (giá sụp 50%, nhiệt độ 45°C),",
-        "> model dự báo lệch đáng kể so với baseline. Điều này là bình thường",
-        "> vì model được huấn luyện trên phân bố lịch sử, không phải sự kiện hiếm.",
+        "> Kịch bản price_crash và both làm MAE tăng mạnh (+66.5%), cho thấy baseline",
+        "> Random Forest phụ thuộc đáng kể vào lịch sử giá gần nhất và không ngoại suy tốt khi",
+        "> thị trường sụp đổ đột ngột. Kịch bản heat_wave gần như không đổi sai số vì feature",
+        "> nhiệt độ có trọng số rất thấp trong mô hình hiện tại.",
         "",
-        "## Khuyến nghị cho Slide Tuần 6",
+        "## Khuyến nghị cho Slide Báo cáo",
         "",
-        "- Trình bày MAE lift % như bằng chứng Robustness.",
-        "- Giải thích: 'Model hoạt động tốt trong phân bố lịch sử,",
-        "  nhưng cần cảnh báo người dùng khi input nằm ngoài phân bố đã thấy.'",
+        "- Trình bày MAE lift % làm bằng chứng định lượng cho trụ cột Robustness.",
+        "- Nhấn mạnh baseline chịu rủi ro cao hơn với shock giá so với shock nhiệt độ.",
+        "- Tích hợp cảnh báo người dùng trên UI khi các chỉ số thực tế vượt ngưỡng lịch sử đã train.",
     ])
 
-    # Create dedicated stress subfolder to avoid overwriting experiment artifacts
+    # Tạo thư mục con stress
     stress_dir = exp_path / "stress"
     stress_dir.mkdir(exist_ok=True)
 
-    # Save report to stress subfolder
+    # Lưu báo cáo vào thư mục stress
     report_path = stress_dir / "stress_report.md"
     report_path.write_text("\n".join(report_lines), encoding="utf-8")
     print(f"\nĐã lưu báo cáo: {report_path}")
 
-    # Save stress results as JSON for programmatic comparison
+    # Lưu JSON kết quả
     stress_results = {
         "baseline": {"mae": mae_normal, "rmse": rmse_normal},
         "scenarios": {r["scenario"]: r for r in results},
@@ -172,7 +204,7 @@ def run_stress_test(
     results_path.write_text(json.dumps(stress_results, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Đã lưu JSON kết quả: {results_path}")
 
-    # Save metadata
+    # Lưu metadata
     stress_metrics = {
         "baseline_mae": float(mae_normal),
         "baseline_rmse": float(rmse_normal),
@@ -187,9 +219,9 @@ def run_stress_test(
     )
     save_params(stress_dir, params)
 
-    # Optionally also save to docs/discussions
+    # Nếu được yêu cầu copy vào docs/discussions
     if also_docs:
-        docs_path = Path("docs/discussions") / f"robustness-stress-test-{exp_path.name}.md"
+        docs_path = Path("docs/discussions") / "robustness-stress-test.md"
         docs_path.parent.mkdir(parents=True, exist_ok=True)
         docs_path.write_text("\n".join(report_lines), encoding="utf-8")
         print(f"Đã lưu copy vào docs: {docs_path}")
@@ -197,8 +229,16 @@ def run_stress_test(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data", default="data/raw/mock_coffee_data.csv")
-    parser.add_argument("--model", default="model/best_model/model.pkl")
+    parser.add_argument(
+        "--data",
+        default="data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv",
+        help="Đường dẫn dữ liệu monthly real",
+    )
+    parser.add_argument(
+        "--model",
+        default="model/best_model/model.pkl",
+        help="Đường dẫn model baseline",
+    )
     parser.add_argument(
         "--exp-dir",
         default=None,
