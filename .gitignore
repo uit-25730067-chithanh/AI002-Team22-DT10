@@ -9,7 +9,7 @@ plans/
 data/raw/
 data/external/
 model/experiments/
-model/best_model/model.pkl
+!model/best_model/model.pkl
 model/best_model/*.pkl
 
 # ===== Jupyter Notebook =====
