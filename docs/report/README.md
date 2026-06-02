@@ -7,7 +7,11 @@ Thư mục này là điểm vào cho tài liệu báo cáo. Các note nội bộ
 ```text
 docs/report/
 ├── README.md
-└── internal-notes/
+├── final-ai002-report/       # Báo cáo chính thức cuối kỳ (Markdown chia chương)
+│   ├── README.md             # Điểm vào báo cáo và quản lý trạng thái
+│   ├── ...
+│   └── appendices.md
+└── internal-notes/           # Note nội bộ theo tuần / milestone
     ├── week1_coffee_price_research.md
     ├── week1-2_team2_thanh_foundation-report-note.md
     ├── week1-2_team2_son_foundation-report-note.md
@@ -34,7 +38,7 @@ docs/report/
 | Week 4 Model thật — Thanh           | [`internal-notes/week4_team2_thanh_real-model-baseline-report-note.md`](internal-notes/week4_team2_thanh_real-model-baseline-report-note.md)         | Thanh        | Có               |
 | Week 5 API và Integration — Thanh   | [`internal-notes/week5_team2_thanh_api-integration-report-note.md`](internal-notes/week5_team2_thanh_api-integration-report-note.md)                 | Thanh        | Có               |
 | Week 3-5 Evaluation/5 Pillars — Sơn | [`../discussions/2026-05-13-son-evaluation-pack-summary.md`](../discussions/2026-05-13-son-evaluation-pack-summary.md) | Sơn          | Có ở discussions |
-| Week 6 Slide/report/demo            | Chưa tạo                                                                                                               | Cả nhóm      | Chưa xong        |
+| Week 6 Slide/report/demo            | [`final-ai002-report/README.md`](final-ai002-report/README.md)                                                         | Cả nhóm      | Đang thực hiện   |
 
 ## Nên dùng file nào khi họp
 
