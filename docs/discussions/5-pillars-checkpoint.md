@@ -22,7 +22,7 @@ Team 2 đã chuyển từ mock data sang real processed data cho baseline chính
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
 | **Reliability**   | Có split temporal train 2022-2024/test 2025; metrics thật: MAE **13,552 VND/kg**, RMSE **16,754 VND/kg**, R² **-0.9044**                                                                     | `model/train_rf.py`, `model/best_model/metadata.json`, PR #9/#14                                                 | R² âm cho thấy giá 2025 lệch mạnh; baseline chưa phải model final                                 |
 | **Bias**          | Kiểm toán độ phủ area-row theo tỉnh: Lam Dong/Kon Tum mạnh, Dak Lak/Gia Lai dùng được, Dak Nong yếu                                                                                          | `docs/discussions/2026-05-13-real-data-audit-team2-son.md`, `data/processed/AREA_REAL_PRICE_DATA_RANKING.md` | Không áp dụng bừa cho vùng ngoài Tây Nguyên; không demo chính bằng Dak R'lap                      |
-| **Robustness**    | Processed monthly không thiếu feature chính; pipeline có xử lý NaN/categorical; Pydantic validate range/type, còn allowed-value validation chạy trong `PredictorService` theo model features | `model/preprocess.py`, `backend/schemas/prediction.py`, `backend/services/predictor.py`                      | Stress test real-data riêng chưa phải trọng tâm PR #9; cần chạy lại khi backend integration final |
+| **Robustness**    | Đã stress test gây nhiễu tập Test 2025: price_crash (MAE +66.5%), heat_wave (MAE +0.0%). Pydantic validate range/type và allowed-value validation trong PredictorService tránh input ngoài tập train. | model/preprocess.py, backend/schemas/prediction.py, backend/services/predictor.py, model/stress_test.py | Dữ liệu cực đoan như giá sụp đổ (price crash) làm MAE tăng 66.5%, mô hình cần thêm cơ chế cảnh báo khi giá trượt. |
 | **Social Impact** | Dự báo giúp nông dân nhỏ lẻ có thêm tham khảo về giá cà phê và tránh phụ thuộc một nguồn thông tin                                                                                           | `README.md`, `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`                                    | Không dùng như lời khuyên giao dịch bắt buộc; UI phải hiển thị disclaimer                         |
 | **Transparency**  | Metadata có 41 features và top feature importance; top features là `rolling_avg_7d`, `lag_1d`, `year`, `month`, `month_sin`                                                               | `model/best_model/metadata.json`, `model/train_rf.py`                                                        | Model đang phụ thuộc mạnh vào lag/rolling price context, cần giải thích rõ                        |
 
@@ -63,10 +63,13 @@ Robustness hiện có:
 - `observed_price_vnd_per_kg` được giữ để đánh giá độ tin cậy dữ liệu, không dùng làm target chính.
 - Pydantic schema validate type/range cho request; `PredictorService` validate province/area/category theo `model_info.feature_names` để tránh input ngoài tập train.
 
-Điểm cần nói rõ:
+Kết quả Stress Test trên dữ liệu thật (gây nhiễu tập Test 2025):
+- Baseline (Normal Test Set): MAE = 13,552 VND/kg, RMSE = 16,754 VND/kg
+- price_crash (Giá giảm đột ngột 50%): MAE = 22,566 VND/kg (+66.5% error lift), RMSE = 29,398 VND/kg (+75.5% error lift)
+- heat_wave (Nhiệt độ tăng vọt lên 45°C): MAE = 13,549 VND/kg (+0.0%), RMSE = 16,752 VND/kg (+0.0%)
+- both (Cả hai yếu tố trên): MAE = 22,569 VND/kg (+66.5% error lift), RMSE = 29,403 VND/kg (+75.5% error lift)
 
-- `avg_price_vnd_per_kg` có thể là observed/proxy/interpolated.
-- Stress test real-data nên chạy lại ở tuần API integration sau khi backend contract ổn định.
+Nhận xét: Biến động giá cực đoan có tác động lớn nhất tới sai số dự báo (+66.5%), trong khi biến động nhiệt độ không làm thay đổi dự báo của baseline do mức độ quan trọng (feature importance) của nhiệt độ trong mô hình Random Forest baseline rất thấp (khoảng 0.09%). Cần bổ sung cảnh báo trên UI khi input giá vượt quá khoảng lịch sử.
 
 ## Social Impact
 
