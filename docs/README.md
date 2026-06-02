@@ -14,7 +14,8 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 - [Real Data Audit](discussions/2026-05-13-real-data-audit-team2-son.md): Kiểm toán độ phủ monthly/weekly, bias risk và lựa chọn dataset baseline.
 - [API Integration QA Checklist](discussions/2026-05-13-son-api-integration-qa-checklist.md): Danh sách kiểm tra edge cases cho tuần frontend/backend integration.
 - [5 Pillars Checkpoint](discussions/5-pillars-checkpoint.md): Ma trận bằng chứng Reliability, Bias, Robustness, Social Impact, Transparency.
-- [Report Index](report/README.md): Chỉ mục note báo cáo theo tuần/milestone sau khi reorganize report docs.
+- [Report Index](report/README.md): Chỉ mục báo cáo theo tuần (`internal-notes/`) và báo cáo chính thức (`final-ai002-report/`).
+- [Slides Thuyết trình](slides/final_presentation_slides.md): Các slide dùng cho báo cáo cuối kỳ.
 - [Hướng dẫn chạy Backend Local và Self-host](self-host-guide.md): Checklist chạy API cho frontend, demo nội bộ và server do backend chọn.
 - [Sửa lỗi (Troubleshooting)](troubleshooting.md): Hướng dẫn khắc phục các lỗi thường gặp khi chạy dự án.
 

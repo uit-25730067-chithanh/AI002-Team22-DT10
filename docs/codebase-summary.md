@@ -66,11 +66,14 @@
 | `self-host-guide.md` | Hướng dẫn chạy backend local, test API key, systemd và Nginx |
 | `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
 
-### `docs/report/` — Note báo cáo theo tuần
+### `docs/report/` và `docs/slides/` — Báo cáo và thuyết trình
 
-| File        | Mô tả                                                  |
-| ----------- | ------------------------------------------------------ |
-| `README.md` | Chỉ mục report notes theo roadmap, owner và trạng thái |
+| File/Folder | Mô tả |
+| --- | --- |
+| `docs/slides/` | Slides thuyết trình cuối kỳ (`final_presentation_slides.md`) |
+| `docs/report/README.md` | Chỉ mục report notes theo roadmap, owner và trạng thái |
+| `docs/report/internal-notes/` | Báo cáo tiến độ nội bộ theo tuần (Week 1-6) |
+| `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức (Chương 1-6) |
 
 ### `plans/team2-foundation-week/` — Kế hoạch
 
