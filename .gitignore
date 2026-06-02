@@ -1,3 +1,5 @@
+# Git Ignore settings for Team 10 - AI002
+
 # Specific exclusions requested by the user
 CLAUDE.md
 AGENTS.md
@@ -12,14 +14,9 @@ model/best_model/*.pkl
 
 # ===== Jupyter Notebook =====
 .ipynb_checkpoints/
+*.ipynb_checkpoints
 
-# ===== IDE =====
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# AI tooling
+# ClaudeKit / AI tooling
 .claude/
 !.claude/rules/
 .claude/memory/

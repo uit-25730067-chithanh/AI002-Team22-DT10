@@ -1,6 +1,24 @@
 # Report Index
 
-Thư mục này lưu note báo cáo theo tuần/milestone để team tra cứu khi họp, làm slide và viết báo cáo cuối kỳ.
+Thư mục này là điểm vào cho tài liệu báo cáo. Các note nội bộ theo tuần/milestone đã được gom vào [`internal-notes/`](internal-notes/) để root folder gọn hơn.
+
+## Cấu trúc hiện tại
+
+```text
+docs/report/
+├── README.md
+├── final-ai002-report/       # Báo cáo chính thức cuối kỳ (Markdown chia chương)
+│   ├── README.md             # Điểm vào báo cáo và quản lý trạng thái
+│   ├── ...
+│   └── appendices.md
+└── internal-notes/           # Note nội bộ theo tuần / milestone
+    ├── week1_coffee_price_research.md
+    ├── week1-2_team2_thanh_foundation-report-note.md
+    ├── week1-2_team2_son_foundation-report-note.md
+    ├── week3_team2_thanh_real-data-schema-report-note.md
+    ├── week4_team2_thanh_real-model-baseline-report-note.md
+    └── week5_team2_thanh_api-integration-report-note.md
+```
 
 ## Quy ước đọc nhanh
 
@@ -13,14 +31,14 @@ Thư mục này lưu note báo cáo theo tuần/milestone để team tra cứu k
 
 | Roadmap                             | Report                                                                                                                 | Owner chính  | Trạng thái       |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- |
-| Week 1 research                     | [`week1_coffee_price_research.md`](week1_coffee_price_research.md)                                                     | Thịnh/Team 1 | Có               |
-| Week 1-2 Foundation — Thanh         | [`week1-2_team2_thanh_foundation-report-note.md`](week1-2_team2_thanh_foundation-report-note.md)                       | Thanh        | Có               |
-| Week 1-2 Foundation — Sơn           | [`week1-2_team2_son_foundation-report-note.md`](week1-2_team2_son_foundation-report-note.md)                           | Sơn          | Có               |
-| Week 3 Data thật — Thanh            | [`week3_team2_thanh_real-data-schema-report-note.md`](week3_team2_thanh_real-data-schema-report-note.md)               | Thanh        | Có               |
-| Week 4 Model thật — Thanh           | [`week4_team2_thanh_real-model-baseline-report-note.md`](week4_team2_thanh_real-model-baseline-report-note.md)         | Thanh        | Có               |
-| Week 5 API và Integration — Thanh   | [`week5_team2_thanh_api-integration-report-note.md`](week5_team2_thanh_api-integration-report-note.md)                 | Thanh        | Có               |
+| Week 1 research                     | [`internal-notes/week1_coffee_price_research.md`](internal-notes/week1_coffee_price_research.md)                                                     | Thịnh/Team 1 | Có               |
+| Week 1-2 Foundation — Thanh         | [`internal-notes/week1-2_team2_thanh_foundation-report-note.md`](internal-notes/week1-2_team2_thanh_foundation-report-note.md)                       | Thanh        | Có               |
+| Week 1-2 Foundation — Sơn           | [`internal-notes/week1-2_team2_son_foundation-report-note.md`](internal-notes/week1-2_team2_son_foundation-report-note.md)                           | Sơn          | Có               |
+| Week 3 Data thật — Thanh            | [`internal-notes/week3_team2_thanh_real-data-schema-report-note.md`](internal-notes/week3_team2_thanh_real-data-schema-report-note.md)               | Thanh        | Có               |
+| Week 4 Model thật — Thanh           | [`internal-notes/week4_team2_thanh_real-model-baseline-report-note.md`](internal-notes/week4_team2_thanh_real-model-baseline-report-note.md)         | Thanh        | Có               |
+| Week 5 API và Integration — Thanh   | [`internal-notes/week5_team2_thanh_api-integration-report-note.md`](internal-notes/week5_team2_thanh_api-integration-report-note.md)                 | Thanh        | Có               |
 | Week 3-5 Evaluation/5 Pillars — Sơn | [`../discussions/2026-05-13-son-evaluation-pack-summary.md`](../discussions/2026-05-13-son-evaluation-pack-summary.md) | Sơn          | Có ở discussions |
-| Week 6 Slide/report/demo            | Chưa tạo                                                                                                               | Cả nhóm      | Chưa xong        |
+| Week 6 Slide/report/demo            | [`final-ai002-report/README.md`](final-ai002-report/README.md)                                                         | Cả nhóm      | Đang thực hiện   |
 
 ## Nên dùng file nào khi họp
 
@@ -28,16 +46,16 @@ Thư mục này lưu note báo cáo theo tuần/milestone để team tra cứu k
 
 Đọc theo thứ tự:
 
-1. [`week1-2_team2_thanh_foundation-report-note.md`](week1-2_team2_thanh_foundation-report-note.md)
-2. [`week3_team2_thanh_real-data-schema-report-note.md`](week3_team2_thanh_real-data-schema-report-note.md)
-3. [`week4_team2_thanh_real-model-baseline-report-note.md`](week4_team2_thanh_real-model-baseline-report-note.md)
-4. [`week5_team2_thanh_api-integration-report-note.md`](week5_team2_thanh_api-integration-report-note.md)
+1. [`internal-notes/week1-2_team2_thanh_foundation-report-note.md`](internal-notes/week1-2_team2_thanh_foundation-report-note.md)
+2. [`internal-notes/week3_team2_thanh_real-data-schema-report-note.md`](internal-notes/week3_team2_thanh_real-data-schema-report-note.md)
+3. [`internal-notes/week4_team2_thanh_real-model-baseline-report-note.md`](internal-notes/week4_team2_thanh_real-model-baseline-report-note.md)
+4. [`internal-notes/week5_team2_thanh_api-integration-report-note.md`](internal-notes/week5_team2_thanh_api-integration-report-note.md)
 
 ### Nếu hỏi Sơn đã làm gì
 
 Đọc:
 
-1. [`week1-2_team2_son_foundation-report-note.md`](week1-2_team2_son_foundation-report-note.md)
+1. [`internal-notes/week1-2_team2_son_foundation-report-note.md`](internal-notes/week1-2_team2_son_foundation-report-note.md)
 2. [`../discussions/2026-05-13-son-evaluation-pack-summary.md`](../discussions/2026-05-13-son-evaluation-pack-summary.md)
 3. [`../discussions/2026-05-13-real-data-audit-team2-son.md`](../discussions/2026-05-13-real-data-audit-team2-son.md)
 4. [`../discussions/2026-05-13-son-api-integration-qa-checklist.md`](../discussions/2026-05-13-son-api-integration-qa-checklist.md)
