@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # Import router từ module routes; fallback để chạy được cả từ root và từ thư mục backend
 try:
@@ -11,6 +12,15 @@ app = FastAPI(
     title="AI002 Coffee Price Forecast API",
     version="0.1.0",
     description="FastAPI skeleton cho Team 2 foundation week",
+)
+
+# CORS cho phép mọi origin để có thể mở file index.html trực tiếp (origin 'null')
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*", "http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Đăng ký các endpoint từ router (health, predict, model/info)
