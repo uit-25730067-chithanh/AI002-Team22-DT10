@@ -30,7 +30,7 @@ Sau đó mở trình duyệt truy cập: `http://localhost:5173` (hoặc cổng 
    uvicorn backend.main:app --reload
    ```
 
-2. **Cấu hình API:** Mặc định frontend gọi `http://127.0.0.1:8000`.
+2. **Cấu hình API:** Mặc định frontend gọi `http://127.0.0.1:8000`. Frontend ưu tiên `VITE_AI002_API_KEY` khi deploy Vercel/Vite, và fallback `AI002_API_KEY` cho file env local hiện tại. Cả hai đều được gửi qua header `X-API-Key`.
 3. **Dự báo Giá:** Vào "Dự Báo Giá Cà Phê", điền thông tin và click "Nhận Dự Báo Giá". Nhận kết quả và "Lưu kết quả này".
 4. **Khuyến nghị Canh tác:** Vào "Khuyến Nghị Canh Tác", điền thời tiết dự kiến và click "Nhận Khuyến Nghị Canh Tác". Backend hiện vẫn gọi chung `/predict`, frontend chỉ lấy phần khuyến nghị canh tác để hiển thị.
 5. **Lịch sử:** Xem lại các kết quả đã lưu trong tab Lịch Sử, bấm "Xem chi tiết" để xem input, kết quả, lý do và disclaimer.
