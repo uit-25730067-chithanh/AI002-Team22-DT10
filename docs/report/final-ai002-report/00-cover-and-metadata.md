@@ -30,7 +30,7 @@
 
 ## Tóm tắt báo cáo (Abstract)
 
-Đề tài **DT10: AI dự báo kế hoạch canh tác mùa vụ và giá cà phê cho nông dân** được phát triển nhằm hỗ trợ các hộ nông dân trồng cà phê tại khu vực Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng) đưa ra các quyết định canh tác và kinh doanh dựa trên dữ liệu. Trọng tâm của đồ án là việc hiện thực hóa và đánh giá hệ thống dựa trên **5 Trụ cột của AI Bền vững (Responsible AI)** bao gồm: Tính tin cậy (Reliability), Tính không thiên vị (Bias), Kháng nhiễu (Robustness), Tác động xã hội (Social Impact), và Tính minh bạch/giải thích được (Explainability).
+Đề tài **DT10: AI dự báo kế hoạch canh tác mùa vụ và giá cà phê cho nông dân** được phát triển nhằm hỗ trợ các hộ nông dân trồng cà phê tại khu vực Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng, Kon Tum) đưa ra các quyết định canh tác và kinh doanh dựa trên dữ liệu. Trọng tâm của đồ án là việc hiện thực hóa và đánh giá hệ thống dựa trên **5 Trụ cột của AI Bền vững (Responsible AI)** bao gồm: Tính tin cậy (Reliability), Tính không thiên vị (Bias), Kháng nhiễu (Robustness), Tác động xã hội (Social Impact), và Tính minh bạch/giải thích được (Explainability).
 
 Về mặt kỹ thuật, hệ thống sử dụng thuật toán **Random Forest Regressor** để dự báo giá cà phê dựa trên dữ liệu giá lịch sử cùng các đặc trưng khí tượng (nhiệt độ, lượng mưa, độ ẩm). Dữ liệu được thu thập định kỳ theo tháng (monthly) từ năm 2022 đến 2025. Mô hình được huấn luyện trên dữ liệu giai đoạn 2022–2024 và đánh giá độc lập trên dữ liệu năm 2025 (phân chia theo chuỗi thời gian - temporal split). Kết quả thực nghiệm cho thấy mô hình baseline đạt sai số tuyệt đối trung bình (MAE) là **13,552 VND/kg**, sai số bình phương trung bình dạng căn (RMSE) là **16,754 VND/kg**.
 

@@ -5,7 +5,7 @@
 Đồ án đã hiện thực hóa thành công hệ thống **AI dự báo kế hoạch canh tác và giá cà phê cho nông dân Tây Nguyên (DT10)** đáp ứng đầy đủ các tiêu chuẩn kỹ thuật cốt lõi và tích hợp thành công tư duy thiết kế hệ thống AI bền vững.
 
 ### Các kết quả nổi bật bao gồm:
-- **Data Pipeline tự động:** Đồng bộ hóa thành công dữ liệu giá cà phê thực tế cào hàng ngày từ crawler và dữ liệu khí tượng theo tháng tại 4 tỉnh Tây Nguyên giai đoạn 2022–2025.
+- **Data Pipeline tự động:** Đồng bộ hóa thành công dữ liệu giá cà phê thực tế cào hàng ngày từ crawler và dữ liệu khí tượng theo tháng tại 5 tỉnh Tây Nguyên giai đoạn 2022–2025.
 - **Model học máy thực tế:** Huấn luyện thành công mô hình Random Forest Regressor đóng vai trò baseline chạy end-to-end, có khả năng trích xuất Feature Importance tăng tính minh bạch.
 - **Backend API tin cậy:** Triển khai API bằng FastAPI, tự động validate kiểu dữ liệu đầu vào bằng Pydantic và tích hợp lớp bảo vệ API Key bảo mật.
 - **Responsible AI thực chiến:** Lồng ghép thành công 5 Trụ cột AI có trách nhiệm vào mã nguồn (lọc dữ liệu cảm biến lỗi - Robustness, cảnh báo thiếu dữ liệu vùng - Bias, giao diện di động dung lượng nhẹ và hiển thị disclaimer - Social Impact).

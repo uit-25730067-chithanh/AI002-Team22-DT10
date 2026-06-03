@@ -79,26 +79,47 @@ Hệ thống được thiết kế theo kiến trúc 4 tầng phân tách trách
 
 ## 3.4. Thiết kế thành phần giải thích mô hình (Explainability Engine)
 
-Đáp ứng trụ cột **Transparency (Minh bạch)**, hệ thống không chỉ trả về giá dự báo đơn thuần mà đính kèm cơ cấu đóng góp của các yếu tố đầu vào. 
+Đáp ứng trụ cột **Transparency (Minh bạch)**, hệ thống không chỉ trả về giá dự báo đơn thuần mà đính kèm cơ cấu đóng góp của các yếu tố đầu vào và khuyến nghị nông học tương ứng. 
 
-Cấu trúc thiết kế của API response cho endpoint `/predict` được quy định rõ:
+Cấu trúc thiết kế của API response cho endpoint `/predict` được quy định rõ khớp với Pydantic schema:
 
 ```json
 {
-  "province": "Lam Dong",
-  "area": "Di Linh",
-  "predicted_price_vnd": 85200.0,
-  "confidence_interval": [81400.0, 89000.0],
-  "explainability_metrics": {
-    "rolling_avg_7d_impact": 72.8,
-    "lag_1d_impact": 22.2,
-    "year_impact": 1.96,
-    "temperature_impact": 0.08,
-    "rainfall_impact": 0.09
-  },
+  "predicted_price_vnd": 122474.05,
+  "confidence_interval": [119235.25, 125712.85],
+  "top_features": [
+    {
+      "feature": "rolling_avg_7d",
+      "importance": 0.728,
+      "input_value": 84000.0,
+      "explanation": "rolling_avg_7d có mức quan trọng cao (72.80%) với giá trị hiện tại 84000.00."
+    },
+    {
+      "feature": "lag_1d",
+      "importance": 0.2223,
+      "input_value": 86000.0,
+      "explanation": "lag_1d có mức quan trọng cao (22.23%) với giá trị hiện tại 86000.00."
+    },
+    {
+      "feature": "year",
+      "importance": 0.0196,
+      "input_value": 2025.0,
+      "explanation": "year có mức quan trọng cao (1.96%) với giá trị hiện tại 2025.00."
+    }
+  ],
   "model_version": "20260513_155830__rf_real_monthly",
-  "disclaimer": "Dự báo AI chỉ mang tính chất tham khảo học tập, không thay thế cho quyết định tài chính thực tế của nông hộ."
+  "farming_recommendation": {
+    "action": "growth_care",
+    "season_type": "rainy_season",
+    "confidence": 0.85,
+    "reasoning": "Tháng 6 thuộc mùa mưa, cần chăm sóc sinh trưởng và phòng nấm bệnh. Điều kiện đất và thời tiết hiện tại không có cảnh báo lớn.",
+    "warnings": [],
+    "next_action_month": 7,
+    "next_action": "growth_care",
+    "advisory_type": "rule_based"
+  },
+  "disclaimer": "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
 }
 ```
 
-Thông qua phản hồi JSON này, giao diện người dùng sẽ vẽ một biểu đồ thanh ngang đơn giản để nông dân hiểu rằng: *"Giá dự báo tháng tới tăng/giảm chủ yếu là do ảnh hưởng của đà giá lịch sử gần đây chiếm 72.8%, trong khi yếu tố nhiệt độ hay lượng mưa chỉ đóng góp dưới 1%"*. Việc này giúp giảm thiểu việc nông dân diễn giải sai lệch rằng thời tiết tháng này thay đổi sẽ làm thay đổi hoàn toàn giá bán ngày mai.
+Thông qua phản hồi JSON này, giao diện người dùng sẽ vẽ một biểu đồ thanh ngang đơn giản từ `top_features` để nông dân hiểu rằng: *"Giá dự báo tháng tới tăng/giảm chủ yếu là do ảnh hưởng của đà giá lịch sử gần đây chiếm 72.8%, trong khi yếu tố xu hướng năm đóng góp 1.96% và thời tiết đóng góp dưới 1%"*. Việc này giúp giảm thiểu việc nông dân diễn giải sai lệch rằng thời tiết tháng này thay đổi sẽ làm thay đổi hoàn toàn giá bán ngày mai. Đồng thời, trường `farming_recommendation` cung cấp các hành động cụ thể (như bón phân, tưới nước) và lý giải nông học đi kèm để nông hộ tham khảo.
