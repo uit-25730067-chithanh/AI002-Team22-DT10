@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 # Import router từ module routes; fallback để chạy được cả từ root và từ thư mục backend
 try:
@@ -14,13 +15,16 @@ app = FastAPI(
     description="FastAPI skeleton cho Team 2 foundation week",
 )
 
-# CORS cho phép mọi origin để có thể mở file index.html trực tiếp (origin 'null')
+# CORS cho phép origin từ env
+allow_origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")
+origins = [origin.strip() for origin in allow_origins_str.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "null"],
+    allow_origins=origins,
     allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["X-API-Key", "Content-Type", "Accept"],
 )
 
 # Đăng ký các endpoint từ router (health, predict, model/info)

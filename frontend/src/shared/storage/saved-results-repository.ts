@@ -22,7 +22,10 @@ export function saveResult(result: SavedResult): void {
 export function getResults(): SavedResult[] {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    const parsed = JSON.parse(data);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((r: any) => r && typeof r === 'object' && 'id' in r && 'type' in r);
   } catch (e) {
     console.error('Failed to parse saved results', e);
     return [];

@@ -3,8 +3,7 @@ import { PredictionRequest, PredictionResponse } from "./prediction-types";
 const getPredictionApiConfig = () => {
   return {
     baseUrl: import.meta.env?.VITE_API_BASE_URL || "http://127.0.0.1:8000",
-    apiKey:
-      import.meta.env?.VITE_AI002_API_KEY || import.meta.env?.AI002_API_KEY,
+    apiKey: import.meta.env?.VITE_AI002_API_KEY,
   };
 };
 
@@ -15,7 +14,7 @@ export async function fetchPrediction(
 
   if (!apiKey) {
     throw new Error(
-      "VITE_AI002_API_KEY or AI002_API_KEY is missing. Please configure it in your environment.",
+      "VITE_AI002_API_KEY is missing. Please configure it in your environment.",
     );
   }
   try {

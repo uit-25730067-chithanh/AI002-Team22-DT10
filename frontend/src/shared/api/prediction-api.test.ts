@@ -65,35 +65,11 @@ describe('fetchPrediction', () => {
     );
   });
 
-  it('falls back to AI002_API_KEY for local env files', async () => {
-    vi.stubEnv('VITE_AI002_API_KEY', '');
-    vi.stubEnv('AI002_API_KEY', 'local-demo-key');
-    vi.stubEnv('VITE_API_BASE_URL', 'http://api.test');
-
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: () => Promise.resolve(responseBody),
-    });
-    vi.stubGlobal('fetch', fetchMock);
-
-    await fetchPrediction(payload);
-
-    expect(fetchMock).toHaveBeenCalledWith(
-      'http://api.test/predict',
-      expect.objectContaining({
-        headers: expect.objectContaining({
-          'X-API-Key': 'local-demo-key',
-        }),
-      }),
-    );
-  });
-
-  it('throws a clear error when both frontend API keys are missing', async () => {
+  it('throws an error if no API key is configured', async () => {
     vi.stubEnv('VITE_AI002_API_KEY', '');
     vi.stubEnv('AI002_API_KEY', '');
-
     await expect(fetchPrediction(payload)).rejects.toThrow(
-      'VITE_AI002_API_KEY or AI002_API_KEY is missing',
+      'VITE_AI002_API_KEY is missing'
     );
   });
 });

@@ -10,7 +10,8 @@ const FeatureImpactBars: React.FC<FeatureImpactBarsProps> = ({ features }) => {
   if (!features || features.length === 0) return null;
 
   // Find max importance to calculate relative widths
-  const maxImportance = Math.max(...features.map(f => f.importance));
+  const rawMax = Math.max(...features.map(f => f.importance));
+  const maxImportance = rawMax > 0 ? rawMax : 1; // Prevent division by zero
 
   return (
     <div className="flex flex-col gap-4">

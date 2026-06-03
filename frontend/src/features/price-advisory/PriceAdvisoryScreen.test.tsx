@@ -35,9 +35,8 @@ describe('PriceAdvisoryScreen', () => {
     vi.restoreAllMocks();
   });
 
-  it('submits prediction using AI002_API_KEY fallback from local env', async () => {
-    vi.stubEnv('VITE_AI002_API_KEY', '');
-    vi.stubEnv('AI002_API_KEY', 'local-demo-key');
+  it('submits prediction using VITE_AI002_API_KEY', async () => {
+    vi.stubEnv('VITE_AI002_API_KEY', 'local-demo-key');
     vi.stubEnv('VITE_API_BASE_URL', 'http://api.test');
 
     const fetchMock = vi.fn().mockResolvedValue({

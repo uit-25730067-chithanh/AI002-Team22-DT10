@@ -3,7 +3,7 @@ export const TRANSLATIONS: Record<string, string> = {
   dry_season: "Mùa khô",
   rainy_season: "Mùa mưa",
   main_season: "Mùa vụ chính",
-  off_season: "Thời kỳ dưỡng cây / Trái vụ",
+  off_season: "Ngoài mùa chính (Trái vụ)",
 
   // Actions
   post_harvest_care: "Chăm sóc và phục hồi sau thu hoạch",

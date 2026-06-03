@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { AREA_MAPPING } from '../../../shared/constants/location-options';
 import Button from '../../../shared/components/Button';
+import { PredictionRequest } from '../../../shared/api/prediction-types';
 
 interface PriceInputFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: Partial<PredictionRequest>) => void;
   isLoading: boolean;
 }
 

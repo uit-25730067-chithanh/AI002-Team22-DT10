@@ -2,7 +2,7 @@
 
 ## 4.1. Tiền xử lý (Preprocess) và Kỹ thuật Đặc trưng (Feature Engineering)
 
-Quy trình tiền xử lý dữ liệu được thiết kế tập trung vào việc đảm bảo tính sạch sẽ, nhất quán và tránh rò rỉ thông tin trong mô hình học máy. Các bước xử lý trong tệp [preprocess.py](file:///Users/tcdtist/dev/uit/ai002/model/preprocess.py) bao gồm:
+Quy trình tiền xử lý dữ liệu được thiết kế tập trung vào việc đảm bảo tính sạch sẽ, nhất quán và tránh rò rỉ thông tin trong mô hình học máy. Các bước xử lý trong tệp [preprocess.py](../../../model/preprocess.py) bao gồm:
 
 ### 4.1.1. Chuẩn hóa Schema và Loại bỏ Rác
 
@@ -47,7 +47,7 @@ Trục **Robustness** được hiện thực hóa thông qua hai tầng kiểm s
 
 ### 4.2.1. Xác thực tự động qua Pydantic Schema
 
-Tại tệp [prediction.py](file:///Users/tcdtist/dev/uit/ai002/backend/schemas/prediction.py), lớp `PredictionRequest` sử dụng các ràng buộc kiểu và phạm vi (Type & Range constraints) để reject ngay các payload bất hợp lý từ frontend:
+Tại tệp [prediction.py](../../../backend/schemas/prediction.py), lớp `PredictionRequest` sử dụng các ràng buộc kiểu và phạm vi (Type & Range constraints) để reject ngay các payload bất hợp lý từ frontend:
 
 - Lượng mưa phải nằm trong khoảng: `ge=0.0, le=1000.0`
 - Nhiệt độ phải nằm trong khoảng sinh lý: `ge=10.0, le=45.0`
@@ -56,7 +56,7 @@ Tại tệp [prediction.py](file:///Users/tcdtist/dev/uit/ai002/backend/schemas/
 
 ### 4.2.2. Điền giá trị an toàn mặc định (Sanitizer)
 
-Trong tệp [predictor.py](file:///Users/tcdtist/dev/uit/ai002/backend/services/predictor.py), hàm `_build_feature_row` xử lý trường hợp frontend gửi thiếu các thuộc tính tùy chọn:
+Trong tệp [predictor.py](../../../backend/services/predictor.py), hàm `_build_feature_row` xử lý trường hợp frontend gửi thiếu các thuộc tính tùy chọn:
 
 - Nếu độ ẩm trống (`None`) -> tự động gán `75.0` (độ ẩm trung bình Tây Nguyên).
 - Nếu độ ẩm đất trống -> gán `0.24`.

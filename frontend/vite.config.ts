@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   envDir: '..',
-  envPrefix: ['VITE_', 'AI002_'],
+  envPrefix: ['VITE_'],
   test: {
     globals: true,
     environment: 'jsdom',
