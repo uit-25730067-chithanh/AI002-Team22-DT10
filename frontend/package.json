@@ -1,0 +1,35 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Thư mục này chứa mã nguồn React/TypeScript/Vite/Tailwind phục vụ demo và kiểm thử hệ thống. Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite",
+    "compile": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "lucide-react": "^1.17.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^24.1.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.21",
+    "vitest": "^1.6.1"
+  }
+}

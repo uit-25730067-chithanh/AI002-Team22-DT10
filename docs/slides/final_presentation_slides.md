@@ -39,12 +39,12 @@
 * **Mục tiêu cốt lõi:**
   - Đồng hành cùng nông dân Tây Nguyên qua công cụ dự báo giá và khuyến nghị canh tác.
   - Hiện thực hóa hệ thống dựa trên **5 Trụ cột AI Bền vững** (Responsible AI).
-* **Phạm vi địa lý:** 4 tỉnh Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng) giai đoạn 2022–2025.
+* **Phạm vi địa lý:** 5 tỉnh Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng, Kon Tum) giai đoạn 2022–2025.
 * **Tuyên bố miễn trừ trách nhiệm (Disclaimer):**
   - Hệ thống chỉ mang tính chất tham khảo học thuật.
   - Không thay thế lời khuyên tài chính thương mại hay tư vấn chuyên môn.
-* **Speaker Notes:**
-  > Dự án hướng tới xây dựng một hệ thống AI thực tế, tập trung giải quyết bài toán của nông dân tại 4 tỉnh Tây Nguyên. Chúng tôi xác lập rõ disclaimer ngay từ đầu: AI là công cụ tham khảo hỗ trợ ra quyết định, không phải là quyết định thay cho người dân để đảm bảo tính an toàn về trách nhiệm pháp lý.
+* **Speaker Notes:** 
+  > Dự án hướng tới xây dựng một hệ thống AI thực tế, tập trung giải quyết bài toán của nông dân tại 5 tỉnh Tây Nguyên. Chúng tôi xác lập rõ disclaimer ngay từ đầu: AI là công cụ tham khảo hỗ trợ ra quyết định, không phải là quyết định thay cho người dân để đảm bảo tính an toàn về trách nhiệm pháp lý.
 
 ---
 
@@ -113,10 +113,12 @@
   - Tỉ lệ dữ liệu cào thật: Lâm Đồng/Kon Tum (100%), Đắk Lắk/Gia Lai (93%), Đắk Nông (39.6%).
   - *Giải pháp:* Hiển thị nhãn cảnh báo độ tin cậy thấp tại Đắk Nông, hướng dẫn nông dân tham chiếu khu vực lân cận.
 * **Trục Social Impact (Tác động xã hội):**
-  - Giao diện tối giản mobile-first, dung lượng trang cực nhẹ (<50KB), tải mượt dưới sóng 3G yếu ở nương rẫy.
-  - Disclaimer chân trang bảo vệ nông dân khỏi rủi ro tài chính.
+  - **Phương pháp kiểm chứng:** Kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind tại `frontend/` và kết quả phản hồi kèm disclaimer từ backend.
+  - **Kết quả thực tiễn:** Giao diện có màn chào, menu chọn tác vụ, nút bấm lớn, tương phản cao, tách riêng luồng Dự báo Giá và Khuyến nghị Canh tác.
+  - **Hỗ trợ ngoại tuyến:** Lưu trữ bằng `localStorage` và xem chi tiết lịch sử (đối chiếu input, kết quả, lý do và disclaimer) khi mạng chập chờn.
+  - **Ràng buộc an toàn:** Chân trang luôn bắt buộc hiển thị Disclaimer để tránh nông dân ra quyết định tài chính sai lệch.
 * **Speaker Notes:**
-  > Về trục Bias, chúng tôi phát hiện dữ liệu Đắk Nông cào được rất ít (chỉ 39.6%). Do đó hệ thống sẽ cảnh báo nông dân Đắk Nông rằng độ tin cậy dự báo vùng này thấp hơn Lâm Đồng để tránh họ ra quyết định sai. Về tác động xã hội, trang web được tối ưu siêu nhẹ để nông dân có thể mở ngay bằng sóng 3G yếu trên rẫy.
+  > Về trục Bias, chúng tôi phát hiện dữ liệu Đắk Nông cào được rất ít (chỉ 39.6%). Do đó hệ thống sẽ cảnh báo nông dân Đắk Nông rằng độ tin cậy dự báo vùng này thấp hơn Lâm Đồng để tránh họ ra quyết định sai. Về tác động xã hội (Social Impact), chúng tôi kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind kết nối backend. Giao diện được tối ưu hóa mobile-first với màn chào rõ ràng, nút lớn tương phản cao chống chói nắng, hỗ trợ lưu trữ cục bộ qua localStorage để xem lịch sử khi mất mạng, và đặc biệt chân trang luôn hiển thị Disclaimer bắt buộc nhằm tránh các rủi ro quyết định kinh tế sai lệch cho người nông dân.
 
 ---
 
@@ -132,12 +134,14 @@
 
 ---
 
-## Slide 11: Đề xuất thiết kế Giao diện di động (Mobile UI Flow)
-* **Màn hình 1: Input** (Form chọn tỉnh/huyện lớn, nút bấm tối thiểu 48px dễ chạm, độ tương phản cao chống lóa nắng).
-* **Màn hình 2: Result** (Giá dự báo hiển thị cỡ chữ lớn kèm Khoảng tin cậy dao động và Khuyến nghị canh tác mùa vụ ngắn gọn).
-* **Màn hình 3: Explainability** (Vẽ thanh ngang CSS thể hiện trực quan phần trăm đóng góp của các yếu tố đầu vào).
+## Slide 11: Hiện thực Giao diện di động (Mobile-first UI)
+* **Tối ưu trải nghiệm:** Giao diện React/Vite tối ưu hóa theo phong cách Neo-Brutalism (tương phản cao), phân tách luồng Giá và Canh tác rõ ràng.
+* **Tương tác trực quan & an toàn:** 
+  - Nút bấm và ô nhập liệu lớn (>= 48px) dễ thao tác, độ tương phản cao chống chói nắng.
+  - Hỗ trợ lưu kết quả dự báo ngoại tuyến (Offline Storage) qua `localStorage`.
+* **Định dạng hiển thị:** Kết quả trực quan gồm giá dự báo, khoảng dao động, lý giải thanh đóng góp đặc trưng và khuyến nghị canh tác tiếng Việt dễ hiểu.
 * **Speaker Notes:**
-  > Chúng tôi đề xuất một giao diện di động tối giản. Các ô nhập liệu và nút bấm được thiết kế lớn để nông dân tay chân lấm bùn vẫn dễ thao tác. Kết quả hiển thị giá dự báo đi kèm khoảng dao động an toàn và biểu đồ giải thích trực quan, giúp người dân dễ hiểu nhất.
+  > Chúng tôi đã hiện thực một giao diện di động bằng React. Giao diện phân tách tính năng thành các luồng độc lập, bám sát mental model của người nông dân. Ứng dụng hỗ trợ lưu trữ cục bộ để xem lại dự báo khi không có mạng, thiết kế theo triết lý Social Impact với các nút bấm lớn dễ ấn, biểu đồ giải thích trực quan và tích hợp đầy đủ cảnh báo thiên lệch dữ liệu.
 
 ---
 

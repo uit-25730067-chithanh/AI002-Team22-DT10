@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Real Data Baseline + Protected API Contract — **ĐANG TÍCH HỢP**
-**Cập nhật:** 2026-05-28
+**Trạng thái:** Real Data Baseline + Protected API Contract + React Frontend.
+**Cập nhật:** 2026-06-03
 
 ---
 
@@ -9,13 +9,13 @@
 
 ### `backend/` — API Server (Team 2)
 
-| File                    | Mô tả                                                                                                                                 | Trụ cột AI liên quan                                          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `main.py`               | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                                                  | —                                                             |
-| `api/routes.py`         | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key`                                 | Robustness (Pydantic validate), Transparency (trả giải thích) |
-| `schemas/prediction.py` | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
-| `services/predictor.py` | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
-| `services/farming_advisory.py`| `FarmingAdvisoryService`: cung cấp khuyến nghị canh tác theo luật (rule-based) dựa trên tháng, lượng mưa và điểm chất lượng đất | Social Impact, Robustness                                     |
+| File                           | Mô tả                                                                                                                                 | Trụ cột AI liên quan                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `main.py`                      | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                                                  | —                                                             |
+| `api/routes.py`                | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key`                                 | Robustness (Pydantic validate), Transparency (trả giải thích) |
+| `schemas/prediction.py`        | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
+| `services/predictor.py`        | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
+| `services/farming_advisory.py` | `FarmingAdvisoryService`: cung cấp khuyến nghị canh tác theo luật (rule-based) dựa trên tháng, lượng mưa và điểm chất lượng đất       | Social Impact, Robustness                                     |
 
 ### `model/` — AI/ML Pipeline (Team 2)
 
@@ -36,6 +36,17 @@
 | `area_real_price_data_ranking.csv`                           | Xếp hạng độ phủ giá thật theo khu vực                 |
 | `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                           |
 
+### `frontend/` — Giao diện người dùng di động (Mobile-first UI)
+
+| File/Folder          | Mô tả                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| `src/app/`           | App shell và routing đơn giản.                                                                    |
+| `src/features/`      | Chứa 4 nhóm màn hình/chức năng: welcome/menu, `price-advisory`, `farming-advisory`, và `history`. |
+| `src/shared/`        | Các thành phần dùng chung (UI components, constants, types, API client, storage repository).      |
+| `src/main.tsx`       | Entry point của ứng dụng React.                                                                   |
+| `tailwind.config.js` | Theme coffee/cream/leaf theo phong cách Farmer Neo-Brutal Friendly.                               |
+| `vite.config.ts`     | Cấu hình Vite + Vitest cho component tests.                                                       |
+
 ### `scripts/` — Tiện ích
 
 | File                    | Mô tả                                                                                                  |
@@ -44,11 +55,11 @@
 
 ### `tests/ai-tests/` — Kiểm thử
 
-| File                           | Mô tả                                                                                |
-| ------------------------------ | ------------------------------------------------------------------------------------ |
-| `test_predictor_service.py`    | Kiểm tra PredictorService load model và trả đủ keys; sử dụng model fixture trong tmp_path để test |
-| `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run theo metric                    |
-| `test_api_security.py`         | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config             |
+| File                               | Mô tả                                                                                              |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `test_predictor_service.py`        | Kiểm tra PredictorService load model và trả đủ keys; sử dụng model fixture trong tmp_path để test  |
+| `test_best_model_promotion.py`     | Kiểm tra best model promotion chọn đúng real-data run theo metric                                  |
+| `test_api_security.py`             | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config                           |
 | `test_farming_advisory_service.py` | Kiểm tra FarmingAdvisoryService trả về khuyến nghị đúng theo quy tắc lượng mưa, tháng, và điểm đất |
 
 ### `docs/discussions/` — Tài liệu nội bộ
@@ -62,20 +73,20 @@
 
 ### `docs/` — Tài liệu vận hành và bàn giao
 
-| File | Mô tả |
-| --- | --- |
-| `README.md` | Chỉ mục tài liệu theo vai trò và nhu cầu đọc |
+| File                 | Mô tả                                                        |
+| -------------------- | ------------------------------------------------------------ |
+| `README.md`          | Chỉ mục tài liệu theo vai trò và nhu cầu đọc                 |
 | `self-host-guide.md` | Hướng dẫn chạy backend local, test API key, systemd và Nginx |
-| `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
+| `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration            |
 
 ### `docs/report/` và `docs/slides/` — Báo cáo và thuyết trình
 
-| File/Folder | Mô tả |
-| --- | --- |
-| `docs/slides/` | Slides thuyết trình cuối kỳ (`final_presentation_slides.md`) |
-| `docs/report/README.md` | Chỉ mục report notes theo roadmap, owner và trạng thái |
-| `docs/report/internal-notes/` | Báo cáo tiến độ nội bộ theo tuần (Week 1-6) |
-| `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức (Chương 1-6) |
+| File/Folder                       | Mô tả                                                        |
+| --------------------------------- | ------------------------------------------------------------ |
+| `docs/slides/`                    | Slides thuyết trình cuối kỳ (`final_presentation_slides.md`) |
+| `docs/report/README.md`           | Chỉ mục report notes theo roadmap, owner và trạng thái       |
+| `docs/report/internal-notes/`     | Báo cáo tiến độ nội bộ theo tuần (Week 1-6)                  |
+| `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức (Chương 1-6)             |
 
 ### `plans/team2-foundation-week/` — Kế hoạch
 

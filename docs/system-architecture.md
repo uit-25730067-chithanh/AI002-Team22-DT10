@@ -6,17 +6,16 @@ Tài liệu này mô tả chi tiết kiến trúc hệ thống của dự án **
 
 ## 1. Tổng quan Hệ thống (System Overview)
 
-Hệ thống được thiết kế theo mô hình client-server đơn giản (KISS & YAGNI) nhằm phục vụ việc dự báo giá nông sản và gợi ý canh tác cho nông dân nhỏ lẻ. Hệ thống gồm 3 thành phần chính:
+Hệ thống được thiết kế theo mô hình client-server đơn giản (KISS & YAGNI) nhằm phục vụ việc dự báo giá nông sản và gợi ý canh tác cho nông dân nhỏ lẻ. Hệ thống gồm 4 thành phần chính:
 1. **Data Pipeline (Crawler & Preprocess):** Thu thập dữ liệu từ các nguồn giá thật và thời tiết, làm sạch và tổng hợp thành các tập dữ liệu processed theo tuần/tháng.
 2. **AI/ML Core:** Mô hình học máy Random Forest huấn luyện trên dữ liệu monthly đã chuẩn hóa, trích xuất feature importance và dự báo có khoảng tin cậy.
 3. **Backend API (FastAPI):** Cung cấp các endpoint để frontend gọi dự báo, đồng thời bảo mật bằng API Key.
-
-Lưu ý trạng thái repo hiện tại: backend/model/data đã có trong repository này. Mã nguồn frontend production đang được Team 1 giữ trên máy local của Phúc và chưa push lên GitHub, nên sơ đồ dưới đây thể hiện kiến trúc mục tiêu của hệ thống end-to-end chứ không có nghĩa là toàn bộ client source đã nằm trong repo hiện tại.
+4. **Mobile-first Frontend Demo (React/Vite/Tailwind):** Giao diện được xây dựng bằng React/Vite trong `frontend/`, style bằng Tailwind và theme coffee/cream/leaf. UI có màn chào, menu chọn tác vụ, tách luồng Giá và luồng Canh tác, tối ưu thao tác di động. Hiển thị dự báo, độ tin cậy, feature importance, khuyến nghị canh tác, hỗ trợ lưu lịch sử cục bộ khi người dùng chủ động bấm lưu, xem chi tiết lịch sử và cảnh báo dữ liệu.
 
 ```mermaid
 flowchart TD
     subgraph Client
-        UI[Frontend source pending push]
+        UI[Mobile-first frontend demo]
     end
 
     subgraph Server [Backend FastAPI]
@@ -30,7 +29,7 @@ flowchart TD
         Rank[Area Price Ranking CSV]
     end
 
-    UI -- HTTP POST + API Key --> API
+    UI -- HTTP POST /predict + API Key config --> API
     API -- Request Validation --> Service
     Service -- Load Metadata & Weights --> Model
     Model -- Return Prediction & Explanations --> Service

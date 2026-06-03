@@ -70,3 +70,9 @@ docs/journals
 
 # GitHub Project Management
 .github-management/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+uvicorn.log
+

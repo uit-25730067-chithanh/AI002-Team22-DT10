@@ -42,7 +42,7 @@ Reliability       Bias       Robustness    Social Impact  Transparency
 - **Kết quả:** Mô hình bám sát xu hướng tăng giá của thị trường nhưng bị giới hạn về biên độ tăng do giới hạn của mô hình cây. Sai số MAE 13.5k VND/kg được hiển thị trực tiếp cho người dùng dưới dạng **Khoảng tin cậy (Confidence Interval)** bao quanh giá dự báo trên giao diện, giúp nông dân nhận thức được biên độ an toàn của dự đoán.
 
 ### 5.3.2. Trục 2: Bias (Tính thiên lệch)
-- **Phương pháp kiểm chứng:** Chạy mô hình dự báo song song trên dữ liệu của 4 tỉnh Tây Nguyên năm 2025 và so sánh sai số.
+- **Phương pháp kiểm chứng:** Chạy mô hình dự báo song song trên dữ liệu của 5 tỉnh Tây Nguyên năm 2025 và so sánh sai số.
 - **Kết quả:** Sai số dự báo tại Lâm Đồng và Kon Tum (vùng có độ phủ dữ liệu cào thật 100%) thấp hơn rõ rệt so với tỉnh Đắk Nông (độ phủ dữ liệu chỉ 39.6%).
 - **Giải pháp giảm thiểu:** Giao diện người dùng sẽ hiển thị nhãn cảnh báo **"Độ tin cậy dữ liệu vùng thấp"** khi nông dân chọn Đắk Nông hoặc Đắk R'lấp, hướng dẫn người dùng nên tham chiếu thêm giá của các khu vực lân cận như Bảo Lộc, Di Linh (Lâm Đồng) để có giá sát thị trường hơn.
 
@@ -56,8 +56,8 @@ Reliability       Bias       Robustness    Social Impact  Transparency
     - *Kịch bản 3 (Kết hợp cả hai biến cố - both):* Sai số MAE đạt **22,569** VND/kg (**+66.5%**).
 
 ### 5.3.4. Trục 4: Social Impact (Tác động xã hội)
-- **Phương pháp kiểm chứng:** Đánh giá thiết kế giao diện mobile-first ở mức tài liệu handoff và kiểm tra backend luôn trả disclaimer trong response.
-- **Kết quả:** Repo hiện tại đã có contract backend và disclaimer bắt buộc trong response để giảm rủi ro lạm dụng dự báo. Mã nguồn frontend production vẫn đang ở máy local của Phúc và chưa được push vào repo này, nên các chỉ số hiệu năng 3G hoặc dung lượng trang mới dừng ở mức mục tiêu thiết kế, chưa phải số liệu đã kiểm chứng trong repository hiện tại.
+- **Phương pháp kiểm chứng:** Kiểm nghiệm thực tế giao diện mobile-first React/Vite/Tailwind đã hiện thực tại thư mục `frontend/` và xác nhận kết quả phản hồi của backend kèm disclaimer.
+- **Kết quả:** Giao diện có màn chào, menu chọn tác vụ, nút bấm lớn, tương phản cao, tách riêng luồng Dự báo Giá và Khuyến nghị Canh tác. Ứng dụng hỗ trợ lưu kết quả thủ công bằng `localStorage` và xem chi tiết lịch sử để nông dân có thể đối chiếu lại input, kết quả, lý do và disclaimer khi mạng không ổn định. Chân trang kết quả luôn bắt buộc hiển thị Disclaimer để giảm thiểu rủi ro nông dân tự ý ra quyết định tài chính sai lệch. Điều này đóng góp vào tác động xã hội thực tế của hệ thống.
 
 ### 5.3.5. Trục 5: Transparency (Tính minh bạch / giải thích được)
 - **Phương pháp kiểm chứng:** Trích xuất Feature Importance từ mô hình huấn luyện Random Forest.

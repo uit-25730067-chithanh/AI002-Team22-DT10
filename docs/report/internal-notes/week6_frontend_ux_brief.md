@@ -18,7 +18,7 @@
 2. **Kích thước chạm (Touch Target):** Các nút bấm, ô nhập liệu (input) phải có chiều cao tối thiểu **48px** để dễ bấm bằng ngón tay khi đang làm việc.
 3. **Cỡ chữ lớn (Min 16px):** Tiêu đề và kết quả số phải rõ ràng.
 4. **Độ tương phản cao:** Sử dụng văn bản màu đen hoặc xám rất đậm trên nền trắng/sáng để dễ đọc dưới trời nắng.
-5. **Dung lượng cực nhẹ:** Tránh dùng các framework React/Vue hay CSS Tailwind lớn nếu không cần thiết; ưu tiên HTML5 và CSS thuần để tối ưu tốc độ tải trang qua mạng 3G.
+5. **Kiến trúc linh hoạt:** Sử dụng React/Vite và Tailwind CSS để tách biệt logic Giá và Canh tác, đồng thời tích hợp `localStorage` để xem lại kết quả khi mạng chập chờn.
 
 ---
 

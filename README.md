@@ -59,7 +59,7 @@ flowchart TD
 
     M --> N[model/best_model]
     N --> O[FastAPI /predict]
-    O --> P[Frontend demo<br/>(local pending push)]
+    O --> P[Mobile-first frontend demo<br/>React/Vite/Tailwind]
 ```
 
 ### Dataset chính hiện tại
@@ -100,13 +100,13 @@ Tài liệu chi tiết:
 
 ## Tech Stack
 
-| Category               | Technologies                                                                                                                                                                                                                                                                   |
-| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Backend / API**      | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)                                                                                                  |
-| **Machine Learning**   | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost)                                                                  |
-| **Data Processing**    | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy)                                                                                                           |
-| **Frontend / Crawler** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3) ![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
-| **Storage**            | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite) ![CSV](https://img.shields.io/badge/CSV-107C41?style=flat-square&logo=microsoftexcel&logoColor=white)                                                                                      |
+| Category               | Technologies                                                                                                                                                                                                                                                                                         |
+| :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Backend / API**      | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)                                                                                                                        |
+| **Machine Learning**   | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost)                                                                                        |
+| **Data Processing**    | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy)                                                                                                                                 |
+| **Frontend / Crawler** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) |
+| **Storage**            | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite) ![CSV](https://img.shields.io/badge/CSV-107C41?style=flat-square&logo=microsoftexcel&logoColor=white)                                                                                                            |
 
 ---
 
@@ -140,7 +140,7 @@ AI002_PROJECT/
 ├── tests/ai-tests/                 # Pytest suite
 │   └── test_predictor_service.py   # PredictorService unit tests
 │
-└── frontend/                       # Web Interface (Team 1 - local pending push)
+└── frontend/                       # Mobile-first Web demo (React/Vite/Tailwind)
 ```
 
 > _For detailed team responsibilities across these modules, see the [Team Workflows](./docs/project-overview-pdr.md#4-phân-công-công-việc)._
@@ -215,8 +215,19 @@ cat model/experiments.csv
 
 ### 6. Running the Web UI
 
-> [!NOTE]
-> Mã nguồn của Web UI hiện đang ở máy local của Phúc (Team 1) và đang chuẩn bị được push lên repository. Khi code được push, các file UI sẽ nằm trong thư mục `frontend/`. Hiện tại, bạn có thể chạy FastAPI backend server và kiểm thử các API endpoints qua Swagger UI (`/docs`).
+Repo hiện có giao diện demo mobile-first trong `frontend/`, dùng React, TypeScript, Vite và Tailwind CSS. UI có màn chào, menu chọn tác vụ, tách luồng **Dự báo Giá Cà phê** và **Khuyến nghị Canh tác**, gọi chung endpoint `/predict`, và chỉ lưu lịch sử vào `localStorage` khi người dùng bấm **Lưu kết quả này**.
+
+```bash
+# Terminal 1: chạy backend
+export $(cat .env | xargs) && python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+
+# Terminal 2: chạy frontend Vite
+cd frontend
+npm install
+npm run dev
+```
+
+Mở URL Vite báo ra, thường là `http://localhost:5173`.
 
 ---
 
