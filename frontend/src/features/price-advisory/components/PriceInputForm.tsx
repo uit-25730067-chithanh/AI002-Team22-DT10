@@ -17,9 +17,9 @@ const PriceInputForm: React.FC<PriceInputFormProps> = ({ onSubmit, isLoading }) 
 
   const areas = province ? AREA_MAPPING[province] || [] : [];
   const fieldClasses =
-    'rounded-lg border-2 border-coffee-800 bg-white p-3 font-sans text-base focus:outline focus:outline-[3px] focus:-outline-offset-2 focus:outline-coffee-500 aria-[invalid=true]:border-red-600 disabled:bg-coffee-100 disabled:text-coffee-700';
+    'rounded-lg border border-gray-300 bg-white p-3 font-sans text-base min-h-[48px] focus:outline focus:outline-[2px] focus:-outline-offset-2 focus:outline-green-700 aria-[invalid=true]:border-red-600 disabled:bg-gray-100 disabled:text-gray-500';
   const formGroupClasses = 'flex flex-col gap-2';
-  const labelClasses = 'font-semibold text-coffee-900';
+  const labelClasses = 'font-semibold text-gray-900';
   const errorClasses = 'text-sm font-semibold text-red-600';
 
   const handleSubmit = (e: React.FormEvent) => {
