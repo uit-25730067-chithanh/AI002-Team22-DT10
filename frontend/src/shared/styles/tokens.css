@@ -1,18 +1,18 @@
 :root {
   /* Colors */
-  --color-bg-primary: #F5EADC; /* Nền kem cà phê */
-  --color-bg-secondary: #FFFFFF;
-  --color-text-primary: #2F2018;
-  --color-text-secondary: #604536;
-  --color-brand-primary: #7B4A2F; /* Espresso CTA */
-  --color-brand-hover: #4B2F22;
-  --color-border: #2F2018;
-  --color-shadow: #2F2018;
+  --color-bg-primary: #F4F5F7; /* Soft gray for outdoor readability */
+  --color-bg-secondary: #FFFFFF; /* White cards */
+  --color-text-primary: #111827; /* Dark gray for high contrast */
+  --color-text-secondary: #4B5563; /* Medium gray */
+  --color-brand-primary: #2E7D32; /* Coffee leaf green CTA */
+  --color-brand-hover: #1B5E20;
+  --color-border: #E5E7EB; /* Subtle gray borders */
+  --color-shadow: rgba(0, 0, 0, 0.05);
   --color-danger: #DC2626;
-  --color-success: #2F8F46;
-  --color-warning: #C27A3F;
-  --color-accent: #C27A3F;
-  --color-leaf: #2F8F46;
+  --color-success: #2E7D32;
+  --color-warning: #E65100; /* Ripe coffee orange */
+  --color-accent: #E65100;
+  --color-leaf: #2E7D32;
 
   /* Typography */
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -28,13 +28,13 @@
   --spacing-10: 2.5rem;
   --spacing-12: 3rem;
 
-  /* Borders & Shadows */
-  --border-width-thick: 2px;
+  /* Borders & Shadows (Softened for Clean Utility) */
+  --border-width-thick: 1px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-full: 9999px;
-  --shadow-hard: 5px 5px 0px var(--color-shadow);
-  --shadow-hard-pressed: 0px 0px 0px var(--color-shadow);
+  --shadow-hard: 0 1px 3px 0 var(--color-shadow), 0 1px 2px -1px var(--color-shadow);
+  --shadow-hard-pressed: 0 0 0 0 var(--color-shadow);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
