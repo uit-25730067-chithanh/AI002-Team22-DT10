@@ -1,0 +1,18 @@
+export const FEATURE_EXPLANATIONS: Record<string, string> = {
+  rolling_avg_7d: "Đà giá trung bình trượt 7 kỳ gần đây",
+  lag_1d: "Giá cà phê thực tế của tháng trước",
+  year: "Xu hướng giá tăng trưởng theo năm",
+  month: "Chu kỳ biến động giá theo tháng trong năm",
+  month_sin: "Tính liền mạch thời gian của tháng dự báo",
+  month_cos: "Tính liền mạch thời gian của tháng dự báo",
+  quarter: "Biến động mùa vụ theo quý",
+  lag_7d: "Giá cà phê trễ lịch sử 7 chu kỳ trước",
+  price_observations: "Mật độ dữ liệu quan sát được của vùng",
+  avg_temp_c: "Nhiệt độ môi trường thực địa",
+  rainfall_mm: "Tổng lượng mưa tích lũy khu vực",
+  humidity_pct: "Độ ẩm không khí thực tế",
+  avg_soil_moisture_0_7cm: "Độ ẩm tầng đất mặt canh tác",
+  soil_score: "Đánh giá chất lượng đất cục bộ",
+  province: "Yếu tố chênh lệch cung cầu cấp Tỉnh",
+  area: "Đặc thù thổ nhưỡng và giao thông cấp Huyện",
+};
