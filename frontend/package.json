@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "Thư mục này chứa mã nguồn của giao diện người dùng tối giản (HTML/CSS/JS) phục vụ demo và kiểm thử hệ thống. Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.",
+  "description": "Thư mục này chứa mã nguồn React/TypeScript/Vite/Tailwind phục vụ demo và kiểm thử hệ thống. Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.",
   "main": "index.js",
   "scripts": {
     "test": "vitest",

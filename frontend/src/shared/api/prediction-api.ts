@@ -3,9 +3,12 @@ import { PredictionRequest, PredictionResponse } from './prediction-types';
 // Trong môi trường production hoặc testing, ta có thể inject biến môi trường
 // Nếu không có, dùng mặc định local
 const API_BASE_URL = import.meta.env?.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
-const API_KEY = import.meta.env?.VITE_API_KEY || 'E9uEbKVz3myK5WmukoDoO1DIVJTvw8fXZZxmNsGcy7s';
+const API_KEY = import.meta.env?.VITE_API_KEY;
 
 export async function fetchPrediction(payload: PredictionRequest): Promise<PredictionResponse> {
+  if (!API_KEY) {
+    throw new Error('VITE_API_KEY is missing. Please configure it in your environment.');
+  }
   try {
     const response = await fetch(`${API_BASE_URL}/predict`, {
       method: 'POST',
