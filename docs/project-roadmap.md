@@ -91,8 +91,8 @@ gantt
     Stress test API/integration follow-up    :e3, 2026-05-14, 3d
 
     section GĐ 6: Integration và báo cáo
-    Frontend nối /predict                    :f1, 2026-05-18, 4d
-    Demo end-to-end                          :f2, 2026-05-21, 2d
+    React frontend nối /predict             :done, f1, 2026-06-03, 1d
+    Demo end-to-end                          :done, f2, 2026-06-03, 1d
     Báo cáo kỹ thuật và slide                :f3, 2026-05-25, 10d
     Nộp bài                                  :milestone, f4, 2026-06-04, 0d
 ```
@@ -105,7 +105,7 @@ flowchart TD
         A1[Crawl dữ liệu giá]
         A2[Crawl hoặc chuẩn bị weather]
         A3[Build processed datasets]
-        A4[Frontend HTML/CSS/JS]
+        A4[Frontend React/Vite/Tailwind]
     end
 
     subgraph Thanh[Thanh]
@@ -245,15 +245,15 @@ stateDiagram-v2
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
 - [x] API validate numeric ranges, enum và category đã train.
 - [x] Sơn bổ sung danh sách kiểm tra integration API/frontend cho Team 1.
-- [ ] Team 1 nối frontend với API (local pending push từ Phúc).
-- [ ] Demo end-to-end.
+- [x] Có frontend demo mobile-first trong repo gọi `/predict`.
+- [x] Demo end-to-end backend/frontend bằng kịch bản Lâm Đồng / Di Linh.
 
 ### Tuần 6 — Báo cáo và slide
 
 - [x] Có 5 Pillars checkpoint real-data từ PR #12.
 - [x] Chuyển bằng chứng 5 Pillars và stress test vào slide/report cuối kỳ.
 - [x] Chuẩn bị slide thuyết trình (final_presentation_slides.md).
-- [ ] Tổng duyệt demo.
+- [x] Tổng duyệt demo bằng API smoke test và frontend screenshot evidence.
 
 ## WBS cập nhật
 
@@ -264,7 +264,7 @@ stateDiagram-v2
 | AI model           | Preprocess, train RF, feature importance    | Thanh           | Sơn review metrics                 |
 | Evaluation         | Stress test, bias, 5 Pillars                | Sơn             | Thanh review technical correctness |
 | Backend API        | `/predict`, `/health`, `/model/info`        | Thanh           | Phúc review frontend contract      |
-| Frontend           | UI và gọi API                               | Phúc, Thịnh     | Thanh review payload/response      |
+| Frontend           | React/Vite/Tailwind UI và gọi API          | Phúc, Thịnh     | Thanh review payload/response      |
 | Report             | Kết quả, limitation, demo script            | Cả nhóm         | Cả nhóm review                     |
 
 ## Rủi ro và cách xử lý

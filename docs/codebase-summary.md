@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Real Data Baseline + Protected API Contract — **ĐANG TÍCH HỢP**
-**Cập nhật:** 2026-05-28
+**Trạng thái:** Real Data Baseline + Protected API Contract + React Frontend — **ĐANG TÍCH HỢP**
+**Cập nhật:** 2026-06-03
 
 ---
 
@@ -35,6 +35,17 @@
 | `weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Dataset weekly để tham khảo hoặc thử nghiệm tương lai |
 | `area_real_price_data_ranking.csv`                           | Xếp hạng độ phủ giá thật theo khu vực                 |
 | `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                           |
+
+### `frontend/` — Giao diện người dùng di động (Mobile-first UI)
+
+| File/Folder               | Mô tả                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `src/app/`                | App shell và routing đơn giản.                                                                               |
+| `src/features/`           | Chứa 4 nhóm màn hình/chức năng: welcome/menu, `price-advisory`, `farming-advisory`, và `history`.            |
+| `src/shared/`             | Các thành phần dùng chung (UI components, constants, types, API client, storage repository).                 |
+| `src/main.tsx`            | Entry point của ứng dụng React.                                                                              |
+| `tailwind.config.js`      | Theme coffee/cream/leaf theo phong cách Farmer Neo-Brutal Friendly.                                          |
+| `vite.config.ts`          | Cấu hình Vite + Vitest cho component tests.                                                                  |
 
 ### `scripts/` — Tiện ích
 
