@@ -1,14 +1,30 @@
+from typing import Tuple
+import numpy as np
+import pandas as pd
+import warnings
 """
 Module tiền xử lý dữ liệu cho pipeline dự báo giá cà phê.
 Các hàm xử lý missing data, outliers, và engineer features.
 """
 
-import warnings
-from typing import Tuple
-
-import numpy as np
 import pandas as pd
 
+
+def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Pipeline đầy đủ: fill missing -> remove outliers -> engineer features.
+    """
+    df = normalize_real_schema(df)
+    df = fill_missing(df)
+    df = cap_outliers(df)
+    df = feature_engineer(df)
+    df = fill_missing(df)
+    df = encode_features(df)
+    return df
+
+"""
+Module chuẩn hóa schema cho pipeline dự báo giá cà phê.
+"""
 
 REAL_SCHEMA_RENAME_MAP = {
     "period_start": "date",
@@ -26,7 +42,6 @@ CATEGORICAL_FEATURES = [
     "dominant_soil_type",
     "soil_data_confidence",
 ]
-
 
 def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -74,6 +89,9 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+"""
+Module feature engineering, xử lý missing data và outliers.
+"""
 
 def fill_missing(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -165,6 +183,10 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+"""
+Module encoding và split dữ liệu.
+"""
+
 
 def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
@@ -227,16 +249,3 @@ def split_temporal(
     y_test = test_df[target_col]
 
     return X_train, X_test, y_train, y_test
-
-
-def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Pipeline đầy đủ: fill missing -> remove outliers -> engineer features.
-    """
-    df = normalize_real_schema(df)
-    df = fill_missing(df)
-    df = cap_outliers(df)
-    df = feature_engineer(df)
-    df = fill_missing(df)
-    df = encode_features(df)
-    return df

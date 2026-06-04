@@ -1,9 +1,10 @@
+from __future__ import annotations
+import numpy as np
+import pandas as pd
 """
 Stress Test: Đo lường model phản ứng khi data nhiễm cực đoan (Black Swan).
 Được thiết kế để chỉ gây nhiễu trên tập test (năm 2025) sử dụng dữ liệu thật monthly.
 """
-
-from __future__ import annotations
 
 import argparse
 import json
@@ -16,61 +17,6 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).parent))
-from experiment_tracker import (  # noqa: E402
-    build_params,
-    create_experiment,
-    get_latest_experiment,
-    save_metrics,
-    save_params,
-)
-from preprocess import (  # noqa: E402
-    cap_outliers,
-    encode_features,
-    feature_engineer,
-    fill_missing,
-    normalize_real_schema,
-    preprocess_pipeline,
-    split_temporal,
-)
-
-
-def inject_black_swan_on_test(df_normalized: pd.DataFrame, scenario: str) -> pd.DataFrame:
-    """
-    Chỉ bơm nhiễu cực đoan vào các dòng thuộc năm 2025 (Test Set).
-    """
-    df = df_normalized.copy()
-    np.random.seed(42)
-
-    # Lấy index của các dòng thuộc năm 2025
-    test_mask = df["date"] >= "2025-01-01"
-    test_indices = df[test_mask].index
-
-    if len(test_indices) == 0:
-        print("Cảnh báo: Không tìm thấy dòng dữ liệu nào từ năm 2025 để gây nhiễu!")
-        return df
-
-    # Ép kiểu sang float để tránh LossySetitemError khi gán giá trị thực
-    df["historical_price_vnd"] = df["historical_price_vnd"].astype(float)
-    df["avg_temp_c"] = df["avg_temp_c"].astype(float)
-
-    # Gây nhiễu ngẫu nhiên trên khoảng 20% số dòng của tập test
-    n = max(1, len(test_indices) // 5)
-    idx = np.random.choice(test_indices, size=n, replace=False)
-
-    if scenario == "price_crash":
-        # Giá sụp đổ 50%
-        df.loc[idx, "historical_price_vnd"] *= 0.5
-    elif scenario == "heat_wave":
-        # Nhiệt độ tăng vọt lên 45 độ C
-        df.loc[idx, "avg_temp_c"] = 45.0
-    elif scenario == "both":
-        df.loc[idx, "historical_price_vnd"] *= 0.5
-        df.loc[idx, "avg_temp_c"] = 45.0
-    else:
-        raise ValueError(f"scenario không hợp lệ: {scenario}")
-
-    return df
-
 
 def run_stress_test(
     data_path: str,
@@ -147,44 +93,14 @@ def run_stress_test(
         print(f"RMSE = {rmse_stress:,.0f} VND/kg (+{rmse_lift:.1f}%)")
 
     # Build report
-    report_lines = [
-        "# Stress Test Report — Robustness Pillar",
-        "",
-        f"**Date:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"**Model:** {model_path}",
-        f"**Dataset:** {data_path}",
-        f"**Experiment:** {exp_path.name}",
-        "",
-        "## Baseline (Normal Test Set - 2025)",
-        "",
-        f"- MAE:  {mae_normal:,.0f} VND/kg",
-        f"- RMSE: {rmse_normal:,.0f} VND/kg",
-        "",
-        "## Black Swan Scenarios (Gây nhiễu tập Test 2025)",
-        "",
-    ]
-    for r in results:
-        report_lines.extend([
-            f"### {r['scenario']}",
-            "",
-            f"- MAE:  {r['mae']:,.0f} VND/kg (+{r['mae_lift_pct']:.1f}%)",
-            f"- RMSE: {r['rmse']:,.0f} VND/kg (+{r['rmse_lift_pct']:.1f}%)",
-            "",
-        ])
-    report_lines.extend([
-        "## Nhận xét và Ghi nhận",
-        "",
-        "> Kịch bản price_crash và both làm MAE tăng mạnh (+66.5%), cho thấy baseline",
-        "> Random Forest phụ thuộc đáng kể vào lịch sử giá gần nhất và không ngoại suy tốt khi",
-        "> thị trường sụp đổ đột ngột. Kịch bản heat_wave gần như không đổi sai số vì feature",
-        "> nhiệt độ có trọng số rất thấp trong mô hình hiện tại.",
-        "",
-        "## Khuyến nghị cho Slide Báo cáo",
-        "",
-        "- Trình bày MAE lift % làm bằng chứng định lượng cho trụ cột Robustness.",
-        "- Nhấn mạnh baseline chịu rủi ro cao hơn với shock giá so với shock nhiệt độ.",
-        "- Tích hợp cảnh báo người dùng trên UI khi các chỉ số thực tế vượt ngưỡng lịch sử đã train.",
-    ])
+    report_lines = generate_stress_report(
+        model_path=model_path,
+        data_path=data_path,
+        exp_name=exp_path.name,
+        mae_normal=mae_normal,
+        rmse_normal=rmse_normal,
+        results=results
+    )
 
     # Tạo thư mục con stress
     stress_dir = exp_path / "stress"
@@ -256,3 +172,102 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     run_stress_test(args.data, args.model, args.exp_dir, args.tag, args.also_docs)
+
+"""
+Module chứa các kịch bản nhiễu (Black Swan scenarios) cho stress test.
+"""
+
+def inject_black_swan_on_test(df_normalized: pd.DataFrame, scenario: str) -> pd.DataFrame:
+    """
+    Chỉ bơm nhiễu cực đoan vào các dòng thuộc năm 2025 (Test Set).
+    """
+    df = df_normalized.copy()
+    np.random.seed(42)
+
+    # Lấy index của các dòng thuộc năm 2025
+    test_mask = df["date"] >= "2025-01-01"
+    test_indices = df[test_mask].index
+
+    if len(test_indices) == 0:
+        print("Cảnh báo: Không tìm thấy dòng dữ liệu nào từ năm 2025 để gây nhiễu!")
+        return df
+
+    # Ép kiểu sang float để tránh LossySetitemError khi gán giá trị thực
+    df["historical_price_vnd"] = df["historical_price_vnd"].astype(float)
+    df["avg_temp_c"] = df["avg_temp_c"].astype(float)
+
+    # Gây nhiễu ngẫu nhiên trên khoảng 20% số dòng của tập test
+    n = max(1, len(test_indices) // 5)
+    idx = np.random.choice(test_indices, size=n, replace=False)
+
+    if scenario == "price_crash":
+        # Giá sụp đổ 50%
+        df.loc[idx, "historical_price_vnd"] *= 0.5
+    elif scenario == "heat_wave":
+        # Nhiệt độ tăng vọt lên 45 độ C
+        df.loc[idx, "avg_temp_c"] = 45.0
+    elif scenario == "both":
+        df.loc[idx, "historical_price_vnd"] *= 0.5
+        df.loc[idx, "avg_temp_c"] = 45.0
+    else:
+        raise ValueError(f"scenario không hợp lệ: {scenario}")
+
+    return df
+
+"""
+Module tạo báo cáo stress test dưới định dạng Markdown.
+"""
+
+def generate_stress_report(
+    model_path: str,
+    data_path: str,
+    exp_name: str,
+    mae_normal: float,
+    rmse_normal: float,
+    results: list[dict]
+) -> list[str]:
+    """
+    Tạo nội dung báo cáo stress test dựa trên kết quả các kịch bản.
+    """
+    report_lines = [
+        "# Stress Test Report — Robustness Pillar",
+        "",
+        f"**Date:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"**Model:** {model_path}",
+        f"**Dataset:** {data_path}",
+        f"**Experiment:** {exp_name}",
+        "",
+        "## Baseline (Normal Test Set - 2025)",
+        "",
+        f"- MAE:  {mae_normal:,.0f} VND/kg",
+        f"- RMSE: {rmse_normal:,.0f} VND/kg",
+        "",
+        "## Black Swan Scenarios (Gây nhiễu tập Test 2025)",
+        "",
+    ]
+    
+    for r in results:
+        report_lines.extend([
+            f"### {r['scenario']}",
+            "",
+            f"- MAE:  {r['mae']:,.0f} VND/kg (+{r['mae_lift_pct']:.1f}%)",
+            f"- RMSE: {r['rmse']:,.0f} VND/kg (+{r['rmse_lift_pct']:.1f}%)",
+            "",
+        ])
+        
+    report_lines.extend([
+        "## Nhận xét và Ghi nhận",
+        "",
+        "> Kịch bản price_crash và both làm MAE tăng mạnh (+66.5%), cho thấy baseline",
+        "> Random Forest phụ thuộc đáng kể vào lịch sử giá gần nhất và không ngoại suy tốt khi",
+        "> thị trường sụp đổ đột ngột. Kịch bản heat_wave gần như không đổi sai số vì feature",
+        "> nhiệt độ có trọng số rất thấp trong mô hình hiện tại.",
+        "",
+        "## Khuyến nghị cho Slide Báo cáo",
+        "",
+        "- Trình bày MAE lift % làm bằng chứng định lượng cho trụ cột Robustness.",
+        "- Nhấn mạnh baseline chịu rủi ro cao hơn với shock giá so với shock nhiệt độ.",
+        "- Tích hợp cảnh báo người dùng trên UI khi các chỉ số thực tế vượt ngưỡng lịch sử đã train.",
+    ])
+    
+    return report_lines
