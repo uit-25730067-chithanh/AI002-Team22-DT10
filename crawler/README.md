@@ -13,29 +13,29 @@ Thư mục này chịu trách nhiệm thu thập, làm sạch cơ bản và tổ
 
 ```mermaid
 flowchart TD
-    subgraph Sources [Nguồn dữ liệu]
-        Vinanet[Vinanet]
-        CongThuong[Công Thương]
-        NongNghiep[Nông Nghiệp]
-        KinhTe[Kinh Tế Đô Thị]
-        OpenMeteo[Open-Meteo API]
-        SoilLogic[Logic Đặc tính Đất]
+    subgraph Sources["Nguồn dữ liệu"]
+        Vinanet["Vinanet"]
+        CongThuong["Công Thương"]
+        NongNghiep["Nông Nghiệp"]
+        KinhTe["Kinh Tế Đô Thị"]
+        OpenMeteo["Open-Meteo API"]
+        SoilLogic["Logic Đặc tính Đất"]
     end
 
-    subgraph Crawlers [Các Script Cào Dữ Liệu]
+    subgraph Crawlers["Các Script Cào Dữ Liệu"]
         crawl_price_vinanet.py
         crawl_price_congthuong.py
         crawl_price_nongnghiep.py
         crawl_price_kinhtedothi.py
-        crawl_weather[crawl_weather_by_area.py]
-        build_soil[build_soil_profile.py]
+        crawl_weather["crawl_weather_by_area.py"]
+        build_soil["build_soil_profile.py"]
     end
 
     Sources -.-> Crawlers
-    Crawlers -->|Lưu| RawCSV[(data/raw/)]
+    Crawlers -->|Lưu| RawCSV["data/raw/"]
     
-    RawCSV --> Builder[build_area_datasets.py\nTổng hợp & Xử lý NaN]
-    Builder -->|Ghi dữ liệu sạch| ProcessedCSV[(data/processed/)]
+    RawCSV --> Builder["build_area_datasets.py<br/>Tổng hợp & Xử lý NaN"]
+    Builder -->|Ghi dữ liệu sạch| ProcessedCSV["data/processed/"]
 ```
 
 ## 3. Chức năng các file chính

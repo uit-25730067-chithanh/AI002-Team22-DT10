@@ -13,12 +13,12 @@ Thư mục lưu trữ trung tâm cho tất cả các định dạng dữ liệu 
 
 ```mermaid
 graph LR
-    Crawler[/Crawler Scripts/] -->|Dữ liệu cào về| Raw[(data/raw/)]
-    Raw --> Builder[/build_area_datasets.py/]
-    Builder -->|Dữ liệu đã dọn dẹp| Processed[(data/processed/)]
-    Processed --> Train[/model/train_*.py/]
+    Crawler["Crawler Scripts"] -->|Dữ liệu cào về| Raw["data/raw/"]
+    Raw --> Builder["build_area_datasets.py"]
+    Builder -->|Dữ liệu đã dọn dẹp| Processed["data/processed/"]
+    Processed --> Train["model/train_*.py"]
     
-    Sample[(data/sample/)] -.->|Dùng để test/demo| Train
+    Sample["data/sample/"] -.->|Dùng để test/demo| Train
 ```
 
 ## 3. Chức năng các thư mục con

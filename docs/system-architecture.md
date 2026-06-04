@@ -14,19 +14,19 @@ Hệ thống được thiết kế theo mô hình client-server đơn giản (KI
 
 ```mermaid
 flowchart TD
-    subgraph Client
-        UI[Mobile-first frontend demo]
+    subgraph Client["Client"]
+        UI["Mobile-first frontend demo"]
     end
 
-    subgraph Server [Backend FastAPI]
-        API[API Routes /predict]
-        Service[Predictor Service]
-        Model[Random Forest Model]
+    subgraph Server["Backend FastAPI"]
+        API["API Routes /predict"]
+        Service["Predictor Service"]
+        Model["Random Forest Model"]
     end
 
-    subgraph Data [Data Layer]
-        CSV[Processed Monthly CSV]
-        Rank[Area Price Ranking CSV]
+    subgraph Data["Data Layer"]
+        CSV["Processed Monthly CSV"]
+        Rank["Area Price Ranking CSV"]
     end
 
     UI -- HTTP POST /predict + API Key config --> API

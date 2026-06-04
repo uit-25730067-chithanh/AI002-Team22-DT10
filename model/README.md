@@ -14,20 +14,20 @@ Thư mục chịu trách nhiệm huấn luyện (Training), tiền xử lý (Pre
 
 ```mermaid
 flowchart TD
-    Data[(../data/processed/)] --> Preprocess[preprocess.py\nĐiền Khuyết & Tạo Feature]
+    Data["../data/processed/"] --> Preprocess["preprocess.py<br/>Điền Khuyết & Tạo Feature"]
     
-    Preprocess --> Split[Temporal Split\nTrain / Test]
-    Split --> TrainRF[train_rf.py\n(Baseline Random Forest)]
-    Split --> TrainXGB[train_xgboost.py\n(Thực nghiệm XGBoost)]
+    Preprocess --> Split["Temporal Split<br/>Train / Test"]
+    Split --> TrainRF["train_rf.py<br/>Baseline Random Forest"]
+    Split --> TrainXGB["train_xgboost.py<br/>Thực nghiệm XGBoost"]
     
-    TrainRF --> Tracker[experiment_tracker.py]
+    TrainRF --> Tracker["experiment_tracker.py"]
     TrainXGB --> Tracker
     
-    Tracker -->|Lưu log chạy, metrics, model .pkl| Exps[(experiments/)]
-    Tracker -->|Promote tự động model tốt nhất| Best[(best_model/)]
+    Tracker -->|Lưu log chạy, metrics, model .pkl| Exps["experiments/"]
+    Tracker -->|Promote tự động model tốt nhất| Best["best_model/"]
     
-    Best --> Stress[stress_test.py\nKiểm tra Robustness]
-    Stress -.->|In ra Terminal / Log| Result[Stress Test Reports]
+    Best --> Stress["stress_test.py<br/>Kiểm tra Robustness"]
+    Stress -.->|In ra Terminal / Log| Result["Stress Test Reports"]
 ```
 
 ## 3. Chức năng các file chính

@@ -12,15 +12,15 @@ Thư mục này chứa các file Jupyter Notebook (`.ipynb`) dùng để thử n
 
 ```mermaid
 flowchart LR
-    Data[(Raw / Processed Data)] --> Notebook[Jupyter Notebook]
+    Data["Raw / Processed Data"] --> Notebook["Jupyter Notebook"]
     
-    subgraph Quá trình Khám Phá (EDA)
-        Notebook -->|Visualizations| Charts[Biểu đồ & Insights]
-        Notebook -->|Thử nghiệm Machine Learning| Prototyping[Prototype Model]
+    subgraph EDA["Quá trình Khám Phá EDA"]
+        Notebook -->|Visualizations| Charts["Biểu đồ & Insights"]
+        Notebook -->|Thử nghiệm Machine Learning| Prototyping["Prototype Model"]
     end
     
-    Prototyping -->|Chiết xuất code ổn định| Scripts[Chuyển đổi thành Script .py]
-    Scripts -.-> ModelDir[(../model/ Thư mục chính)]
+    Prototyping -->|Chiết xuất code ổn định| Scripts["Chuyển đổi thành Script .py"]
+    Scripts -.-> ModelDir["../model/ Thư mục chính"]
 ```
 
 ## 3. Chức năng các file chính

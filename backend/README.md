@@ -13,15 +13,15 @@ Thư mục này chứa mã nguồn Backend (FastAPI) phục vụ API dự báo g
 
 ```mermaid
 flowchart TD
-    Client((Frontend / Client)) -->|HTTP POST| Main[main.py\nFastAPI App]
-    Main -->|Router| API[api/routes.py\n/predict endpoint]
+    Client["Frontend / Client"] -->|HTTP POST| Main["main.py<br/>FastAPI App"]
+    Main -->|Router| API["api/routes.py<br/>/predict endpoint"]
     
-    API -->|Validation| Schemas[schemas/prediction.py\nPydantic Models]
-    Schemas -.->|Invalid| API_Err[Trả về HTTP 422 Error]
-    Schemas -->|Valid| Predictor[services/predictor.py\nPredictorService]
+    API -->|Validation| Schemas["schemas/prediction.py<br/>Pydantic Models"]
+    Schemas -.->|Invalid| API_Err["Trả về HTTP 422 Error"]
+    Schemas -->|Valid| Predictor["services/predictor.py<br/>PredictorService"]
     
-    Predictor -->|Load Model| ModelDir[../model/best_model/\nModel .pkl & metadata.json]
-    Predictor -->|Extract Inference| Result[Kết quả Dự báo & Giải thích]
+    Predictor -->|Load Model| ModelDir["../model/best_model/<br/>Model .pkl & metadata.json"]
+    Predictor -->|Extract Inference| Result["Kết quả Dự báo & Giải thích"]
     Result -->|HTTP 200 OK| Client
 ```
 

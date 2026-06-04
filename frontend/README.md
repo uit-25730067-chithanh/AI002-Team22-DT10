@@ -14,16 +14,16 @@ Giao diện được thiết kế theo triết lý **Social Impact & Accessibili
 
 ```mermaid
 flowchart TD
-    User([Người dùng]) -->|Tương tác Form| UI[React Components\nTrang Dự Báo / Trang Khuyến Nghị]
-    UI -->|Gửi Input Data| API_Call[Fetch API /predict]
+    User["Người dùng"] -->|Tương tác Form| UI["React Components<br/>Trang Dự Báo / Trang Khuyến Nghị"]
+    UI -->|Gửi Input Data| API_Call["Fetch API /predict"]
     
-    API_Call -->|HTTP POST\nX-API-Key| Backend((FastAPI Backend))
-    Backend -->|JSON Response| Parser[Frontend Parser]
+    API_Call -->|HTTP POST<br/>X-API-Key| Backend["FastAPI Backend"]
+    Backend -->|JSON Response| Parser["Frontend Parser"]
     
-    Parser -->|Render Giao diện| Display[Hiển thị Kết quả & Cảnh báo]
-    Display -->|Nút Lưu lại| LocalStorage[(Trình duyệt\nLocal Storage)]
+    Parser -->|Render Giao diện| Display["Hiển thị Kết quả & Cảnh báo"]
+    Display -->|Nút Lưu lại| LocalStorage["Trình duyệt<br/>Local Storage"]
     
-    LocalStorage --> HistoryTab[Tab Lịch Sử]
+    LocalStorage --> HistoryTab["Tab Lịch Sử"]
     HistoryTab --> User
 ```
 
