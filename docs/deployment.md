@@ -4,7 +4,7 @@
 
 ## Dự án
 
-- Dự án Cloudflare Pages: `ai002-coffee-frontend`
+- Dự án Cloudflare Pages: `uit-ai002-coffee-frontend`
 - Nhánh chính thức (Production branch): `main`
 - Nguồn mã nguồn Frontend: `frontend/`
 - Thư mục đầu ra (Output folder): Thư mục sản phẩm production của Vite trong `frontend/` (thường là `frontend/dist`)
@@ -25,7 +25,7 @@ npm run compile
 
 ```bash
 cd frontend
-PATH=$HOME/.nvm/versions/node/v22.12.0/bin:$PATH wrangler pages deploy dist --project-name ai002-coffee-frontend --commit-dirty=true
+PATH=$HOME/.nvm/versions/node/v22.12.0/bin:$PATH wrangler pages deploy dist --project-name uit-ai002-coffee-frontend --commit-dirty=true
 ```
 
 Thay thế `dist` (nếu khác) bằng thư mục đầu ra được tạo ra bởi lệnh biên dịch production của Vite.
@@ -66,10 +66,10 @@ Nếu các biến này không được cấu hình trước khi biên dịch/xu�
 ## Khôi phục phiên bản cũ (Rollback)
 
 ```bash
-wrangler pages deployment list --project-name ai002-coffee-frontend
+wrangler pages deployment list --project-name uit-ai002-coffee-frontend
 ```
 
-Sử dụng giao diện Cloudflare Dashboard > Pages > `ai002-coffee-frontend` > Deployments để chuyển đổi (promote) hoặc khôi phục (rollback) một bản triển khai.
+Sử dụng giao diện Cloudflare Dashboard > Pages > `uit-ai002-coffee-frontend` > Deployments để chuyển đổi (promote) hoặc khôi phục (rollback) một bản triển khai.
 
 ## Ghi chú (Notes)
 
