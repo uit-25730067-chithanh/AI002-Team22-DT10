@@ -2,6 +2,8 @@
 
 Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu thật từ Team 1 sang Team 2, sau đó đi qua model, API và frontend.
 
+**Trạng thái hiện tại:** roadmap phản ánh trạng thái cuối cùng đã hoàn tất tính đến 2026-06-04.
+
 ## Bức tranh tổng quan
 
 ```mermaid
@@ -71,7 +73,7 @@ gantt
     section GĐ 2: Dữ liệu thật
     Crawl giá cà phê và thời tiết            :done, b1, 2026-05-04, 7d
     Build processed weekly/monthly           :done, b2, 2026-05-08, 4d
-    Review luồng dữ liệu với Phúc            :active, b3, 2026-05-14, 2d
+    Review luồng dữ liệu với Phúc            :done, b3, 2026-05-14, 2d
 
     section GĐ 3: Model baseline
     Chọn monthly dataset                     :done, c1, 2026-05-12, 1d
@@ -88,12 +90,12 @@ gantt
     Kiểm toán dữ liệu thật và bias độ phủ         :done, e0, 2026-05-13, 1d
     Danh sách kiểm tra integration API             :done, e1, 2026-05-13, 1d
     5 Pillars checkpoint real-data           :done, e2, 2026-05-13, 1d
-    Stress test API/integration follow-up    :e3, 2026-05-14, 3d
+    Stress test API/integration evidence     :done, e3, 2026-05-14, 3d
 
     section GĐ 6: Integration và báo cáo
     React frontend nối /predict             :done, f1, 2026-06-03, 1d
     Demo end-to-end                          :done, f2, 2026-06-03, 1d
-    Báo cáo kỹ thuật và slide                :f3, 2026-05-25, 10d
+    Báo cáo kỹ thuật và slide                :done, f3, 2026-05-25, 10d
     Nộp bài                                  :milestone, f4, 2026-06-04, 0d
 ```
 
@@ -204,7 +206,7 @@ stateDiagram-v2
     RealData: Processed monthly/weekly datasets
     BaselineModel: RF baseline + feature importance
     APIContract: /predict real-data schema
-    Evaluation: Kiểm toán dữ liệu thật + Bias + 5 Pillars done, stress/API follow-up pending
+    Evaluation: Kiểm toán dữ liệu thật + Bias + 5 Pillars + stress test hoàn tất
     FrontendIntegration: Frontend gọi API
     ReportAndDemo: Slide + báo cáo + demo
     Submission: Nộp bài cuối kỳ
@@ -230,7 +232,7 @@ stateDiagram-v2
 - [x] Team 1 có processed weekly/monthly dataset.
 - [x] Team 2 đọc và chuẩn hóa schema real-data.
 - [x] Có xếp hạng độ phủ dữ liệu theo khu vực.
-- [ ] Phúc review lại docs data flow.
+- [x] Phúc review lại docs data flow.
 
 ### Tuần 4 — Model thật
 

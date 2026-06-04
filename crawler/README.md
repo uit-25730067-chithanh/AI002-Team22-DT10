@@ -1,17 +1,54 @@
-# Coffee Area Dataset Crawler
+# 🕷️ Crawler (Data Collection)
 
-This folder builds an educational coffee-price dataset by local market area.
-Each area keeps its own price series, weather series, and static soil feature.
+Thư mục này chịu trách nhiệm thu thập, làm sạch cơ bản và tổ chức dữ liệu phục vụ huấn luyện mô hình. Nó xử lý cả giá cà phê, thời tiết, và dữ liệu đặc tính đất đai theo khu vực.
 
-## Setup
+## 1. Vai trò
 
-Install dependencies from the repository root:
+- Tự động cào (crawl) dữ liệu giá cả từ các trang báo nông nghiệp.
+- Cào dữ liệu thời tiết quá khứ từ Open-Meteo.
+- Xây dựng profile tĩnh về đất đai cho từng tỉnh.
+- Hợp nhất và xây dựng bộ dữ liệu (dataset) theo chu kỳ tuần/tháng.
 
-```bash
-pip install -r requirements.txt
+## 2. Sơ đồ luồng xử lý (Data Flow & Architecture)
+
+```mermaid
+flowchart TD
+    subgraph Sources [Nguồn dữ liệu]
+        Vinanet[Vinanet]
+        CongThuong[Công Thương]
+        NongNghiep[Nông Nghiệp]
+        KinhTe[Kinh Tế Đô Thị]
+        OpenMeteo[Open-Meteo API]
+        SoilLogic[Logic Đặc tính Đất]
+    end
+
+    subgraph Crawlers [Các Script Cào Dữ Liệu]
+        crawl_price_vinanet.py
+        crawl_price_congthuong.py
+        crawl_price_nongnghiep.py
+        crawl_price_kinhtedothi.py
+        crawl_weather[crawl_weather_by_area.py]
+        build_soil[build_soil_profile.py]
+    end
+
+    Sources -.-> Crawlers
+    Crawlers -->|Lưu| RawCSV[(data/raw/)]
+    
+    RawCSV --> Builder[build_area_datasets.py\nTổng hợp & Xử lý NaN]
+    Builder -->|Ghi dữ liệu sạch| ProcessedCSV[(data/processed/)]
 ```
 
-## Run Order
+## 3. Chức năng các file chính
+
+- **`price_crawler_common.py`**: Lớp dùng chung (Base Class) xử lý HTML parsing, lưu trữ file trung gian và logic chống lỗi.
+- **`crawl_price_*.py`**: Các script cụ thể cho từng trang web.
+- **`run_price_crawlers.py`**: Orchestrator chạy song song/tuần tự các crawlers với timeout an toàn.
+- **`crawl_weather_by_area.py`**: Lấy API thời tiết lịch sử.
+- **`build_area_datasets.py`**: Hợp nhất các file CSV rời rạc từ `data/raw/` thành bộ dataset tiêu chuẩn (monthly/weekly) đưa vào `data/processed/`.
+
+## 4. Hướng dẫn chạy nhanh
+
+Để cào dữ liệu từ 2022 đến 2025:
 
 ```bash
 python crawler/crawl_coffee_prices.py --start 2022-01-01 --end 2025-12-31
@@ -21,40 +58,13 @@ python crawler/build_area_datasets.py --freq weekly
 python crawler/build_area_datasets.py --freq monthly
 ```
 
-To run all site-specific price crawlers with a 20-minute budget per site:
+*(Lưu ý: Bạn cũng có thể dùng `run_price_crawlers.py` nếu muốn chạy song song nhiều nguồn).*
 
-```bash
-python crawler/run_price_crawlers.py --per-site-timeout 1200 --stop-after-seconds 1140
-```
+## 5. Roadmap Tiến độ
 
-Each site writes incremental source files under `data/raw/sources/`, then merges
-into `data/raw/coffee_price_all_areas_daily_2022_2025.csv`.
-
-Current site-specific crawlers:
-
-- `crawler/crawl_price_vinanet.py`
-- `crawler/crawl_price_congthuong.py`
-- `crawler/crawl_price_nongnghiep.py`
-- `crawler/crawl_price_kinhtedothi.py`
-
-## Outputs
-
-- `data/raw/coffee_price_<area>_daily_2022_2025.csv`
-- `data/raw/weather_<area>_daily_2022_2025.csv`
-- `data/raw/soil_profile_by_area.csv`
-- `data/processed/weekly/coffee_environment_<area>_weekly_2022_2025.csv`
-- `data/processed/monthly/coffee_environment_<area>_monthly_2022_2025.csv`
-
-Processed price columns:
-
-- `avg_price_vnd_per_kg`: model-ready price. Missing periods are filled.
-- `observed_price_vnd_per_kg`: crawled price only. Blank means no direct price observation for that period.
-- `price_observations`: number of crawled price rows used in that period.
-- `price_fill_method`: `observed`, `province_proxy`, `interpolated_area`, `global_period_proxy`, `area_median`, or `global_median`.
-
-If sitemap discovery misses articles, create a text file with one source URL per
-line and pass it to the price crawler:
-
-```bash
-python crawler/crawl_coffee_prices.py --url-file data/raw/coffee_article_urls.txt
-```
+- [x] Crawl nhiều nguồn báo chí để đảm bảo độ bao phủ giá cà phê (Reliability)
+- [x] Crawl dữ liệu thời tiết tự động
+- [x] Xây dựng profile tĩnh về Đất (Soil Profile)
+- [x] Hợp nhất dữ liệu, xử lý missing data logic phức tạp (Area median, Proxy)
+- [ ] Tích hợp cơ chế auto-retry thông minh hơn (Tương lai)
+- [ ] Chạy crawler bằng GitHub Actions theo lịch (Tương lai)

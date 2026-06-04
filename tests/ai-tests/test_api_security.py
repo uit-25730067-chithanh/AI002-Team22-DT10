@@ -1,8 +1,6 @@
 """Test API security: API key guard."""
 
-import os
 from fastapi.testclient import TestClient
-import pytest
 
 # Import app với fallback để chạy được từ root và từ thư mục backend
 try:

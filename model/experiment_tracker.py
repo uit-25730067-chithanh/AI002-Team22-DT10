@@ -1,34 +1,26 @@
-"""
-Công cụ theo dõi thử nghiệm KISS dành cho quy trình huấn luyện mô hình AI002.
-
-Cung cấp khả năng theo dõi thử nghiệm gọn nhẹ mà không cần các phụ thuộc bên ngoài.
-Mỗi lần chạy huấn luyện sẽ tạo một thư mục có dấu thời gian trong thư mục model/experiments/.
-"""
-
 from __future__ import annotations
 
+from datetime import datetime
+from pathlib import Path
+from typing import Any
 import csv
 import hashlib
 import json
 import shutil
 import subprocess
-from datetime import datetime
-from pathlib import Path
-from typing import Any
+"""
+Công cụ theo dõi thử nghiệm KISS dành cho quy trình huấn luyện mô hình AI002.
+"""
 
 
-# ---------------------------------------------------------------------------
-# Hằng số
-# ---------------------------------------------------------------------------
+"""
+Các tiện ích cơ bản cho module quản lý thử nghiệm.
+"""
 
 EXPERIMENTS_ROOT = Path("model/experiments")
 BEST_MODEL_DIR = Path("model/best_model")
 CSV_PATH = Path("model/experiments.csv")
 
-
-# ---------------------------------------------------------------------------
-# Hàm tiện ích
-# ---------------------------------------------------------------------------
 
 def _git_commit() -> str:
     """Trả về git commit hash ngắn, hoặc 'unknown'."""
@@ -68,102 +60,9 @@ def _ensure_dirs() -> None:
     BEST_MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ---------------------------------------------------------------------------
-# API công khai
-# ---------------------------------------------------------------------------
-
-def create_experiment(tag: str) -> Path:
-    """Tạo một thư mục thử nghiệm mới có dấu thời gian.
-
-    Args:
-        tag: Định danh cho thử nghiệm (ví dụ: 'rf_baseline', 'xgboost').
-
-    Returns:
-        Đường dẫn tới thư mục thử nghiệm đã tạo.
-    """
-    _ensure_dirs()
-    ts = _timestamp()
-    exp_dir = EXPERIMENTS_ROOT / f"{ts}__{tag}"
-    exp_dir.mkdir(parents=True, exist_ok=False)
-    return exp_dir
-
-
-def save_metrics(exp_dir: Path, metrics: dict[str, Any]) -> Path:
-    """Lưu dictionary metrics dưới dạng metrics.json trong thư mục thử nghiệm.
-
-    Args:
-        exp_dir: Đường dẫn thư mục thử nghiệm.
-        metrics: Dictionary chứa các chỉ số (ví dụ: {'mae': 1234.5, 'rmse': ...}).
-
-    Returns:
-        Đường dẫn tới file metrics.json đã lưu.
-    """
-    path = exp_dir / "metrics.json"
-    path.write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
-    return path
-
-
-def save_params(exp_dir: Path, params: dict[str, Any]) -> Path:
-    """Lưu tham số / metadata dưới dạng params.json trong thư mục thử nghiệm.
-
-    Args:
-        exp_dir: Đường dẫn thư mục thử nghiệm.
-        params: Dictionary chứa các tham số (data_path, model_params, v.v.).
-
-    Returns:
-        Đường dẫn tới file params.json đã lưu.
-    """
-    path = exp_dir / "params.json"
-    path.write_text(json.dumps(params, indent=2, ensure_ascii=False), encoding="utf-8")
-    return path
-
-
-def build_params(
-    model_params: dict[str, Any],
-    data_path: str | Path,
-    extra: dict[str, Any] | None = None,
-) -> dict[str, Any]:
-    """Xây dựng dictionary tham số chuẩn với git commit, data hash, timestamp.
-
-    Args:
-        model_params: Siêu tham số dùng cho huấn luyện.
-        data_path: Đường dẫn tới tập dữ liệu huấn luyện.
-        extra: Các trường bổ sung tùy chọn.
-
-    Returns:
-        Dictionary tham số đầy đủ, sẵn sàng cho save_params().
-    """
-    params = {
-        "timestamp": _datetime_iso(),
-        "git_commit": _git_commit(),
-        "data_path": str(data_path),
-        "data_hash": _data_hash(data_path),
-        "model_params": model_params,
-    }
-    if extra:
-        params.update(extra)
-    return params
-
-
-def save_artifact(exp_dir: Path, name: str, source: str | Path | bytes) -> Path:
-    """Lưu một file artifact vào thư mục thử nghiệm.
-
-    Args:
-        exp_dir: Đường dẫn thư mục thử nghiệm.
-        name: Tên file artifact (ví dụ: 'model.pkl', 'plot.png').
-        source: Đường dẫn file (str/Path) để copy, hoặc bytes thô để ghi.
-
-    Returns:
-        Đường dẫn tới artifact đã lưu trong exp_dir.
-    """
-    dest = exp_dir / name
-    if isinstance(source, (str, Path)) and Path(source).is_file():
-        shutil.copy2(source, dest)
-    elif isinstance(source, bytes):
-        dest.write_bytes(source)
-    else:
-        raise TypeError(f"source phải là đường dẫn file hoặc bytes, nhận được {type(source)}")
-    return dest
+"""
+Lưu trữ thông tin thử nghiệm vào file CSV.
+"""
 
 
 def append_experiment_csv(
@@ -172,22 +71,20 @@ def append_experiment_csv(
     model_type: str,
     metrics: dict[str, Any],
 ) -> Path:
-    """Thêm một dòng vào model/experiments.csv tóm tắt lần chạy.
-
-    Args:
-        exp_dir: Đường dẫn thư mục thử nghiệm (dùng làm experiment_id).
-        tag: Tag của thử nghiệm.
-        model_type: Tên lớp model (ví dụ: 'RandomForestRegressor').
-        metrics: Phải chứa ít nhất 'mae', 'rmse', 'r2'.
-
-    Returns:
-        Đường dẫn tới experiments.csv.
-    """
+    """Thêm một dòng vào model/experiments.csv tóm tắt lần chạy."""
     _ensure_dirs()
     experiment_id = exp_dir.name
     timestamp = _datetime_iso()
 
-    headers = ["experiment_id", "timestamp", "tag", "model_type", "mae", "rmse", "r2", "best"]
+    headers = [
+        "experiment_id",
+        "timestamp",
+        "tag",
+        "model_type",
+        "mae",
+        "rmse",
+        "r2",
+        "best"]
     row = {
         "experiment_id": experiment_id,
         "timestamp": timestamp,
@@ -209,6 +106,87 @@ def append_experiment_csv(
     return CSV_PATH
 
 
+def list_experiments() -> list[dict[str, Any]]:
+    """Trả về danh sách tất cả thử nghiệm đã ghi từ CSV."""
+    if not CSV_PATH.is_file():
+        return []
+    with open(CSV_PATH, "r", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+"""
+Quản lý artifact, params, và metrics cho các thử nghiệm.
+"""
+
+
+def create_experiment(tag: str) -> Path:
+    """Tạo một thư mục thử nghiệm mới có dấu thời gian."""
+    _ensure_dirs()
+    ts = _timestamp()
+    exp_dir = EXPERIMENTS_ROOT / f"{ts}__{tag}"
+    exp_dir.mkdir(parents=True, exist_ok=False)
+    return exp_dir
+
+
+def save_metrics(exp_dir: Path, metrics: dict[str, Any]) -> Path:
+    """Lưu dictionary metrics dưới dạng metrics.json trong thư mục thử nghiệm."""
+    path = exp_dir / "metrics.json"
+    path.write_text(
+        json.dumps(
+            metrics,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
+    return path
+
+
+def save_params(exp_dir: Path, params: dict[str, Any]) -> Path:
+    """Lưu tham số / metadata dưới dạng params.json trong thư mục thử nghiệm."""
+    path = exp_dir / "params.json"
+    path.write_text(
+        json.dumps(
+            params,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
+    return path
+
+
+def build_params(
+    model_params: dict[str, Any],
+    data_path: str | Path,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Xây dựng dictionary tham số chuẩn với git commit, data hash, timestamp."""
+    params = {
+        "timestamp": _datetime_iso(),
+        "git_commit": _git_commit(),
+        "data_path": str(data_path),
+        "data_hash": _data_hash(data_path),
+        "model_params": model_params,
+    }
+    if extra:
+        params.update(extra)
+    return params
+
+
+def save_artifact(
+        exp_dir: Path,
+        name: str,
+        source: str | Path | bytes) -> Path:
+    """Lưu một file artifact vào thư mục thử nghiệm."""
+    dest = exp_dir / name
+    if isinstance(source, (str, Path)) and Path(source).is_file():
+        shutil.copy2(source, dest)
+    elif isinstance(source, bytes):
+        dest.write_bytes(source)
+    else:
+        raise TypeError(
+            f"source phải là đường dẫn file hoặc bytes, nhận được {type(source)}"
+        )
+    return dest
+
+
 def get_latest_experiment() -> Path | None:
     """Trả về thư mục thử nghiệm gần nhất, hoặc None nếu chưa có."""
     _ensure_dirs()
@@ -218,23 +196,18 @@ def get_latest_experiment() -> Path | None:
     return max(dirs, key=lambda d: d.name)
 
 
+"""
+Chọn và promote mô hình tốt nhất từ registry.
+"""
+
+
 def update_best_model(
     metric_key: str = "mae",
     mode: str = "min",
     tag_prefix: str | None = None,
     fallback_experiment_id: str | None = None,
 ) -> Path | None:
-    """Đánh giá tất cả thử nghiệm và copy model tốt nhất vào model/best_model/.
-
-    Args:
-        metric_key: Chỉ số để tối ưu ('mae', 'rmse', hoặc 'r2').
-        mode: 'min' cho càng thấp càng tốt, 'max' cho càng cao càng tốt.
-        tag_prefix: Nếu có, chỉ xét các experiment có tag bắt đầu bằng prefix này.
-        fallback_experiment_id: Experiment dự phòng khi experiment tốt nhất thiếu artifact model.
-
-    Returns:
-        Đường dẫn tới model tốt nhất vừa copy, hoặc None nếu chưa có thử nghiệm.
-    """
+    """Đánh giá tất cả thử nghiệm và copy model tốt nhất vào model/best_model/."""
     _ensure_dirs()
     if mode not in {"min", "max"}:
         raise ValueError("mode phải là 'min' hoặc 'max'")
@@ -266,12 +239,18 @@ def update_best_model(
         else max(row[metric_key] for row in experiments)
     )
     tied = [row for row in experiments if row[metric_key] == target_metric]
-    best = max(tied, key=lambda r: (r.get("timestamp", ""), r.get("experiment_id", "")))
+    best = max(
+        tied, key=lambda r: (
+            r.get(
+                "timestamp", ""), r.get(
+                "experiment_id", "")))
     selection_note = None
 
     best_artifact = _get_experiment_model_file(best["experiment_id"])
     if best_artifact is None and fallback_experiment_id:
-        fallback = next((row for row in experiments if row["experiment_id"] == fallback_experiment_id), None)
+        fallback = next(
+            (row for row in experiments if row["experiment_id"] == fallback_experiment_id),
+            None)
         fallback_artifact = _get_experiment_model_file(fallback_experiment_id)
         if fallback and fallback_artifact is not None:
             best = fallback
@@ -304,7 +283,12 @@ def update_best_model(
     if selection_note:
         metadata["selection_note"] = selection_note
     meta_path = BEST_MODEL_DIR / "metadata.json"
-    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    meta_path.write_text(
+        json.dumps(
+            metadata,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
 
     # Cập nhật CSV: đánh dấu best=True cho dòng này, reset các dòng khác
     rows = []
@@ -362,7 +346,8 @@ def _load_experiment_metadata(exp_dir: Path) -> dict[str, Any]:
                     if len(top_features) >= 10:
                         break
                     try:
-                        top_features[row[feature_col]] = float(row["importance"])
+                        top_features[row[feature_col]] = float(
+                            row["importance"])
                     except (KeyError, ValueError):
                         continue
                 metadata["top_features"] = top_features
@@ -375,11 +360,3 @@ def _read_json_file(path: Path) -> Any | None:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
-
-
-def list_experiments() -> list[dict[str, Any]]:
-    """Trả về danh sách tất cả thử nghiệm đã ghi từ CSV."""
-    if not CSV_PATH.is_file():
-        return []
-    with open(CSV_PATH, "r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))

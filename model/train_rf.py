@@ -32,7 +32,8 @@ from experiment_tracker import (  # noqa: E402
 from preprocess import preprocess_pipeline, split_temporal  # noqa: E402
 
 
-def _update_best_model_after_training(tag: str, experiment_id: str) -> Path | None:
+def _update_best_model_after_training(
+        tag: str, experiment_id: str) -> Path | None:
     if tag.startswith("rf_real"):
         return update_best_model(
             metric_key="mae",
@@ -41,9 +42,13 @@ def _update_best_model_after_training(tag: str, experiment_id: str) -> Path | No
             fallback_experiment_id=experiment_id,
         )
 
-    has_real_experiment = any(row.get("tag", "").startswith("rf_real") for row in list_experiments())
+    has_real_experiment = any(row.get("tag", "").startswith(
+        "rf_real") for row in list_experiments())
     if has_real_experiment:
-        return update_best_model(metric_key="mae", mode="min", tag_prefix="rf_real")
+        return update_best_model(
+            metric_key="mae",
+            mode="min",
+            tag_prefix="rf_real")
 
     return update_best_model(metric_key="mae", mode="min")
 
@@ -105,7 +110,8 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
     print(f"RMSE = {rmse:,.0f} VND/kg")
     print(f"R^2  = {r2:.4f}")
 
-    # 7. Trích xuất feature importance — minh bạch lý do dự báo (Trụ cột Transparency)
+    # 7. Trích xuất feature importance — minh bạch lý do dự báo (Trụ cột
+    # Transparency)
     importances = pd.Series(
         model.feature_importances_,
         index=X_train.columns,
@@ -118,7 +124,13 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
     importance_path = exp_dir / "feature_importance.csv"
     importances.rename("importance").to_csv(importance_path, header=True)
     feature_names_path = exp_dir / "feature_names.json"
-    feature_names_path.write_text(json.dumps(list(X_train.columns), indent=2, ensure_ascii=False), encoding="utf-8")
+    feature_names_path.write_text(
+        json.dumps(
+            list(
+                X_train.columns),
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
 
     # 8. Vẽ và lưu biểu đồ feature importance vào experiment folder
     plt.figure(figsize=(8, 5))

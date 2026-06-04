@@ -19,7 +19,12 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from coffee_areas import AREA_BY_NORMALIZED, AREAS, COFFEE_TYPE, normalize_name, slugify
+try:
+    from .coffee_areas import slugify
+    from .price_crawler_common import parse_article
+except ImportError:
+    from coffee_areas import slugify
+    from price_crawler_common import parse_article
 
 
 SOURCE_NAME = "Bao Nong nghiep va Moi truong"
@@ -35,253 +40,6 @@ HEADERS = {
 }
 
 
-def parse_date_from_url_or_text(url: str, text: str) -> date | None:
-    patterns = [
-        r"gia-ca-phe-hom-nay-(\d{1,2})-(\d{1,2})-(20\d{2})",
-        r"gia-ca-phe-hom-nay-(\d{1,2})(\d{2})(20\d{2})",
-        r"gia-ca-phe-hom-nay-ngay-(\d{1,2})(\d{2})(20\d{2})",
-        r"bang-gia-ca-phe-trong-nuoc-va-the-gioi-ngay-(\d{1,2})(\d{2})(20\d{2})",
-        r"ngay-(\d{1,2})(\d{2})(20\d{2})",
-        r"ngay-(\d{1,2})/(\d{1,2})/(20\d{2})",
-        r"(\d{1,2})[/-](\d{1,2})[/-](20\d{2})",
-    ]
-    source = f"{url}\n{text[:2000]}"
-    for pattern in patterns:
-        match = re.search(pattern, source, flags=re.IGNORECASE)
-        if match:
-            day, month, year = map(int, match.groups())
-            try:
-                return date(year, month, day)
-            except ValueError:
-                continue
-    return None
-
-
-def parse_date_from_meta(soup: BeautifulSoup) -> date | None:
-    selectors = [
-        ("meta", {"property": "article:published_time"}),
-        ("meta", {"name": "pubdate"}),
-        ("meta", {"name": "publishdate"}),
-        ("meta", {"name": "date"}),
-        ("meta", {"itemprop": "datePublished"}),
-    ]
-    values: list[str] = []
-    for name, attrs in selectors:
-        node = soup.find(name, attrs=attrs)
-        if node and node.get("content"):
-            values.append(str(node["content"]))
-    for node in soup.find_all("time"):
-        if node.get("datetime"):
-            values.append(str(node["datetime"]))
-        values.append(node.get_text(" ", strip=True))
-    for value in values:
-        match = re.search(r"(20\d{2})-(\d{1,2})-(\d{1,2})", value)
-        if match:
-            year, month, day = map(int, match.groups())
-            try:
-                return date(year, month, day)
-            except ValueError:
-                continue
-        match = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](20\d{2})", value)
-        if match:
-            day, month, year = map(int, match.groups())
-            try:
-                return date(year, month, day)
-            except ValueError:
-                continue
-    return None
-
-
-def parse_price(value: str) -> int | None:
-    value = value.replace("\xa0", " ").strip()
-    match = re.search(r"(\d{1,3}(?:[.,]\d{3})+|\d{4,6})", value)
-    if not match:
-        return None
-    return int(match.group(1).replace(".", "").replace(",", ""))
-
-
-def parse_change(value: str) -> int | None:
-    value = value.replace("\xa0", " ").strip()
-    if value in {"", "-", "—"}:
-        return None
-    sign = -1 if value.startswith("-") else 1
-    price = parse_price(value)
-    return sign * price if price is not None else None
-
-
-def area_from_text(value: str) -> dict[str, object] | None:
-    normalized = normalize_name(value)
-    aliases = {
-        "la grai": "ia grai",
-        "chuprong": "chu prong",
-        "dak rl ap": "dak r lap",
-        "dak rlap": "dak r lap",
-    }
-    normalized = aliases.get(normalized, normalized)
-    if normalized in AREA_BY_NORMALIZED:
-        return AREA_BY_NORMALIZED[normalized]
-    for area_name, area in AREA_BY_NORMALIZED.items():
-        if area_name and area_name in normalized:
-            return area
-    return None
-
-
-def source_name_for_url(url: str) -> str:
-    if "vicofa.org.vn" in url:
-        return "VICOFA"
-    if "chogia.vn" in url:
-        return "Cho Gia"
-    return SOURCE_NAME
-
-
-def parse_table_rows(soup: BeautifulSoup, article_date: date, source_url: str) -> list[dict[str, object]]:
-    rows: list[dict[str, object]] = []
-    current_province = ""
-    for table in soup.find_all("table"):
-        for tr in table.find_all("tr"):
-            cells = [cell.get_text(" ", strip=True) for cell in tr.find_all(["td", "th"])]
-            if len(cells) < 2:
-                continue
-            normalized_cells = [normalize_name(cell) for cell in cells]
-            if any("tinh thanh" in cell or "dia phuong" in cell for cell in normalized_cells):
-                continue
-
-            area_cell = ""
-            price_cell = ""
-            change_cell = ""
-            if len(cells) >= 4:
-                current_province = cells[0] or current_province
-                area_cell, price_cell, change_cell = cells[1], cells[2], cells[3]
-                if not area_cell.strip() and normalize_name(current_province) == "kon tum":
-                    area_cell = "Kon Tum"
-            elif len(cells) == 3:
-                area_cell, price_cell, change_cell = cells[0], cells[1], cells[2]
-            elif len(cells) == 2:
-                area_cell, price_cell = cells[0], cells[1]
-
-            area = area_from_text(area_cell)
-            price = parse_price(price_cell)
-            if not area or price is None:
-                continue
-            province = str(area["province"])
-            if current_province and normalize_name(current_province) in {"dak lak", "dak nong", "gia lai", "lam dong", "kon tum"}:
-                province = str(area["province"])
-            rows.append(
-                {
-                    "date": article_date.isoformat(),
-                    "province": province,
-                    "area": area["area"],
-                    "coffee_type": COFFEE_TYPE,
-                    "price_vnd_per_kg": price,
-                    "change_vnd_per_kg": parse_change(change_cell),
-                    "source_name": source_name_for_url(source_url),
-                    "source_url": source_url,
-                }
-            )
-    return rows
-
-
-def parse_text_rows(soup: BeautifulSoup, article_date: date, source_url: str) -> list[dict[str, object]]:
-    text = soup.get_text("\n", strip=True)
-    rows: list[dict[str, object]] = []
-    for area in AREAS:
-        variants = {area["area"], area["area"].replace("Dak", "Đắk"), area["area"].replace("Chu", "Chư")}
-        for variant in variants:
-            pattern = rf"{re.escape(variant)}[^\n]{{0,120}}?(\d{{1,3}}[.,]\d{{3}}|\d{{5,6}})\s*(?:d|đ|dong|đồng)?/?kg"
-            match = re.search(pattern, text, flags=re.IGNORECASE)
-            if not match:
-                continue
-            rows.append(
-                {
-                    "date": article_date.isoformat(),
-                    "province": area["province"],
-                    "area": area["area"],
-                    "coffee_type": COFFEE_TYPE,
-                    "price_vnd_per_kg": parse_price(match.group(1)),
-                    "change_vnd_per_kg": None,
-                    "source_name": source_name_for_url(source_url),
-                    "source_url": source_url,
-                }
-            )
-            break
-    return rows
-
-
-def parse_text_rows_enhanced(soup: BeautifulSoup, article_date: date, source_url: str) -> list[dict[str, object]]:
-    text = soup.get_text("\n", strip=True)
-    compact_text = re.sub(r"\s+", " ", text)
-    rows = parse_text_rows(soup, article_date, source_url)
-    for area in AREAS:
-        variants = {
-            area["area"],
-            area["area"].replace("Dak", "Đắk"),
-            area["area"].replace("Chu", "Chư"),
-            area["area"].replace("Ia", "La"),
-        }
-        for variant in variants:
-            pattern = rf"{re.escape(variant)}[^.;]{{0,220}}?(?:mức|giá|khoảng|là)\s*(\d{{1,3}}[.,]\d{{3}}|\d{{5,6}})"
-            match = re.search(pattern, compact_text, flags=re.IGNORECASE)
-            if not match:
-                continue
-            rows.append(
-                {
-                    "date": article_date.isoformat(),
-                    "province": area["province"],
-                    "area": area["area"],
-                    "coffee_type": COFFEE_TYPE,
-                    "price_vnd_per_kg": parse_price(match.group(1)),
-                    "change_vnd_per_kg": None,
-                    "source_name": source_name_for_url(source_url),
-                    "source_url": source_url,
-                }
-            )
-            break
-    rows.extend(parse_grouped_area_text(compact_text, article_date, source_url))
-    unique: dict[tuple[str, str, str], dict[str, object]] = {}
-    for row in rows:
-        unique[(str(row["date"]), str(row["province"]), str(row["area"]))] = row
-    return list(unique.values())
-
-
-def parse_grouped_area_text(text: str, article_date: date, source_url: str) -> list[dict[str, object]]:
-    groups = [
-        (["Di Linh", "Lâm Hà", "Bảo Lộc", "Lam Ha", "Bao Loc"], ["Di Linh", "Lam Ha", "Bao Loc"]),
-        (["Ea H'leo", "Buôn Hồ", "Buon Ho"], ["Ea H'leo", "Buon Ho"]),
-        (["Pleiku", "La Grai", "Ia Grai"], ["Pleiku", "Ia Grai"]),
-    ]
-    rows: list[dict[str, object]] = []
-    lower_text = text.lower()
-    for markers, canonical_areas in groups:
-        if not any(marker.lower() in lower_text for marker in markers):
-            continue
-        marker_pattern = "|".join(re.escape(marker) for marker in markers)
-        match = re.search(
-            rf"(?:{marker_pattern})[^.;]{{0,260}}?(?:mức|giá|cùng giá|cùng mức|là)\s*(\d{{1,3}}[.,]\d{{3}}|\d{{5,6}})",
-            text,
-            flags=re.IGNORECASE,
-        )
-        if not match:
-            continue
-        price = parse_price(match.group(1))
-        if price is None:
-            continue
-        for area_name in canonical_areas:
-            area = area_from_text(area_name)
-            if not area:
-                continue
-            rows.append(
-                {
-                    "date": article_date.isoformat(),
-                    "province": area["province"],
-                    "area": area["area"],
-                    "coffee_type": COFFEE_TYPE,
-                    "price_vnd_per_kg": price,
-                    "change_vnd_per_kg": None,
-                    "source_name": source_name_for_url(source_url),
-                    "source_url": source_url,
-                }
-            )
-    return rows
 
 
 def fetch_url(url: str, sleep_seconds: float) -> str:
@@ -290,18 +48,6 @@ def fetch_url(url: str, sleep_seconds: float) -> str:
     response.raise_for_status()
     return response.text
 
-
-def parse_article(url: str, html: str, start: date, end: date) -> tuple[list[dict[str, object]], str | None]:
-    soup = BeautifulSoup(html, "html.parser")
-    article_date = parse_date_from_url_or_text(url, soup.get_text(" ", strip=True)) or parse_date_from_meta(soup)
-    if article_date is None:
-        return [], "missing_date"
-    if article_date < start or article_date > end:
-        return [], "outside_range"
-    rows = parse_table_rows(soup, article_date, url)
-    if not rows:
-        rows = parse_text_rows_enhanced(soup, article_date, url)
-    return rows, None if rows else "no_price_rows"
 
 
 def url_date_in_range(url: str, start: date, end: date) -> bool:
@@ -401,7 +147,7 @@ def main() -> None:
     for index, url in enumerate(urls, start=1):
         try:
             html = fetch_url(url, args.sleep)
-            parsed_rows, error = parse_article(url, html, start, end)
+            parsed_rows, error = parse_article(url, html, start, end, SOURCE_NAME)
             rows.extend(parsed_rows)
             if error and error != "outside_range":
                 errors.append({"url": url, "error": error})

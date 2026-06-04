@@ -21,6 +21,46 @@
 
 ---
 
+## Slide 1.1: Thành viên Đào Vĩnh Bảo Phúc (Nhóm trưởng)
+* **Họ và tên:** Đào Vĩnh Bảo Phúc
+* **MSSV:** 25730053
+* **Nhiệm vụ phân công:** Thu thập dữ liệu (Crawler), Xây dựng Web UI (Frontend) và hỗ trợ lập báo cáo, slide.
+* **Phụ trách AI Bền vững:** Trục Social Impact (Tác động xã hội).
+* **Speaker Notes:**
+  > Trình bày tóm tắt vai trò điều phối dự án và định hướng thiết kế giao diện Mobile-first tối ưu cho nông dân ở khu vực mạng 3G yếu.
+
+---
+
+## Slide 1.2: Thành viên Tăng Phước Thịnh
+* **Họ và tên:** Tăng Phước Thịnh
+* **MSSV:** 25730071
+* **Nhiệm vụ phân công:** Crawl dữ liệu thời tiết, xây dựng tài liệu nghiên cứu giá và hỗ trợ thiết kế, liên kết API với giao diện UI.
+* **Speaker Notes:**
+  > Nhấn mạnh quá trình thu thập, đồng bộ các thông số khí hậu với chu kỳ giá cà phê và việc kết nối hệ thống xuyên suốt.
+
+---
+
+## Slide 1.3: Thành viên Đặng Chí Thanh
+* **Họ và tên:** Đặng Chí Thanh
+* **MSSV:** 25730063
+* **Nhiệm vụ phân công:** Đảm nhiệm kỹ thuật Machine Learning (Feature Engineering, Preprocessing, Train thuật toán Random Forest Baseline) và viết Backend API bằng FastAPI.
+* **Phụ trách AI Bền vững:** Trục Reliability (Tính tin cậy) và Explainability (Tính minh bạch/giải thích được).
+* **Speaker Notes:**
+  > Nêu bật quá trình thiết kế lõi AI kiểm soát mức độ quan trọng của đặc trưng (Feature Importance) và xử lý backend.
+
+---
+
+## Slide 1.4: Thành viên Hoàng Cao Sơn
+* **Họ và tên:** Hoàng Cao Sơn
+* **MSSV:** 25730061
+* **Nhiệm vụ phân công:** Đánh giá và kiểm toán dữ liệu (Real Data Audit), đồng thời viết kịch bản stress test tự động cho API.
+* **Phụ trách AI Bền vững:** Trục Robustness (Kháng nhiễu) và Bias (Tính thiên lệch).
+* **Speaker Notes:**
+  > Tóm tắt về các phát hiện khi đánh giá độ lệch dữ liệu địa lý giữa các tỉnh và quá trình mô phỏng các kịch bản nhiễu cực đoan (Black Swan).
+
+---
+
+
 ## Slide 2: Bối cảnh thực tiễn & Vấn đề nông hộ
 * **Vấn đề 1: Biến đổi khí hậu cực đoan**
   - Thời tiết Tây Nguyên biến động mạnh (nhiệt độ tăng, lượng mưa thất thường, khô hạn kéo dài).
@@ -155,3 +195,26 @@
   - Huấn luyện mô hình localized riêng cho từng tiểu vùng.
 * **Speaker Notes:**
   > Tóm lại, dự án DT10 đã hoàn thiện khung baseline vững chắc và tích hợp Responsible AI vào code thực tế. Trong tương lai, chúng tôi sẽ mở rộng dữ liệu và thử nghiệm các mô hình có khả năng học xu hướng tốt hơn như Prophet hay XGBoost để giải quyết triệt để bài toán ngoại suy khi thị trường biến động cực đoan. Xin cảm ơn Thầy và các bạn đã lắng nghe.
+
+---
+
+## Slide 13: Kết luận & Tài liệu tham khảo
+* **Kết luận:**
+  - Hệ thống baseline AI DT10 đã vận hành thực tế end-to-end, tích hợp thành công 5 Trụ cột AI Bền vững vào cấu trúc phần mềm (từ backend đến frontend).
+  - Đã nhận diện và báo cáo trung thực các hạn chế về mặt thuật toán (giới hạn ngoại suy dẫn đến R² âm) và sự thiên lệch địa lý do dữ liệu.
+* **Tài liệu tham khảo nổi bật:**
+  - Breiman, L. (2001). *Random Forests*. Machine Learning.
+  - *Scikit-learn: Machine Learning in Python*.
+  - Microsoft Responsible AI Standard.
+  - Nguồn dữ liệu: Trang tin thị trường nông sản Việt Nam và Open-Meteo API.
+* **Speaker Notes:**
+  > Tổng kết ngắn gọn giá trị cốt lõi nhóm đã đạt được và trích dẫn các nền tảng khoa học nhóm đã sử dụng.
+
+---
+
+## Slide 14: Q&A và Lời cảm ơn (Thank You)
+* **Tiêu đề:** Xin chân thành cảm ơn!
+* **Nội dung:** Cảm ơn TS. Phan Thế Duy và các bạn đã chú ý lắng nghe phần trình bày đồ án Đề tài DT10 của Nhóm 10.
+* **Q&A:** Xin mời Thầy và các bạn đặt câu hỏi.
+* **Speaker Notes:**
+  > Tạm dừng, mỉm cười và chuẩn bị tinh thần trả lời câu hỏi phản biện từ hội đồng.

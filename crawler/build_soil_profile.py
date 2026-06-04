@@ -7,7 +7,10 @@ from pathlib import Path
 
 import pandas as pd
 
-from coffee_areas import AREAS
+try:
+    from .coffee_areas import AREAS
+except ImportError:
+    from coffee_areas import AREAS
 
 
 def build_soil_profile(output: Path) -> Path:
