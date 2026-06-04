@@ -8,9 +8,12 @@ plans/
 # ===== Data (files lớn, không push lên git) =====
 data/raw/
 data/external/
+
+# Model artifacts
 model/experiments/
-!model/best_model/model.pkl
 model/best_model/*.pkl
+# Best model artifact is intentionally tracked for class demo/offline API
+!model/best_model/model.pkl
 
 # ===== Jupyter Notebook =====
 .ipynb_checkpoints/
