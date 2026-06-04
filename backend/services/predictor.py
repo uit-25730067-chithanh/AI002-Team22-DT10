@@ -181,10 +181,7 @@ class PredictorService:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
             except (OSError, json.JSONDecodeError, TypeError):
                 meta = {}
-            version = f"{
-                meta.get(
-                    'experiment_id',
-                    'unknown')}" if meta else version
+            version = f"{meta.get('experiment_id', 'unknown')}" if meta else version
             trained_at = meta.get(
                 "timestamp", trained_at) if meta else trained_at
             feature_names = list(

@@ -182,8 +182,8 @@ def save_artifact(
         dest.write_bytes(source)
     else:
         raise TypeError(
-            f"source phải là đường dẫn file hoặc bytes, nhận được {
-                type(source)}")
+            f"source phải là đường dẫn file hoặc bytes, nhận được {type(source)}"
+        )
     return dest
 
 
