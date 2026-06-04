@@ -20,10 +20,14 @@ except ModuleNotFoundError:
 
 def category_values(feature_names: list[str], prefix: str) -> set[str]:
     marker = f"{prefix}_"
-    return {name.removeprefix(marker) for name in feature_names if name.startswith(marker)}
+    return {name.removeprefix(marker)
+            for name in feature_names if name.startswith(marker)}
 
 
-def one_hot_value(feature_name: str, prefix: str, selected_value: str) -> float:
+def one_hot_value(
+        feature_name: str,
+        prefix: str,
+        selected_value: str) -> float:
     return 1.0 if feature_name == f"{prefix}_{selected_value}" else 0.0
 
 
@@ -69,7 +73,8 @@ def build_feature_row(
         "lag_7d": rolling_price,
     }
 
-    feature_names = list(model_info_feature_names) if model_info_feature_names else list(model_feature_names)
+    feature_names = list(model_info_feature_names) if model_info_feature_names else list(
+        model_feature_names)
 
     categorical_values = {
         "province": request.province,
@@ -85,7 +90,8 @@ def build_feature_row(
         available_values = category_values(feature_names, prefix)
         if available_values and selected_value not in available_values:
             allowed = ", ".join(sorted(available_values))
-            raise ValueError(f"Giá trị `{prefix}` không hợp lệ: {selected_value}. Giá trị hợp lệ: {allowed}")
+            raise ValueError(
+                f"Giá trị `{prefix}` không hợp lệ: {selected_value}. Giá trị hợp lệ: {allowed}")
 
     feature_row: dict[str, float] = {}
     for name in feature_names:
@@ -98,7 +104,8 @@ def build_feature_row(
     return pd.DataFrame([feature_row])
 
 
-def explain_predictions(model: Any, feature_row: pd.DataFrame) -> list[dict[str, Any]]:
+def explain_predictions(
+        model: Any, feature_row: pd.DataFrame) -> list[dict[str, Any]]:
     """
     Trích xuất top 3 feature importance liên quan đến input hiện tại.
     Mục tiêu: giải thích TẠI SAO model đưa ra dự báo này (Trụ cột Transparency).
@@ -166,15 +173,24 @@ class PredictorService:
         # Đọc version ổn định từ metadata.json nếu có
         meta_path = self.model_path.parent / "metadata.json"
         version = f"unknown@{self.model_path.stat().st_mtime_ns}"
-        trained_at = pd.Timestamp(self.model_path.stat().st_mtime, unit="s").isoformat()
+        trained_at = pd.Timestamp(
+            self.model_path.stat().st_mtime,
+            unit="s").isoformat()
         if meta_path.exists():
             try:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
             except (OSError, json.JSONDecodeError, TypeError):
                 meta = {}
-            version = f"{meta.get('experiment_id', 'unknown')}" if meta else version
-            trained_at = meta.get("timestamp", trained_at) if meta else trained_at
-            feature_names = list(meta.get("feature_names", feature_names)) if meta else feature_names
+            version = f"{
+                meta.get(
+                    'experiment_id',
+                    'unknown')}" if meta else version
+            trained_at = meta.get(
+                "timestamp", trained_at) if meta else trained_at
+            feature_names = list(
+                meta.get(
+                    "feature_names",
+                    feature_names)) if meta else feature_names
 
         self.model_info = ModelInfo(
             version=version,
@@ -207,22 +223,33 @@ class PredictorService:
         feature_names = list(getattr(self.model, "feature_names_in_", []))
         model_info_feature_names = self.model_info.feature_names if self.model_info else None
 
-        feature_row = build_feature_row(request, feature_names, model_info_feature_names)
+        feature_row = build_feature_row(
+            request, feature_names, model_info_feature_names)
         prediction = float(self.model.predict(feature_row)[0])
 
         # Tính độ lệch giữa các cây để ước lượng khoảng tin cậy đơn giản
         feature_values = feature_row.to_numpy(dtype=float)
-        tree_preds = np.array([est.predict(feature_values)[0] for est in self.model.estimators_], dtype=float)
+        tree_preds = np.array([est.predict(feature_values)[0]
+                              for est in self.model.estimators_], dtype=float)
         pred_std = float(tree_preds.std())
         margin = 1.96 * pred_std  # ước lượng ~95% CI giả định phân phối chuẩn
         try:
             farming_recommendation = self.farming_advisory.recommend(request)
         except RuntimeError:
-            farming_recommendation = self.farming_advisory.fallback_recommendation(request)
+            farming_recommendation = self.farming_advisory.fallback_recommendation(
+                request)
 
         return {
-            "predicted_price_vnd": round(prediction, 2),
-            "confidence_interval": (round(prediction - margin, 2), round(prediction + margin, 2)),
+            "predicted_price_vnd": round(
+                prediction,
+                2),
+            "confidence_interval": (
+                round(
+                    prediction - margin,
+                    2),
+                round(
+                    prediction + margin,
+                    2)),
             "top_features": self.explain(feature_row),
             "model_version": self.model_info.version if self.model_info else "unknown",
             "farming_recommendation": farming_recommendation,
@@ -249,4 +276,3 @@ class PredictorService:
             "features": self.model_info.feature_names,
             "trained_at": self.model_info.trained_at,
         }
-

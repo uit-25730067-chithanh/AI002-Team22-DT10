@@ -7,8 +7,6 @@ Module tiền xử lý dữ liệu cho pipeline dự báo giá cà phê.
 Các hàm xử lý missing data, outliers, và engineer features.
 """
 
-import pandas as pd
-
 
 def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -21,6 +19,7 @@ def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df = fill_missing(df)
     df = encode_features(df)
     return df
+
 
 """
 Module chuẩn hóa schema cho pipeline dự báo giá cà phê.
@@ -43,20 +42,31 @@ CATEGORICAL_FEATURES = [
     "soil_data_confidence",
 ]
 
+
 def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
     """
     Chuẩn hóa schema real processed data về schema nội bộ để tái dùng pipeline Team 2.
     """
     df = df.copy()
-    df = df.rename(columns={k: v for k, v in REAL_SCHEMA_RENAME_MAP.items() if k in df.columns})
+    df = df.rename(
+        columns={
+            k: v for k,
+            v in REAL_SCHEMA_RENAME_MAP.items() if k in df.columns})
 
-    required_cols = ["date", "historical_price_vnd", "avg_temp_c", "rainfall_mm", "humidity_pct"]
+    required_cols = [
+        "date",
+        "historical_price_vnd",
+        "avg_temp_c",
+        "rainfall_mm",
+        "humidity_pct"]
     missing_cols = [col for col in required_cols if col not in df.columns]
     if missing_cols:
-        raise ValueError(f"Thiếu cột bắt buộc sau normalize schema: {missing_cols}")
+        raise ValueError(
+            f"Thiếu cột bắt buộc sau normalize schema: {missing_cols}")
 
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    df["historical_price_vnd"] = pd.to_numeric(df["historical_price_vnd"], errors="coerce")
+    df["historical_price_vnd"] = pd.to_numeric(
+        df["historical_price_vnd"], errors="coerce")
     row_count_before_drop = len(df)
     df = df.dropna(subset=["date", "historical_price_vnd"])
     dropped_count = row_count_before_drop - len(df)
@@ -66,7 +76,8 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
             stacklevel=2,
         )
     if df.empty:
-        raise ValueError("Không còn dòng hợp lệ sau khi chuẩn hóa date và historical_price_vnd")
+        raise ValueError(
+            "Không còn dòng hợp lệ sau khi chuẩn hóa date và historical_price_vnd")
 
     numeric_cols = [
         "avg_temp_c",
@@ -89,9 +100,11 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+
 """
 Module feature engineering, xử lý missing data và outliers.
 """
+
 
 def fill_missing(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -119,7 +132,12 @@ def cap_outliers(df: pd.DataFrame) -> pd.DataFrame:
     Winsorize/cap outliers thay vì drop mạnh, phù hợp giá cà phê 2024-2025 tăng thật.
     """
     df = df.copy()
-    numeric_cols = ["avg_temp_c", "rainfall_mm", "humidity_pct", "avg_soil_moisture_0_7cm", "soil_score"]
+    numeric_cols = [
+        "avg_temp_c",
+        "rainfall_mm",
+        "humidity_pct",
+        "avg_soil_moisture_0_7cm",
+        "soil_score"]
 
     for col in numeric_cols:
         if col not in df.columns:
@@ -161,18 +179,26 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
         grouped_price = df.groupby("area", sort=False)["historical_price_vnd"]
         df["lag_1d"] = grouped_price.shift(1)
         df["lag_7d"] = grouped_price.shift(7)
-        df["rolling_avg_7d"] = df.groupby("area", sort=False)["lag_1d"].transform(
-            lambda s: s.rolling(window=7, min_periods=1).mean()
-        )
+        df["rolling_avg_7d"] = df.groupby(
+            "area", sort=False)["lag_1d"].transform(
+            lambda s: s.rolling(
+                window=7, min_periods=1).mean())
     else:
         df["lag_1d"] = df["historical_price_vnd"].shift(1)
         df["lag_7d"] = df["historical_price_vnd"].shift(7)
-        df["rolling_avg_7d"] = df["lag_1d"].rolling(window=7, min_periods=1).mean()
+        df["rolling_avg_7d"] = df["lag_1d"].rolling(
+            window=7, min_periods=1).mean()
 
     if "area" in df.columns:
-        df["lag_1d"] = df.groupby("area", sort=False)["lag_1d"].transform(lambda s: s.ffill())
-        df["lag_7d"] = df.groupby("area", sort=False)["lag_7d"].transform(lambda s: s.ffill())
-        df["rolling_avg_7d"] = df.groupby("area", sort=False)["rolling_avg_7d"].transform(lambda s: s.ffill())
+        df["lag_1d"] = df.groupby(
+            "area", sort=False)["lag_1d"].transform(
+            lambda s: s.ffill())
+        df["lag_7d"] = df.groupby(
+            "area", sort=False)["lag_7d"].transform(
+            lambda s: s.ffill())
+        df["rolling_avg_7d"] = df.groupby(
+            "area", sort=False)["rolling_avg_7d"].transform(
+            lambda s: s.ffill())
     else:
         df["lag_1d"] = df["lag_1d"].ffill()
         df["lag_7d"] = df["lag_7d"].ffill()
@@ -182,6 +208,7 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
     df = df.dropna(subset=["lag_1d", "rolling_avg_7d"])
 
     return df
+
 
 """
 Module encoding và split dữ liệu.
@@ -193,7 +220,10 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     existing_cats = [col for col in CATEGORICAL_FEATURES if col in df.columns]
     df = pd.get_dummies(df, columns=existing_cats, dummy_na=False)
 
-    drop_cols = [col for col in ["period_end", "observed_price_vnd_per_kg"] if col in df.columns]
+    drop_cols = [
+        col for col in [
+            "period_end",
+            "observed_price_vnd_per_kg"] if col in df.columns]
     if drop_cols:
         df = df.drop(columns=drop_cols)
 
@@ -226,11 +256,16 @@ def split_temporal(
     df["date"] = pd.to_datetime(df["date"])
 
     # Các cột đặc trưng (loại bỏ date và target)
-    feature_cols = [c for c in df.columns if c not in ["date", "historical_price_vnd"]]
-    feature_cols = [c for c in feature_cols if pd.api.types.is_numeric_dtype(df[c])]
+    feature_cols = [
+        c for c in df.columns if c not in [
+            "date", "historical_price_vnd"]]
+    feature_cols = [
+        c for c in feature_cols if pd.api.types.is_numeric_dtype(
+            df[c])]
     target_col = "historical_price_vnd"  # cột mục tiêu: giá cà phê
 
-    # Chia theo thời gian — KHÔNG dùng random shuffle để tránh data leakage trong time-series
+    # Chia theo thời gian — KHÔNG dùng random shuffle để tránh data leakage
+    # trong time-series
     train_mask = df["date"] <= train_end
     test_mask = df["date"] >= test_start
 

@@ -54,7 +54,8 @@ def train_and_compare(data_path: str, tag: str = "xgboost") -> dict:
     df_clean = preprocess_pipeline(df)
     X_train, X_test, y_train, y_test = split_temporal(df_clean)
 
-    # Huấn luyện XGBoost Regressor — tham số tương đương RF để so sánh công bằng
+    # Huấn luyện XGBoost Regressor — tham số tương đương RF để so sánh công
+    # bằng
     model = xgb.XGBRegressor(
         n_estimators=100,    # số cây tương đương RF
         max_depth=6,
@@ -112,7 +113,8 @@ def train_and_compare(data_path: str, tag: str = "xgboost") -> dict:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Huấn luyện XGBoost và so sánh với RF baseline")
+    parser = argparse.ArgumentParser(
+        description="Huấn luyện XGBoost và so sánh với RF baseline")
     parser.add_argument("--data", default="data/raw/mock_coffee_data.csv")
     parser.add_argument(
         "--tag",

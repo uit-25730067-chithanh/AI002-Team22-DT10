@@ -1,4 +1,14 @@
 from __future__ import annotations
+from preprocess import (
+    preprocess_pipeline,
+    split_temporal,
+    normalize_real_schema,
+    fill_missing,
+    cap_outliers,
+    feature_engineer,
+    encode_features
+)
+from experiment_tracker import get_latest_experiment, create_experiment, save_metrics, build_params, save_params
 import numpy as np
 import pandas as pd
 """
@@ -12,11 +22,10 @@ import sys
 from pathlib import Path
 
 import joblib
-import numpy as np
-import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).parent))
+
 
 def run_stress_test(
     data_path: str,
@@ -42,9 +51,11 @@ def run_stress_test(
     df_raw = pd.read_csv(data_path)
     model = joblib.load(model_path)
 
-    # 1. Đánh giá Baseline trên tập dữ liệu Normal (Sử dụng preprocess pipeline chuẩn)
+    # 1. Đánh giá Baseline trên tập dữ liệu Normal (Sử dụng preprocess
+    # pipeline chuẩn)
     df_clean_normal = preprocess_pipeline(df_raw)
-    X_train, X_test_normal, y_train, y_test_normal = split_temporal(df_clean_normal)
+    X_train, X_test_normal, y_train, y_test_normal = split_temporal(
+        df_clean_normal)
     feature_cols = X_test_normal.columns
 
     y_pred_normal = model.predict(X_test_normal)
@@ -56,7 +67,8 @@ def run_stress_test(
 
     results = []
     for scenario in ["price_crash", "heat_wave", "both"]:
-        # Bơm nhiễu vào cột thô của Test Set trước khi chạy qua các bước preprocess còn lại
+        # Bơm nhiễu vào cột thô của Test Set trước khi chạy qua các bước
+        # preprocess còn lại
         df_stress_input = inject_black_swan_on_test(df_norm, scenario)
 
         # Chạy nốt phần preprocess
@@ -67,10 +79,12 @@ def run_stress_test(
         df_stress_processed = encode_features(df_stress_processed)
 
         # Tách temporal
-        _, X_test_stress_raw, _, y_test_stress = split_temporal(df_stress_processed)
+        _, X_test_stress_raw, _, y_test_stress = split_temporal(
+            df_stress_processed)
 
         # Align columns để khớp chính xác với feature normal
-        X_test_stress = X_test_stress_raw.reindex(columns=feature_cols, fill_value=0)
+        X_test_stress = X_test_stress_raw.reindex(
+            columns=feature_cols, fill_value=0)
 
         # Dự báo và đo lường
         y_pred_stress = model.predict(X_test_stress)
@@ -117,7 +131,12 @@ def run_stress_test(
         "scenarios": {r["scenario"]: r for r in results},
     }
     results_path = stress_dir / "stress_results.json"
-    results_path.write_text(json.dumps(stress_results, indent=2, ensure_ascii=False), encoding="utf-8")
+    results_path.write_text(
+        json.dumps(
+            stress_results,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
     print(f"Đã lưu JSON kết quả: {results_path}")
 
     # Lưu metadata
@@ -129,10 +148,9 @@ def run_stress_test(
     }
     save_metrics(stress_dir, stress_metrics)
     params = build_params(
-        model_params={},
-        data_path=data_path,
-        extra={"model_path": model_path, "scenarios": [r["scenario"] for r in results]},
-    )
+        model_params={}, data_path=data_path, extra={
+            "model_path": model_path, "scenarios": [
+                r["scenario"] for r in results]}, )
     save_params(stress_dir, params)
 
     # Nếu được yêu cầu copy vào docs/discussions
@@ -171,13 +189,21 @@ if __name__ == "__main__":
         help="Cũng lưu copy vào docs/discussions/",
     )
     args = parser.parse_args()
-    run_stress_test(args.data, args.model, args.exp_dir, args.tag, args.also_docs)
+    run_stress_test(
+        args.data,
+        args.model,
+        args.exp_dir,
+        args.tag,
+        args.also_docs)
 
 """
 Module chứa các kịch bản nhiễu (Black Swan scenarios) cho stress test.
 """
 
-def inject_black_swan_on_test(df_normalized: pd.DataFrame, scenario: str) -> pd.DataFrame:
+
+def inject_black_swan_on_test(
+        df_normalized: pd.DataFrame,
+        scenario: str) -> pd.DataFrame:
     """
     Chỉ bơm nhiễu cực đoan vào các dòng thuộc năm 2025 (Test Set).
     """
@@ -214,9 +240,11 @@ def inject_black_swan_on_test(df_normalized: pd.DataFrame, scenario: str) -> pd.
 
     return df
 
+
 """
 Module tạo báo cáo stress test dưới định dạng Markdown.
 """
+
 
 def generate_stress_report(
     model_path: str,
@@ -245,7 +273,7 @@ def generate_stress_report(
         "## Black Swan Scenarios (Gây nhiễu tập Test 2025)",
         "",
     ]
-    
+
     for r in results:
         report_lines.extend([
             f"### {r['scenario']}",
@@ -254,7 +282,7 @@ def generate_stress_report(
             f"- RMSE: {r['rmse']:,.0f} VND/kg (+{r['rmse_lift_pct']:.1f}%)",
             "",
         ])
-        
+
     report_lines.extend([
         "## Nhận xét và Ghi nhận",
         "",
@@ -269,5 +297,5 @@ def generate_stress_report(
         "- Nhấn mạnh baseline chịu rủi ro cao hơn với shock giá so với shock nhiệt độ.",
         "- Tích hợp cảnh báo người dùng trên UI khi các chỉ số thực tế vượt ngưỡng lịch sử đã train.",
     ])
-    
+
     return report_lines

@@ -59,6 +59,7 @@ def _ensure_dirs() -> None:
     EXPERIMENTS_ROOT.mkdir(parents=True, exist_ok=True)
     BEST_MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
+
 """
 Lưu trữ thông tin thử nghiệm vào file CSV.
 """
@@ -75,7 +76,15 @@ def append_experiment_csv(
     experiment_id = exp_dir.name
     timestamp = _datetime_iso()
 
-    headers = ["experiment_id", "timestamp", "tag", "model_type", "mae", "rmse", "r2", "best"]
+    headers = [
+        "experiment_id",
+        "timestamp",
+        "tag",
+        "model_type",
+        "mae",
+        "rmse",
+        "r2",
+        "best"]
     row = {
         "experiment_id": experiment_id,
         "timestamp": timestamp,
@@ -104,6 +113,7 @@ def list_experiments() -> list[dict[str, Any]]:
     with open(CSV_PATH, "r", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
+
 """
 Quản lý artifact, params, và metrics cho các thử nghiệm.
 """
@@ -121,14 +131,24 @@ def create_experiment(tag: str) -> Path:
 def save_metrics(exp_dir: Path, metrics: dict[str, Any]) -> Path:
     """Lưu dictionary metrics dưới dạng metrics.json trong thư mục thử nghiệm."""
     path = exp_dir / "metrics.json"
-    path.write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(
+        json.dumps(
+            metrics,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
     return path
 
 
 def save_params(exp_dir: Path, params: dict[str, Any]) -> Path:
     """Lưu tham số / metadata dưới dạng params.json trong thư mục thử nghiệm."""
     path = exp_dir / "params.json"
-    path.write_text(json.dumps(params, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(
+        json.dumps(
+            params,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
     return path
 
 
@@ -150,7 +170,10 @@ def build_params(
     return params
 
 
-def save_artifact(exp_dir: Path, name: str, source: str | Path | bytes) -> Path:
+def save_artifact(
+        exp_dir: Path,
+        name: str,
+        source: str | Path | bytes) -> Path:
     """Lưu một file artifact vào thư mục thử nghiệm."""
     dest = exp_dir / name
     if isinstance(source, (str, Path)) and Path(source).is_file():
@@ -158,7 +181,9 @@ def save_artifact(exp_dir: Path, name: str, source: str | Path | bytes) -> Path:
     elif isinstance(source, bytes):
         dest.write_bytes(source)
     else:
-        raise TypeError(f"source phải là đường dẫn file hoặc bytes, nhận được {type(source)}")
+        raise TypeError(
+            f"source phải là đường dẫn file hoặc bytes, nhận được {
+                type(source)}")
     return dest
 
 
@@ -169,6 +194,7 @@ def get_latest_experiment() -> Path | None:
     if not dirs:
         return None
     return max(dirs, key=lambda d: d.name)
+
 
 """
 Chọn và promote mô hình tốt nhất từ registry.
@@ -213,12 +239,18 @@ def update_best_model(
         else max(row[metric_key] for row in experiments)
     )
     tied = [row for row in experiments if row[metric_key] == target_metric]
-    best = max(tied, key=lambda r: (r.get("timestamp", ""), r.get("experiment_id", "")))
+    best = max(
+        tied, key=lambda r: (
+            r.get(
+                "timestamp", ""), r.get(
+                "experiment_id", "")))
     selection_note = None
 
     best_artifact = _get_experiment_model_file(best["experiment_id"])
     if best_artifact is None and fallback_experiment_id:
-        fallback = next((row for row in experiments if row["experiment_id"] == fallback_experiment_id), None)
+        fallback = next(
+            (row for row in experiments if row["experiment_id"] == fallback_experiment_id),
+            None)
         fallback_artifact = _get_experiment_model_file(fallback_experiment_id)
         if fallback and fallback_artifact is not None:
             best = fallback
@@ -251,7 +283,12 @@ def update_best_model(
     if selection_note:
         metadata["selection_note"] = selection_note
     meta_path = BEST_MODEL_DIR / "metadata.json"
-    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    meta_path.write_text(
+        json.dumps(
+            metadata,
+            indent=2,
+            ensure_ascii=False),
+        encoding="utf-8")
 
     # Cập nhật CSV: đánh dấu best=True cho dòng này, reset các dòng khác
     rows = []
@@ -309,7 +346,8 @@ def _load_experiment_metadata(exp_dir: Path) -> dict[str, Any]:
                     if len(top_features) >= 10:
                         break
                     try:
-                        top_features[row[feature_col]] = float(row["importance"])
+                        top_features[row[feature_col]] = float(
+                            row["importance"])
                     except (KeyError, ValueError):
                         continue
                 metadata["top_features"] = top_features
