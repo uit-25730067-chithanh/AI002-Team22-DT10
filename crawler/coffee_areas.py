@@ -152,6 +152,7 @@ def strip_accents(value: str) -> str:
 
 def normalize_name(value: str) -> str:
     value = strip_accents(value).lower()
+    value = value.replace("đ", "d")
     value = value.replace("’", "'").replace("`", "'").replace("´", "'")
     value = re.sub(r"[^a-z0-9]+", " ", value)
     return re.sub(r"\s+", " ", value).strip()

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from coffee_areas import AREAS
+from .coffee_areas import AREAS
 
 
 def build_soil_profile(output: Path) -> Path:
