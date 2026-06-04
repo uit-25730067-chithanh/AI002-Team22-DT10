@@ -143,6 +143,14 @@ AI002_PROJECT/
 └── frontend/                       # Mobile-first Web demo (React/Vite/Tailwind)
 ```
 
+> 📚 **Subsystem Documentation:**
+> - [Backend API Server](./backend/README.md)
+> - [Crawler & Data Collection](./crawler/README.md)
+> - [Data Storage](./data/README.md)
+> - [Frontend Application](./frontend/README.md)
+> - [Model Core](./model/README.md)
+> - [Notebooks & Prototyping](./notebooks/README.md)
+> 
 > _For detailed team responsibilities across these modules, see the [Team Workflows](./docs/project-overview-pdr.md#4-phân-công-công-việc)._
 
 ---

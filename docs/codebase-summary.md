@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Real Data Baseline + Protected API Contract + React Frontend.
-**Cập nhật:** 2026-06-03
+**Trạng thái:** Real Data Baseline + Protected API Contract + React Frontend + Maintainability Cleanup.
+**Cập nhật:** 2026-06-04
 
 ---
 
@@ -9,88 +9,103 @@
 
 ### `backend/` — API Server (Team 2)
 
-| File                           | Mô tả                                                                                                                                 | Trụ cột AI liên quan                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `main.py`                      | FastAPI entry point; import fallback để chạy từ root hoặc `backend/`                                                                  | —                                                             |
-| `api/routes.py`                | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key`                                 | Robustness (Pydantic validate), Transparency (trả giải thích) |
-| `schemas/prediction.py`        | Pydantic models: `PredictionRequest`, `PredictionResponse`, `FeatureExplanation`                                                      | Robustness (range + enum validation)                          |
-| `services/predictor.py`        | `PredictorService`: load best model, validate trained categories, map feature row theo metadata, predict + CI, explain top 3 features | Transparency, Reliability, Robustness                         |
-| `services/farming_advisory.py` | `FarmingAdvisoryService`: cung cấp khuyến nghị canh tác theo luật (rule-based) dựa trên tháng, lượng mưa và điểm chất lượng đất       | Social Impact, Robustness                                     |
+| File | Mô tả | Trụ cột AI liên quan |
+| --- | --- | --- |
+| `main.py` | FastAPI entry point; import fallback để chạy từ root hoặc `backend/` | — |
+| `api/routes.py` | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key` | Robustness, Transparency |
+| `schemas/prediction.py` | `PredictionRequest`, `PredictionResponse`, `FeatureExplanation` | Robustness |
+| `services/predictor.py` | Facade load model, build feature row, predict + CI, explain top 3 features | Reliability, Robustness, Transparency |
+| `services/prediction_features.py` | Build feature row, validate trained categories, one-hot mapping | Robustness, Transparency |
+| `services/prediction_explanations.py` | Trích xuất top feature importances cho response | Transparency |
+| `services/farming_advisory.py` | Rule-based khuyến nghị canh tác theo tháng, lượng mưa và chất lượng đất | Social Impact, Robustness |
 
 ### `model/` — AI/ML Pipeline (Team 2)
 
-| File               | Mô tả                                                                                                                        | Trụ cột AI liên quan      |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `preprocess.py`    | Normalize real monthly schema, fill missing, cap outliers, feature engineer theo `area`, one-hot categorical, temporal split | Robustness                |
-| `train_rf.py`      | Train Random Forest baseline; đánh giá MAE/RMSE/R²; lưu feature names, feature importance và promote `model/best_model`      | Reliability, Transparency |
-| `train_xgboost.py` | So sánh XGBoost optional trong venv riêng; graceful fallback khi thiếu libomp                                                | Reliability               |
-| `stress_test.py`   | Inject Black Swan (price crash, heat wave); đo MAE lift so với baseline, chủ yếu phục vụ evaluation                          | Robustness                |
-| `best_model/`      | Metadata và model artifact được promote cho API                                                                              | Traceability              |
+| File | Mô tả | Trụ cột AI liên quan |
+| --- | --- | --- |
+| `preprocess.py` | Wrapper backward-compatible cho pipeline real-data | Robustness |
+| `preprocess_schema.py` | Normalize schema, rename cột, validate metadata | Robustness |
+| `preprocess_features.py` | Fill missing, cap outliers, feature engineering | Robustness |
+| `preprocess_encoding.py` | One-hot encode và split temporal | Robustness |
+| `train_rf.py` | Train Random Forest baseline; đánh giá MAE/RMSE/R²; promote model tốt nhất | Reliability, Transparency |
+| `train_xgboost.py` | XGBoost comparison optional trong venv riêng | Reliability |
+| `stress_test.py` | CLI stress test wrapper | Robustness |
+| `stress_scenarios.py` | Inject Black Swan scenarios | Robustness |
+| `stress_reporting.py` | Markdown report generator cho stress test | Robustness |
+| `experiment_tracker.py` | Compatibility facade cho registry/artifact/best-model helpers | Traceability |
+| `experiment_utils.py` | Paths, hashes, timestamps, git metadata | Traceability |
+| `experiment_registry.py` | Append/list experiments CSV | Traceability |
+| `experiment_artifacts.py` | Create experiment folder, save metrics/params/artifacts | Traceability |
+| `best_model_promotion.py` | Chọn và promote model tốt nhất từ registry | Traceability |
+| `best_model/` | Metadata và model artifact được promote cho API | Traceability |
 
-### `data/processed/` — Dữ liệu thật đã xử lý
+### `crawler/` — Crawl và Build Dataset
 
-| File/Folder                                                  | Mô tả                                                 |
-| ------------------------------------------------------------ | ----------------------------------------------------- |
-| `monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset chính dùng train baseline real-data hiện tại  |
-| `weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Dataset weekly để tham khảo hoặc thử nghiệm tương lai |
-| `area_real_price_data_ranking.csv`                           | Xếp hạng độ phủ giá thật theo khu vực                 |
-| `FIELD_DESCRIPTIONS.md`                                      | Mô tả schema processed data                           |
+| File | Mô tả |
+| --- | --- |
+| `crawl_coffee_prices.py` | CLI crawl chính, orchestrate sitemap/seed/url file và xuất CSV theo area |
+| `price_crawler_common.py` | Shared async crawl helpers, fetch, run_site, CLI glue |
+| `price_html_parsers.py` | Parse article HTML/table/text thành rows giá |
+| `price_date_parsing.py` | Parse ngày từ URL/meta |
+| `price_normalization.py` | Normalize tên area, parse price/change, ánh xạ vùng |
+| `price_csv_io.py` | Append/finalize/merge CSV outputs |
+| `price_crawler_discovery.py` | Discover URLs từ sitemap và search |
+| `area_dataset_builder.py` | CLI build weekly/monthly processed datasets |
+| `area_dataset_helpers.py` | Helper load/aggregate/fill missing cho dataset builder |
 
 ### `frontend/` — Giao diện người dùng di động (Mobile-first UI)
 
-| File/Folder          | Mô tả                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------- |
-| `src/app/`           | App shell và routing đơn giản.                                                                    |
-| `src/features/`      | Chứa 4 nhóm màn hình/chức năng: welcome/menu, `price-advisory`, `farming-advisory`, và `history`. |
-| `src/shared/`        | Các thành phần dùng chung (UI components, constants, types, API client, storage repository).      |
-| `src/main.tsx`       | Entry point của ứng dụng React.                                                                   |
-| `tailwind.config.js` | Theme coffee/cream/leaf theo phong cách Farmer Neo-Brutal Friendly.                               |
-| `vite.config.ts`     | Cấu hình Vite + Vitest cho component tests.                                                       |
+| File/Folder | Mô tả |
+| --- | --- |
+| `src/app/` | App shell và routing đơn giản |
+| `src/features/` | welcome/menu, `price-advisory`, `farming-advisory`, `history` |
+| `src/shared/` | UI components, constants, types, API client, storage repository |
+| `src/main.tsx` | Entry point của ứng dụng React |
+| `tailwind.config.js` | Theme coffee/cream/leaf |
+| `vite.config.ts` | Cấu hình Vite + Vitest |
 
 ### `scripts/` — Tiện ích
 
-| File                    | Mô tả                                                                                                  |
-| ----------------------- | ------------------------------------------------------------------------------------------------------ |
-| `generate_mock_data.py` | Sinh 1200 dòng mock data (Tây Nguyên, 2022-2025); inject ~5% NaN + ~2% outliers; ghi chú regional bias |
+| File | Mô tả |
+| --- | --- |
+| `generate_mock_data.py` | Sinh 1200 dòng mock data (Tây Nguyên, 2022-2025); inject NaN + outliers; ghi chú regional bias |
 
 ### `tests/ai-tests/` — Kiểm thử
 
-| File                               | Mô tả                                                                                              |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `test_predictor_service.py`        | Kiểm tra PredictorService load model và trả đủ keys; sử dụng model fixture trong tmp_path để test  |
-| `test_best_model_promotion.py`     | Kiểm tra best model promotion chọn đúng real-data run theo metric                                  |
-| `test_api_security.py`             | Kiểm tra endpoint public/protected, API key đúng/sai và lỗi thiếu config                           |
-| `test_farming_advisory_service.py` | Kiểm tra FarmingAdvisoryService trả về khuyến nghị đúng theo quy tắc lượng mưa, tháng, và điểm đất |
-
-### `docs/discussions/` — Tài liệu nội bộ
-
-| File                                        | Mô tả                                                        |
-| ------------------------------------------- | ------------------------------------------------------------ |
-| `5-pillars-checkpoint.md`                   | Kiểm điểm 5 trụ cột Sustainable AI (tiếng Việt)              |
-| `robustness-stress-test.md`                 | Báo cáo stress test tự động sinh bởi `stress_test.py`        |
-| `2026-05-13-team-data-flow-roadmap.md`      | Roadmap luồng dữ liệu thật từ crawler đến model/API/frontend |
-| `2026-05-13-api-handoff-team2-real-data.md` | API handoff contract `/predict` cho frontend                 |
+| File | Mô tả |
+| --- | --- |
+| `test_predictor_service.py` | Kiểm tra PredictorService load model và trả đủ keys |
+| `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run |
+| `test_api_security.py` | Kiểm tra endpoint public/protected, API key và lỗi thiếu config |
+| `test_farming_advisory_service.py` | Kiểm tra rule-based farming advice |
+| `test_experiment_registry.py` | Kiểm tra registry CSV helper |
+| `test_experiment_artifacts.py` | Kiểm tra artifact helper |
+| `test_crawler_price_normalization.py` | Kiểm tra normalize/parse helper |
+| `test_crawler_area_dataset_builder.py` | Kiểm tra build dataset helper |
+| `test_price_html_parsers.py` | Kiểm tra date parsing và parse_article mẫu |
 
 ### `docs/` — Tài liệu vận hành và bàn giao
 
-| File                 | Mô tả                                                        |
-| -------------------- | ------------------------------------------------------------ |
-| `README.md`          | Chỉ mục tài liệu theo vai trò và nhu cầu đọc                 |
-| `self-host-guide.md` | Hướng dẫn chạy backend local, test API key, systemd và Nginx |
-| `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration            |
+| File | Mô tả |
+| --- | --- |
+| `README.md` | Chỉ mục tài liệu theo vai trò và nhu cầu đọc |
+| `project-roadmap.md` | Trạng thái milestone hiện tại |
+| `deployment.md` | Tổng quan deploy Render backend + Cloudflare frontend |
+| `self-host-guide.md` | Hướng dẫn chạy API local/self-host |
+| `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
 
 ### `docs/report/` và `docs/slides/` — Báo cáo và thuyết trình
 
-| File/Folder                       | Mô tả                                                        |
-| --------------------------------- | ------------------------------------------------------------ |
-| `docs/slides/`                    | Slides thuyết trình cuối kỳ (`final_presentation_slides.md`) |
-| `docs/report/README.md`           | Chỉ mục report notes theo roadmap, owner và trạng thái       |
-| `docs/report/internal-notes/`     | Báo cáo tiến độ nội bộ theo tuần (Week 1-6)                  |
-| `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức (Chương 1-6)             |
+| File/Folder | Mô tả |
+| --- | --- |
+| `docs/slides/final_presentation_slides.md` | Slides thuyết trình cuối kỳ |
+| `docs/report/README.md` | Chỉ mục report notes và tracked PDF evidence |
+| `docs/report/internal-notes/` | Báo cáo tiến độ nội bộ theo tuần (archive evidence) |
+| `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức |
 
-### `plans/team2-foundation-week/` — Kế hoạch
+### `plans/` — Kế hoạch
 
-| File                                       | Mô tả                                                |
-| ------------------------------------------ | ---------------------------------------------------- |
-| `plan.md`                                  | Tổng quan foundation week + tracker                  |
-| `phase-03-api-skeleton-5-pillars-check.md` | Chi tiết Phase 3 (API skeleton + kiểm tra 5 trụ cột) |
+| File | Mô tả |
+| --- | --- |
+| `plans/260604-1026-ai002-maintainability-cleanup-and-refactor/plan.md` | Kế hoạch cleanup/refactor hiện tại |
+| `plans/260604-1026-ai002-maintainability-cleanup-and-refactor/reports/` | Baseline, validation, handoff và các report liên quan |
