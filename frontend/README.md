@@ -1,16 +1,40 @@
-# Giao diện Demo Dự báo Giá & Khuyến nghị Canh tác Cà phê (DT10)
+# 🌐 Frontend (Giao diện Người Dùng)
 
-Thư mục này chứa mã nguồn của giao diện người dùng phục vụ demo và kiểm thử hệ thống. Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.
+Giao diện Demo Dự báo Giá & Khuyến nghị Canh tác Cà phê (DT10). 
+Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.
 
-## 1. Công nghệ (React + Vite)
+## 1. Vai trò
 
-- Được nâng cấp từ phiên bản Vanilla tĩnh ban đầu.
-- **Framework:** React + TypeScript + Vite.
-- **Design System:** Tailwind CSS, `lucide-react`, Neo-Brutalism thân thiện với người dùng (nút bấm lớn, tương phản cao, dễ nhìn ngoài nắng). Không còn dùng CSS Modules cho component styling.
-- **Phân tách tính năng:** Cung cấp 2 luồng tính năng riêng biệt: Dự báo Giá và Khuyến nghị Canh tác, bám sát mental model của người dùng thực tế.
-- **Local Storage:** Chỉ lưu kết quả khi người dùng bấm **Lưu kết quả này**, hỗ trợ xem lại offline và xem chi tiết từng kết quả (tối đa 20 kết quả).
+- Cung cấp giao diện trực quan cho Nông dân / Nhà môi giới nhập thông số môi trường & kỹ thuật.
+- Trình bày kết quả Dự báo Giá và Lời khuyên canh tác dễ hiểu, độ tương phản cao (Neo-Brutalism).
+- Giao tiếp trực tiếp với hệ thống Backend thông qua API HTTP RESTful.
+- Cảnh báo dữ liệu lệch (Bias Warning) ở các vùng ít mẫu dữ liệu, hướng tới sự minh bạch.
 
-## 2. Hướng dẫn chạy Demo
+## 2. Sơ đồ luồng xử lý (Data Flow & Architecture)
+
+```mermaid
+flowchart TD
+    User([Người dùng]) -->|Tương tác Form| UI[React Components\nTrang Dự Báo / Trang Khuyến Nghị]
+    UI -->|Gửi Input Data| API_Call[Fetch API /predict]
+    
+    API_Call -->|HTTP POST\nX-API-Key| Backend((FastAPI Backend))
+    Backend -->|JSON Response| Parser[Frontend Parser]
+    
+    Parser -->|Render Giao diện| Display[Hiển thị Kết quả & Cảnh báo]
+    Display -->|Nút Lưu lại| LocalStorage[(Trình duyệt\nLocal Storage)]
+    
+    LocalStorage --> HistoryTab[Tab Lịch Sử]
+    HistoryTab --> User
+```
+
+## 3. Chức năng các thư mục/file chính
+
+- **`src/App.tsx`**: Khung ứng dụng chính, quản lý định tuyến nội bộ (Tabs).
+- **`src/components/`**: Chứa các thẻ UI dùng chung (Button, Card, Form Input).
+- **`src/lib/`**: Các hàm utility, bao gồm hàm gọi API (`api.ts`).
+- **`vite.config.ts` & `tailwind.config.js`**: Cấu hình build system và hệ thống màu sắc, typography.
+
+## 4. Hướng dẫn chạy Demo
 
 Vì sử dụng Vite, bạn cần cài đặt NodeJS và chạy bằng npm:
 
@@ -20,18 +44,15 @@ npm install
 npm run dev
 ```
 
-Sau đó mở trình duyệt truy cập: `http://localhost:5173` (hoặc cổng mà Vite báo).
+Sau đó mở trình duyệt truy cập: `http://localhost:5173`.
 
-## 3. Các bước thực hiện Demo trên UI
+> **Lưu ý:** Đảm bảo Backend Uvicorn đã được bật (`uvicorn backend.main:app --reload`) ở cổng 8000 để Frontend có thể fetch data thành công. Frontend sẽ ưu tiên biến môi trường `VITE_AI002_API_KEY` để gọi API.
 
-1. **Khởi động Backend:** Đảm bảo server uvicorn của backend đang chạy (tại cổng `8000`).
+## 5. Roadmap Tiến độ
 
-   ```bash
-   uvicorn backend.main:app --reload
-   ```
-
-2. **Cấu hình API:** Mặc định frontend gọi `http://127.0.0.1:8000`. Frontend ưu tiên `VITE_AI002_API_KEY` khi deploy Vercel/Vite, và fallback `AI002_API_KEY` cho file env local hiện tại. Cả hai đều được gửi qua header `X-API-Key`.
-3. **Dự báo Giá:** Vào "Dự Báo Giá Cà Phê", điền thông tin và click "Nhận Dự Báo Giá". Nhận kết quả và "Lưu kết quả này".
-4. **Khuyến nghị Canh tác:** Vào "Khuyến Nghị Canh Tác", điền thời tiết dự kiến và click "Nhận Khuyến Nghị Canh Tác". Backend hiện vẫn gọi chung `/predict`, frontend chỉ lấy phần khuyến nghị canh tác để hiển thị.
-5. **Lịch sử:** Xem lại các kết quả đã lưu trong tab Lịch Sử, bấm "Xem chi tiết" để xem input, kết quả, lý do và disclaimer.
-6. **Kiểm tra Bias Warning:** Thử chọn tỉnh Đắk Nông, hệ thống sẽ cảnh báo về dữ liệu (do khu vực này ít dữ liệu trong tập train).
+- [x] Chuyển đổi từ Vanilla tĩnh sang React + Vite + TypeScript
+- [x] Thiết kế hệ thống UI Neo-Brutalism (A11y, High Contrast)
+- [x] Tích hợp lấy dữ liệu API thực tế từ Backend
+- [x] Tính năng Lưu Lịch Sử (Local Storage)
+- [x] Cảnh báo Bias vùng miền (Social Impact Pillar)
+- [ ] Bổ sung biểu đồ trực quan lịch sử biến động giá theo tháng (Tương lai)
