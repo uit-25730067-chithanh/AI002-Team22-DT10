@@ -19,8 +19,12 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from .coffee_areas import slugify
-from .price_crawler_common import parse_article
+try:
+    from .coffee_areas import slugify
+    from .price_crawler_common import parse_article
+except ImportError:
+    from coffee_areas import slugify
+    from price_crawler_common import parse_article
 
 
 SOURCE_NAME = "Bao Nong nghiep va Moi truong"

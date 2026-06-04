@@ -75,6 +75,8 @@ def build_feature_row(
 
     feature_names = list(model_info_feature_names) if model_info_feature_names else list(
         model_feature_names)
+    if not feature_names:
+        feature_names = list(row.keys())
 
     categorical_values = {
         "province": request.province,

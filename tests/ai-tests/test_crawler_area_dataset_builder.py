@@ -1,12 +1,8 @@
 from __future__ import annotations
+
 import crawler.area_dataset_builder as area_dataset_builder
-import crawler.price_crawler_common as price_crawler_common
-import model.experiment_tracker as experiment_tracker
 
 import pandas as pd
-import pytest
-
-from crawler.area_dataset_builder import *
 
 
 def test_add_period_columns_weekly() -> None:

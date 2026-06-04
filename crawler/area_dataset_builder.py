@@ -3,11 +3,12 @@ from __future__ import annotations
 from pathlib import Path
 import pandas as pd
 
-from .coffee_areas import slugify
-
-
-
-from .build_soil_profile import build_soil_profile
+try:
+    from .coffee_areas import slugify
+    from .build_soil_profile import build_soil_profile
+except ImportError:
+    from coffee_areas import slugify
+    from build_soil_profile import build_soil_profile
 
 PRICE_FILE = "coffee_price_all_areas_daily_2022_2025.csv"
 WEATHER_FILE = "weather_all_areas_daily_2022_2025.csv"

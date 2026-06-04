@@ -1,16 +1,6 @@
 from __future__ import annotations
-from bs4 import BeautifulSoup
-from datetime import date
-from pathlib import Path
-from urllib.parse import quote_plus, unquote, urljoin, urlparse, parse_qs
-import csv
-import pandas as pd
-import re
-import requests
 
-from .coffee_areas import AREA_BY_NORMALIZED, normalize_name
 """Shared helpers for async coffee price crawlers."""
-
 
 import asyncio
 import argparse
@@ -27,7 +17,10 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from .coffee_areas import AREAS, COFFEE_TYPE, slugify
+try:
+    from .coffee_areas import AREAS, AREA_BY_NORMALIZED, COFFEE_TYPE, normalize_name, slugify
+except ImportError:
+    from coffee_areas import AREAS, AREA_BY_NORMALIZED, COFFEE_TYPE, normalize_name, slugify
 
 
 HEADERS = {

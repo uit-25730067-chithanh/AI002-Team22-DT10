@@ -15,8 +15,6 @@
 | `api/routes.py` | Endpoint `/health`, `/predict`, `/model/info`; `/predict` và `/model/info` yêu cầu header `X-API-Key` | Robustness, Transparency |
 | `schemas/prediction.py` | `PredictionRequest`, `PredictionResponse`, `FeatureExplanation` | Robustness |
 | `services/predictor.py` | Facade load model, build feature row, predict + CI, explain top 3 features | Reliability, Robustness, Transparency |
-| `services/prediction_features.py` | Build feature row, validate trained categories, one-hot mapping | Robustness, Transparency |
-| `services/prediction_explanations.py` | Trích xuất top feature importances cho response | Transparency |
 | `services/farming_advisory.py` | Rule-based khuyến nghị canh tác theo tháng, lượng mưa và chất lượng đất | Social Impact, Robustness |
 
 ### `model/` — AI/ML Pipeline (Team 2)
@@ -24,19 +22,10 @@
 | File | Mô tả | Trụ cột AI liên quan |
 | --- | --- | --- |
 | `preprocess.py` | Wrapper backward-compatible cho pipeline real-data | Robustness |
-| `preprocess_schema.py` | Normalize schema, rename cột, validate metadata | Robustness |
-| `preprocess_features.py` | Fill missing, cap outliers, feature engineering | Robustness |
-| `preprocess_encoding.py` | One-hot encode và split temporal | Robustness |
 | `train_rf.py` | Train Random Forest baseline; đánh giá MAE/RMSE/R²; promote model tốt nhất | Reliability, Transparency |
 | `train_xgboost.py` | XGBoost comparison optional trong venv riêng | Reliability |
-| `stress_test.py` | CLI stress test wrapper | Robustness |
-| `stress_scenarios.py` | Inject Black Swan scenarios | Robustness |
-| `stress_reporting.py` | Markdown report generator cho stress test | Robustness |
-| `experiment_tracker.py` | Compatibility facade cho registry/artifact/best-model helpers | Traceability |
-| `experiment_utils.py` | Paths, hashes, timestamps, git metadata | Traceability |
-| `experiment_registry.py` | Append/list experiments CSV | Traceability |
-| `experiment_artifacts.py` | Create experiment folder, save metrics/params/artifacts | Traceability |
-| `best_model_promotion.py` | Chọn và promote model tốt nhất từ registry | Traceability |
+| `stress_test.py` | CLI stress test, inject Black Swan scenarios và ghi report | Robustness |
+| `experiment_tracker.py` | Create/list experiments, save artifacts/metrics/params, promote best model | Traceability |
 | `best_model/` | Metadata và model artifact được promote cho API | Traceability |
 
 ### `crawler/` — Crawl và Build Dataset
@@ -44,14 +33,12 @@
 | File | Mô tả |
 | --- | --- |
 | `crawl_coffee_prices.py` | CLI crawl chính, orchestrate sitemap/seed/url file và xuất CSV theo area |
-| `price_crawler_common.py` | Shared async crawl helpers, fetch, run_site, CLI glue |
-| `price_html_parsers.py` | Parse article HTML/table/text thành rows giá |
-| `price_date_parsing.py` | Parse ngày từ URL/meta |
-| `price_normalization.py` | Normalize tên area, parse price/change, ánh xạ vùng |
-| `price_csv_io.py` | Append/finalize/merge CSV outputs |
-| `price_crawler_discovery.py` | Discover URLs từ sitemap và search |
-| `area_dataset_builder.py` | CLI build weekly/monthly processed datasets |
-| `area_dataset_helpers.py` | Helper load/aggregate/fill missing cho dataset builder |
+| `price_crawler_common.py` | Shared parser/helpers: parse date, price/change, article rows, area mapping |
+| `area_dataset_builder.py` | Build weekly/monthly processed datasets từ raw price/weather/soil |
+| `build_area_datasets.py` | CLI wrapper cho dataset builder |
+| `build_soil_profile.py` | Sinh static soil profile theo vùng cà phê |
+| `crawl_weather_by_area.py` | Crawl daily weather theo area |
+| `coffee_areas.py` | Danh sách vùng cà phê, tọa độ và soil metadata |
 
 ### `frontend/` — Giao diện người dùng di động (Mobile-first UI)
 
@@ -91,7 +78,6 @@
 | `README.md` | Chỉ mục tài liệu theo vai trò và nhu cầu đọc |
 | `project-roadmap.md` | Trạng thái milestone hiện tại |
 | `deployment.md` | Tổng quan deploy Render backend + Cloudflare frontend |
-| `self-host-guide.md` | Hướng dẫn chạy API local/self-host |
 | `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
 
 ### `docs/report/` và `docs/slides/` — Báo cáo và thuyết trình

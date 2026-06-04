@@ -1,14 +1,10 @@
 from __future__ import annotations
-import crawler.area_dataset_builder as area_dataset_builder
-import crawler.price_crawler_common as price_crawler_common
-import model.experiment_tracker as experiment_tracker
 
 import csv
 import json
 from pathlib import Path
 
 from model import experiment_tracker
-from model.experiment_tracker import *
 from model import train_rf
 
 
@@ -51,9 +47,6 @@ def _configure_tracker(tmp_path, monkeypatch) -> tuple[Path, Path, Path]:
     csv_path = tmp_path / "experiments.csv"
     experiments_root.mkdir()
     best_model_dir.mkdir()
-    monkeypatch.setattr(experiment_tracker, "EXPERIMENTS_ROOT", experiments_root)
-    monkeypatch.setattr(experiment_tracker, "BEST_MODEL_DIR", best_model_dir)
-    monkeypatch.setattr(experiment_tracker, "CSV_PATH", csv_path)
     monkeypatch.setattr(experiment_tracker, "EXPERIMENTS_ROOT", experiments_root)
     monkeypatch.setattr(experiment_tracker, "BEST_MODEL_DIR", best_model_dir)
     monkeypatch.setattr(experiment_tracker, "CSV_PATH", csv_path)

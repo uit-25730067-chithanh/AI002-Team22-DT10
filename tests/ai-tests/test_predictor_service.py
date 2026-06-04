@@ -1,6 +1,3 @@
-import crawler.area_dataset_builder as area_dataset_builder
-import crawler.price_crawler_common as price_crawler_common
-import model.experiment_tracker as experiment_tracker
 import json
 
 import joblib
@@ -112,6 +109,53 @@ def test_predictor_service_rejects_unknown_area(tmp_path) -> None:
 
     with pytest.raises(ValueError, match="area"):
         predictor.predict(payload)
+
+
+def test_predictor_service_falls_back_when_feature_names_missing(tmp_path) -> None:
+    model_dir = tmp_path / "best_model"
+    model_dir.mkdir()
+    model_path = model_dir / "model.pkl"
+    base_features = [
+        "price_observations",
+        "avg_temp_c",
+        "rainfall_mm",
+        "humidity_pct",
+        "avg_soil_moisture_0_7cm",
+        "soil_score",
+        "month",
+        "year",
+        "quarter",
+        "month_sin",
+        "month_cos",
+        "rolling_avg_7d",
+        "lag_1d",
+        "lag_7d",
+    ]
+    X_train = pd.DataFrame(
+        [
+            [1.0, 26.0, 20.0, 80.0, 0.24, 5.0, 11, 2025, 4, -0.5, 0.866, 88000, 90000, 88000],
+            [1.0, 25.0, 30.0, 78.0, 0.25, 4.8, 10, 2025, 4, -0.866, 0.5, 87000, 88000, 87000],
+        ],
+        columns=base_features,
+    )
+    model = RandomForestRegressor(n_estimators=5, random_state=42)
+    model.fit(X_train.to_numpy(), [90000.0, 88000.0])
+    joblib.dump(model, model_path)
+
+    predictor = PredictorService(model_path=str(model_path))
+    assert predictor.load_model()
+
+    result = predictor.predict(
+        PredictionRequest(
+            province="Dak Lak",
+            area="Buon Ho",
+            avg_temperature_c=26.0,
+            total_rainfall_mm=20.0,
+            month=11,
+        )
+    )
+
+    assert "predicted_price_vnd" in result
 
 
 def test_predictor_service_falls_back_when_advisory_config_fails(tmp_path, monkeypatch) -> None:

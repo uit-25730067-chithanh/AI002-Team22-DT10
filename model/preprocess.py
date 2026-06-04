@@ -1,11 +1,13 @@
-from typing import Tuple
-import numpy as np
-import pandas as pd
-import warnings
 """
 Module tiền xử lý dữ liệu cho pipeline dự báo giá cà phê.
 Các hàm xử lý missing data, outliers, và engineer features.
 """
+
+import warnings
+from typing import Tuple
+
+import numpy as np
+import pandas as pd
 
 
 def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
@@ -20,10 +22,6 @@ def preprocess_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df = encode_features(df)
     return df
 
-
-"""
-Module chuẩn hóa schema cho pipeline dự báo giá cà phê.
-"""
 
 REAL_SCHEMA_RENAME_MAP = {
     "period_start": "date",
@@ -99,11 +97,6 @@ def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
         df["quarter"] = df["date"].dt.quarter
 
     return df
-
-
-"""
-Module feature engineering, xử lý missing data và outliers.
-"""
 
 
 def fill_missing(df: pd.DataFrame) -> pd.DataFrame:
@@ -208,11 +201,6 @@ def feature_engineer(df: pd.DataFrame) -> pd.DataFrame:
     df = df.dropna(subset=["lag_1d", "rolling_avg_7d"])
 
     return df
-
-
-"""
-Module encoding và split dữ liệu.
-"""
 
 
 def encode_features(df: pd.DataFrame) -> pd.DataFrame:

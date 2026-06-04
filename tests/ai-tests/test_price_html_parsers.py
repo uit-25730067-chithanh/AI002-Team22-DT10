@@ -1,13 +1,11 @@
 from __future__ import annotations
-import crawler.area_dataset_builder as area_dataset_builder
+
 import crawler.price_crawler_common as price_crawler_common
-import model.experiment_tracker as experiment_tracker
 
 from datetime import date
 
 from bs4 import BeautifulSoup
 
-from crawler.price_crawler_common import *
 from crawler.price_crawler_common import parse_date_from_meta, parse_date_from_url_or_text
 
 

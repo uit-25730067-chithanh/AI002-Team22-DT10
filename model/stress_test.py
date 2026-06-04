@@ -1,16 +1,5 @@
 from __future__ import annotations
-from preprocess import (
-    preprocess_pipeline,
-    split_temporal,
-    normalize_real_schema,
-    fill_missing,
-    cap_outliers,
-    feature_engineer,
-    encode_features
-)
-from experiment_tracker import get_latest_experiment, create_experiment, save_metrics, build_params, save_params
-import numpy as np
-import pandas as pd
+
 """
 Stress Test: Đo lường model phản ứng khi data nhiễm cực đoan (Black Swan).
 Được thiết kế để chỉ gây nhiễu trên tập test (năm 2025) sử dụng dữ liệu thật monthly.
@@ -22,9 +11,28 @@ import sys
 from pathlib import Path
 
 import joblib
+import numpy as np
+import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).parent))
+
+from experiment_tracker import (  # noqa: E402
+    build_params,
+    create_experiment,
+    get_latest_experiment,
+    save_metrics,
+    save_params,
+)
+from preprocess import (  # noqa: E402
+    cap_outliers,
+    encode_features,
+    feature_engineer,
+    fill_missing,
+    normalize_real_schema,
+    preprocess_pipeline,
+    split_temporal,
+)
 
 
 def run_stress_test(

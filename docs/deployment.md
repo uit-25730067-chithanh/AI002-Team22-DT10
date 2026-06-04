@@ -97,7 +97,7 @@ Backend FastAPI được triển khai trên Render Web Service để cung cấp 
 | Thông số       | Giá trị                                                |
 | -------------- | ------------------------------------------------------ |
 | Platform       | Render Web Service                                     |
-| Account        | `25730067@ms.uit.edu.vn`                               |
+| Account        | Team Render account                                    |
 | Service Name   | `ai002-coffee-api`                                     |
 | Runtime        | Python                                                 |
 | Build Command  | `pip install -r requirements.txt`                      |
@@ -166,7 +166,7 @@ Thay đổi frontend, crawler, docs sẽ không trigger deploy.
 
 **QUAN TRỌNG:** Tắt Render native GitHub integration để tránh double deploy:
 
-1. Đăng nhập Render dashboard với account `25730067@ms.uit.edu.vn`
+1. Đăng nhập Render dashboard bằng team Render account
 2. Vào service `ai002-coffee-api`
 3. Tab "Events" → tìm GitHub integration settings
 4. Disable native GitHub integration (disconnect repo hoặc turn off auto-deploy)
@@ -175,7 +175,7 @@ Thay đổi frontend, crawler, docs sẽ không trigger deploy.
 
 #### Bước 1: Kết nối Repository
 
-1. Đăng nhập vào Render dashboard với account `25730067@ms.uit.edu.vn`
+1. Đăng nhập vào Render dashboard bằng team Render account
 2. Kết nối GitHub repository `uit-25730053-baophuc/AI002_BaiTapNhom`
 
 #### Bước 2: Tạo Web Service
@@ -287,7 +287,7 @@ Console: None
 - API Handoff: `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`
 - Project Roadmap: `docs/project-roadmap.md`
 - Code Standards: `docs/code-standards.md`
-- Local/self-host: `docs/self-host-guide.md`
+- Local/self-host: xem mục "Hướng dẫn chạy Backend Local và Self-host" trong tài liệu này
 
 ## 3. Hướng dẫn chạy Backend Local và Self-host
 

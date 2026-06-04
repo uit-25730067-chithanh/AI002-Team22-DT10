@@ -1,11 +1,6 @@
-import crawler.area_dataset_builder as area_dataset_builder
-import crawler.price_crawler_common as price_crawler_common
-import model.experiment_tracker as experiment_tracker
 """Test API security: API key guard."""
 
-import os
 from fastapi.testclient import TestClient
-import pytest
 
 # Import app với fallback để chạy được từ root và từ thư mục backend
 try:

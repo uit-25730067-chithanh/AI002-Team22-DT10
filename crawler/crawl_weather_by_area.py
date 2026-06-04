@@ -9,7 +9,10 @@ from typing import Any
 import pandas as pd
 import requests
 
-from .coffee_areas import AREAS, slugify
+try:
+    from .coffee_areas import AREAS, slugify
+except ImportError:
+    from coffee_areas import AREAS, slugify
 
 
 OPEN_METEO_ARCHIVE_URL = "https://archive-api.open-meteo.com/v1/archive"

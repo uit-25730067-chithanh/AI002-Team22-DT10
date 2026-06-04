@@ -5,7 +5,10 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from .area_dataset_builder import build_dataset
+try:
+    from .area_dataset_builder import build_dataset
+except ImportError:
+    from area_dataset_builder import build_dataset
 
 
 def main() -> None:
