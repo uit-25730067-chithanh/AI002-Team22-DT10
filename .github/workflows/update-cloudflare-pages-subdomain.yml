@@ -1,0 +1,42 @@
+name: Update Cloudflare Pages Subdomain
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-subdomain:
+    name: Update pages.dev subdomain
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Cloudflare Pages subdomain
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_PAGES_PROJECT: uit-ai002-coffee-frontend
+          CLOUDFLARE_PAGES_SUBDOMAIN: uit-ai002-coffee-frontend.pages.dev
+        run: |
+          set -euo pipefail
+
+          response_file="$(mktemp)"
+          http_code="$(
+            curl --silent --show-error \
+              --request PATCH \
+              --url "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PAGES_PROJECT}" \
+              --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+              --header "Content-Type: application/json" \
+              --data "{\"subdomain\":\"${CLOUDFLARE_PAGES_SUBDOMAIN}\"}" \
+              --output "${response_file}" \
+              --write-out "%{http_code}"
+          )"
+
+          jq '{success, errors, messages, result: {name: .result.name, subdomain: .result.subdomain, domains: .result.domains}}' "${response_file}"
+
+          if [ "${http_code}" -lt 200 ] || [ "${http_code}" -ge 300 ]; then
+            echo "Cloudflare API returned HTTP ${http_code}."
+            exit 1
+          fi
+
+          if [ "$(jq -r '.success' "${response_file}")" != "true" ]; then
+            echo "Cloudflare API response was not successful."
+            exit 1
+          fi

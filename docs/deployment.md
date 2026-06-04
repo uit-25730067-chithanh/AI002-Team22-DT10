@@ -11,8 +11,8 @@
 
 ## URL
 
-- URL Triển khai (Deployment URL): `https://493f51a8.ai002-coffee-frontend.pages.dev`
-- URL Dự án chính thức (Project URL): `https://ai002-coffee-frontend.pages.dev`
+- URL Triển khai (Deployment URL): `https://faa6f859.uit-ai002-coffee-frontend.pages.dev`
+- URL Dự án chính thức (Project URL): `https://uit-ai002-coffee-frontend.pages.dev`
 
 ## Lệnh biên dịch (Compile Command)
 
