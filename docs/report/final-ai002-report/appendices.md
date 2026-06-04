@@ -125,11 +125,11 @@ Giao diện người dùng được thiết kế tối giản, trực quan hóa 
 ## Phụ lục 4: Đường dẫn mã nguồn và Dữ liệu
 
 ### Cấu trúc mã nguồn chính trên repository:
-- **Tập dữ liệu huấn luyện:** [monthly_2022_2025.csv](file:///Users/tcdtist/dev/uit/ai002/data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv)
-- **Module tiền xử lý:** [preprocess.py](file:///Users/tcdtist/dev/uit/ai002/model/preprocess.py)
-- **Module huấn luyện Random Forest:** [train_rf.py](file:///Users/tcdtist/dev/uit/ai002/model/train_rf.py)
-- **Entrypoint Backend API:** [main.py](file:///Users/tcdtist/dev/uit/ai002/backend/main.py)
-- **Định nghĩa API Routes:** [routes.py](file:///Users/tcdtist/dev/uit/ai002/backend/api/routes.py)
-- **Định nghĩa Request/Response Validation:** [prediction.py](file:///Users/tcdtist/dev/uit/ai002/backend/schemas/prediction.py)
-- **Predictor Service logic:** [predictor.py](file:///Users/tcdtist/dev/uit/ai002/backend/services/predictor.py)
-- **Farming Advisory rule engine:** [farming_advisory.py](file:///Users/tcdtist/dev/uit/ai002/backend/services/farming_advisory.py)
+- **Tập dữ liệu huấn luyện:** [coffee_environment_all_areas_monthly_2022_2025.csv](../../../data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv)
+- **Module tiền xử lý:** [preprocess.py](../../../model/preprocess.py)
+- **Module huấn luyện Random Forest:** [train_rf.py](../../../model/train_rf.py)
+- **Entrypoint Backend API:** [main.py](../../../backend/main.py)
+- **Định nghĩa API Routes:** [routes.py](../../../backend/api/routes.py)
+- **Định nghĩa Request/Response Validation:** [prediction.py](../../../backend/schemas/prediction.py)
+- **Predictor Service logic:** [predictor.py](../../../backend/services/predictor.py)
+- **Farming Advisory rule engine:** [farming_advisory.py](../../../backend/services/farming_advisory.py)

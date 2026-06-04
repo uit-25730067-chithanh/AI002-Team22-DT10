@@ -54,7 +54,7 @@ Quy trình trải nghiệm của người nông dân được tối giản hóa 
 ### 3.1. Phương thức và URL
 - **Method:** `POST`
 - **Endpoint:** `/predict`
-- **Tài liệu tham khảo chi tiết:** [Phụ lục 2 của báo cáo](file:///Users/tcdtist/dev/uit/ai002/docs/report/final-ai002-report/appendices.md#phu-luc-2-api-requestresponse-mau-json)
+- **Tài liệu tham khảo chi tiết:** [Phụ lục 2 của báo cáo](../final-ai002-report/appendices.md#phu-luc-2-api-requestresponse-mau-json)
 
 ### 3.2. Cấu hình Headers (Bảo mật)
 Do hệ thống được thiết lập cơ chế bảo mật khóa API (API Key) nhằm bảo vệ hạ tầng, frontend bắt buộc phải gửi Header `X-API-Key` kèm theo:
