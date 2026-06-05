@@ -13,7 +13,7 @@
 * **Giảng viên hướng dẫn:** TS. Phan Thế Duy
 * **Nhóm thực hiện:** Nhóm 10
   - Đào Vĩnh Bảo Phúc (Nhóm trưởng - MSSV: 25730053)
-  - Đặng Chí Thanh (Kỹ thuật ML & Backend - MSSV: 25730063)
+  - Đặng Chí Thanh (Kỹ thuật ML & Backend - MSSV: 25730067)
   - Hoàng Cao Sơn (Đánh giá & Kiểm toán AI - MSSV: 25730061)
   - Tăng Phước Thịnh (Dữ liệu khí hậu - MSSV: 25730071)
 * **Speaker Notes:** 
@@ -42,7 +42,7 @@
 
 ## Slide 1.3: Thành viên Đặng Chí Thanh
 * **Họ và tên:** Đặng Chí Thanh
-* **MSSV:** 25730063
+* **MSSV:** 25730067
 * **Nhiệm vụ phân công:** Đảm nhiệm kỹ thuật Machine Learning (Feature Engineering, Preprocessing, Train thuật toán Random Forest Baseline) và viết Backend API bằng FastAPI.
 * **Phụ trách AI Bền vững:** Trục Reliability (Tính tin cậy) và Explainability (Tính minh bạch/giải thích được).
 * **Speaker Notes:**
