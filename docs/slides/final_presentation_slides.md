@@ -2,7 +2,7 @@
 
 **Môn học:** Tư duy Trí tuệ Nhân tạo (AI002)  
 **Đề tài:** AI Dự báo Kế hoạch Canh tác Mùa vụ & Giá Cà phê cho Nông dân Tây Nguyên  
-**Tác giả:** Nhóm 10 (Đào Vĩnh Bảo Phúc, Đặng Chí Thanh, Hoàng Cao Sơn, Tăng Phước Thịnh)  
+**Tác giả:** Nhóm 10 (Đặng Chí Thanh, Hoàng Cao Sơn)  
 **Định dạng Slide:** Có thể trình chiếu trực tiếp từ Markdown hoặc dùng để nhập vào Google Slides/PowerPoint.
 
 ---
@@ -12,51 +12,30 @@
 * **Phân hệ đề tài:** Đề tài DT10 - Tư duy Trí tuệ Nhân tạo (AI002)
 * **Giảng viên hướng dẫn:** TS. Phan Thế Duy
 * **Nhóm thực hiện:** Nhóm 10
-  - Đào Vĩnh Bảo Phúc (Nhóm trưởng - MSSV: 25730053)
-  - Đặng Chí Thanh (Kỹ thuật ML & Backend - MSSV: 25730067)
+  - Đặng Chí Thanh (Trưởng nhóm - MSSV: 25730067)
   - Hoàng Cao Sơn (Đánh giá & Kiểm toán AI - MSSV: 25730061)
-  - Tăng Phước Thịnh (Dữ liệu khí hậu - MSSV: 25730071)
 * **Speaker Notes:** 
   > Xin chào Thầy và các bạn. Hôm nay Nhóm 10 xin đại diện trình bày đồ án cuối kỳ môn Tư duy Trí tuệ Nhân tạo với đề tài DT10: AI dự báo kế hoạch canh tác mùa vụ và giá cà phê cho nông dân Tây Nguyên. Trọng tâm của đồ án không nằm ở việc xây dựng mô hình Deep Learning phức tạp mà tập trung vào việc áp dụng tư duy thiết kế hệ thống AI bền vững và có trách nhiệm đến tay người nông dân nhỏ lẻ.
 
 ---
 
-## Slide 1.1: Thành viên Đào Vĩnh Bảo Phúc (Nhóm trưởng)
-* **Họ và tên:** Đào Vĩnh Bảo Phúc
-* **MSSV:** 25730053
-* **Nhiệm vụ phân công:** Thu thập dữ liệu (Crawler), Xây dựng Web UI (Frontend) và hỗ trợ lập báo cáo, slide.
-* **Phụ trách AI Bền vững:** Trục Social Impact (Tác động xã hội).
-* **Speaker Notes:**
-  > Trình bày tóm tắt vai trò điều phối dự án và định hướng thiết kế giao diện Mobile-first tối ưu cho nông dân ở khu vực mạng 3G yếu.
-
----
-
-## Slide 1.2: Thành viên Tăng Phước Thịnh
-* **Họ và tên:** Tăng Phước Thịnh
-* **MSSV:** 25730071
-* **Nhiệm vụ phân công:** Crawl dữ liệu thời tiết, xây dựng tài liệu nghiên cứu giá và hỗ trợ thiết kế, liên kết API với giao diện UI.
-* **Speaker Notes:**
-  > Nhấn mạnh quá trình thu thập, đồng bộ các thông số khí hậu với chu kỳ giá cà phê và việc kết nối hệ thống xuyên suốt.
-
----
-
-## Slide 1.3: Thành viên Đặng Chí Thanh
+## Slide 1.1: Thành viên Đặng Chí Thanh (Nhóm trưởng)
 * **Họ và tên:** Đặng Chí Thanh
 * **MSSV:** 25730067
-* **Nhiệm vụ phân công:** Đảm nhiệm kỹ thuật Machine Learning (Feature Engineering, Preprocessing, Train thuật toán Random Forest Baseline) và viết Backend API bằng FastAPI.
-* **Phụ trách AI Bền vững:** Trục Reliability (Tính tin cậy) và Explainability (Tính minh bạch/giải thích được).
+* **Nhiệm vụ phân công:** Đảm nhiệm kỹ thuật Machine Learning (Feature Engineering, Preprocessing, Train thuật toán Random Forest Baseline), viết Backend API bằng FastAPI, xây dựng Web UI (Frontend) và liên kết API với UI.
+* **Phụ trách AI Bền vững:** Trục Reliability (Tính tin cậy), Explainability (Tính minh bạch/giải thích được) và Social Impact (Tác động xã hội).
 * **Speaker Notes:**
-  > Nêu bật quá trình thiết kế lõi AI kiểm soát mức độ quan trọng của đặc trưng (Feature Importance) và xử lý backend.
+  > Nêu bật quá trình thiết kế lõi AI kiểm soát mức độ quan trọng của đặc trưng (Feature Importance), xử lý backend FastAPI và tích hợp giao diện di động React/Vite tối ưu tác động xã hội.
 
 ---
 
-## Slide 1.4: Thành viên Hoàng Cao Sơn
+## Slide 1.2: Thành viên Hoàng Cao Sơn
 * **Họ và tên:** Hoàng Cao Sơn
 * **MSSV:** 25730061
-* **Nhiệm vụ phân công:** Đánh giá và kiểm toán dữ liệu (Real Data Audit), đồng thời viết kịch bản stress test tự động cho API.
+* **Nhiệm vụ phân công:** Đánh giá và kiểm toán dữ liệu (Real Data Audit), thu thập dữ liệu lịch sử giá & thời tiết (Crawler), đồng thời viết kịch bản stress test tự động cho API.
 * **Phụ trách AI Bền vững:** Trục Robustness (Kháng nhiễu) và Bias (Tính thiên lệch).
 * **Speaker Notes:**
-  > Tóm tắt về các phát hiện khi đánh giá độ lệch dữ liệu địa lý giữa các tỉnh và quá trình mô phỏng các kịch bản nhiễu cực đoan (Black Swan).
+  > Tóm tắt về các phát hiện khi đánh giá độ lệch dữ liệu địa lý giữa các tỉnh, quy trình crawler dữ liệu và quá trình mô phỏng các kịch bản nhiễu cực đoan (Black Swan).
 
 ---
 

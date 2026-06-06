@@ -225,14 +225,12 @@ flowchart TD
 
 ### Phân chia Công việc (WBS)
 
-Cấu trúc chia thành 2 team nhỏ để tối ưu hóa tiến độ làm việc song song:
+Cấu trúc phân chia công việc tối ưu hóa tiến độ làm việc song song:
 
 | Module | Phụ trách chính | Hỗ trợ |
 | :--- | :--- | :--- |
-| **Dữ liệu & Frontend (Team 1)** | Đào Vĩnh Bảo Phúc | Tăng Phước Thịnh |
-| **Hỗ trợ & Business (Team 1)** | Tăng Phước Thịnh | Đào Vĩnh Bảo Phúc |
-| **Mô hình & Hệ thống (Team 2)** | Đặng Chí Thanh | Hoàng Cao Sơn |
-| **Đánh giá Bền vững (Team 2)** | Hoàng Cao Sơn | Đặng Chí Thanh |
+| **Mô hình, API & Frontend** | Đặng Chí Thanh | Hoàng Cao Sơn |
+| **Dữ liệu & Kiểm toán Bền vững** | Hoàng Cao Sơn | Đặng Chí Thanh |
 
 ---
 
@@ -247,10 +245,8 @@ Cấu trúc chia thành 2 team nhỏ để tối ưu hóa tiến độ làm vi�
 
 | MSSV | Họ và Tên | Vai trò | Trục AI Phụ trách | GitHub |
 | :--- | :--- | :--- | :--- | :--- |
-| 25730053 | Đào Vĩnh Bảo Phúc | Trưởng nhóm, Kỹ thuật Dữ liệu, Frontend | Social Impact | |
-| 25730071 | Tăng Phước Thịnh | Crawl Dữ liệu, Phân tích nghiệp vụ | Hỗ trợ chung | |
-| 25730067 | Đặng Chí Thanh | Kỹ thuật ML, Backend API | Reliability, Explainability | [@uit-25730067-chithanh](https://github.com/uit-25730067-chithanh) |
-| 25730061 | Hoàng Cao Sơn | Data Audit, Đánh giá mô hình, Stress test | Robustness, Bias | [@uit-25730061-caoson](https://github.com/uit-25730061-caoson) |
+| 25730067 | Đặng Chí Thanh | Trưởng nhóm, Kỹ thuật ML, Backend & Frontend | Reliability, Explainability, Social Impact | [@uit-25730067-chithanh](https://github.com/uit-25730067-chithanh) |
+| 25730061 | Hoàng Cao Sơn | Data Audit, Crawler, Stress test | Robustness, Bias | [@uit-25730061-caoson](https://github.com/uit-25730061-caoson) |
 
 *(Lưu ý: Do đây là repo public, GitHub handle của một số thành viên có thể được cập nhật sau)*
 

@@ -21,10 +21,8 @@
 
 | STT | Mã Sinh Viên | Họ và Tên | Nhiệm Vụ Phân Công (Chi tiết Kỹ thuật & Trục AI) | Hoàn Thành (%) |
 | :-- | :----------- | :-------- | :------------------------------------------------ | :-------------- |
-| 1   | 25730053     | Đào Vĩnh Bảo Phúc | Thu thập dữ liệu (Crawler), Xây dựng Web UI (Frontend). Hỗ trợ lập báo cáo và slide. Phụ trách đánh giá trục Social Impact. | 100%            |
-| 2   | 25730067     | Đặng Chí Thanh (Trưởng nhóm) | Kỹ thuật ML (Feature Engineering, Preprocessing, Train RF Baseline), Viết Backend API (FastAPI). Phụ trách trục Reliability và Explainability. | 100%            |
-| 3   | 25730061     | Hoàng Cao Sơn | Đánh giá và kiểm toán dữ liệu (Real Data Audit), Viết kịch bản stress test cho API, Phụ trách trục Robustness và Bias. | 100%            |
-| 4   | 25730071     | Tăng Phước Thịnh | Crawl dữ liệu thời tiết, Xây dựng tài liệu nghiên cứu giá, Hỗ trợ thiết kế và liên kết API với UI. | 100%            |
+| 1   | 25730067     | Đặng Chí Thanh (Trưởng nhóm) | Kỹ thuật ML (Feature Engineering, Preprocessing, Train RF Baseline), Viết Backend API (FastAPI), Xây dựng Web UI (Frontend) và liên kết API với UI. Phụ trách trục Reliability, Explainability và Social Impact. | 100%            |
+| 2   | 25730061     | Hoàng Cao Sơn | Đánh giá và kiểm toán dữ liệu (Real Data Audit), Thu thập dữ liệu lịch sử giá & thời tiết (Crawler), Viết kịch bản stress test cho API, Phụ trách trục Robustness và Bias. | 100%            |
 
 ---
 
