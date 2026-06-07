@@ -1,0 +1,77 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,21.0,69.581,6.8,0.259,Dat do bazan,4,low,0,
+2020-02-01,2020-02-29,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,21.514,64.069,2.1,0.264,Dat do bazan,4,low,0,
+2020-03-01,2020-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,25.145,62.419,6.6,0.253,Dat do bazan,4,low,0,
+2020-04-01,2020-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,24.897,68.367,46.7,0.311,Dat do bazan,4,low,0,
+2020-05-01,2020-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,26.342,71.677,109.2,0.33,Dat do bazan,4,low,0,
+2020-06-01,2020-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31200,31200.0,4,observed,23.877,87.433,133.4,0.445,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2020-07-01,2020-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31702,,0,interpolated_area,23.574,88.258,236.4,0.47,Dat do bazan,4,low,0,
+2020-08-01,2020-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32204,,0,interpolated_area,22.839,91.452,313.2,0.49,Dat do bazan,4,low,0,
+2020-09-01,2020-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32705,,0,interpolated_area,23.197,89.4,436.2,0.492,Dat do bazan,4,low,0,
+2020-10-01,2020-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,33207,,0,interpolated_area,22.174,89.129,542.3,0.489,Dat do bazan,4,low,0,
+2020-11-01,2020-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,33709,33709.09090909091,11,observed,21.7,80.733,164.3,0.404,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2020-12-01,2020-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32731,32730.76923076923,13,observed,20.813,73.516,7.6,0.312,Dat do bazan,4,low,13,Nong Nghiep Moi Truong
+2021-01-01,2021-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32045,32045.454545454544,11,observed,19.245,70.226,0.0,0.268,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2021-02-01,2021-02-28,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,31600,31600.0,8,observed,20.754,66.536,11.2,0.278,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2021-03-01,2021-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32590,32590.0,10,observed,24.229,63.677,3.7,0.256,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2021-04-01,2021-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32454,32453.846153846152,13,observed,24.56,72.233,109.9,0.331,Dat do bazan,4,low,13,Nong Nghiep Moi Truong
+2021-05-01,2021-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,32786,32785.71428571428,7,observed,24.971,78.645,228.8,0.373,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2021-06-01,2021-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,34111,34111.11111111111,9,observed,23.233,92.0,233.2,0.477,Dat do bazan,4,low,9,Nong Nghiep Moi Truong
+2021-07-01,2021-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,36086,36085.71428571428,7,observed,22.732,91.516,452.4,0.492,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2021-08-01,2021-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,37388,37387.5,8,observed,23.113,89.613,220.4,0.489,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2021-09-01,2021-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,39733,39733.333333333336,6,observed,22.63,90.433,494.6,0.494,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2021-10-01,2021-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40260,40260.0,10,observed,22.255,89.677,397.9,0.489,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2021-11-01,2021-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,41100,41100.0,11,observed,22.127,80.667,53.0,0.374,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2021-12-01,2021-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,41391,41390.90909090909,11,observed,20.061,75.968,21.4,0.352,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-01-01,2022-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40009,40009.09090909091,11,observed,20.9,72.484,9.5,0.28,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-02-01,2022-02-28,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40960,40960.0,10,observed,21.882,72.75,28.4,0.282,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2022-03-01,2022-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40808,40808.333333333336,12,observed,23.884,71.0,115.5,0.307,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2022-04-01,2022-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,41017,41016.666666666664,12,observed,23.543,73.933,70.5,0.356,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2022-05-01,2022-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40973,40972.72727272727,11,observed,23.187,86.226,204.5,0.45,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-06-01,2022-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,42118,42118.181818181816,11,observed,23.79,85.067,132.3,0.402,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-07-01,2022-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,41767,41766.666666666664,12,observed,22.874,89.839,346.3,0.489,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2022-08-01,2022-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,47545,47545.454545454544,11,observed,22.432,90.645,330.6,0.495,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-09-01,2022-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,47791,47790.90909090909,11,observed,22.237,90.6,406.1,0.495,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-10-01,2022-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,45642,45641.666666666664,12,observed,22.152,83.323,171.5,0.446,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2022-11-01,2022-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,39964,39963.63636363636,11,observed,22.277,80.067,70.6,0.35,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-12-01,2022-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40783,40783.333333333336,12,observed,20.284,71.903,1.9,0.295,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-01-01,2023-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,40350,40350.0,12,observed,20.19,72.161,25.9,0.299,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-02-01,2023-02-28,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,44292,44291.666666666664,12,observed,22.011,67.714,2.8,0.257,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-03-01,2023-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,47093,47092.857142857145,14,observed,23.155,64.613,10.5,0.26,Dat do bazan,4,low,14,Nong Nghiep Moi Truong
+2023-04-01,2023-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,50023,50023.07692307692,13,observed,25.497,71.767,49.2,0.32,Dat do bazan,4,low,13,Nong Nghiep Moi Truong
+2023-05-01,2023-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,54825,54825.0,12,observed,24.865,79.645,148.4,0.391,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-06-01,2023-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,64327,64327.27272727273,11,observed,23.217,89.3,260.5,0.466,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2023-07-01,2023-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,65091,65090.90909090909,11,observed,23.01,89.935,292.4,0.48,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2023-08-01,2023-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,65057,65057.142857142855,7,observed,22.942,90.387,226.4,0.491,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-09-01,2023-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,66360,66360.0,10,observed,22.633,90.833,316.2,0.49,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2023-10-01,2023-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,63175,63175.0,8,observed,22.681,89.548,319.0,0.486,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2023-11-01,2023-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,58929,58928.57142857143,7,observed,22.39,77.833,37.7,0.335,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-12-01,2023-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,65638,65637.5,8,observed,22.0,73.387,3.1,0.256,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-01-01,2024-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,70808,70808.33333333333,12,observed,20.81,71.806,0.3,0.246,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2024-02-01,2024-02-29,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,79370,79370.0,10,observed,23.162,67.241,2.6,0.249,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2024-03-01,2024-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,92233,92233.33333333333,9,observed,24.942,64.161,24.7,0.232,Dat do bazan,4,low,9,Nong Nghiep Moi Truong
+2024-04-01,2024-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,113312,113312.5,8,observed,27.933,59.167,39.9,0.261,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-05-01,2024-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,101125,101125.0,8,observed,25.855,75.161,122.9,0.34,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-06-01,2024-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,120888,120887.5,8,observed,24.39,84.033,161.2,0.413,Dat do bazan,4,low,8,Cong Thuong; Nong Nghiep Moi Truong
+2024-07-01,2024-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,127862,127862.5,8,observed,22.5,92.516,355.0,0.492,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-08-01,2024-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,118486,118485.71428571429,7,observed,23.6,87.968,166.5,0.471,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-09-01,2024-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,122929,122928.57142857143,7,observed,22.68,92.167,315.8,0.496,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-10-01,2024-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,112900,112900.0,8,observed,22.265,86.129,224.1,0.472,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-11-01,2024-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,113117,113116.66666666667,6,observed,22.093,79.8,83.2,0.407,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2024-12-01,2024-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,124129,124128.57142857143,7,observed,20.79,76.097,23.9,0.286,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-01-01,2025-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,117550,117550.0,4,observed,19.21,69.613,0.7,0.197,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-01,2025-02-28,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,131075,131075.0,8,observed,21.554,68.893,4.2,0.19,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-03-01,2025-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,131078,131077.77777777778,9,observed,23.697,67.29,10.7,0.197,Dat do bazan,4,low,9,Nong Nghiep Moi Truong
+2025-04-01,2025-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,129312,129312.5,8,observed,25.13,68.167,44.7,0.214,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-05-01,2025-05-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,126914,126914.28571428571,7,observed,24.2,82.903,245.4,0.397,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-06-01,2025-06-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,111575,111575.0,8,observed,22.827,91.067,337.6,0.484,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-07-01,2025-07-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,92020,92020.0,10,observed,22.3,94.0,419.5,0.5,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2025-08-01,2025-08-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,111000,111000.0,7,observed,22.706,90.387,275.8,0.482,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-09-01,2025-09-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,118543,118542.85714285714,7,observed,22.33,91.7,370.7,0.496,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-10-01,2025-10-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,113900,113900.0,3,observed,22.69,85.839,217.0,0.442,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-01,2025-11-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,113350,113350.0,6,observed,21.42,81.0,268.7,0.434,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2025-12-01,2025-12-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,97071,97071.42857142857,7,observed,21.165,75.484,7.1,0.26,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2026-01-01,2026-01-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,98170,98170.0,10,observed,19.348,67.871,0.0,0.186,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2026-02-01,2026-02-28,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,98517,98516.66666666667,6,observed,21.911,68.643,24.0,0.205,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2026-03-01,2026-03-31,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,92400,92400.0,8,observed,23.032,67.645,22.2,0.254,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2026-04-01,2026-04-30,Gia Lai,Pleiku,Robusta / ca phe nhan xo noi dia,92400,,0,interpolated_area,25.99,61.933,27.7,0.223,Dat do bazan,4,low,0,

@@ -30,9 +30,9 @@ Các file sau là bằng chứng đánh giá đã được theo dõi (tracked ev
 
 ## Quy ước đọc nhanh
 
-- **Thanh:** schema, model baseline, API contract, handoff/frontend support.
+- **Thanh:** schema, independent data rebuild, model baseline, API contract, handoff/frontend support.
 - **Sơn:** mock pipeline foundation, evaluation, robustness, bias, 5 Pillars, QA checklist.
-- **Team 1:** crawler, processed dataset, frontend UI.
+- **Team 1:** frontend UI và các note dữ liệu cũ trước khi tách nhóm.
 - **Report chung:** chỉ dùng để tổng hợp cuối kỳ, không thay thế note cá nhân.
 
 ## Mapping theo roadmap
@@ -58,6 +58,7 @@ Các file sau là bằng chứng đánh giá đã được theo dõi (tracked ev
 2. [`internal-notes/week3_team2_thanh_real-data-schema-report-note.md`](internal-notes/week3_team2_thanh_real-data-schema-report-note.md)
 3. [`internal-notes/week4_team2_thanh_real-model-baseline-report-note.md`](internal-notes/week4_team2_thanh_real-model-baseline-report-note.md)
 4. [`internal-notes/week5_team2_thanh_api-integration-report-note.md`](internal-notes/week5_team2_thanh_api-integration-report-note.md)
+5. [`../discussions/2026-06-07-independent-model-results.md`](../discussions/2026-06-07-independent-model-results.md)
 
 ### Nếu hỏi Sơn đã làm gì
 
@@ -68,6 +69,7 @@ Các file sau là bằng chứng đánh giá đã được theo dõi (tracked ev
 3. [`../discussions/2026-05-13-real-data-audit-team2-son.md`](../discussions/2026-05-13-real-data-audit-team2-son.md)
 4. [`../discussions/2026-05-13-son-api-integration-qa-checklist.md`](../discussions/2026-05-13-son-api-integration-qa-checklist.md)
 5. [`../discussions/5-pillars-checkpoint.md`](../discussions/5-pillars-checkpoint.md)
+6. [`../discussions/2026-06-07-independent-five-pillars-checkpoint.md`](../discussions/2026-06-07-independent-five-pillars-checkpoint.md)
 
 ### Nếu hỏi roadmap tổng thể
 
@@ -76,11 +78,13 @@ Các file sau là bằng chứng đánh giá đã được theo dõi (tracked ev
 1. [`../project-roadmap.md`](../project-roadmap.md)
 2. [`../codebase-summary.md`](../codebase-summary.md)
 3. [`../discussions/2026-05-13-api-handoff-team2-real-data.md`](../discussions/2026-05-13-api-handoff-team2-real-data.md)
+4. [`../discussions/2026-06-07-independent-data-contract.md`](../discussions/2026-06-07-independent-data-contract.md)
+5. [`../discussions/2026-06-07-independent-data-audit.md`](../discussions/2026-06-07-independent-data-audit.md)
 
 ## Ghi chú tránh báo cáo nhầm
 
-- Không nói Thanh làm crawler hoặc build processed dataset; đó là phần Phúc/Thịnh.
-- Không nói Thanh làm evaluation pack/5 Pillars checkpoint; đó là phần Sơn.
+- Không dùng các note tháng 5 làm source-of-truth cho dataset hiện tại; đó là archive trước khi tách nhóm.
+- Nói rõ Thanh/Sơn đã tự crawl, audit và tạo dataset độc lập ngày 2026-06-07.
 - Không nói model đã tốt; chỉ nói baseline đã chạy thật, có metric thật và limitation rõ.
-- Không nói raw data được train trực tiếp; baseline hiện dùng processed monthly dataset.
+- Không nói raw data được train trực tiếp; baseline hiện dùng processed monthly dataset độc lập.
 - Frontend integration/demo end-to-end đã có bằng chứng trong repo; chỉ coi note archive cũ là lịch sử.

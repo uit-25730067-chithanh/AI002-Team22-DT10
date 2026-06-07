@@ -34,6 +34,14 @@ from preprocess import preprocess_pipeline, split_temporal  # noqa: E402
 
 def _update_best_model_after_training(
         tag: str, experiment_id: str) -> Path | None:
+    if tag.startswith("rf_independent"):
+        return update_best_model(
+            metric_key="mae",
+            mode="min",
+            tag_prefix="rf_independent",
+            fallback_experiment_id=experiment_id,
+        )
+
     if tag.startswith("rf_real"):
         return update_best_model(
             metric_key="mae",
@@ -53,7 +61,11 @@ def _update_best_model_after_training(
     return update_best_model(metric_key="mae", mode="min")
 
 
-def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
+def train_and_evaluate(
+    data_path: str,
+    tag: str = "rf_baseline",
+    promote: bool = True,
+) -> dict:
     """
     Đọc dữ liệu, tiền xử lý, huấn luyện Random Forest, đánh giá, lưu model.
 
@@ -158,7 +170,8 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
 
     # 11. Append to experiments CSV và cập nhật best model
     append_experiment_csv(exp_dir, tag, "RandomForestRegressor", metrics)
-    best_model_path = _update_best_model_after_training(tag, exp_dir.name)
+    best_model_path = _update_best_model_after_training(
+        tag, exp_dir.name) if promote else None
     print(f"Best model cập nhật: {best_model_path}")
 
     return {
@@ -171,6 +184,7 @@ def train_and_evaluate(data_path: str, tag: str = "rf_baseline") -> dict:
         "plot_path": str(plot_path),
         "feature_names_path": str(feature_names_path),
         "exp_dir": str(exp_dir),
+        "best_model_path": str(best_model_path) if best_model_path else None,
     }
 
 
@@ -186,6 +200,11 @@ if __name__ == "__main__":
         default="rf_baseline",
         help="Tag cho experiment folder",
     )
+    parser.add_argument(
+        "--no-promote",
+        action="store_true",
+        help="Không cập nhật model/best_model sau khi train",
+    )
     args = parser.parse_args()
 
-    train_and_evaluate(args.data, args.tag)
+    train_and_evaluate(args.data, args.tag, promote=not args.no_promote)

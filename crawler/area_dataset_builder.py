@@ -15,10 +15,15 @@ WEATHER_FILE = "weather_all_areas_daily_2022_2025.csv"
 SOIL_FILE = "soil_profile_by_area.csv"
 
 
-def load_inputs(raw_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    price_path = raw_dir / PRICE_FILE
-    weather_path = raw_dir / WEATHER_FILE
-    soil_path = raw_dir / SOIL_FILE
+def load_inputs(
+    raw_dir: Path,
+    price_file: str = PRICE_FILE,
+    weather_file: str = WEATHER_FILE,
+    soil_file: str = SOIL_FILE,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    price_path = raw_dir / price_file
+    weather_path = raw_dir / weather_file
+    soil_path = raw_dir / soil_file
 
     if not price_path.exists():
         raise FileNotFoundError(f"Missing {price_path}. Run crawl_coffee_prices.py first.")
@@ -66,16 +71,24 @@ def aggregate_prices(
     end_date: pd.Timestamp,
 ) -> pd.DataFrame:
     prices = add_period_columns(prices, freq, start_date, end_date)
+    aggregations = {
+        "avg_price_vnd_per_kg": ("price_vnd_per_kg", "mean"),
+        "price_observations": ("price_vnd_per_kg", "count"),
+    }
+    if "source_url" in prices.columns:
+        aggregations["source_url_count"] = ("source_url", "nunique")
+    if "source_name" in prices.columns:
+        aggregations["source_names"] = (
+            "source_name",
+            lambda values: "; ".join(sorted({str(value) for value in values.dropna()})),
+        )
     return (
         prices.groupby(
             ["period_start", "period_end", "province", "area", "coffee_type"],
             dropna=False,
             as_index=False,
         )
-        .agg(
-            avg_price_vnd_per_kg=("price_vnd_per_kg", "mean"),
-            price_observations=("price_vnd_per_kg", "count"),
-        )
+        .agg(**aggregations)
     )
 
 
@@ -164,10 +177,22 @@ def fill_missing_prices(frame: pd.DataFrame) -> pd.DataFrame:
         "soil_score",
         "soil_data_confidence",
     ]
+    for column in ["source_url_count", "source_names"]:
+        if column in frame.columns:
+            output_columns.append(column)
     return frame[output_columns].sort_values(["period_start", "province", "area"])
 
-def build_dataset(raw_dir: Path, output_root: Path, freq: str) -> pd.DataFrame:
-    prices, weather, soil = load_inputs(raw_dir)
+def build_dataset(
+    raw_dir: Path,
+    output_root: Path,
+    freq: str,
+    price_file: str = PRICE_FILE,
+    weather_file: str = WEATHER_FILE,
+    soil_file: str = SOIL_FILE,
+    combined_output_name: str | None = None,
+    area_output_year_label: str = "2022_2025",
+) -> pd.DataFrame:
+    prices, weather, soil = load_inputs(raw_dir, price_file, weather_file, soil_file)
     start_date = weather["date"].min()
     end_date = weather["date"].max()
     price_periods = aggregate_prices(prices, freq, start_date, end_date)
@@ -193,25 +218,31 @@ def build_dataset(raw_dir: Path, output_root: Path, freq: str) -> pd.DataFrame:
         how="left",
         validate="many_to_one",
     )
-    grouped = grouped[
-        [
-            "period_start",
-            "period_end",
-            "province",
-            "area",
-            "coffee_type",
-            "avg_price_vnd_per_kg",
-            "price_observations",
-            "avg_temperature_c",
-            "avg_humidity_percent",
-            "total_rainfall_mm",
-            "avg_soil_moisture_0_7cm",
-            "dominant_soil_type",
-            "soil_score",
-            "soil_data_confidence",
-        ]
-    ].sort_values(["period_start", "province", "area"])
+    grouped_columns = [
+        "period_start",
+        "period_end",
+        "province",
+        "area",
+        "coffee_type",
+        "avg_price_vnd_per_kg",
+        "price_observations",
+        "avg_temperature_c",
+        "avg_humidity_percent",
+        "total_rainfall_mm",
+        "avg_soil_moisture_0_7cm",
+        "dominant_soil_type",
+        "soil_score",
+        "soil_data_confidence",
+    ]
+    for column in ["source_url_count", "source_names"]:
+        if column in grouped.columns:
+            grouped_columns.append(column)
+    grouped = grouped[grouped_columns].sort_values(["period_start", "province", "area"])
     grouped["price_observations"] = grouped["price_observations"].fillna(0).astype("Int64")
+    if "source_url_count" in grouped.columns:
+        grouped["source_url_count"] = grouped["source_url_count"].fillna(0).astype("Int64")
+    if "source_names" in grouped.columns:
+        grouped["source_names"] = grouped["source_names"].fillna("")
     grouped = fill_missing_prices(grouped)
     grouped["avg_price_vnd_per_kg"] = grouped["avg_price_vnd_per_kg"].round(0).astype("Int64")
     for column in [
@@ -224,12 +255,13 @@ def build_dataset(raw_dir: Path, output_root: Path, freq: str) -> pd.DataFrame:
 
     output_dir = output_root / freq
     output_dir.mkdir(parents=True, exist_ok=True)
-    combined_output = output_dir / f"coffee_environment_all_areas_{freq}_2022_2025.csv"
+    resolved_combined_name = combined_output_name or f"coffee_environment_all_areas_{freq}_2022_2025.csv"
+    combined_output = output_dir / resolved_combined_name
     grouped.to_csv(combined_output, index=False, encoding="utf-8-sig")
     print(f"Wrote {combined_output} ({len(grouped)} rows)")
 
     for area, area_frame in grouped.groupby("area"):
-        output = output_dir / f"coffee_environment_{slugify(area)}_{freq}_2022_2025.csv"
+        output = output_dir / f"coffee_environment_{slugify(area)}_{freq}_{area_output_year_label}.csv"
         area_frame.to_csv(output, index=False, encoding="utf-8-sig")
         print(f"Wrote {output} ({len(area_frame)} rows)")
     return grouped

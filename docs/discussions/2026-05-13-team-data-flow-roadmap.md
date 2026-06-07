@@ -1,5 +1,7 @@
 # Team Data Flow Roadmap — 13/05/2026
 
+> **Archive note 2026-06-07:** Tài liệu này mô tả data flow cũ trước khi nhóm tách. Source-of-truth hiện tại là independent dataset trong `docs/discussions/2026-06-07-independent-data-contract.md` và `docs/project-roadmap.md`.
+
 ## Mục tiêu
 
 Tài liệu này giúp Thanh, Sơn, Phúc, Thịnh nhìn cùng một bức tranh: dữ liệu từ crawler đi vào đâu, Team 2 xử lý thế nào, model sinh ra API gì, và frontend cần dùng phần nào.

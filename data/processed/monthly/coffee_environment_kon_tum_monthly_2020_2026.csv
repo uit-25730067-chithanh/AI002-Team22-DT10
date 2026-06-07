@@ -1,0 +1,77 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,,0,interpolated_area,21.871,67.581,5.9,0.251,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-02-01,2020-02-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,,0,interpolated_area,22.286,63.241,0.5,0.241,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-01,2020-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,,0,interpolated_area,26.252,61.387,5.5,0.236,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-04-01,2020-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,,0,interpolated_area,25.947,68.633,30.1,0.294,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-05-01,2020-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,,0,interpolated_area,27.177,73.613,115.2,0.339,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-06-01,2020-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31100,31100.0,4,observed,24.963,86.733,175.8,0.442,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2020-07-01,2020-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31589,,0,interpolated_area,24.529,87.806,251.1,0.465,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-01,2020-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32078,,0,interpolated_area,23.984,89.968,304.2,0.496,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-09-01,2020-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32567,,0,interpolated_area,24.187,88.467,245.1,0.48,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-10-01,2020-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33056,,0,interpolated_area,23.152,87.742,473.2,0.475,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-11-01,2020-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33545,33545.454545454544,11,observed,22.17,82.0,144.0,0.415,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2020-12-01,2020-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32569,32569.23076923077,13,observed,21.381,74.032,2.3,0.316,Dat do vang / dat bazan cuc bo,3,low,13,Nong Nghiep Moi Truong
+2021-01-01,2021-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,32000.0,11,observed,19.871,69.548,0.8,0.247,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2021-02-01,2021-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31550,31550.0,8,observed,21.55,65.214,0.7,0.234,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2021-03-01,2021-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32560,32560.0,10,observed,25.023,63.839,2.3,0.215,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2021-04-01,2021-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32385,32384.615384615383,13,observed,25.623,71.233,76.5,0.315,Dat do vang / dat bazan cuc bo,3,low,13,Nong Nghiep Moi Truong
+2021-05-01,2021-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32786,32785.71428571428,7,observed,26.245,76.774,188.9,0.357,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2021-06-01,2021-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,34133,34133.333333333336,9,observed,24.53,88.967,219.1,0.472,Dat do vang / dat bazan cuc bo,3,low,9,Nong Nghiep Moi Truong
+2021-07-01,2021-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36157,36157.142857142855,7,observed,24.058,88.871,369.7,0.485,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2021-08-01,2021-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,37388,37387.5,8,observed,24.306,87.871,201.0,0.489,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2021-09-01,2021-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39733,39733.333333333336,6,observed,23.61,89.367,520.8,0.486,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2021-10-01,2021-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40330,40330.0,10,observed,23.332,87.806,425.0,0.477,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2021-11-01,2021-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41109,41109.09090909091,11,observed,23.06,79.1,88.9,0.378,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2021-12-01,2021-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41455,41454.545454545456,11,observed,20.832,75.774,25.5,0.364,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2022-01-01,2022-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40009,40009.09090909091,11,observed,21.823,70.935,3.4,0.262,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2022-02-01,2022-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41040,41040.0,10,observed,22.821,70.286,22.1,0.269,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2022-03-01,2022-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40850,40850.0,12,observed,24.716,71.355,105.9,0.292,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2022-04-01,2022-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41108,41108.333333333336,12,observed,24.37,74.567,71.3,0.329,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2022-05-01,2022-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41009,41009.09090909091,11,observed,24.245,85.29,211.2,0.446,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2022-06-01,2022-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42500,42500.0,4,observed,24.563,86.433,146.3,0.462,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-07-01,2022-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41300,41300.0,1,observed,24.068,88.29,276.0,0.476,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-08-01,2022-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47980,47980.0,10,observed,23.694,88.71,300.3,0.494,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2022-09-01,2022-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47891,47890.90909090909,11,observed,23.253,89.867,401.6,0.489,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2022-10-01,2022-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,45750,45750.0,12,observed,22.761,83.968,150.6,0.447,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2022-11-01,2022-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40064,40063.63636363636,11,observed,22.973,79.933,67.6,0.336,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2022-12-01,2022-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40892,40891.666666666664,12,observed,21.158,70.645,1.9,0.275,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2023-01-01,2023-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40350,40350.0,12,observed,20.955,70.968,24.5,0.292,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2023-02-01,2023-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,44350,44350.0,12,observed,23.064,65.536,2.2,0.24,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2023-03-01,2023-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47193,47192.857142857145,14,observed,24.052,64.29,14.3,0.247,Dat do vang / dat bazan cuc bo,3,low,14,Nong Nghiep Moi Truong
+2023-04-01,2023-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,50091,50090.90909090909,11,observed,26.307,72.533,50.5,0.31,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2023-05-01,2023-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,54925,54925.0,12,observed,25.69,80.742,168.7,0.396,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2023-06-01,2023-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,64409,64409.09090909091,11,observed,24.537,87.033,235.4,0.473,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2023-07-01,2023-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65182,65181.818181818184,11,observed,24.542,86.839,278.6,0.476,Dat do vang / dat bazan cuc bo,3,low,11,Nong Nghiep Moi Truong
+2023-08-01,2023-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65143,65142.857142857145,7,observed,24.671,86.161,163.6,0.475,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2023-09-01,2023-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66450,66450.0,10,observed,23.957,88.8,261.0,0.487,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2023-10-01,2023-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,63262,63262.5,8,observed,23.435,89.645,276.7,0.485,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2023-11-01,2023-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,59000,59000.0,7,observed,23.247,76.867,37.4,0.351,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2023-12-01,2023-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65712,65712.5,8,observed,23.165,70.677,2.4,0.263,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2024-01-01,2024-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,70858,70858.33333333333,12,observed,22.161,67.226,0.0,0.249,Dat do vang / dat bazan cuc bo,3,low,12,Nong Nghiep Moi Truong
+2024-02-01,2024-02-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,79420,79420.0,10,observed,24.331,65.241,1.2,0.252,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2024-03-01,2024-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,92267,92266.66666666667,9,observed,26.006,63.871,22.0,0.258,Dat do vang / dat bazan cuc bo,3,low,9,Nong Nghiep Moi Truong
+2024-04-01,2024-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113375,113375.0,8,observed,28.42,63.267,11.3,0.273,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2024-05-01,2024-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,101200,101200.0,8,observed,26.829,75.839,131.0,0.359,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2024-06-01,2024-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120888,120887.5,8,observed,25.337,85.033,173.5,0.458,Dat do vang / dat bazan cuc bo,3,low,8,Cong Thuong; Nong Nghiep Moi Truong
+2024-07-01,2024-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,127888,127887.5,8,observed,24.148,88.645,359.2,0.493,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2024-08-01,2024-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,118543,118542.85714285714,7,observed,24.726,87.097,184.2,0.478,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2024-09-01,2024-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,123014,123014.28571428571,7,observed,24.06,89.433,360.0,0.491,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2024-10-01,2024-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112900,112900.0,8,observed,23.039,85.839,184.8,0.462,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2024-11-01,2024-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113183,113183.33333333333,6,observed,22.993,77.9,81.7,0.412,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2024-12-01,2024-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,124312,124312.5,8,observed,21.955,72.097,14.7,0.295,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2025-01-01,2025-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117600,117600.0,4,observed,19.952,68.097,0.0,0.226,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-02-01,2025-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,131075,131075.0,8,observed,22.836,65.036,4.3,0.217,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2025-03-01,2025-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,131470,131470.0,10,observed,25.316,62.484,8.8,0.219,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2025-04-01,2025-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,129312,129312.5,8,observed,26.627,65.6,44.8,0.251,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2025-05-01,2025-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,126929,126928.57142857143,7,observed,25.797,79.355,190.4,0.373,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2025-06-01,2025-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,111600,111600.0,8,observed,24.523,86.2,364.6,0.469,Dat do vang / dat bazan cuc bo,3,low,8,Nong Nghiep Moi Truong
+2025-07-01,2025-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,92020,92020.0,10,observed,24.29,87.548,351.0,0.494,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2025-08-01,2025-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,109950,109950.0,6,observed,24.323,86.032,264.8,0.475,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2025-09-01,2025-09-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,118543,118542.85714285714,7,observed,23.87,88.167,348.2,0.488,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2025-10-01,2025-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113900,113900.0,3,observed,23.745,84.419,215.9,0.445,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2025-11-01,2025-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113350,113350.0,6,observed,22.53,79.0,152.8,0.431,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2025-12-01,2025-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,97071,97071.42857142857,7,observed,22.442,71.387,6.4,0.249,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2026-01-01,2026-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,98170,98170.0,10,observed,20.358,65.355,0.0,0.191,Dat do vang / dat bazan cuc bo,3,low,10,Nong Nghiep Moi Truong
+2026-02-01,2026-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,98517,98516.66666666667,6,observed,23.518,63.571,17.7,0.178,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2026-03-01,2026-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,92067,92066.66666666667,6,observed,24.406,64.29,26.8,0.27,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2026-04-01,2026-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85300,85300.0,2,observed,27.2,61.933,34.0,0.244,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong

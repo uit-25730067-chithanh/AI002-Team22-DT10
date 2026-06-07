@@ -1,5 +1,7 @@
 # Real Data Audit - Team 2 Sơn
 
+> **Archive note 2026-06-07:** Tài liệu này là audit lịch sử cho dataset cũ trước khi nhóm tách. Source-of-truth hiện tại là `docs/discussions/2026-06-07-independent-data-audit.md`.
+
 **Ngày:** 2026-05-13
 **Người:** Sơn
 **Plan:** Local-only `plans/team2-real-data-model-week/` (gitignored)

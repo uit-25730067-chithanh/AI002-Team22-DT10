@@ -1,0 +1,332 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,21.8,69.2,0.0,0.247,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-01-06,2020-01-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,22.729,69.0,0.9,0.247,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-01-13,2020-01-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,21.257,66.429,0.0,0.254,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-01-20,2020-01-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,22.186,65.571,0.4,0.248,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-01-27,2020-02-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,20.871,67.143,4.6,0.26,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-02-03,2020-02-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,21.1,62.286,0.0,0.246,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-02-10,2020-02-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,24.514,64.286,0.5,0.24,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-02-17,2020-02-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,21.4,63.571,0.0,0.236,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-02-24,2020-03-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,23.086,62.714,0.0,0.233,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-02,2020-03-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,25.729,63.286,2.1,0.231,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-09,2020-03-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,26.829,59.286,0.5,0.24,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-16,2020-03-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,25.871,60.286,0.0,0.233,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-23,2020-03-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,26.686,60.714,1.0,0.237,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-03-30,2020-04-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,26.814,62.857,1.9,0.244,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-04-06,2020-04-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,25.129,75.714,20.4,0.335,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-04-13,2020-04-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,24.957,73.143,4.6,0.326,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-04-20,2020-04-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,27.043,66.857,5.1,0.277,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-04-27,2020-05-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,26.714,63.0,2.1,0.254,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-05-04,2020-05-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,29.257,63.714,4.0,0.264,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-05-11,2020-05-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,28.071,62.714,5.1,0.265,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-05-18,2020-05-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,26.086,83.714,48.4,0.401,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-05-25,2020-05-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,25.1,87.571,55.6,0.465,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-06-01,2020-06-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,,0,interpolated_area,25.243,85.571,30.8,0.451,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-06-08,2020-06-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32000,32000.0,1,observed,25.143,86.429,45.3,0.439,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2020-06-15,2020-06-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,30800,30800.0,3,observed,24.686,86.714,26.9,0.45,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2020-06-22,2020-06-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,30895,,0,interpolated_area,25.357,86.143,28.5,0.411,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-06-29,2020-07-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,30990,,0,interpolated_area,23.5,91.286,130.2,0.501,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-07-06,2020-07-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31085,,0,interpolated_area,25.114,86.286,20.1,0.447,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-07-13,2020-07-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31180,,0,interpolated_area,24.757,87.286,37.7,0.459,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-07-20,2020-07-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31275,,0,interpolated_area,24.429,87.0,34.9,0.451,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-07-27,2020-08-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31370,,0,interpolated_area,24.029,90.571,156.5,0.489,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-03,2020-08-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31465,,0,interpolated_area,24.129,90.286,79.6,0.5,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-10,2020-08-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31560,,0,interpolated_area,23.757,89.857,45.4,0.499,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-17,2020-08-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31655,,0,interpolated_area,23.771,90.0,48.2,0.499,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-24,2020-08-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31750,,0,interpolated_area,24.457,88.857,31.7,0.481,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-08-31,2020-09-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31845,,0,interpolated_area,24.571,87.857,53.1,0.489,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-09-07,2020-09-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31940,,0,interpolated_area,24.429,88.143,36.6,0.478,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-09-14,2020-09-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32035,,0,interpolated_area,23.686,90.714,129.2,0.478,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-09-21,2020-09-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32130,,0,interpolated_area,24.057,88.0,27.5,0.482,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-09-28,2020-10-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32225,,0,interpolated_area,24.086,88.143,43.9,0.469,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-10-05,2020-10-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32320,,0,interpolated_area,23.4,90.0,202.8,0.497,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-10-12,2020-10-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32415,,0,interpolated_area,23.286,90.429,110.9,0.492,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-10-19,2020-10-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32510,,0,interpolated_area,22.714,84.714,18.3,0.454,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-10-26,2020-11-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32605,,0,interpolated_area,22.657,84.0,111.4,0.453,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-11-02,2020-11-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32700,32700.0,1,observed,21.871,83.429,49.4,0.447,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2020-11-09,2020-11-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33540,33540.0,5,observed,21.971,83.714,50.2,0.472,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2020-11-16,2020-11-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33720,33720.0,5,observed,23.0,81.714,1.0,0.407,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2020-11-23,2020-11-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33185,,0,interpolated_area,21.971,78.286,22.5,0.321,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-11-30,2020-12-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32650,32650.0,2,observed,20.214,77.714,20.8,0.403,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2020-12-07,2020-12-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32050,32050.0,4,observed,21.871,78.0,1.4,0.336,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2020-12-14,2020-12-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32843,32842.857142857145,7,observed,21.971,73.0,0.9,0.3,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2020-12-21,2020-12-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32821,,0,interpolated_area,21.6,73.286,0.0,0.28,Dat do vang / dat bazan cuc bo,3,low,0,
+2020-12-28,2021-01-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32800,32800.0,2,observed,19.971,68.143,0.2,0.253,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-01-04,2021-01-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31500,31500.0,1,observed,20.357,72.0,0.0,0.253,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-01-11,2021-01-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31829,31828.571428571428,7,observed,18.186,68.143,0.0,0.245,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2021-01-18,2021-01-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32100,32100.0,1,observed,20.286,71.286,0.6,0.249,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-01-25,2021-01-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,21.186,67.0,0.0,0.241,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-02-01,2021-02-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31300,31300.0,2,observed,21.086,66.857,0.3,0.242,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-02-08,2021-02-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31650,31650.0,2,observed,21.457,67.286,0.4,0.241,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-02-15,2021-02-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31625,31625.0,4,observed,20.143,65.0,0.0,0.232,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-02-22,2021-02-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32062,,0,interpolated_area,23.514,61.714,0.0,0.22,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-03-01,2021-03-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32500,32500.0,1,observed,24.814,65.143,1.4,0.23,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-03-08,2021-03-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32725,32725.0,4,observed,23.614,64.714,0.0,0.219,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-03-15,2021-03-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32440,32440.0,5,observed,25.557,63.714,0.6,0.211,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2021-03-22,2021-03-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32195,,0,interpolated_area,25.3,62.857,0.0,0.203,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-03-29,2021-04-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,31950,31950.0,2,observed,26.314,68.429,14.7,0.275,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-04-05,2021-04-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32300,32300.0,2,observed,25.343,64.714,3.5,0.284,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-04-12,2021-04-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32486,32485.714285714286,7,observed,26.671,64.143,2.5,0.263,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2021-04-19,2021-04-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32550,32550.0,2,observed,24.729,84.0,52.0,0.395,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-04-26,2021-05-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32683,,0,interpolated_area,25.729,70.857,10.4,0.305,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-05-03,2021-05-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32817,,0,interpolated_area,27.243,61.857,0.5,0.268,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-05-10,2021-05-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32950,32950.0,4,observed,26.9,75.571,18.4,0.299,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-05-17,2021-05-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,32567,32566.666666666668,3,observed,25.957,82.0,88.1,0.388,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2021-05-24,2021-05-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33067,,0,interpolated_area,25.029,87.429,73.2,0.482,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-05-31,2021-06-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,33567,,0,interpolated_area,25.3,89.143,35.0,0.42,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-06-07,2021-06-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,34067,34066.666666666664,3,observed,23.357,91.286,81.6,0.503,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2021-06-14,2021-06-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,34167,34166.666666666664,6,observed,24.6,87.714,51.2,0.485,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2021-06-21,2021-06-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,34811,,0,interpolated_area,24.671,89.286,41.9,0.482,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-06-28,2021-07-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,35456,,0,interpolated_area,25.357,85.0,29.7,0.431,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-07-05,2021-07-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36100,36100.0,1,observed,23.743,89.429,95.6,0.49,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-07-12,2021-07-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36160,36160.0,5,observed,24.029,88.429,90.1,0.484,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2021-07-19,2021-07-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36200,36200.0,1,observed,23.271,91.429,113.1,0.507,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-07-26,2021-08-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36542,,0,interpolated_area,24.543,88.143,62.6,0.502,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-08-02,2021-08-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,36883,,0,interpolated_area,24.6,88.143,46.1,0.496,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-08-09,2021-08-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,37225,37225.0,4,observed,24.486,89.571,44.9,0.496,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-08-16,2021-08-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,37550,37550.0,4,observed,24.5,86.0,32.5,0.466,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-08-23,2021-08-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,38167,,0,interpolated_area,23.714,88.143,61.6,0.499,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-08-30,2021-09-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,38783,,0,interpolated_area,23.743,89.286,64.8,0.491,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-09-06,2021-09-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39400,39400.0,1,observed,23.214,92.714,211.4,0.502,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-09-13,2021-09-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39800,39800.0,5,observed,24.114,87.714,28.4,0.47,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2021-09-20,2021-09-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40150,,0,interpolated_area,23.157,90.857,219.0,0.501,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-09-27,2021-10-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40500,40500.0,1,observed,24.257,82.714,4.8,0.426,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-10-04,2021-10-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40000,40000.0,1,observed,23.143,90.714,142.3,0.482,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-10-11,2021-10-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40400,40400.0,5,observed,23.2,91.0,175.2,0.499,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2021-10-18,2021-10-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40267,40266.666666666664,3,observed,23.1,89.0,55.8,0.49,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2021-10-25,2021-10-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41133,,0,interpolated_area,23.386,82.714,50.4,0.473,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-11-01,2021-11-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42000,42000.0,1,observed,23.8,79.0,1.0,0.386,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-11-08,2021-11-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41250,41250.0,4,observed,22.486,80.143,54.5,0.356,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2021-11-15,2021-11-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40867,40866.666666666664,6,observed,23.357,80.571,1.7,0.415,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2021-11-22,2021-11-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41033,,0,interpolated_area,22.957,74.286,5.0,0.322,Dat do vang / dat bazan cuc bo,3,low,0,
+2021-11-29,2021-12-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41200,41200.0,1,observed,19.914,78.0,27.0,0.455,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-12-06,2021-12-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41500,41500.0,2,observed,20.0,76.143,0.0,0.361,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2021-12-13,2021-12-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41486,41485.71428571428,7,observed,21.486,75.714,23.0,0.316,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2021-12-20,2021-12-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41400,41400.0,1,observed,21.643,79.429,1.7,0.385,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2021-12-27,2022-01-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41300,41300.0,1,observed,21.529,71.714,0.5,0.317,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-01-03,2022-01-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40692,,0,interpolated_area,21.729,71.714,0.8,0.272,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-01-10,2022-01-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40083,40083.333333333336,6,observed,21.3,70.429,0.0,0.259,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2022-01-17,2022-01-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39575,39575.0,4,observed,21.671,69.429,0.2,0.249,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-01-24,2022-01-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39588,,0,interpolated_area,22.6,71.0,1.3,0.256,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-01-31,2022-02-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39600,39600.0,2,observed,22.686,70.429,2.4,0.268,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-02-07,2022-02-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41375,41375.0,4,observed,23.957,69.571,2.1,0.255,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-02-14,2022-02-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41425,41425.0,4,observed,23.5,76.286,15.9,0.267,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-02-21,2022-02-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40712,,0,interpolated_area,21.086,66.286,2.8,0.285,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-02-28,2022-03-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40000,40000.0,2,observed,24.514,65.714,0.0,0.246,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-03-07,2022-03-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40775,40775.0,4,observed,24.086,61.857,0.0,0.241,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-03-14,2022-03-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41183,41183.333333333336,6,observed,25.457,72.714,16.2,0.283,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2022-03-21,2022-03-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41367,,0,interpolated_area,24.771,81.714,38.2,0.334,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-03-28,2022-04-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41550,41550.0,2,observed,23.557,77.143,68.2,0.428,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-04-04,2022-04-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41200,41200.0,1,observed,22.286,72.143,5.4,0.379,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-04-11,2022-04-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41071,41071.42857142857,7,observed,24.8,77.0,12.9,0.288,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2022-04-18,2022-04-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40750,40750.0,2,observed,24.957,73.286,17.2,0.29,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-04-25,2022-05-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41600,41600.0,1,observed,26.186,76.429,36.7,0.319,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-05-02,2022-05-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41600,41600.0,1,observed,24.1,79.429,23.6,0.427,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-05-09,2022-05-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40560,40560.0,5,observed,25.114,84.429,37.3,0.405,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2022-05-16,2022-05-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41275,41275.0,4,observed,24.014,86.857,83.2,0.453,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-05-23,2022-05-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41912,,0,interpolated_area,23.814,88.857,40.8,0.485,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-05-30,2022-06-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42550,42550.0,2,observed,24.429,87.0,31.6,0.476,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-06-06,2022-06-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42300,42300.0,1,observed,24.429,87.714,29.8,0.474,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-06-13,2022-06-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42600,42600.0,1,observed,24.686,85.857,20.8,0.444,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-06-20,2022-06-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42340,,0,interpolated_area,24.614,85.286,40.4,0.458,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-06-27,2022-07-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42080,,0,interpolated_area,24.143,88.571,76.6,0.483,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-07-04,2022-07-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41820,,0,interpolated_area,24.329,88.429,61.0,0.488,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-07-11,2022-07-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41560,,0,interpolated_area,24.086,89.714,78.0,0.497,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-07-18,2022-07-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41300,41300.0,1,observed,23.7,87.857,69.3,0.483,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-07-25,2022-07-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42850,,0,interpolated_area,24.371,86.429,23.5,0.425,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-08-01,2022-08-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,44400,44400.0,1,observed,23.643,90.143,52.8,0.494,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-08-08,2022-08-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48100,48100.0,4,observed,23.229,90.0,88.6,0.499,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-08-15,2022-08-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48600,48600.0,5,observed,23.686,88.857,78.3,0.497,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2022-08-22,2022-08-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48350,,0,interpolated_area,23.971,87.0,58.4,0.494,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-08-29,2022-09-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48100,48100.0,2,observed,24.043,87.429,68.3,0.471,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-09-05,2022-09-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48300,48300.0,2,observed,23.457,88.714,64.0,0.485,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-09-12,2022-09-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47714,47714.28571428572,7,observed,23.3,89.571,63.7,0.488,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2022-09-19,2022-09-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47057,,0,interpolated_area,22.929,91.857,82.8,0.501,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-09-26,2022-10-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,46400,46400.0,2,observed,23.014,90.143,162.4,0.499,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-10-03,2022-10-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,46193,,0,interpolated_area,23.4,85.143,16.2,0.475,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-10-10,2022-10-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,45986,45985.71428571428,7,observed,22.029,87.857,96.5,0.478,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2022-10-17,2022-10-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,44767,44766.666666666664,3,observed,22.514,82.0,2.3,0.434,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2022-10-24,2022-10-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,43361,,0,interpolated_area,23.1,79.714,18.2,0.4,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-10-31,2022-11-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41956,,0,interpolated_area,21.443,77.714,0.9,0.316,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-11-07,2022-11-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40550,40550.0,4,observed,23.271,76.0,0.5,0.272,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2022-11-14,2022-11-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39786,39785.71428571428,7,observed,23.771,77.714,23.7,0.298,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2022-11-21,2022-11-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40418,,0,interpolated_area,23.129,87.571,40.1,0.435,Dat do vang / dat bazan cuc bo,3,low,0,
+2022-11-28,2022-12-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41050,41050.0,2,observed,23.429,78.571,3.5,0.358,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-12-05,2022-12-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40400,40400.0,1,observed,23.257,71.286,0.2,0.295,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2022-12-12,2022-12-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40943,40942.857142857145,7,observed,20.171,70.857,0.6,0.271,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2022-12-19,2022-12-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40800,40800.0,2,observed,19.643,68.714,0.0,0.253,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2022-12-26,2023-01-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40000,,0,interpolated_area,20.043,68.0,0.2,0.242,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-01-02,2023-01-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,39200,39200.0,1,observed,21.071,71.429,17.4,0.291,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-01-09,2023-01-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40067,40066.666666666664,6,observed,21.971,78.429,6.9,0.369,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-01-16,2023-01-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,40920,40920.0,5,observed,20.771,70.143,0.0,0.278,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2023-01-23,2023-01-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,41935,,0,interpolated_area,20.614,66.0,0.0,0.251,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-01-30,2023-02-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,42950,42950.0,2,observed,22.357,67.714,0.6,0.246,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-02-06,2023-02-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,43967,43966.666666666664,3,observed,24.157,67.0,0.4,0.225,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2023-02-13,2023-02-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,44800,44800.0,6,observed,23.557,64.571,1.2,0.243,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-02-20,2023-02-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,45600,45600.0,1,observed,21.4,63.143,0.0,0.247,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-02-27,2023-03-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47550,47550.0,2,observed,21.657,63.286,0.0,0.244,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-03-06,2023-03-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,47800,47800.0,4,observed,21.457,64.714,0.0,0.243,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2023-03-13,2023-03-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,46871,46871.42857142857,7,observed,24.071,62.0,0.0,0.235,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2023-03-20,2023-03-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,46300,46300.0,1,observed,27.357,61.0,0.0,0.243,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-03-27,2023-04-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,48600,48600.0,2,observed,25.286,75.0,17.7,0.294,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-04-03,2023-04-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,49400,,0,interpolated_area,26.1,69.571,10.7,0.284,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-04-10,2023-04-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,50200,50200.0,6,observed,26.6,73.286,15.4,0.273,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-04-17,2023-04-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,50867,50866.666666666664,3,observed,26.757,76.571,16.7,0.346,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2023-04-24,2023-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,51133,,0,interpolated_area,26.2,68.571,4.3,0.334,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-05-01,2023-05-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,51400,51400.0,2,observed,27.943,64.429,8.6,0.272,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-05-08,2023-05-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,54120,54120.0,5,observed,24.671,87.429,84.0,0.447,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2023-05-15,2023-05-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,57140,57140.0,5,observed,25.614,83.857,22.4,0.434,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2023-05-22,2023-05-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,58995,,0,interpolated_area,25.0,84.571,37.6,0.421,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-05-29,2023-06-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,60850,60850.0,2,observed,24.543,87.571,56.7,0.441,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-06-05,2023-06-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,63900,63900.0,1,observed,24.243,86.857,76.8,0.486,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-06-12,2023-06-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65271,65271.42857142857,7,observed,24.629,86.286,37.4,0.475,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2023-06-19,2023-06-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66000,66000.0,1,observed,24.814,86.857,31.2,0.463,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-06-26,2023-07-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,64400,64400.0,2,observed,24.571,87.0,62.5,0.477,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-07-03,2023-07-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,64900,,0,interpolated_area,24.814,85.0,22.8,0.451,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-07-10,2023-07-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65400,65400.0,6,observed,24.871,85.429,51.2,0.457,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-07-17,2023-07-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65267,65266.666666666664,3,observed,24.286,88.286,88.3,0.494,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2023-07-24,2023-07-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65844,,0,interpolated_area,24.186,88.714,96.4,0.501,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-07-31,2023-08-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66422,,0,interpolated_area,24.086,87.571,35.8,0.492,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-08-07,2023-08-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,67000,67000.0,1,observed,25.257,83.0,19.4,0.445,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-08-14,2023-08-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,64833,64833.333333333336,6,observed,24.843,86.571,39.7,0.466,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-08-21,2023-08-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65467,,0,interpolated_area,24.757,86.143,34.4,0.485,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-08-28,2023-09-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66100,66100.0,1,observed,24.2,88.571,61.4,0.498,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-09-04,2023-09-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,64900,64900.0,1,observed,24.414,88.571,55.8,0.488,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-09-11,2023-09-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66333,66333.33333333333,6,observed,23.743,89.857,58.8,0.491,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-09-18,2023-09-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,67750,67750.0,2,observed,23.914,87.286,27.1,0.469,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2023-09-25,2023-10-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,67025,,0,interpolated_area,23.571,90.0,102.7,0.498,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-10-02,2023-10-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,66300,66300.0,1,observed,23.914,90.143,41.2,0.492,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-10-09,2023-10-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,63500,63500.0,3,observed,23.343,91.286,82.3,0.497,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2023-10-16,2023-10-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,62325,62325.0,4,observed,22.971,90.857,119.3,0.492,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2023-10-23,2023-10-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,61515,,0,interpolated_area,23.3,89.0,29.1,0.477,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-10-30,2023-11-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,60704,,0,interpolated_area,24.186,80.857,7.7,0.394,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-11-06,2023-11-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,59894,,0,interpolated_area,23.757,84.0,25.2,0.421,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-11-13,2023-11-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,59083,59083.333333333336,6,observed,23.171,73.857,3.7,0.356,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2023-11-20,2023-11-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,58500,58500.0,1,observed,22.229,72.571,0.3,0.293,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-11-27,2023-12-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,59500,,0,interpolated_area,23.871,71.571,1.6,0.276,Dat do vang / dat bazan cuc bo,3,low,0,
+2023-12-04,2023-12-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,60500,60500.0,1,observed,23.657,73.571,1.2,0.266,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2023-12-11,2023-12-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,65775,65775.0,4,observed,23.357,73.143,0.5,0.259,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2023-12-18,2023-12-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,67367,67366.66666666667,3,observed,22.171,65.143,0.0,0.255,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2023-12-25,2023-12-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,67833,,0,interpolated_area,22.643,70.857,0.7,0.268,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-01-01,2024-01-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,68300,68300.0,1,observed,22.286,68.429,0.0,0.261,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2024-01-08,2024-01-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,70540,70540.0,5,observed,22.371,69.0,0.0,0.248,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-01-15,2024-01-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,71550,71550.0,6,observed,22.029,67.143,0.0,0.248,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2024-01-22,2024-01-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,75025,,0,interpolated_area,21.8,64.429,0.0,0.243,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-01-29,2024-02-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,78500,78500.0,2,observed,23.586,67.429,0.0,0.245,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2024-02-05,2024-02-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,78867,,0,interpolated_area,24.514,67.143,0.6,0.256,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-02-12,2024-02-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,79233,79233.33333333333,6,observed,23.3,64.714,0.4,0.254,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2024-02-19,2024-02-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,80900,80900.0,2,observed,25.086,63.714,0.1,0.249,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2024-02-26,2024-03-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85700,,0,interpolated_area,24.429,63.286,0.1,0.249,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-03-04,2024-03-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,90500,90500.0,1,observed,26.629,59.286,0.0,0.246,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2024-03-11,2024-03-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,91800,91800.0,5,observed,25.929,61.429,1.0,0.245,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-03-18,2024-03-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,93633,93633.33333333333,3,observed,25.857,63.0,0.7,0.247,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-03-25,2024-03-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,98389,,0,interpolated_area,26.3,71.857,20.3,0.297,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-04-01,2024-04-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,103144,,0,interpolated_area,27.486,71.429,7.7,0.3,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-04-08,2024-04-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,107900,107900.0,3,observed,27.671,61.286,0.0,0.268,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-04-15,2024-04-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,116660,116660.0,5,observed,28.486,60.143,0.3,0.256,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-04-22,2024-04-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,110940,,0,interpolated_area,29.586,60.857,2.8,0.267,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-04-29,2024-05-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,105220,,0,interpolated_area,28.3,69.714,16.1,0.278,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-05-06,2024-05-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,99500,99500.0,1,observed,28.157,62.571,8.4,0.278,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2024-05-13,2024-05-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,101443,101442.85714285714,7,observed,26.914,75.429,41.8,0.337,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2024-05-20,2024-05-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,106388,,0,interpolated_area,25.786,84.0,32.3,0.448,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-05-27,2024-06-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,111334,,0,interpolated_area,25.643,85.286,35.1,0.458,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-06-03,2024-06-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,116279,,0,interpolated_area,25.1,87.143,66.9,0.474,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-06-10,2024-06-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,121225,121225.0,4,observed,26.071,80.857,14.8,0.433,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2024-06-17,2024-06-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120333,120333.33333333333,3,observed,25.086,87.0,59.5,0.447,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-06-24,2024-06-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,121200,121200.0,1,observed,24.914,85.714,30.1,0.477,Dat do vang / dat bazan cuc bo,3,low,1,Cong Thuong
+2024-07-01,2024-07-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,124900,,0,interpolated_area,24.629,86.0,38.6,0.468,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-07-08,2024-07-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,128600,128600.0,3,observed,24.129,88.714,98.0,0.498,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-07-15,2024-07-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,127460,127460.0,5,observed,23.786,91.143,96.6,0.504,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-07-22,2024-07-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,125140,,0,interpolated_area,24.086,89.0,113.9,0.503,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-07-29,2024-08-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,122820,,0,interpolated_area,24.471,86.857,27.5,0.474,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-08-05,2024-08-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120500,120500.0,1,observed,24.943,87.429,47.1,0.475,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2024-08-12,2024-08-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,118260,118260.0,5,observed,25.186,86.714,18.9,0.48,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-08-19,2024-08-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,118000,118000.0,1,observed,24.671,86.714,29.6,0.472,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2024-08-26,2024-09-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,119378,,0,interpolated_area,24.029,88.286,85.4,0.495,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-09-02,2024-09-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120756,,0,interpolated_area,24.314,88.857,70.9,0.493,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-09-09,2024-09-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,122133,122133.33333333333,3,observed,24.129,90.0,98.5,0.497,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-09-16,2024-09-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,123675,123675.0,4,observed,23.786,91.429,129.7,0.505,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2024-09-23,2024-09-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120250,,0,interpolated_area,23.971,87.714,45.5,0.478,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-09-30,2024-10-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,116825,,0,interpolated_area,23.671,86.0,21.0,0.459,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-10-07,2024-10-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113400,113400.0,2,observed,23.957,82.286,9.7,0.452,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2024-10-14,2024-10-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112733,112733.33333333333,6,observed,23.529,87.571,34.3,0.459,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2024-10-21,2024-10-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112767,,0,interpolated_area,21.886,85.143,77.6,0.456,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-10-28,2024-11-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112800,,0,interpolated_area,21.843,87.857,50.6,0.491,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-11-04,2024-11-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112833,,0,interpolated_area,22.457,79.286,3.6,0.46,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-11-11,2024-11-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,112867,112866.66666666667,3,observed,23.2,83.571,72.3,0.46,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-11-18,2024-11-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113500,113500.0,3,observed,24.1,74.571,0.6,0.38,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-11-25,2024-12-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117222,,0,interpolated_area,22.5,70.714,0.0,0.299,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-12-02,2024-12-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120944,,0,interpolated_area,22.914,73.429,0.0,0.247,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-12-09,2024-12-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,124667,124666.66666666667,3,observed,23.029,74.714,13.5,0.351,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2024-12-16,2024-12-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,124100,124100.0,5,observed,20.357,70.0,0.0,0.317,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2024-12-23,2024-12-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,122567,,0,interpolated_area,21.886,70.286,1.2,0.279,Dat do vang / dat bazan cuc bo,3,low,0,
+2024-12-30,2025-01-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,121033,,0,interpolated_area,20.3,71.714,0.0,0.255,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-01-06,2025-01-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,119500,119500.0,1,observed,19.6,66.857,0.0,0.222,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-01-13,2025-01-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,116967,116966.66666666667,3,observed,19.929,68.714,0.0,0.229,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2025-01-20,2025-01-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,120394,,0,interpolated_area,20.629,68.286,0.0,0.218,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-01-27,2025-02-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,123821,,0,interpolated_area,20.086,64.0,0.0,0.215,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-02-03,2025-02-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,127248,,0,interpolated_area,21.0,64.286,0.0,0.22,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-02-10,2025-02-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,130675,130675.0,4,observed,23.3,66.714,1.5,0.222,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-02-17,2025-02-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,131475,131475.0,4,observed,23.571,65.143,0.3,0.203,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-02-24,2025-03-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,129200,129200.0,2,observed,24.586,64.286,2.5,0.224,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2025-03-03,2025-03-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,130425,,0,interpolated_area,25.914,63.286,3.6,0.224,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-03-10,2025-03-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,131650,131650.0,6,observed,26.243,63.857,4.2,0.203,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2025-03-17,2025-03-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,133200,133200.0,2,observed,22.457,62.429,0.0,0.225,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2025-03-24,2025-03-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,130433,,0,interpolated_area,26.529,60.571,1.0,0.223,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-03-31,2025-04-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,127667,,0,interpolated_area,25.5,61.714,2.1,0.209,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-04-07,2025-04-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,124900,124900.0,1,observed,27.071,65.286,11.2,0.194,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-04-14,2025-04-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,129943,129942.85714285714,7,observed,26.886,69.286,14.3,0.269,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2025-04-21,2025-04-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,130271,,0,interpolated_area,26.814,67.857,17.2,0.32,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-04-28,2025-05-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,130600,130600.0,1,observed,26.714,64.857,7.9,0.258,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-05-05,2025-05-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,128000,128000.0,1,observed,26.143,80.286,49.5,0.389,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-05-12,2025-05-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,125875,125875.0,4,observed,25.4,81.714,44.4,0.402,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-05-19,2025-05-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,126400,126400.0,1,observed,25.729,80.571,35.3,0.373,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-05-26,2025-06-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,121958,,0,interpolated_area,25.271,81.0,54.2,0.408,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-06-02,2025-06-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117517,,0,interpolated_area,24.914,85.0,67.4,0.448,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-06-09,2025-06-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113075,113075.0,4,observed,24.029,89.143,149.3,0.494,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-06-16,2025-06-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,110125,110125.0,4,observed,24.971,85.0,51.4,0.459,Dat do vang / dat bazan cuc bo,3,low,4,Nong Nghiep Moi Truong
+2025-06-23,2025-06-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,102212,,0,interpolated_area,24.129,86.571,80.2,0.479,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-06-30,2025-07-06,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,94300,94300.0,1,observed,24.171,87.714,123.8,0.494,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-07-07,2025-07-13,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,90250,90250.0,2,observed,24.771,85.429,44.6,0.477,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2025-07-14,2025-07-20,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,91583,91583.33333333333,6,observed,24.529,86.857,66.7,0.494,Dat do vang / dat bazan cuc bo,3,low,6,Nong Nghiep Moi Truong
+2025-07-21,2025-07-27,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,95900,95900.0,1,observed,23.614,90.143,93.6,0.505,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-07-28,2025-08-03,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,98700,98700.0,2,observed,24.857,86.143,45.5,0.49,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2025-08-04,2025-08-10,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,106900,,0,interpolated_area,24.943,84.286,35.3,0.439,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-08-11,2025-08-17,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,115100,115100.0,3,observed,23.943,87.571,73.1,0.479,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2025-08-18,2025-08-24,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117000,117000.0,1,observed,23.986,86.571,43.5,0.482,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-08-25,2025-08-31,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117050,,0,interpolated_area,23.929,86.571,105.1,0.498,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-09-01,2025-09-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117100,,0,interpolated_area,24.043,88.857,88.7,0.49,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-09-08,2025-09-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117150,117150.0,2,observed,24.071,85.714,44.0,0.47,Dat do vang / dat bazan cuc bo,3,low,2,Nong Nghiep Moi Truong
+2025-09-15,2025-09-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,119100,119100.0,5,observed,23.986,88.286,69.3,0.486,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2025-09-22,2025-09-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,117367,,0,interpolated_area,23.414,90.143,129.1,0.505,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-09-29,2025-10-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,115633,,0,interpolated_area,23.857,83.857,43.5,0.461,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-10-06,2025-10-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113900,113900.0,1,observed,23.529,85.714,36.5,0.44,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-10-13,2025-10-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113900,113900.0,1,observed,24.157,81.714,24.4,0.452,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-10-20,2025-10-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113900,113900.0,1,observed,23.686,83.286,21.2,0.402,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-10-27,2025-11-02,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113744,,0,interpolated_area,23.171,90.286,163.7,0.499,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-11-03,2025-11-09,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113589,,0,interpolated_area,23.629,83.714,49.3,0.483,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-11-10,2025-11-16,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113433,113433.33333333333,3,observed,22.629,81.286,24.2,0.39,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2025-11-17,2025-11-23,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,113267,113266.66666666667,3,observed,22.443,74.286,21.8,0.453,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2025-11-24,2025-11-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,111683,,0,interpolated_area,21.4,73.143,1.2,0.378,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-12-01,2025-12-07,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,110100,110100.0,1,observed,22.571,76.429,4.9,0.32,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-12-08,2025-12-14,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,100700,100700.0,1,observed,22.486,71.0,0.0,0.254,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2025-12-15,2025-12-21,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,93740,93740.0,5,observed,22.886,70.714,1.5,0.227,Dat do vang / dat bazan cuc bo,3,low,5,Nong Nghiep Moi Truong
+2025-12-22,2025-12-28,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,95820,,0,interpolated_area,22.471,68.429,0.0,0.214,Dat do vang / dat bazan cuc bo,3,low,0,
+2025-12-29,2026-01-04,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,97900,97900.0,1,observed,20.443,68.286,0.0,0.195,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-01-05,2026-01-11,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,97100,97100.0,1,observed,18.657,65.429,0.0,0.19,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-01-12,2026-01-18,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,98243,98242.85714285714,7,observed,21.357,65.714,0.0,0.197,Dat do vang / dat bazan cuc bo,3,low,7,Nong Nghiep Moi Truong
+2026-01-19,2026-01-25,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,99000,99000.0,1,observed,20.657,63.571,0.0,0.191,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-01-26,2026-02-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,100600,100600.0,1,observed,20.986,65.571,0.0,0.187,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-02-02,2026-02-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,100600,100600.0,1,observed,22.743,65.429,0.8,0.183,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-02-09,2026-02-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,97100,97100.0,1,observed,23.014,59.429,0.0,0.162,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-02-16,2026-02-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,97600,97600.0,3,observed,23.871,62.857,0.1,0.15,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2026-02-23,2026-03-01,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,95922,,0,interpolated_area,24.9,68.857,19.3,0.249,Dat do vang / dat bazan cuc bo,3,low,0,
+2026-03-02,2026-03-08,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,94244,,0,interpolated_area,23.343,74.571,21.9,0.391,Dat do vang / dat bazan cuc bo,3,low,0,
+2026-03-09,2026-03-15,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,92567,92566.66666666667,3,observed,23.071,64.0,1.1,0.264,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2026-03-16,2026-03-22,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,91567,91566.66666666667,3,observed,24.4,63.0,1.3,0.237,Dat do vang / dat bazan cuc bo,3,low,3,Nong Nghiep Moi Truong
+2026-03-23,2026-03-29,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,89478,,0,interpolated_area,26.0,56.429,0.0,0.199,Dat do vang / dat bazan cuc bo,3,low,0,
+2026-03-30,2026-04-05,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,87389,,0,interpolated_area,27.843,50.143,0.0,0.17,Dat do vang / dat bazan cuc bo,3,low,0,
+2026-04-06,2026-04-12,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85300,85300.0,1,observed,28.943,48.857,0.2,0.175,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-04-13,2026-04-19,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85300,85300.0,1,observed,26.614,70.714,24.7,0.295,Dat do vang / dat bazan cuc bo,3,low,1,Nong Nghiep Moi Truong
+2026-04-20,2026-04-26,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85300,,0,interpolated_area,26.086,69.857,5.8,0.311,Dat do vang / dat bazan cuc bo,3,low,0,
+2026-04-27,2026-04-30,Kon Tum,Kon Tum,Robusta / ca phe nhan xo noi dia,85300,,0,interpolated_area,26.125,71.25,3.3,0.253,Dat do vang / dat bazan cuc bo,3,low,0,

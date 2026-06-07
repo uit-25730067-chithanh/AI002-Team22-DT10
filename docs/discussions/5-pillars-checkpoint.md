@@ -1,5 +1,7 @@
 # Kiểm điểm 5 Trụ cột AI (Real Data Week)
 
+> **Archive note 2026-06-07:** Tài liệu này là bằng chứng lịch sử trước khi nhóm tách. Source-of-truth hiện tại là `docs/discussions/2026-06-07-independent-five-pillars-checkpoint.md`.
+
 **Ngày:** 2026-05-13
 **Người cập nhật:** Sơn
 **Phạm vi:** Team 2 real data model week - Phase 4

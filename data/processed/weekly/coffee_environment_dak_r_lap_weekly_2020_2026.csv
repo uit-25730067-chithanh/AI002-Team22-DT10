@@ -1,0 +1,332 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.12,70.8,0.0,0.323,Dat do bazan,4,low,0,
+2020-01-06,2020-01-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.9,71.286,1.1,0.32,Dat do bazan,4,low,0,
+2020-01-13,2020-01-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.086,68.0,0.0,0.306,Dat do bazan,4,low,0,
+2020-01-20,2020-01-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.429,65.143,0.0,0.296,Dat do bazan,4,low,0,
+2020-01-27,2020-02-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.414,67.0,0.4,0.291,Dat do bazan,4,low,0,
+2020-02-03,2020-02-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.243,62.0,0.8,0.291,Dat do bazan,4,low,0,
+2020-02-10,2020-02-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.357,70.286,2.4,0.299,Dat do bazan,4,low,0,
+2020-02-17,2020-02-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.529,65.857,0.0,0.313,Dat do bazan,4,low,0,
+2020-02-24,2020-03-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.029,62.286,0.5,0.301,Dat do bazan,4,low,0,
+2020-03-02,2020-03-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.543,74.857,4.8,0.315,Dat do bazan,4,low,0,
+2020-03-09,2020-03-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.486,71.857,3.8,0.346,Dat do bazan,4,low,0,
+2020-03-16,2020-03-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.886,64.714,0.0,0.318,Dat do bazan,4,low,0,
+2020-03-23,2020-03-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.514,76.429,7.9,0.35,Dat do bazan,4,low,0,
+2020-03-30,2020-04-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.514,68.857,1.3,0.363,Dat do bazan,4,low,0,
+2020-04-06,2020-04-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.086,86.714,48.9,0.422,Dat do bazan,4,low,0,
+2020-04-13,2020-04-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.829,86.714,29.0,0.463,Dat do bazan,4,low,0,
+2020-04-20,2020-04-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.386,79.0,19.9,0.424,Dat do bazan,4,low,0,
+2020-04-27,2020-05-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.514,71.286,4.3,0.393,Dat do bazan,4,low,0,
+2020-05-04,2020-05-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,26.143,81.857,12.6,0.399,Dat do bazan,4,low,0,
+2020-05-11,2020-05-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.6,80.571,31.9,0.418,Dat do bazan,4,low,0,
+2020-05-18,2020-05-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.157,88.0,40.0,0.464,Dat do bazan,4,low,0,
+2020-05-25,2020-05-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.614,88.286,57.1,0.479,Dat do bazan,4,low,0,
+2020-06-01,2020-06-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.114,89.571,74.3,0.492,Dat do bazan,4,low,0,
+2020-06-08,2020-06-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.657,92.857,117.5,0.497,Dat do bazan,4,low,0,
+2020-06-15,2020-06-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.871,90.714,79.8,0.494,Dat do bazan,4,low,0,
+2020-06-22,2020-06-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.6,91.857,70.7,0.496,Dat do bazan,4,low,0,
+2020-06-29,2020-07-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.457,95.429,126.7,0.505,Dat do bazan,4,low,0,
+2020-07-06,2020-07-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.557,88.429,47.1,0.488,Dat do bazan,4,low,0,
+2020-07-13,2020-07-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.971,90.0,60.7,0.497,Dat do bazan,4,low,0,
+2020-07-20,2020-07-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.543,90.429,206.9,0.493,Dat do bazan,4,low,0,
+2020-07-27,2020-08-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.129,94.714,160.8,0.504,Dat do bazan,4,low,0,
+2020-08-03,2020-08-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.086,94.143,110.2,0.506,Dat do bazan,4,low,0,
+2020-08-10,2020-08-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.386,91.0,85.6,0.501,Dat do bazan,4,low,0,
+2020-08-17,2020-08-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.6,89.714,61.0,0.494,Dat do bazan,4,low,0,
+2020-08-24,2020-08-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.671,87.0,23.1,0.461,Dat do bazan,4,low,0,
+2020-08-31,2020-09-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.871,90.714,75.3,0.485,Dat do bazan,4,low,0,
+2020-09-07,2020-09-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.529,91.143,149.2,0.499,Dat do bazan,4,low,0,
+2020-09-14,2020-09-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.686,94.286,130.5,0.501,Dat do bazan,4,low,0,
+2020-09-21,2020-09-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.214,91.571,90.8,0.497,Dat do bazan,4,low,0,
+2020-09-28,2020-10-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.9,93.0,84.6,0.498,Dat do bazan,4,low,0,
+2020-10-05,2020-10-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.471,95.571,103.0,0.505,Dat do bazan,4,low,0,
+2020-10-12,2020-10-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.086,97.429,201.3,0.505,Dat do bazan,4,low,0,
+2020-10-19,2020-10-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.8,90.429,62.4,0.492,Dat do bazan,4,low,0,
+2020-10-26,2020-11-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.729,88.571,22.0,0.477,Dat do bazan,4,low,0,
+2020-11-02,2020-11-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,32900.0,1,observed,22.6,82.0,15.7,0.441,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2020-11-09,2020-11-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33010,,0,interpolated_area,22.229,85.143,62.4,0.468,Dat do bazan,4,low,0,
+2020-11-16,2020-11-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33119,,0,interpolated_area,23.4,84.571,4.7,0.423,Dat do bazan,4,low,0,
+2020-11-23,2020-11-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33229,,0,interpolated_area,22.529,80.571,30.4,0.423,Dat do bazan,4,low,0,
+2020-11-30,2020-12-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33339,,0,interpolated_area,21.243,78.571,6.5,0.445,Dat do bazan,4,low,0,
+2020-12-07,2020-12-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33448,,0,interpolated_area,22.1,84.143,16.7,0.42,Dat do bazan,4,low,0,
+2020-12-14,2020-12-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33558,,0,interpolated_area,22.514,78.429,3.8,0.405,Dat do bazan,4,low,0,
+2020-12-21,2020-12-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33667,,0,interpolated_area,21.757,79.429,5.8,0.396,Dat do bazan,4,low,0,
+2020-12-28,2021-01-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33777,,0,interpolated_area,20.714,72.286,1.4,0.365,Dat do bazan,4,low,0,
+2021-01-04,2021-01-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33887,,0,interpolated_area,21.614,74.0,1.1,0.346,Dat do bazan,4,low,0,
+2021-01-11,2021-01-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,33996,,0,interpolated_area,19.4,70.429,0.0,0.314,Dat do bazan,4,low,0,
+2021-01-18,2021-01-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34106,,0,interpolated_area,21.029,77.429,8.9,0.317,Dat do bazan,4,low,0,
+2021-01-25,2021-01-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34216,,0,interpolated_area,21.657,69.714,0.5,0.347,Dat do bazan,4,low,0,
+2021-02-01,2021-02-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34325,,0,interpolated_area,22.014,68.286,1.4,0.319,Dat do bazan,4,low,0,
+2021-02-08,2021-02-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34435,,0,interpolated_area,22.286,76.429,6.5,0.355,Dat do bazan,4,low,0,
+2021-02-15,2021-02-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34545,,0,interpolated_area,20.943,66.429,0.0,0.342,Dat do bazan,4,low,0,
+2021-02-22,2021-02-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34654,,0,interpolated_area,22.871,71.0,3.1,0.308,Dat do bazan,4,low,0,
+2021-03-01,2021-03-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34764,,0,interpolated_area,24.286,69.143,5.5,0.325,Dat do bazan,4,low,0,
+2021-03-08,2021-03-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34873,,0,interpolated_area,23.886,63.571,0.5,0.316,Dat do bazan,4,low,0,
+2021-03-15,2021-03-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,34983,,0,interpolated_area,24.5,72.714,4.4,0.322,Dat do bazan,4,low,0,
+2021-03-22,2021-03-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35093,,0,interpolated_area,24.829,70.286,3.4,0.329,Dat do bazan,4,low,0,
+2021-03-29,2021-04-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35202,,0,interpolated_area,24.4,82.143,35.0,0.363,Dat do bazan,4,low,0,
+2021-04-05,2021-04-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35312,,0,interpolated_area,24.343,75.714,8.1,0.366,Dat do bazan,4,low,0,
+2021-04-12,2021-04-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35422,,0,interpolated_area,24.1,84.857,22.1,0.4,Dat do bazan,4,low,0,
+2021-04-19,2021-04-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35531,,0,interpolated_area,23.514,91.429,77.0,0.472,Dat do bazan,4,low,0,
+2021-04-26,2021-05-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35641,,0,interpolated_area,24.371,84.286,16.1,0.433,Dat do bazan,4,low,0,
+2021-05-03,2021-05-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35751,,0,interpolated_area,25.071,79.857,14.1,0.389,Dat do bazan,4,low,0,
+2021-05-10,2021-05-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35860,,0,interpolated_area,24.686,88.286,56.7,0.472,Dat do bazan,4,low,0,
+2021-05-17,2021-05-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,35970,,0,interpolated_area,23.986,91.143,70.2,0.498,Dat do bazan,4,low,0,
+2021-05-24,2021-05-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36080,,0,interpolated_area,23.614,93.286,117.0,0.498,Dat do bazan,4,low,0,
+2021-05-31,2021-06-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36189,,0,interpolated_area,24.686,91.857,42.7,0.482,Dat do bazan,4,low,0,
+2021-06-07,2021-06-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36299,,0,interpolated_area,22.571,96.714,105.7,0.505,Dat do bazan,4,low,0,
+2021-06-14,2021-06-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36408,,0,interpolated_area,23.571,92.0,48.6,0.494,Dat do bazan,4,low,0,
+2021-06-21,2021-06-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36518,,0,interpolated_area,24.057,89.857,38.3,0.49,Dat do bazan,4,low,0,
+2021-06-28,2021-07-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36628,,0,interpolated_area,24.457,89.286,34.3,0.473,Dat do bazan,4,low,0,
+2021-07-05,2021-07-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36737,,0,interpolated_area,22.857,94.286,139.9,0.501,Dat do bazan,4,low,0,
+2021-07-12,2021-07-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36847,,0,interpolated_area,23.286,91.429,148.6,0.501,Dat do bazan,4,low,0,
+2021-07-19,2021-07-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,36957,,0,interpolated_area,22.871,93.714,106.0,0.504,Dat do bazan,4,low,0,
+2021-07-26,2021-08-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37066,,0,interpolated_area,23.443,94.571,100.0,0.508,Dat do bazan,4,low,0,
+2021-08-02,2021-08-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37176,,0,interpolated_area,23.571,94.143,75.1,0.503,Dat do bazan,4,low,0,
+2021-08-09,2021-08-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37286,,0,interpolated_area,23.5,92.143,60.4,0.5,Dat do bazan,4,low,0,
+2021-08-16,2021-08-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37395,,0,interpolated_area,23.629,88.571,54.3,0.494,Dat do bazan,4,low,0,
+2021-08-23,2021-08-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37505,,0,interpolated_area,22.843,92.857,105.7,0.505,Dat do bazan,4,low,0,
+2021-08-30,2021-09-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37614,,0,interpolated_area,22.943,92.0,72.0,0.5,Dat do bazan,4,low,0,
+2021-09-06,2021-09-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37724,,0,interpolated_area,22.371,95.714,139.0,0.506,Dat do bazan,4,low,0,
+2021-09-13,2021-09-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37834,,0,interpolated_area,22.943,92.857,62.8,0.499,Dat do bazan,4,low,0,
+2021-09-20,2021-09-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,37943,,0,interpolated_area,22.514,93.714,96.4,0.505,Dat do bazan,4,low,0,
+2021-09-27,2021-10-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38053,,0,interpolated_area,23.386,91.714,133.6,0.5,Dat do bazan,4,low,0,
+2021-10-04,2021-10-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38163,,0,interpolated_area,22.657,93.714,73.2,0.503,Dat do bazan,4,low,0,
+2021-10-11,2021-10-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38272,,0,interpolated_area,22.214,96.571,134.6,0.508,Dat do bazan,4,low,0,
+2021-10-18,2021-10-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38382,,0,interpolated_area,22.8,90.286,68.1,0.493,Dat do bazan,4,low,0,
+2021-10-25,2021-10-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38492,,0,interpolated_area,22.629,88.857,61.1,0.486,Dat do bazan,4,low,0,
+2021-11-01,2021-11-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38601,,0,interpolated_area,23.214,86.0,6.5,0.456,Dat do bazan,4,low,0,
+2021-11-08,2021-11-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38711,,0,interpolated_area,22.886,87.286,47.1,0.456,Dat do bazan,4,low,0,
+2021-11-15,2021-11-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38820,,0,interpolated_area,22.714,90.429,40.6,0.49,Dat do bazan,4,low,0,
+2021-11-22,2021-11-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,38930,,0,interpolated_area,22.357,83.571,47.7,0.47,Dat do bazan,4,low,0,
+2021-11-29,2021-12-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39040,,0,interpolated_area,20.643,79.571,33.0,0.463,Dat do bazan,4,low,0,
+2021-12-06,2021-12-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39149,,0,interpolated_area,21.429,74.429,0.2,0.382,Dat do bazan,4,low,0,
+2021-12-13,2021-12-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39259,,0,interpolated_area,22.443,74.429,0.9,0.327,Dat do bazan,4,low,0,
+2021-12-20,2021-12-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39369,,0,interpolated_area,22.186,81.571,14.5,0.37,Dat do bazan,4,low,0,
+2021-12-27,2022-01-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39478,,0,interpolated_area,22.086,75.143,3.3,0.372,Dat do bazan,4,low,0,
+2022-01-03,2022-01-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39588,,0,interpolated_area,22.143,75.857,6.1,0.371,Dat do bazan,4,low,0,
+2022-01-10,2022-01-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39698,,0,interpolated_area,21.514,69.571,0.0,0.329,Dat do bazan,4,low,0,
+2022-01-17,2022-01-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39807,,0,interpolated_area,22.357,69.857,0.2,0.301,Dat do bazan,4,low,0,
+2022-01-24,2022-01-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39917,,0,interpolated_area,23.129,69.857,2.0,0.296,Dat do bazan,4,low,0,
+2022-01-31,2022-02-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40027,,0,interpolated_area,23.657,70.571,2.6,0.304,Dat do bazan,4,low,0,
+2022-02-07,2022-02-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40136,,0,interpolated_area,23.843,75.0,4.7,0.338,Dat do bazan,4,low,0,
+2022-02-14,2022-02-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40246,,0,interpolated_area,22.857,86.0,38.1,0.432,Dat do bazan,4,low,0,
+2022-02-21,2022-02-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40355,,0,interpolated_area,22.071,75.143,2.3,0.392,Dat do bazan,4,low,0,
+2022-02-28,2022-03-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40465,,0,interpolated_area,24.314,73.0,2.7,0.341,Dat do bazan,4,low,0,
+2022-03-07,2022-03-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40575,,0,interpolated_area,24.157,66.714,4.2,0.317,Dat do bazan,4,low,0,
+2022-03-14,2022-03-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40684,,0,interpolated_area,24.4,79.571,28.7,0.358,Dat do bazan,4,low,0,
+2022-03-21,2022-03-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40794,,0,interpolated_area,23.843,86.0,45.3,0.444,Dat do bazan,4,low,0,
+2022-03-28,2022-04-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40904,,0,interpolated_area,22.8,85.714,64.0,0.468,Dat do bazan,4,low,0,
+2022-04-04,2022-04-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41013,,0,interpolated_area,23.414,72.429,2.8,0.399,Dat do bazan,4,low,0,
+2022-04-11,2022-04-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41123,,0,interpolated_area,23.486,86.714,39.6,0.416,Dat do bazan,4,low,0,
+2022-04-18,2022-04-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41233,,0,interpolated_area,24.229,81.429,24.7,0.435,Dat do bazan,4,low,0,
+2022-04-25,2022-05-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41342,,0,interpolated_area,23.929,88.286,55.6,0.432,Dat do bazan,4,low,0,
+2022-05-02,2022-05-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41452,,0,interpolated_area,23.243,90.143,78.3,0.487,Dat do bazan,4,low,0,
+2022-05-09,2022-05-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41561,,0,interpolated_area,24.2,88.857,49.7,0.486,Dat do bazan,4,low,0,
+2022-05-16,2022-05-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41671,,0,interpolated_area,23.171,92.571,123.4,0.503,Dat do bazan,4,low,0,
+2022-05-23,2022-05-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41781,,0,interpolated_area,22.871,93.857,134.6,0.5,Dat do bazan,4,low,0,
+2022-05-30,2022-06-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41890,,0,interpolated_area,23.529,89.0,53.7,0.488,Dat do bazan,4,low,0,
+2022-06-06,2022-06-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,42000,42000.0,3,observed,23.714,88.857,81.0,0.484,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2022-06-13,2022-06-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41980,41980.0,5,observed,23.843,87.857,40.5,0.486,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2022-06-20,2022-06-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,42265,,0,interpolated_area,23.171,88.571,67.1,0.488,Dat do bazan,4,low,0,
+2022-06-27,2022-07-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,42550,42550.0,2,observed,23.286,92.143,81.5,0.499,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-07-04,2022-07-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41500,41500.0,1,observed,23.043,92.0,105.6,0.502,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2022-07-11,2022-07-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41571,41571.42857142857,7,observed,22.857,92.571,92.0,0.501,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2022-07-18,2022-07-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,42300,42300.0,1,observed,23.229,90.0,84.4,0.495,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2022-07-25,2022-07-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,43275,,0,interpolated_area,23.486,89.571,77.4,0.49,Dat do bazan,4,low,0,
+2022-08-01,2022-08-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,44250,44250.0,2,observed,22.929,91.571,77.4,0.499,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-08-08,2022-08-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48000,48000.0,4,observed,22.343,93.0,107.3,0.499,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2022-08-15,2022-08-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48500,48500.0,5,observed,23.043,91.286,79.3,0.499,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2022-08-22,2022-08-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48250,,0,interpolated_area,23.2,89.714,88.5,0.498,Dat do bazan,4,low,0,
+2022-08-29,2022-09-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48000,48000.0,2,observed,23.357,89.714,62.9,0.494,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-09-05,2022-09-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48200,48200.0,2,observed,22.843,91.429,69.7,0.499,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-09-12,2022-09-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,47614,47614.28571428572,7,observed,22.757,91.429,114.5,0.501,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2022-09-19,2022-09-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,46957,,0,interpolated_area,22.571,93.0,87.5,0.503,Dat do bazan,4,low,0,
+2022-09-26,2022-10-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,46300,46300.0,2,observed,22.086,94.714,97.4,0.499,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-10-03,2022-10-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,46093,,0,interpolated_area,22.786,91.0,73.1,0.494,Dat do bazan,4,low,0,
+2022-10-10,2022-10-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,45886,45885.71428571428,7,observed,22.2,86.429,34.9,0.477,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2022-10-17,2022-10-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,44667,44666.666666666664,3,observed,22.6,89.143,53.6,0.486,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2022-10-24,2022-10-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,43261,,0,interpolated_area,23.171,83.429,25.4,0.472,Dat do bazan,4,low,0,
+2022-10-31,2022-11-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41856,,0,interpolated_area,22.271,86.143,31.4,0.434,Dat do bazan,4,low,0,
+2022-11-07,2022-11-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40450,40450.0,4,observed,23.286,81.714,7.2,0.405,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2022-11-14,2022-11-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39686,39685.71428571428,7,observed,22.529,89.571,62.8,0.456,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2022-11-21,2022-11-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40343,,0,interpolated_area,22.171,93.286,76.5,0.496,Dat do bazan,4,low,0,
+2022-11-28,2022-12-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41000,41000.0,2,observed,22.843,85.571,12.0,0.455,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-12-05,2022-12-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40400,40400.0,1,observed,22.714,79.571,4.6,0.441,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2022-12-12,2022-12-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40886,40885.71428571428,7,observed,21.143,75.0,0.0,0.375,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2022-12-19,2022-12-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40600,40600.0,2,observed,20.143,72.429,0.0,0.334,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2022-12-26,2023-01-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39900,,0,interpolated_area,20.343,71.286,1.4,0.313,Dat do bazan,4,low,0,
+2023-01-02,2023-01-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,39200,39200.0,1,observed,21.014,79.143,20.5,0.378,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-01-09,2023-01-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40067,40066.666666666664,6,observed,21.671,87.429,31.1,0.464,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-01-16,2023-01-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,40920,40920.0,5,observed,21.314,74.143,0.3,0.379,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2023-01-23,2023-01-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,41960,,0,interpolated_area,21.043,73.571,1.2,0.337,Dat do bazan,4,low,0,
+2023-01-30,2023-02-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,43000,43000.0,2,observed,22.157,77.286,10.9,0.374,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-02-06,2023-02-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,43867,43866.666666666664,3,observed,23.671,73.714,0.9,0.344,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2023-02-13,2023-02-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,44750,44750.0,6,observed,22.971,71.857,5.0,0.339,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-02-20,2023-02-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,45500,45500.0,1,observed,21.871,65.0,0.0,0.338,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-02-27,2023-03-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,47450,47450.0,2,observed,22.114,66.571,0.0,0.306,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-03-06,2023-03-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,47700,47700.0,4,observed,22.114,61.429,0.0,0.289,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2023-03-13,2023-03-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,46771,46771.42857142857,7,observed,24.214,64.143,0.0,0.284,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-03-20,2023-03-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,46200,46200.0,1,observed,25.486,72.0,2.3,0.306,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-03-27,2023-04-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,48500,48500.0,2,observed,24.771,74.857,3.1,0.341,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-04-03,2023-04-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,49307,,0,interpolated_area,24.657,77.286,6.6,0.381,Dat do bazan,4,low,0,
+2023-04-10,2023-04-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,50114,50114.28571428572,7,observed,24.5,84.0,27.7,0.4,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-04-17,2023-04-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,50633,50633.333333333336,3,observed,25.243,81.714,14.7,0.419,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2023-04-24,2023-04-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,50967,,0,interpolated_area,25.786,72.0,6.6,0.365,Dat do bazan,4,low,0,
+2023-05-01,2023-05-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,51300,51300.0,2,observed,26.429,73.714,5.9,0.351,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-05-08,2023-05-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,54100,54100.0,5,observed,24.257,88.0,78.4,0.455,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2023-05-15,2023-05-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,57160,57160.0,5,observed,24.6,87.571,43.3,0.448,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2023-05-22,2023-05-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,59055,,0,interpolated_area,23.829,88.429,53.2,0.483,Dat do bazan,4,low,0,
+2023-05-29,2023-06-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,60950,60950.0,2,observed,23.6,92.143,85.7,0.5,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-06-05,2023-06-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,64100,64100.0,1,observed,23.3,91.429,96.4,0.502,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-06-12,2023-06-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65600,65600.0,7,observed,23.471,90.429,94.6,0.491,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-06-19,2023-06-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66600,66600.0,1,observed,23.886,89.0,62.2,0.49,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-06-26,2023-07-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,64600,64600.0,2,observed,23.486,91.0,105.6,0.501,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-07-03,2023-07-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65142,,0,interpolated_area,23.657,88.286,65.9,0.489,Dat do bazan,4,low,0,
+2023-07-10,2023-07-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65683,65683.33333333333,6,observed,23.529,90.857,119.0,0.494,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-07-17,2023-07-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65567,65566.66666666667,3,observed,22.957,94.0,123.0,0.504,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2023-07-24,2023-07-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66244,,0,interpolated_area,22.657,95.857,170.6,0.509,Dat do bazan,4,low,0,
+2023-07-31,2023-08-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66922,,0,interpolated_area,23.029,93.571,77.5,0.501,Dat do bazan,4,low,0,
+2023-08-07,2023-08-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,67600,67600.0,1,observed,24.114,88.286,42.9,0.488,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-08-14,2023-08-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65433,65433.333333333336,6,observed,23.471,91.286,107.0,0.497,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-08-21,2023-08-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66017,,0,interpolated_area,23.857,88.0,74.4,0.498,Dat do bazan,4,low,0,
+2023-08-28,2023-09-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66600,66600.0,1,observed,23.086,93.143,141.4,0.506,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-09-04,2023-09-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65400,65400.0,1,observed,23.343,92.143,69.2,0.494,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-09-11,2023-09-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66733,66733.33333333333,6,observed,22.986,91.143,64.1,0.496,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-09-18,2023-09-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,68250,68250.0,2,observed,23.171,91.143,98.7,0.496,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2023-09-25,2023-10-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,67425,,0,interpolated_area,23.029,92.286,107.3,0.502,Dat do bazan,4,low,0,
+2023-10-02,2023-10-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,66600,66600.0,1,observed,23.486,91.857,63.2,0.494,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-10-09,2023-10-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,63600,63600.0,3,observed,23.257,90.857,81.6,0.489,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2023-10-16,2023-10-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,62400,62400.0,4,observed,23.129,91.143,60.4,0.493,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2023-10-23,2023-10-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,61571,,0,interpolated_area,22.871,91.429,73.4,0.49,Dat do bazan,4,low,0,
+2023-10-30,2023-11-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,60742,,0,interpolated_area,23.329,89.286,39.0,0.484,Dat do bazan,4,low,0,
+2023-11-06,2023-11-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,59912,,0,interpolated_area,23.314,89.143,21.6,0.464,Dat do bazan,4,low,0,
+2023-11-13,2023-11-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,59083,59083.333333333336,6,observed,22.786,82.857,7.7,0.45,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-11-20,2023-11-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,59556,,0,interpolated_area,22.543,78.143,1.0,0.391,Dat do bazan,4,low,0,
+2023-11-27,2023-12-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,60028,,0,interpolated_area,23.443,78.143,3.1,0.358,Dat do bazan,4,low,0,
+2023-12-04,2023-12-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,60500,60500.0,1,observed,23.657,79.143,0.3,0.349,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2023-12-11,2023-12-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,65775,65775.0,4,observed,23.529,74.857,0.1,0.322,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2023-12-18,2023-12-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,67367,67366.66666666667,3,observed,22.157,74.143,2.4,0.314,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2023-12-25,2023-12-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,67833,,0,interpolated_area,22.757,75.714,2.8,0.309,Dat do bazan,4,low,0,
+2024-01-01,2024-01-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,68300,68300.0,1,observed,23.071,71.286,2.2,0.302,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2024-01-08,2024-01-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,70600,70600.0,5,observed,22.614,71.143,0.0,0.297,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-01-15,2024-01-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,71617,71616.66666666667,6,observed,22.929,69.0,0.0,0.295,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2024-01-22,2024-01-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,75358,,0,interpolated_area,22.386,68.286,0.0,0.295,Dat do bazan,4,low,0,
+2024-01-29,2024-02-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,79100,79100.0,2,observed,23.786,69.857,1.0,0.294,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2024-02-05,2024-02-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,79325,,0,interpolated_area,23.871,74.429,3.2,0.319,Dat do bazan,4,low,0,
+2024-02-12,2024-02-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,79550,79550.0,6,observed,23.886,67.714,0.6,0.309,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2024-02-19,2024-02-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,81250,81250.0,2,observed,24.8,70.857,0.4,0.31,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2024-02-26,2024-03-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,85975,,0,interpolated_area,24.686,67.429,1.2,0.304,Dat do bazan,4,low,0,
+2024-03-04,2024-03-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,90700,90700.0,1,observed,25.686,70.286,2.2,0.308,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2024-03-11,2024-03-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91980,91980.0,5,observed,25.443,65.286,0.4,0.306,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-03-18,2024-03-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,93800,93800.0,3,observed,25.629,63.0,0.3,0.292,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-03-25,2024-03-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,98622,,0,interpolated_area,25.857,75.429,18.1,0.321,Dat do bazan,4,low,0,
+2024-04-01,2024-04-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,103444,,0,interpolated_area,26.214,75.714,7.3,0.343,Dat do bazan,4,low,0,
+2024-04-08,2024-04-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,108267,108266.66666666667,3,observed,27.057,64.429,3.8,0.32,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-04-15,2024-04-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,116880,116880.0,5,observed,26.557,71.857,3.7,0.328,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-04-22,2024-04-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,111220,,0,interpolated_area,27.029,74.714,3.0,0.345,Dat do bazan,4,low,0,
+2024-04-29,2024-05-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,105560,,0,interpolated_area,26.586,77.0,24.9,0.372,Dat do bazan,4,low,0,
+2024-05-06,2024-05-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,99900,99900.0,1,observed,26.157,78.0,36.3,0.4,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2024-05-13,2024-05-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,101857,101857.14285714286,7,observed,25.757,82.857,29.2,0.415,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-05-20,2024-05-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,106762,,0,interpolated_area,25.171,86.143,27.3,0.473,Dat do bazan,4,low,0,
+2024-05-27,2024-06-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,111666,,0,interpolated_area,25.086,86.286,30.0,0.478,Dat do bazan,4,low,0,
+2024-06-03,2024-06-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,116571,,0,interpolated_area,24.771,87.571,47.8,0.476,Dat do bazan,4,low,0,
+2024-06-10,2024-06-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,121475,121475.0,4,observed,24.529,87.0,56.5,0.478,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2024-06-17,2024-06-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,120433,120433.33333333333,3,observed,23.5,92.857,96.4,0.489,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-06-24,2024-06-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,123200,,0,interpolated_area,23.829,89.429,54.0,0.488,Dat do bazan,4,low,0,
+2024-07-01,2024-07-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,125967,,0,interpolated_area,23.743,88.857,86.0,0.489,Dat do bazan,4,low,0,
+2024-07-08,2024-07-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,128733,128733.33333333333,3,observed,23.157,91.714,114.0,0.501,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-07-15,2024-07-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,127580,127580.0,5,observed,22.329,97.143,124.3,0.509,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-07-22,2024-07-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,125253,,0,interpolated_area,22.686,95.714,140.0,0.507,Dat do bazan,4,low,0,
+2024-07-29,2024-08-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,122927,,0,interpolated_area,23.743,88.714,68.6,0.491,Dat do bazan,4,low,0,
+2024-08-05,2024-08-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,120600,120600.0,1,observed,24.157,88.714,49.9,0.489,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2024-08-12,2024-08-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,118300,118300.0,5,observed,24.529,87.286,46.9,0.48,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-08-19,2024-08-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,118000,118000.0,1,observed,24.171,87.286,64.0,0.48,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2024-08-26,2024-09-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,119378,,0,interpolated_area,22.886,92.857,155.2,0.503,Dat do bazan,4,low,0,
+2024-09-02,2024-09-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,120756,,0,interpolated_area,22.9,94.714,128.5,0.504,Dat do bazan,4,low,0,
+2024-09-09,2024-09-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,122133,122133.33333333333,3,observed,23.343,92.571,118.1,0.502,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-09-16,2024-09-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,123725,123725.0,4,observed,22.371,98.143,174.7,0.509,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2024-09-23,2024-09-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,120317,,0,interpolated_area,23.629,88.857,48.0,0.491,Dat do bazan,4,low,0,
+2024-09-30,2024-10-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,116908,,0,interpolated_area,23.7,88.0,34.5,0.479,Dat do bazan,4,low,0,
+2024-10-07,2024-10-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,113500,113500.0,2,observed,23.471,90.0,77.7,0.494,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2024-10-14,2024-10-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,112833,112833.33333333333,6,observed,23.1,91.429,85.8,0.497,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2024-10-21,2024-10-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,112908,,0,interpolated_area,22.786,84.714,29.7,0.469,Dat do bazan,4,low,0,
+2024-10-28,2024-11-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,112983,,0,interpolated_area,22.357,90.571,108.8,0.49,Dat do bazan,4,low,0,
+2024-11-04,2024-11-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,113058,,0,interpolated_area,22.986,84.429,30.7,0.468,Dat do bazan,4,low,0,
+2024-11-11,2024-11-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,113133,113133.33333333333,3,observed,23.657,82.857,7.4,0.432,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-11-18,2024-11-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,115975,,0,interpolated_area,23.871,79.857,6.2,0.358,Dat do bazan,4,low,0,
+2024-11-25,2024-12-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,118817,,0,interpolated_area,22.986,75.571,0.2,0.312,Dat do bazan,4,low,0,
+2024-12-02,2024-12-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,121658,,0,interpolated_area,23.3,78.571,9.0,0.336,Dat do bazan,4,low,0,
+2024-12-09,2024-12-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,124500,124500.0,2,observed,22.757,85.143,32.1,0.417,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2024-12-16,2024-12-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,124260,124260.0,5,observed,20.857,75.857,0.0,0.386,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2024-12-23,2024-12-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,122707,,0,interpolated_area,22.443,77.286,1.6,0.323,Dat do bazan,4,low,0,
+2024-12-30,2025-01-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,121153,,0,interpolated_area,21.586,73.143,0.0,0.29,Dat do bazan,4,low,0,
+2025-01-06,2025-01-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,119600,119600.0,1,observed,20.957,68.286,0.0,0.25,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-01-13,2025-01-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117133,117133.33333333333,3,observed,21.3,71.857,0.2,0.254,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-01-20,2025-01-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,120500,,0,province_proxy,22.657,69.286,0.0,0.254,Dat do bazan,4,low,0,
+2025-01-27,2025-02-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,123925,,0,interpolated_area,21.357,65.571,0.0,0.247,Dat do bazan,4,low,0,
+2025-02-03,2025-02-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,127350,,0,interpolated_area,21.8,61.857,0.0,0.239,Dat do bazan,4,low,0,
+2025-02-10,2025-02-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,130775,130775.0,4,observed,23.671,73.286,6.2,0.272,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-17,2025-02-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,131525,131525.0,4,observed,23.486,75.143,14.0,0.322,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-24,2025-03-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,129200,129200.0,2,observed,24.171,73.286,2.5,0.317,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-03-03,2025-03-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,130621,,0,interpolated_area,24.557,76.143,10.0,0.296,Dat do bazan,4,low,0,
+2025-03-10,2025-03-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,132043,132042.85714285713,7,observed,25.1,75.857,5.4,0.38,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-03-17,2025-03-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,130257,,0,interpolated_area,23.386,67.143,1.3,0.284,Dat do bazan,4,low,0,
+2025-03-24,2025-03-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,128471,,0,interpolated_area,24.7,70.857,6.7,0.285,Dat do bazan,4,low,0,
+2025-03-31,2025-04-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,126686,,0,interpolated_area,25.014,70.571,3.1,0.337,Dat do bazan,4,low,0,
+2025-04-07,2025-04-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,124900,124900.0,1,observed,25.7,75.571,14.1,0.286,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-04-14,2025-04-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,128660,128660.0,5,observed,25.314,81.571,38.8,0.405,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2025-04-21,2025-04-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,129680,,0,interpolated_area,24.957,80.0,50.0,0.391,Dat do bazan,4,low,0,
+2025-04-28,2025-05-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,130700,130700.0,1,observed,25.3,76.714,66.3,0.367,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-05-05,2025-05-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,128100,128100.0,1,observed,25.029,84.714,33.2,0.398,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-05-12,2025-05-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,126100,126100.0,2,observed,24.686,86.714,44.6,0.47,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-05-19,2025-05-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,122800,,0,interpolated_area,23.886,90.286,114.2,0.485,Dat do bazan,4,low,0,
+2025-05-26,2025-06-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,119500,,0,interpolated_area,24.0,89.429,77.6,0.493,Dat do bazan,4,low,0,
+2025-06-02,2025-06-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,116200,,0,interpolated_area,23.671,91.286,64.0,0.485,Dat do bazan,4,low,0,
+2025-06-09,2025-06-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,112900,112900.0,2,observed,23.129,93.714,69.4,0.5,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-06-16,2025-06-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,109867,109866.66666666667,3,observed,23.829,90.0,78.9,0.492,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-06-23,2025-06-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,102683,,0,interpolated_area,23.129,91.143,61.5,0.491,Dat do bazan,4,low,0,
+2025-06-30,2025-07-06,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,95500,95500.0,1,observed,23.414,89.429,88.5,0.492,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-07-07,2025-07-13,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,90400,90400.0,2,observed,23.329,92.429,84.5,0.499,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-07-14,2025-07-20,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91750,91750.0,6,observed,23.014,93.714,83.6,0.499,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2025-07-21,2025-07-27,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,96100,96100.0,1,observed,23.286,92.143,91.8,0.498,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-07-28,2025-08-03,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,98900,98900.0,2,observed,23.843,91.857,55.0,0.496,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-08-04,2025-08-10,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,107167,,0,interpolated_area,24.129,87.286,44.4,0.466,Dat do bazan,4,low,0,
+2025-08-11,2025-08-17,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,115433,115433.33333333333,3,observed,22.871,91.286,110.7,0.498,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-08-18,2025-08-24,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117300,117300.0,2,observed,22.929,90.0,70.4,0.486,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-08-25,2025-08-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117350,,0,interpolated_area,22.5,93.286,105.6,0.502,Dat do bazan,4,low,0,
+2025-09-01,2025-09-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117400,,0,interpolated_area,23.214,92.571,158.3,0.501,Dat do bazan,4,low,0,
+2025-09-08,2025-09-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117450,117450.0,2,observed,23.286,89.714,67.7,0.491,Dat do bazan,4,low,2,Nong Nghiep Moi Truong
+2025-09-15,2025-09-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,119480,119480.0,5,observed,23.171,91.571,72.8,0.492,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2025-09-22,2025-09-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,117787,,0,interpolated_area,22.371,95.429,111.8,0.505,Dat do bazan,4,low,0,
+2025-09-29,2025-10-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,116093,,0,interpolated_area,23.014,89.571,57.7,0.489,Dat do bazan,4,low,0,
+2025-10-06,2025-10-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114400,114400.0,1,observed,23.229,89.0,56.0,0.463,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-13,2025-10-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114400,114400.0,1,observed,23.671,87.429,26.7,0.479,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-20,2025-10-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114400,114400.0,1,observed,23.657,86.429,36.0,0.446,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-27,2025-11-02,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114289,,0,interpolated_area,22.957,92.429,118.3,0.494,Dat do bazan,4,low,0,
+2025-11-03,2025-11-09,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114178,,0,interpolated_area,22.9,92.429,124.3,0.493,Dat do bazan,4,low,0,
+2025-11-10,2025-11-16,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,114067,114066.66666666667,3,observed,22.871,82.714,35.6,0.436,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-17,2025-11-23,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,113933,113933.33333333333,3,observed,22.229,85.571,62.4,0.488,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-24,2025-11-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,112267,,0,interpolated_area,22.057,74.857,7.6,0.386,Dat do bazan,4,low,0,
+2025-12-01,2025-12-07,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,110600,110600.0,1,observed,22.343,83.143,31.1,0.444,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-12-08,2025-12-14,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,101300,101300.0,1,observed,22.443,78.0,5.9,0.394,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2025-12-15,2025-12-21,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,94200,94200.0,5,observed,22.943,76.286,1.8,0.323,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2025-12-22,2025-12-28,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,96200,,0,interpolated_area,22.671,74.714,3.1,0.307,Dat do bazan,4,low,0,
+2025-12-29,2026-01-04,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,98200,98200.0,1,observed,20.857,69.429,0.0,0.274,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-05,2026-01-11,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,97400,97400.0,1,observed,19.914,67.714,0.1,0.263,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-12,2026-01-18,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,98543,98542.85714285714,7,observed,22.214,65.571,0.0,0.249,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2026-01-19,2026-01-25,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,99400,99400.0,1,observed,21.243,62.857,0.0,0.242,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-26,2026-02-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,100700,100700.0,1,observed,22.271,61.286,0.0,0.245,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-02,2026-02-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,100700,100700.0,1,observed,23.114,68.429,1.3,0.255,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-09,2026-02-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,97400,97400.0,1,observed,23.414,70.857,7.7,0.278,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-16,2026-02-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,97800,97800.0,3,observed,24.3,65.286,0.5,0.259,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2026-02-23,2026-03-01,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,96417,,0,interpolated_area,24.014,79.0,58.1,0.358,Dat do bazan,4,low,0,
+2026-03-02,2026-03-08,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,95033,,0,interpolated_area,23.386,80.0,12.3,0.392,Dat do bazan,4,low,0,
+2026-03-09,2026-03-15,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,93650,93650.0,4,observed,23.386,68.429,3.3,0.3,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2026-03-16,2026-03-22,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,91500.0,4,observed,24.629,66.714,2.1,0.283,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2026-03-23,2026-03-29,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,25.4,64.714,0.1,0.265,Dat do bazan,4,low,0,
+2026-03-30,2026-04-05,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,25.986,65.143,1.0,0.269,Dat do bazan,4,low,0,
+2026-04-06,2026-04-12,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,26.329,67.714,0.9,0.263,Dat do bazan,4,low,0,
+2026-04-13,2026-04-19,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,25.643,77.429,7.4,0.296,Dat do bazan,4,low,0,
+2026-04-20,2026-04-26,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,25.414,75.143,19.0,0.298,Dat do bazan,4,low,0,
+2026-04-27,2026-04-30,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,91500,,0,interpolated_area,25.2,80.5,24.1,0.369,Dat do bazan,4,low,0,

@@ -1,0 +1,332 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,20.04,70.0,0.0,0.279,Dat do vang tren bazan,4,low,0,
+2020-01-06,2020-01-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,21.071,70.429,0.1,0.267,Dat do vang tren bazan,4,low,0,
+2020-01-13,2020-01-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,20.757,64.286,0.0,0.254,Dat do vang tren bazan,4,low,0,
+2020-01-20,2020-01-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,21.557,65.286,0.2,0.25,Dat do vang tren bazan,4,low,0,
+2020-01-27,2020-02-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,21.243,66.429,0.1,0.254,Dat do vang tren bazan,4,low,0,
+2020-02-03,2020-02-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,20.771,56.571,2.8,0.252,Dat do vang tren bazan,4,low,0,
+2020-02-10,2020-02-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,22.686,71.429,4.2,0.273,Dat do vang tren bazan,4,low,0,
+2020-02-17,2020-02-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,21.343,61.429,0.5,0.283,Dat do vang tren bazan,4,low,0,
+2020-02-24,2020-03-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,22.471,58.857,0.4,0.266,Dat do vang tren bazan,4,low,0,
+2020-03-02,2020-03-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.371,69.857,5.0,0.276,Dat do vang tren bazan,4,low,0,
+2020-03-09,2020-03-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.914,66.714,1.6,0.28,Dat do vang tren bazan,4,low,0,
+2020-03-16,2020-03-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.086,62.286,0.2,0.256,Dat do vang tren bazan,4,low,0,
+2020-03-23,2020-03-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.729,67.714,3.2,0.259,Dat do vang tren bazan,4,low,0,
+2020-03-30,2020-04-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,24.214,66.0,1.0,0.274,Dat do vang tren bazan,4,low,0,
+2020-04-06,2020-04-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,22.557,83.571,73.8,0.416,Dat do vang tren bazan,4,low,0,
+2020-04-13,2020-04-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,22.514,81.286,6.9,0.418,Dat do vang tren bazan,4,low,0,
+2020-04-20,2020-04-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.657,74.0,2.4,0.316,Dat do vang tren bazan,4,low,0,
+2020-04-27,2020-05-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.786,67.714,0.6,0.29,Dat do vang tren bazan,4,low,0,
+2020-05-04,2020-05-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,24.914,75.857,2.6,0.287,Dat do vang tren bazan,4,low,0,
+2020-05-11,2020-05-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,24.486,75.286,8.9,0.288,Dat do vang tren bazan,4,low,0,
+2020-05-18,2020-05-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,24.1,83.0,55.4,0.372,Dat do vang tren bazan,4,low,0,
+2020-05-25,2020-05-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,23.314,84.143,37.2,0.447,Dat do vang tren bazan,4,low,0,
+2020-06-01,2020-06-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,,0,interpolated_area,22.857,85.857,49.0,0.475,Dat do vang tren bazan,4,low,0,
+2020-06-08,2020-06-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31700,31700.0,1,observed,22.757,87.714,77.7,0.463,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2020-06-15,2020-06-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30500,30500.0,3,observed,22.7,87.0,74.5,0.487,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2020-06-22,2020-06-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30598,,0,interpolated_area,22.429,88.0,46.0,0.47,Dat do vang tren bazan,4,low,0,
+2020-06-29,2020-07-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30695,,0,interpolated_area,21.614,88.857,77.6,0.495,Dat do vang tren bazan,4,low,0,
+2020-07-06,2020-07-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30792,,0,interpolated_area,21.957,86.714,26.1,0.469,Dat do vang tren bazan,4,low,0,
+2020-07-13,2020-07-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30890,,0,interpolated_area,22.6,86.571,20.0,0.464,Dat do vang tren bazan,4,low,0,
+2020-07-20,2020-07-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,30988,,0,interpolated_area,22.357,86.0,30.1,0.439,Dat do vang tren bazan,4,low,0,
+2020-07-27,2020-08-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31085,,0,interpolated_area,22.229,89.286,78.7,0.487,Dat do vang tren bazan,4,low,0,
+2020-08-03,2020-08-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31182,,0,interpolated_area,22.314,88.429,76.2,0.499,Dat do vang tren bazan,4,low,0,
+2020-08-10,2020-08-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31280,,0,interpolated_area,22.343,87.714,58.0,0.493,Dat do vang tren bazan,4,low,0,
+2020-08-17,2020-08-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31378,,0,interpolated_area,22.271,85.857,35.4,0.484,Dat do vang tren bazan,4,low,0,
+2020-08-24,2020-08-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31475,,0,interpolated_area,23.357,85.286,11.5,0.415,Dat do vang tren bazan,4,low,0,
+2020-08-31,2020-09-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31572,,0,interpolated_area,22.543,86.857,61.0,0.466,Dat do vang tren bazan,4,low,0,
+2020-09-07,2020-09-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31670,,0,interpolated_area,22.143,87.429,29.5,0.477,Dat do vang tren bazan,4,low,0,
+2020-09-14,2020-09-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31768,,0,interpolated_area,21.729,89.857,89.7,0.496,Dat do vang tren bazan,4,low,0,
+2020-09-21,2020-09-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31865,,0,interpolated_area,21.886,88.286,34.7,0.497,Dat do vang tren bazan,4,low,0,
+2020-09-28,2020-10-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31962,,0,interpolated_area,21.857,89.571,102.7,0.496,Dat do vang tren bazan,4,low,0,
+2020-10-05,2020-10-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32060,,0,interpolated_area,21.486,91.286,142.9,0.506,Dat do vang tren bazan,4,low,0,
+2020-10-12,2020-10-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32158,,0,interpolated_area,21.257,92.286,154.8,0.503,Dat do vang tren bazan,4,low,0,
+2020-10-19,2020-10-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32255,,0,interpolated_area,21.657,88.571,59.4,0.496,Dat do vang tren bazan,4,low,0,
+2020-10-26,2020-11-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32352,,0,interpolated_area,21.014,88.714,39.8,0.485,Dat do vang tren bazan,4,low,0,
+2020-11-02,2020-11-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32450,,0,province_proxy,20.443,83.857,18.3,0.462,Dat do vang tren bazan,4,low,0,
+2020-11-09,2020-11-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,33280,33280.0,5,observed,20.586,86.571,42.2,0.477,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2020-11-16,2020-11-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,33300,33300.0,5,observed,21.0,83.571,6.6,0.416,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2020-11-23,2020-11-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32825,,0,interpolated_area,20.5,81.714,44.3,0.408,Dat do vang tren bazan,4,low,0,
+2020-11-30,2020-12-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32350,32350.0,2,observed,19.757,81.286,21.3,0.456,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2020-12-07,2020-12-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31900,31900.0,4,observed,20.457,86.571,22.9,0.471,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2020-12-14,2020-12-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32671,32671.428571428572,7,observed,20.557,82.857,11.7,0.452,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2020-12-21,2020-12-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32636,,0,interpolated_area,20.429,82.714,14.6,0.441,Dat do vang tren bazan,4,low,0,
+2020-12-28,2021-01-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32600,32600.0,2,observed,18.943,80.143,6.0,0.432,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-01-04,2021-01-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31300,31300.0,1,observed,19.6,79.286,2.0,0.374,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-01-11,2021-01-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31486,31485.714285714286,7,observed,17.871,73.143,0.0,0.306,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2021-01-18,2021-01-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31800,31800.0,1,observed,19.586,80.286,15.6,0.319,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-01-25,2021-01-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31475,,0,interpolated_area,19.5,74.571,1.4,0.335,Dat do vang tren bazan,4,low,0,
+2021-02-01,2021-02-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31150,31150.0,2,observed,19.914,73.429,1.8,0.291,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-02-08,2021-02-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31200,31200.0,2,observed,20.143,75.0,9.1,0.316,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-02-15,2021-02-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31160,31160.0,5,observed,18.6,67.429,0.0,0.286,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2021-02-22,2021-02-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31630,,0,interpolated_area,21.071,69.286,4.1,0.271,Dat do vang tren bazan,4,low,0,
+2021-03-01,2021-03-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32100,32100.0,1,observed,21.657,66.143,6.6,0.301,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-03-08,2021-03-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32050,32050.0,4,observed,21.686,61.143,1.2,0.28,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2021-03-15,2021-03-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31720,31720.0,5,observed,22.914,70.143,1.9,0.269,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2021-03-22,2021-03-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31485,,0,interpolated_area,23.3,67.571,9.0,0.311,Dat do vang tren bazan,4,low,0,
+2021-03-29,2021-04-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31250,31250.0,2,observed,23.443,76.857,12.3,0.343,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-04-05,2021-04-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31600,31600.0,2,observed,22.557,70.571,4.1,0.318,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-04-12,2021-04-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31829,31828.571428571428,7,observed,23.014,77.571,11.0,0.316,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2021-04-19,2021-04-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31850,31850.0,2,observed,22.329,86.571,69.4,0.427,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-04-26,2021-05-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31975,,0,interpolated_area,22.514,82.143,11.5,0.374,Dat do vang tren bazan,4,low,0,
+2021-05-03,2021-05-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32100,,0,interpolated_area,23.514,74.143,5.6,0.305,Dat do vang tren bazan,4,low,0,
+2021-05-10,2021-05-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32225,32225.0,4,observed,24.029,80.571,14.3,0.324,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2021-05-17,2021-05-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,31767,31766.666666666668,3,observed,23.057,86.571,86.8,0.434,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2021-05-24,2021-05-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32289,,0,interpolated_area,22.643,89.0,85.0,0.48,Dat do vang tren bazan,4,low,0,
+2021-05-31,2021-06-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,32811,,0,interpolated_area,23.586,85.714,15.2,0.412,Dat do vang tren bazan,4,low,0,
+2021-06-07,2021-06-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,33333,33333.333333333336,3,observed,21.986,86.714,66.1,0.422,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2021-06-14,2021-06-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,33283,33283.333333333336,6,observed,22.714,84.714,27.3,0.406,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2021-06-21,2021-06-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,33956,,0,interpolated_area,23.2,84.0,19.5,0.392,Dat do vang tren bazan,4,low,0,
+2021-06-28,2021-07-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,34628,,0,interpolated_area,23.486,81.857,26.6,0.352,Dat do vang tren bazan,4,low,0,
+2021-07-05,2021-07-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,35300,35300.0,1,observed,22.0,88.0,40.1,0.442,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-07-12,2021-07-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,35360,35360.0,5,observed,22.171,87.143,44.0,0.463,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2021-07-19,2021-07-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,35400,35400.0,1,observed,22.1,86.429,32.6,0.474,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-07-26,2021-08-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,35775,,0,interpolated_area,23.071,84.857,17.6,0.434,Dat do vang tren bazan,4,low,0,
+2021-08-02,2021-08-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,36150,,0,interpolated_area,23.386,84.143,16.3,0.399,Dat do vang tren bazan,4,low,0,
+2021-08-09,2021-08-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,36525,36525.0,4,observed,22.757,87.0,42.5,0.42,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2021-08-16,2021-08-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,36850,36850.0,4,observed,22.271,84.714,43.6,0.462,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2021-08-23,2021-08-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,37467,,0,interpolated_area,21.743,88.286,115.1,0.501,Dat do vang tren bazan,4,low,0,
+2021-08-30,2021-09-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,38083,,0,interpolated_area,21.843,88.857,59.8,0.491,Dat do vang tren bazan,4,low,0,
+2021-09-06,2021-09-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,38700,38700.0,1,observed,21.7,89.571,80.0,0.501,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-09-13,2021-09-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39100,39100.0,5,observed,21.614,89.714,62.2,0.494,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2021-09-20,2021-09-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39450,,0,interpolated_area,21.529,89.0,105.3,0.499,Dat do vang tren bazan,4,low,0,
+2021-09-27,2021-10-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39800,39800.0,1,observed,22.171,88.286,125.0,0.486,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-10-04,2021-10-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39300,39300.0,1,observed,21.643,89.143,52.2,0.491,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-10-11,2021-10-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39600,39600.0,5,observed,21.857,90.0,75.7,0.494,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2021-10-18,2021-10-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39467,39466.666666666664,3,observed,21.2,88.714,60.4,0.488,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2021-10-25,2021-10-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40333,,0,interpolated_area,21.029,88.0,103.1,0.495,Dat do vang tren bazan,4,low,0,
+2021-11-01,2021-11-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41200,41200.0,1,observed,21.143,85.143,16.1,0.457,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-11-08,2021-11-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40500,40500.0,4,observed,22.029,84.714,77.5,0.467,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2021-11-15,2021-11-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40100,40100.0,6,observed,21.414,86.571,87.5,0.495,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2021-11-22,2021-11-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40300,,0,interpolated_area,21.071,84.286,64.4,0.486,Dat do vang tren bazan,4,low,0,
+2021-11-29,2021-12-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40500,40500.0,1,observed,19.514,82.714,50.7,0.457,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-12-06,2021-12-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40800,40800.0,2,observed,19.414,81.286,1.5,0.379,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2021-12-13,2021-12-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40829,40828.57142857143,7,observed,20.757,78.429,0.3,0.319,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2021-12-20,2021-12-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40800,40800.0,1,observed,20.371,81.429,7.7,0.307,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2021-12-27,2022-01-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40700,40700.0,1,observed,20.629,75.0,3.1,0.3,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-01-03,2022-01-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40058,,0,interpolated_area,19.786,80.143,17.0,0.366,Dat do vang tren bazan,4,low,0,
+2022-01-10,2022-01-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39417,39416.666666666664,6,observed,18.743,74.0,0.0,0.308,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2022-01-17,2022-01-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,38950,38950.0,4,observed,19.943,73.143,0.0,0.278,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-01-24,2022-01-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39075,,0,interpolated_area,20.6,73.286,2.2,0.286,Dat do vang tren bazan,4,low,0,
+2022-01-31,2022-02-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39200,39200.0,2,observed,21.729,70.143,0.5,0.283,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-02-07,2022-02-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40875,40875.0,4,observed,21.829,73.429,10.3,0.338,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-02-14,2022-02-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40950,40950.0,4,observed,21.686,80.286,22.6,0.38,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-02-21,2022-02-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40250,,0,interpolated_area,21.443,74.0,15.5,0.341,Dat do vang tren bazan,4,low,0,
+2022-02-28,2022-03-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39550,39550.0,2,observed,22.643,70.429,3.2,0.286,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-03-07,2022-03-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40275,40275.0,4,observed,22.243,69.571,21.8,0.295,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-03-14,2022-03-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40683,40683.333333333336,6,observed,22.643,75.286,11.1,0.309,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2022-03-21,2022-03-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40867,,0,interpolated_area,22.129,82.286,20.1,0.36,Dat do vang tren bazan,4,low,0,
+2022-03-28,2022-04-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41050,41050.0,2,observed,21.257,83.857,51.1,0.415,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-04-04,2022-04-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40700,40700.0,1,observed,21.329,79.571,16.8,0.425,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-04-11,2022-04-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40557,40557.142857142855,7,observed,22.186,82.286,23.7,0.384,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-04-18,2022-04-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40300,40300.0,2,observed,22.514,80.143,16.8,0.381,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-04-25,2022-05-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41100,41100.0,1,observed,22.386,85.714,57.0,0.408,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-05-02,2022-05-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41100,41100.0,1,observed,22.286,85.143,46.8,0.465,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-05-09,2022-05-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40140,40140.0,5,observed,22.857,84.0,20.2,0.398,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2022-05-16,2022-05-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40825,40825.0,4,observed,22.271,88.714,96.2,0.482,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-05-23,2022-05-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41438,,0,interpolated_area,22.114,88.0,32.5,0.471,Dat do vang tren bazan,4,low,0,
+2022-05-30,2022-06-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,42050,42050.0,2,observed,22.371,85.429,46.5,0.463,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-06-06,2022-06-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41600,41600.0,3,observed,22.386,84.143,32.8,0.445,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2022-06-13,2022-06-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41733,41733.333333333336,6,observed,22.386,84.429,25.8,0.409,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2022-06-20,2022-06-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41992,,0,interpolated_area,21.786,86.143,37.0,0.441,Dat do vang tren bazan,4,low,0,
+2022-06-27,2022-07-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,42250,42250.0,2,observed,22.743,85.0,12.0,0.423,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-07-04,2022-07-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41200,41200.0,1,observed,22.414,86.429,51.5,0.454,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-07-11,2022-07-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41271,41271.42857142857,7,observed,22.3,87.0,33.8,0.477,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-07-18,2022-07-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41500,41500.0,2,observed,22.1,86.571,53.5,0.479,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-07-25,2022-07-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,42725,,0,interpolated_area,22.214,87.0,54.1,0.445,Dat do vang tren bazan,4,low,0,
+2022-08-01,2022-08-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,43950,43950.0,2,observed,22.043,87.143,60.3,0.482,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-08-08,2022-08-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47700,47700.0,4,observed,21.586,86.857,35.6,0.481,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-08-15,2022-08-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,48200,48200.0,5,observed,22.2,86.286,34.9,0.462,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2022-08-22,2022-08-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47900,,0,interpolated_area,22.014,86.571,50.0,0.483,Dat do vang tren bazan,4,low,0,
+2022-08-29,2022-09-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47600,47600.0,2,observed,22.014,87.0,32.3,0.485,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-09-05,2022-09-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47800,47800.0,2,observed,21.557,88.714,63.0,0.49,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-09-12,2022-09-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47214,47214.28571428572,7,observed,21.8,87.0,39.9,0.489,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-09-19,2022-09-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,46657,,0,interpolated_area,21.714,88.571,55.4,0.487,Dat do vang tren bazan,4,low,0,
+2022-09-26,2022-10-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,46100,46100.0,2,observed,21.543,89.286,42.7,0.499,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-10-03,2022-10-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,45893,,0,interpolated_area,21.271,88.143,67.3,0.491,Dat do vang tren bazan,4,low,0,
+2022-10-10,2022-10-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,45686,45685.71428571428,7,observed,20.643,87.571,42.6,0.485,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-10-17,2022-10-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,44400,44400.0,3,observed,21.514,87.0,51.7,0.478,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2022-10-24,2022-10-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,42917,,0,interpolated_area,21.443,86.0,36.9,0.482,Dat do vang tren bazan,4,low,0,
+2022-10-31,2022-11-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41433,,0,interpolated_area,20.443,85.857,49.6,0.451,Dat do vang tren bazan,4,low,0,
+2022-11-07,2022-11-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39950,39950.0,4,observed,21.129,83.571,21.5,0.455,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2022-11-14,2022-11-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39271,39271.42857142857,7,observed,21.086,85.571,71.5,0.464,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-11-21,2022-11-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39911,,0,interpolated_area,20.843,90.286,41.2,0.488,Dat do vang tren bazan,4,low,0,
+2022-11-28,2022-12-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40550,40550.0,2,observed,20.9,83.143,16.8,0.429,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-12-05,2022-12-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39800,39800.0,1,observed,20.771,84.0,8.6,0.443,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2022-12-12,2022-12-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40243,40242.857142857145,7,observed,19.3,80.0,0.8,0.375,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2022-12-19,2022-12-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40000,40000.0,2,observed,18.429,77.429,0.4,0.316,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2022-12-26,2023-01-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39300,,0,interpolated_area,18.371,76.286,3.2,0.286,Dat do vang tren bazan,4,low,0,
+2023-01-02,2023-01-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,38600,38600.0,1,observed,20.029,82.714,64.4,0.41,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-01-09,2023-01-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,39517,39516.666666666664,6,observed,20.329,85.857,24.0,0.463,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-01-16,2023-01-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,40420,40420.0,5,observed,19.957,78.714,1.2,0.367,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2023-01-23,2023-01-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,41410,,0,interpolated_area,19.871,74.429,2.9,0.313,Dat do vang tren bazan,4,low,0,
+2023-01-30,2023-02-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,42400,42400.0,2,observed,20.729,76.0,12.0,0.339,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-02-06,2023-02-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,43467,43466.666666666664,3,observed,21.371,72.0,3.5,0.295,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2023-02-13,2023-02-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,44233,44233.333333333336,6,observed,21.071,73.429,12.6,0.314,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-02-20,2023-02-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,44900,44900.0,1,observed,19.657,72.714,5.2,0.363,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-02-27,2023-03-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47100,47100.0,2,observed,20.729,69.0,0.7,0.289,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-03-06,2023-03-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,47500,47500.0,4,observed,20.071,64.571,0.0,0.264,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2023-03-13,2023-03-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,46571,46571.42857142857,7,observed,22.243,65.714,0.0,0.254,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2023-03-20,2023-03-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,46000,46000.0,1,observed,23.914,71.0,1.7,0.261,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-03-27,2023-04-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,48300,48300.0,2,observed,23.6,70.286,1.1,0.273,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-04-03,2023-04-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,49093,,0,interpolated_area,23.543,74.143,5.6,0.316,Dat do vang tren bazan,4,low,0,
+2023-04-10,2023-04-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,49886,49885.71428571428,7,observed,24.029,77.429,16.1,0.296,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2023-04-17,2023-04-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,50325,50325.0,4,observed,24.4,75.857,3.5,0.338,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2023-04-24,2023-04-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,50612,,0,interpolated_area,24.029,69.857,12.7,0.307,Dat do vang tren bazan,4,low,0,
+2023-05-01,2023-05-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,50900,50900.0,2,observed,24.6,74.0,17.0,0.307,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-05-08,2023-05-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,53700,53700.0,5,observed,22.914,86.714,57.9,0.429,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2023-05-15,2023-05-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,56820,56820.0,5,observed,23.214,84.571,41.5,0.42,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2023-05-22,2023-05-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,58635,,0,interpolated_area,22.743,84.429,57.9,0.438,Dat do vang tren bazan,4,low,0,
+2023-05-29,2023-06-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,60450,60450.0,2,observed,23.2,85.429,33.5,0.448,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-06-05,2023-06-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,63500,63500.0,1,observed,22.929,83.571,22.7,0.432,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-06-12,2023-06-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65000,65000.0,7,observed,22.857,84.286,53.1,0.402,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2023-06-19,2023-06-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,66000,66000.0,1,observed,22.857,84.286,37.6,0.433,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-06-26,2023-07-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,64200,64200.0,2,observed,22.671,85.571,65.5,0.47,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-07-03,2023-07-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,64683,,0,interpolated_area,22.229,86.0,28.5,0.455,Dat do vang tren bazan,4,low,0,
+2023-07-10,2023-07-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65167,65166.666666666664,6,observed,22.371,86.143,37.1,0.466,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-07-17,2023-07-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,64933,64933.333333333336,3,observed,22.386,88.0,88.5,0.483,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2023-07-24,2023-07-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65589,,0,interpolated_area,22.314,88.571,92.2,0.494,Dat do vang tren bazan,4,low,0,
+2023-07-31,2023-08-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,66244,,0,interpolated_area,22.529,86.714,18.3,0.468,Dat do vang tren bazan,4,low,0,
+2023-08-07,2023-08-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,66900,66900.0,1,observed,23.571,82.429,6.8,0.369,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-08-14,2023-08-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,64683,64683.333333333336,6,observed,22.743,86.143,52.9,0.437,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-08-21,2023-08-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65242,,0,interpolated_area,23.214,83.0,25.4,0.384,Dat do vang tren bazan,4,low,0,
+2023-08-28,2023-09-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65800,65800.0,1,observed,22.786,86.714,56.9,0.462,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-09-04,2023-09-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,64500,64500.0,1,observed,22.586,88.286,51.5,0.492,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-09-11,2023-09-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65883,65883.33333333333,6,observed,22.071,86.571,25.6,0.47,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-09-18,2023-09-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,67350,67350.0,2,observed,21.914,88.0,42.3,0.474,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2023-09-25,2023-10-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,66625,,0,interpolated_area,22.071,87.0,49.5,0.487,Dat do vang tren bazan,4,low,0,
+2023-10-02,2023-10-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65900,65900.0,1,observed,22.329,88.429,60.4,0.494,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-10-09,2023-10-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,63100,63100.0,3,observed,21.557,88.429,59.6,0.49,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2023-10-16,2023-10-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,61900,61900.0,4,observed,21.414,88.571,53.4,0.484,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2023-10-23,2023-10-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,61079,,0,interpolated_area,21.071,89.143,33.2,0.489,Dat do vang tren bazan,4,low,0,
+2023-10-30,2023-11-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,60258,,0,interpolated_area,21.486,86.714,36.1,0.487,Dat do vang tren bazan,4,low,0,
+2023-11-06,2023-11-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,59438,,0,interpolated_area,21.643,86.0,37.2,0.478,Dat do vang tren bazan,4,low,0,
+2023-11-13,2023-11-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,58617,58616.666666666664,6,observed,21.329,82.714,12.7,0.468,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2023-11-20,2023-11-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,58100,58100.0,1,observed,20.986,82.0,5.4,0.417,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-11-27,2023-12-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,58900,,0,interpolated_area,21.7,79.714,7.7,0.391,Dat do vang tren bazan,4,low,0,
+2023-12-04,2023-12-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,59700,59700.0,1,observed,21.114,81.571,1.6,0.362,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2023-12-11,2023-12-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,65225,65225.0,4,observed,20.771,74.571,0.7,0.297,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2023-12-18,2023-12-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,66767,66766.66666666667,3,observed,21.086,76.0,10.6,0.316,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2023-12-25,2023-12-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,67133,,0,interpolated_area,21.214,77.286,3.7,0.307,Dat do vang tren bazan,4,low,0,
+2024-01-01,2024-01-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,67500,67500.0,1,observed,20.914,77.143,3.0,0.292,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2024-01-08,2024-01-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,69960,69960.0,5,observed,20.4,73.0,0.1,0.278,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-01-15,2024-01-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,71050,71050.0,6,observed,20.986,74.143,4.9,0.281,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2024-01-22,2024-01-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,74525,,0,interpolated_area,20.729,67.286,0.0,0.267,Dat do vang tren bazan,4,low,0,
+2024-01-29,2024-02-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,78000,78000.0,2,observed,21.614,70.143,0.4,0.249,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2024-02-05,2024-02-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,78300,,0,interpolated_area,22.029,73.143,0.6,0.266,Dat do vang tren bazan,4,low,0,
+2024-02-12,2024-02-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,78600,78600.0,6,observed,22.129,66.714,0.0,0.263,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2024-02-19,2024-02-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,80400,80400.0,2,observed,23.214,68.429,0.2,0.273,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2024-02-26,2024-03-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,85100,,0,interpolated_area,23.371,64.143,3.9,0.269,Dat do vang tren bazan,4,low,0,
+2024-03-04,2024-03-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,89800,89800.0,1,observed,23.9,69.286,2.4,0.283,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2024-03-11,2024-03-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,91200,91200.0,5,observed,23.957,61.714,0.0,0.255,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-03-18,2024-03-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,93133,93133.33333333333,3,observed,23.743,61.571,0.8,0.228,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-03-25,2024-03-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,97944,,0,interpolated_area,24.9,67.857,18.2,0.272,Dat do vang tren bazan,4,low,0,
+2024-04-01,2024-04-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,102756,,0,interpolated_area,24.971,72.143,3.0,0.294,Dat do vang tren bazan,4,low,0,
+2024-04-08,2024-04-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,107567,107566.66666666667,3,observed,25.286,62.429,0.3,0.258,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-04-15,2024-04-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116240,116240.0,5,observed,25.257,68.714,2.7,0.264,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-04-22,2024-04-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,110493,,0,interpolated_area,26.1,69.857,1.3,0.282,Dat do vang tren bazan,4,low,0,
+2024-04-29,2024-05-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,104747,,0,interpolated_area,25.871,72.143,38.0,0.314,Dat do vang tren bazan,4,low,0,
+2024-05-06,2024-05-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,99000,99000.0,1,observed,24.143,78.0,14.6,0.397,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2024-05-13,2024-05-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,101043,101042.85714285714,7,observed,23.9,81.429,35.2,0.391,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2024-05-20,2024-05-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,105876,,0,interpolated_area,23.771,83.714,37.2,0.435,Dat do vang tren bazan,4,low,0,
+2024-05-27,2024-06-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,110709,,0,interpolated_area,23.929,84.0,25.9,0.416,Dat do vang tren bazan,4,low,0,
+2024-06-03,2024-06-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,115542,,0,interpolated_area,23.514,83.286,37.5,0.428,Dat do vang tren bazan,4,low,0,
+2024-06-10,2024-06-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,120375,120375.0,4,observed,23.214,83.714,30.3,0.442,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2024-06-17,2024-06-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,119333,119333.33333333333,3,observed,22.871,86.429,58.6,0.46,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-06-24,2024-06-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,120000,120000.0,1,observed,22.514,86.286,27.2,0.454,Dat do vang tren bazan,4,low,1,Cong Thuong
+2024-07-01,2024-07-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,124067,,0,interpolated_area,22.486,85.857,63.7,0.456,Dat do vang tren bazan,4,low,0,
+2024-07-08,2024-07-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,128133,128133.33333333333,3,observed,22.357,86.571,41.7,0.453,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-07-15,2024-07-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,127020,127020.0,5,observed,22.2,88.286,56.7,0.481,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-07-22,2024-07-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,124513,,0,interpolated_area,22.4,88.143,43.3,0.49,Dat do vang tren bazan,4,low,0,
+2024-07-29,2024-08-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,122007,,0,interpolated_area,22.457,85.714,49.3,0.472,Dat do vang tren bazan,4,low,0,
+2024-08-05,2024-08-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,119500,119500.0,1,observed,23.014,85.429,34.7,0.46,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2024-08-12,2024-08-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,117840,117840.0,5,observed,23.2,85.286,15.1,0.393,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-08-19,2024-08-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,117300,117300.0,1,observed,22.871,82.857,34.2,0.382,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2024-08-26,2024-09-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,118767,,0,interpolated_area,22.257,87.714,76.9,0.474,Dat do vang tren bazan,4,low,0,
+2024-09-02,2024-09-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,120233,,0,interpolated_area,22.543,87.714,45.0,0.492,Dat do vang tren bazan,4,low,0,
+2024-09-09,2024-09-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,121700,121700.0,3,observed,22.629,87.714,69.9,0.49,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-09-16,2024-09-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,123125,123125.0,4,observed,22.114,91.0,148.0,0.505,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2024-09-23,2024-09-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,119717,,0,interpolated_area,21.971,88.0,34.0,0.476,Dat do vang tren bazan,4,low,0,
+2024-09-30,2024-10-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116308,,0,interpolated_area,21.671,88.429,65.4,0.48,Dat do vang tren bazan,4,low,0,
+2024-10-07,2024-10-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112900,112900.0,2,observed,21.443,88.571,89.3,0.494,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2024-10-14,2024-10-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112317,112316.66666666667,6,observed,21.471,89.857,82.0,0.496,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2024-10-21,2024-10-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112412,,0,interpolated_area,21.157,85.571,43.6,0.477,Dat do vang tren bazan,4,low,0,
+2024-10-28,2024-11-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112508,,0,interpolated_area,21.3,88.429,75.3,0.487,Dat do vang tren bazan,4,low,0,
+2024-11-04,2024-11-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112604,,0,interpolated_area,21.271,86.714,22.6,0.475,Dat do vang tren bazan,4,low,0,
+2024-11-11,2024-11-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112700,112700.0,3,observed,21.557,83.0,2.9,0.448,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-11-18,2024-11-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,113233,113233.33333333333,3,observed,21.557,80.714,3.3,0.413,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2024-11-25,2024-12-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116656,,0,interpolated_area,21.414,77.0,16.9,0.377,Dat do vang tren bazan,4,low,0,
+2024-12-02,2024-12-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,120078,,0,interpolated_area,21.686,84.143,24.1,0.467,Dat do vang tren bazan,4,low,0,
+2024-12-09,2024-12-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,123500,123500.0,3,observed,21.643,85.714,57.4,0.485,Dat do vang tren bazan,4,low,3,Cong Thuong; Nong Nghiep Moi Truong
+2024-12-16,2024-12-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,122800,122800.0,5,observed,19.557,79.857,2.5,0.46,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2024-12-23,2024-12-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,121367,,0,interpolated_area,20.929,83.143,11.3,0.439,Dat do vang tren bazan,4,low,0,
+2024-12-30,2025-01-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,119933,,0,interpolated_area,19.943,82.0,16.6,0.428,Dat do vang tren bazan,4,low,0,
+2025-01-06,2025-01-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,118500,118500.0,1,observed,19.243,74.143,0.0,0.367,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-01-13,2025-01-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116400,116400.0,3,observed,20.071,77.714,11.5,0.407,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2025-01-20,2025-01-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,119300,,0,province_proxy,20.443,74.0,0.1,0.354,Dat do vang tren bazan,4,low,0,
+2025-01-27,2025-02-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,122783,,0,interpolated_area,19.243,70.714,0.0,0.303,Dat do vang tren bazan,4,low,0,
+2025-02-03,2025-02-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,126267,,0,interpolated_area,19.614,68.429,0.0,0.278,Dat do vang tren bazan,4,low,0,
+2025-02-10,2025-02-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,129750,129750.0,4,observed,21.2,80.714,13.6,0.315,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-17,2025-02-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,130375,130375.0,4,observed,20.714,83.143,60.2,0.417,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-24,2025-03-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,127250,127250.0,2,observed,22.014,73.714,0.5,0.41,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2025-03-03,2025-03-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,128954,,0,interpolated_area,22.529,76.286,9.0,0.336,Dat do vang tren bazan,4,low,0,
+2025-03-10,2025-03-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,130657,130657.14285714286,7,observed,23.043,73.0,3.7,0.39,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2025-03-17,2025-03-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,128918,,0,interpolated_area,21.757,71.571,7.8,0.323,Dat do vang tren bazan,4,low,0,
+2025-03-24,2025-03-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,127179,,0,interpolated_area,22.571,71.0,9.1,0.293,Dat do vang tren bazan,4,low,0,
+2025-03-31,2025-04-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,125439,,0,interpolated_area,22.714,76.0,21.9,0.423,Dat do vang tren bazan,4,low,0,
+2025-04-07,2025-04-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,123700,123700.0,1,observed,23.343,75.143,7.2,0.313,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-04-14,2025-04-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,129229,129228.57142857143,7,observed,23.771,77.429,9.6,0.357,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2025-04-21,2025-04-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,129714,,0,interpolated_area,23.114,77.143,19.9,0.331,Dat do vang tren bazan,4,low,0,
+2025-04-28,2025-05-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,130200,130200.0,1,observed,23.086,75.571,39.8,0.371,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-05-05,2025-05-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,128000,128000.0,1,observed,23.486,81.857,15.5,0.388,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-05-12,2025-05-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,125750,125750.0,4,observed,23.057,82.714,24.5,0.404,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-05-19,2025-05-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,126000,126000.0,1,observed,22.443,87.714,52.4,0.443,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-05-26,2025-06-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,121583,,0,interpolated_area,22.843,85.571,65.8,0.465,Dat do vang tren bazan,4,low,0,
+2025-06-02,2025-06-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,117167,,0,interpolated_area,22.829,86.143,39.9,0.44,Dat do vang tren bazan,4,low,0,
+2025-06-09,2025-06-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112750,112750.0,4,observed,22.343,87.286,23.9,0.471,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-06-16,2025-06-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,109875,109875.0,4,observed,22.5,87.0,54.3,0.429,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-06-23,2025-06-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,102488,,0,interpolated_area,22.443,85.143,31.2,0.423,Dat do vang tren bazan,4,low,0,
+2025-06-30,2025-07-06,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,95100,95100.0,1,observed,22.7,84.0,47.5,0.399,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-07-07,2025-07-13,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,89900,89900.0,2,observed,23.0,84.429,31.4,0.394,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2025-07-14,2025-07-20,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,91367,91366.66666666667,6,observed,22.457,86.857,34.4,0.446,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2025-07-21,2025-07-27,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,95700,95700.0,1,observed,22.529,86.286,36.3,0.445,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-07-28,2025-08-03,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,98800,98800.0,2,observed,23.714,82.857,13.2,0.391,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2025-08-04,2025-08-10,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,106833,,0,interpolated_area,23.071,83.286,26.4,0.325,Dat do vang tren bazan,4,low,0,
+2025-08-11,2025-08-17,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,114867,114866.66666666667,3,observed,21.986,87.714,102.9,0.468,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2025-08-18,2025-08-24,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116750,116750.0,2,observed,21.814,86.857,30.3,0.471,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2025-08-25,2025-08-31,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116717,,0,interpolated_area,21.886,87.571,37.5,0.466,Dat do vang tren bazan,4,low,0,
+2025-09-01,2025-09-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116683,,0,interpolated_area,22.014,91.143,101.8,0.493,Dat do vang tren bazan,4,low,0,
+2025-09-08,2025-09-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116650,116650.0,2,observed,21.657,87.857,39.8,0.488,Dat do vang tren bazan,4,low,2,Nong Nghiep Moi Truong
+2025-09-15,2025-09-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,118680,118680.0,5,observed,22.086,87.571,46.2,0.478,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2025-09-22,2025-09-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,116987,,0,interpolated_area,21.686,90.429,96.6,0.495,Dat do vang tren bazan,4,low,0,
+2025-09-29,2025-10-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,115293,,0,interpolated_area,21.643,87.0,36.0,0.485,Dat do vang tren bazan,4,low,0,
+2025-10-06,2025-10-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,113600,113600.0,1,observed,21.286,88.429,55.4,0.477,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-13,2025-10-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,113500,113500.0,1,observed,21.757,84.857,26.0,0.483,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-20,2025-10-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,113500,113500.0,1,observed,21.3,91.714,72.4,0.493,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-10-27,2025-11-02,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,113133,,0,interpolated_area,21.543,91.286,108.1,0.498,Dat do vang tren bazan,4,low,0,
+2025-11-03,2025-11-09,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112767,,0,interpolated_area,21.371,91.143,87.7,0.495,Dat do vang tren bazan,4,low,0,
+2025-11-10,2025-11-16,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112400,112400.0,3,observed,20.914,85.0,30.2,0.452,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-17,2025-11-23,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,112600,112600.0,3,observed,21.486,84.714,111.0,0.498,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-24,2025-11-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,111300,,0,interpolated_area,20.386,80.143,9.7,0.429,Dat do vang tren bazan,4,low,0,
+2025-12-01,2025-12-07,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,110000,110000.0,1,observed,20.686,82.714,12.2,0.464,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-12-08,2025-12-14,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,100700,100700.0,1,observed,20.614,78.571,2.4,0.442,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2025-12-15,2025-12-21,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,93380,93380.0,5,observed,20.814,80.571,5.0,0.397,Dat do vang tren bazan,4,low,5,Nong Nghiep Moi Truong
+2025-12-22,2025-12-28,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,95440,,0,interpolated_area,20.743,83.0,22.9,0.423,Dat do vang tren bazan,4,low,0,
+2025-12-29,2026-01-04,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,97500,97500.0,1,observed,18.2,75.429,0.6,0.392,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-05,2026-01-11,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,96800,96800.0,1,observed,17.871,77.429,10.7,0.402,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-12,2026-01-18,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,97929,97928.57142857143,7,observed,19.4,71.286,0.2,0.35,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2026-01-19,2026-01-25,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,98600,98600.0,1,observed,18.257,68.571,0.1,0.318,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-01-26,2026-02-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,100000,100000.0,1,observed,19.271,70.0,0.0,0.302,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-02,2026-02-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,100000,100000.0,1,observed,20.729,73.857,2.1,0.299,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-09,2026-02-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,96100,96100.0,1,observed,21.2,77.0,29.4,0.371,Dat do vang tren bazan,4,low,1,Nong Nghiep Moi Truong
+2026-02-16,2026-02-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,96400,96400.0,3,observed,21.357,68.0,4.3,0.34,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2026-02-23,2026-03-01,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,95208,,0,interpolated_area,21.957,78.571,25.1,0.378,Dat do vang tren bazan,4,low,0,
+2026-03-02,2026-03-08,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,94017,,0,interpolated_area,21.557,79.571,20.8,0.425,Dat do vang tren bazan,4,low,0,
+2026-03-09,2026-03-15,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,92825,92825.0,4,observed,20.771,76.429,26.8,0.428,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2026-03-16,2026-03-22,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,90525.0,4,observed,21.0,74.571,3.8,0.417,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2026-03-23,2026-03-29,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,21.629,69.714,0.0,0.332,Dat do vang tren bazan,4,low,0,
+2026-03-30,2026-04-05,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,23.014,67.0,0.1,0.291,Dat do vang tren bazan,4,low,0,
+2026-04-06,2026-04-12,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,24.014,73.714,2.0,0.315,Dat do vang tren bazan,4,low,0,
+2026-04-13,2026-04-19,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,23.457,77.286,3.5,0.366,Dat do vang tren bazan,4,low,0,
+2026-04-20,2026-04-26,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,23.243,75.286,12.4,0.347,Dat do vang tren bazan,4,low,0,
+2026-04-27,2026-04-30,Lam Dong,Lam Ha,Robusta / ca phe nhan xo noi dia,90525,,0,interpolated_area,23.2,78.0,22.5,0.399,Dat do vang tren bazan,4,low,0,

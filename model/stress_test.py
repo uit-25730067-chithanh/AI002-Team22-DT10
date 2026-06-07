@@ -111,8 +111,8 @@ def run_stress_test(
         })
 
         print(f"\n=== Scenario: {scenario} ===")
-        print(f"MAE  = {mae_stress:,.0f} VND/kg (+{mae_lift:.1f}%)")
-        print(f"RMSE = {rmse_stress:,.0f} VND/kg (+{rmse_lift:.1f}%)")
+        print(f"MAE  = {mae_stress:,.0f} VND/kg ({_format_lift_pct(mae_lift)})")
+        print(f"RMSE = {rmse_stress:,.0f} VND/kg ({_format_lift_pct(rmse_lift)})")
 
     # Build report
     report_lines = generate_stress_report(
@@ -168,41 +168,6 @@ def run_stress_test(
         docs_path.write_text("\n".join(report_lines), encoding="utf-8")
         print(f"Đã lưu copy vào docs: {docs_path}")
 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--data",
-        default="data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv",
-        help="Đường dẫn dữ liệu monthly real",
-    )
-    parser.add_argument(
-        "--model",
-        default="model/best_model/model.pkl",
-        help="Đường dẫn model baseline",
-    )
-    parser.add_argument(
-        "--exp-dir",
-        default=None,
-        help="Experiment folder để lưu report (mặc định: latest experiment)",
-    )
-    parser.add_argument(
-        "--tag",
-        default="stress",
-        help="Tag nếu tạo experiment mới",
-    )
-    parser.add_argument(
-        "--also-docs",
-        action="store_true",
-        help="Cũng lưu copy vào docs/discussions/",
-    )
-    args = parser.parse_args()
-    run_stress_test(
-        args.data,
-        args.model,
-        args.exp_dir,
-        args.tag,
-        args.also_docs)
 
 """
 Module chứa các kịch bản nhiễu (Black Swan scenarios) cho stress test.
@@ -265,6 +230,7 @@ def generate_stress_report(
     """
     Tạo nội dung báo cáo stress test dựa trên kết quả các kịch bản.
     """
+    max_mae_lift = max((r["mae_lift_pct"] for r in results), default=0.0)
     report_lines = [
         "# Stress Test Report — Robustness Pillar",
         "",
@@ -286,15 +252,15 @@ def generate_stress_report(
         report_lines.extend([
             f"### {r['scenario']}",
             "",
-            f"- MAE:  {r['mae']:,.0f} VND/kg (+{r['mae_lift_pct']:.1f}%)",
-            f"- RMSE: {r['rmse']:,.0f} VND/kg (+{r['rmse_lift_pct']:.1f}%)",
+            f"- MAE:  {r['mae']:,.0f} VND/kg ({_format_lift_pct(r['mae_lift_pct'])})",
+            f"- RMSE: {r['rmse']:,.0f} VND/kg ({_format_lift_pct(r['rmse_lift_pct'])})",
             "",
         ])
 
     report_lines.extend([
         "## Nhận xét và Ghi nhận",
         "",
-        "> Kịch bản price_crash và both làm MAE tăng mạnh (+66.5%), cho thấy baseline",
+        f"> Kịch bản shock giá làm MAE tăng tối đa {_format_lift_pct(max_mae_lift)}, cho thấy baseline",
         "> Random Forest phụ thuộc đáng kể vào lịch sử giá gần nhất và không ngoại suy tốt khi",
         "> thị trường sụp đổ đột ngột. Kịch bản heat_wave gần như không đổi sai số vì feature",
         "> nhiệt độ có trọng số rất thấp trong mô hình hiện tại.",
@@ -307,3 +273,46 @@ def generate_stress_report(
     ])
 
     return report_lines
+
+
+def _format_lift_pct(value: float) -> str:
+    if abs(value) < 0.05:
+        value = 0.0
+    sign = "+" if value >= 0 else ""
+    return f"{sign}{value:.1f}%"
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--data",
+        default="data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv",
+        help="Đường dẫn dữ liệu monthly real",
+    )
+    parser.add_argument(
+        "--model",
+        default="model/best_model/model.pkl",
+        help="Đường dẫn model baseline",
+    )
+    parser.add_argument(
+        "--exp-dir",
+        default=None,
+        help="Experiment folder để lưu report (mặc định: latest experiment)",
+    )
+    parser.add_argument(
+        "--tag",
+        default="stress",
+        help="Tag nếu tạo experiment mới",
+    )
+    parser.add_argument(
+        "--also-docs",
+        action="store_true",
+        help="Cũng lưu copy vào docs/discussions/",
+    )
+    args = parser.parse_args()
+    run_stress_test(
+        args.data,
+        args.model,
+        args.exp_dir,
+        args.tag,
+        args.also_docs)

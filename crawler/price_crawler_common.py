@@ -96,11 +96,25 @@ async def crawl_site_async(
     concurrency: int,
     flush_every: int,
     stop_after_seconds: int,
+    year_range_label: str = "2022_2025",
+    combined_filename: str = "coffee_price_all_areas_daily_2022_2025.csv",
+    error_dir: Path | None = None,
+    seed_only: bool = False,
 ) -> Path:
-    discovered = sorted(set(discover_sitemap_urls(config, start, end, HEADERS)) | set(discover_search_urls(config, start, end, HEADERS)))
+    if seed_only:
+        discovered = sorted(set(config.seed_urls))
+    else:
+        discovered = await asyncio.to_thread(
+            lambda: sorted(
+                set(discover_sitemap_urls(config, start, end, HEADERS))
+                | set(discover_search_urls(config, start, end, HEADERS))
+            )
+        )
     urls = discovered[:max_urls] if max_urls else discovered
-    output_path = output_dir / f"coffee_price_{source_slug(config.source_name)}_daily_2022_2025.csv"
-    error_path = output_dir / f"coffee_price_{source_slug(config.source_name)}_errors.csv"
+    output_path = output_dir / f"coffee_price_{source_slug(config.source_name)}_daily_{year_range_label}.csv"
+    resolved_error_dir = error_dir or output_dir
+    resolved_error_dir.mkdir(parents=True, exist_ok=True)
+    error_path = resolved_error_dir / f"coffee_price_{source_slug(config.source_name)}_errors.csv"
     print(f"{config.source_name}: discovered {len(discovered)} URLs, crawling {len(urls)}", flush=True)
 
     started = time.monotonic()
@@ -145,7 +159,12 @@ async def crawl_site_async(
             encoding="utf-8-sig",
         )
     frame = finalize_source_output(output_path)
-    merge_source_into_raw(output_path, raw_dir)
+    merge_source_into_raw(
+        output_path,
+        raw_dir,
+        combined_filename=combined_filename,
+        year_range_label=year_range_label,
+    )
     print(f"{config.source_name}: wrote {output_path} ({len(frame)} rows)", flush=True)
     return output_path
 
@@ -269,12 +288,17 @@ def finalize_source_output(path: Path) -> pd.DataFrame:
     frame.to_csv(path, index=False, encoding="utf-8-sig")
     return frame
 
-def merge_source_into_raw(source_path: Path, raw_dir: Path) -> None:
+def merge_source_into_raw(
+    source_path: Path,
+    raw_dir: Path,
+    combined_filename: str = "coffee_price_all_areas_daily_2022_2025.csv",
+    year_range_label: str = "2022_2025",
+) -> None:
     source_frame = finalize_source_output(source_path)
     if source_frame.empty:
         return
 
-    combined_path = raw_dir / "coffee_price_all_areas_daily_2022_2025.csv"
+    combined_path = raw_dir / combined_filename
     existing = read_existing_rows(combined_path)
     combined = pd.concat([existing, source_frame], ignore_index=True)
     combined = (
@@ -285,7 +309,7 @@ def merge_source_into_raw(source_path: Path, raw_dir: Path) -> None:
     combined.to_csv(combined_path, index=False, encoding="utf-8-sig")
 
     for area, area_frame in combined.groupby("area"):
-        output = raw_dir / f"coffee_price_{slugify(area)}_daily_2022_2025.csv"
+        output = raw_dir / f"coffee_price_{slugify(area)}_daily_{year_range_label}.csv"
         area_frame.sort_values(["date", "province", "area", "source_name"]).to_csv(
             output,
             index=False,

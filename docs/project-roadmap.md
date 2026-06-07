@@ -1,14 +1,14 @@
 # Lộ trình Dự án và Luồng Dữ liệu
 
-Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu thật từ Team 1 sang Team 2, sau đó đi qua model, API và frontend.
+Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu độc lập do Team 2 tự crawl, audit và tạo lại, sau đó đi qua model, API và frontend.
 
-**Trạng thái hiện tại:** roadmap phản ánh trạng thái cuối cùng đã hoàn tất tính đến 2026-06-04.
+**Trạng thái hiện tại:** roadmap phản ánh trạng thái cập nhật tính đến 2026-06-07 sau khi tách nhóm và rebuild dataset độc lập.
 
 ## Bức tranh tổng quan
 
 ```mermaid
 flowchart TD
-    A[Team 1: Phúc và Thịnh] --> B[Crawl giá cà phê và dữ liệu môi trường]
+    A[Team 2: Thanh và Sơn] --> B[Crawl độc lập giá cà phê và dữ liệu môi trường]
     B --> C[Raw data]
     C --> D[Processed weekly dataset]
     C --> E[Processed monthly dataset]
@@ -50,10 +50,10 @@ flowchart LR
 
 | Nhóm              | File                                                                        | Mục đích                        | Trạng thái                                   |
 | :---------------- | :-------------------------------------------------------------------------- | :------------------------------ | :------------------------------------------- |
-| Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2022_2025.csv`                       | Nguồn gốc giá thật              | Gitignored, không train trực tiếp trong repo |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2022_2025.csv`   | Tham khảo, thử nghiệm tương lai | Chưa dùng làm baseline chính                 |
-| Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv` | Dataset train chính             | Đã dùng                                      |
-| Xếp hạng độ phủ   | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực         | Đã dùng để quyết định                        |
+| Raw giá crawl     | `data/raw/independent/coffee_price_all_areas_daily_2020_2026.csv`                       | Nguồn giá public tự crawl lại   | Gitignored, không train trực tiếp trong repo |
+| Weekly processed  | `data/processed/weekly/coffee_environment_independent_all_areas_weekly_2020_2026.csv`   | Tham khảo, thử nghiệm tương lai | Chưa dùng làm baseline chính                 |
+| Monthly processed | `data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv` | Dataset train chính             | Đã dùng cho baseline độc lập                 |
+| Xếp hạng độ phủ   | `data/processed/independent_area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực         | Đã dùng để quyết định                        |
 
 Lý do chọn monthly: ít nhiễu hơn weekly, độ phủ giá thật tốt hơn, dễ giải thích trong báo cáo, phù hợp KISS.
 
@@ -73,13 +73,13 @@ gantt
     section GĐ 2: Dữ liệu thật
     Crawl giá cà phê và thời tiết            :done, b1, 2026-05-04, 7d
     Build processed weekly/monthly           :done, b2, 2026-05-08, 4d
-    Review luồng dữ liệu với Phúc            :done, b3, 2026-05-14, 2d
+    Rebuild dataset độc lập Team 2           :done, b3, 2026-06-07, 1d
 
     section GĐ 3: Model baseline
     Chọn monthly dataset                     :done, c1, 2026-05-12, 1d
     Preprocess schema real-data              :done, c2, 2026-05-12, 1d
-    Train Random Forest baseline             :done, c3, 2026-05-13, 1d
-    Lưu best model và feature importance     :done, c4, 2026-05-13, 1d
+    Train Random Forest baseline             :done, c3, 2026-06-07, 1d
+    Lưu best model và feature importance     :done, c4, 2026-06-07, 1d
 
     section GĐ 4: Backend API
     Update prediction contract               :done, d1, 2026-05-13, 1d
@@ -103,15 +103,15 @@ gantt
 
 ```mermaid
 flowchart TD
-    subgraph T1[Team 1: Phúc và Thịnh]
-        A1[Crawl dữ liệu giá]
-        A2[Crawl hoặc chuẩn bị weather]
-        A3[Build processed datasets]
+    subgraph T2Data[Team 2: Thanh và Sơn]
+        A1[Crawl độc lập dữ liệu giá]
+        A2[Crawl weather theo area]
+        A3[Tạo processed datasets độc lập]
         A4[Frontend React/Vite/Tailwind]
     end
 
     subgraph Thanh[Thanh]
-        B1[Chốt schema với Team 1]
+        B1[Chốt independent data contract]
         B2[Normalize real schema]
         B3[Feature engineering]
         B4[Train Random Forest]
@@ -229,14 +229,14 @@ stateDiagram-v2
 
 ### Tuần 3 — Data thật
 
-- [x] Team 1 có processed weekly/monthly dataset.
+- [x] Team 2 tự crawl và tạo lại processed weekly/monthly dataset độc lập.
 - [x] Team 2 đọc và chuẩn hóa schema real-data.
 - [x] Có xếp hạng độ phủ dữ liệu theo khu vực.
-- [x] Phúc review lại docs data flow.
+- [x] Ghi rõ provenance mới và không dùng dataset Phúc/Thịnh làm source-of-truth.
 
 ### Tuần 4 — Model thật
 
-- [x] Train Random Forest baseline trên monthly all-areas.
+- [x] Train Random Forest baseline trên monthly all-areas độc lập.
 - [x] Trích xuất feature importance.
 - [x] Lưu best model và metadata.
 - [x] Sơn bổ sung kiểm toán dữ liệu thật, bias độ phủ bằng chứng và 5 Pillars checkpoint trong PR #12.
@@ -252,7 +252,7 @@ stateDiagram-v2
 
 ### Tuần 6 — Báo cáo và slide
 
-- [x] Có 5 Pillars checkpoint real-data từ PR #12.
+- [x] Có 5 Pillars checkpoint real-data từ PR #12 và checkpoint độc lập 2026-06-07.
 - [x] Chuyển bằng chứng 5 Pillars và stress test vào slide/report cuối kỳ.
 - [x] Chuẩn bị slide thuyết trình (final_presentation_slides.md).
 - [x] Tổng duyệt demo bằng API smoke test và frontend screenshot evidence.
@@ -261,8 +261,8 @@ stateDiagram-v2
 
 | Phân hệ            | Nội dung                                    | Người phụ trách | Review cần có                      |
 | :----------------- | :------------------------------------------ | :-------------- | :--------------------------------- |
-| Data crawler       | Crawl giá, weather, build processed dataset | Phúc, Thịnh     | Thanh review schema                |
-| Data understanding | Giải thích raw/weekly/monthly, độ phủ       | Phúc, Thanh     | Sơn review cho evaluation          |
+| Data crawler       | Crawl giá, weather, tạo processed dataset độc lập | Thanh, Sơn      | Thanh review schema                |
+| Data understanding | Giải thích raw/weekly/monthly, độ phủ       | Thanh, Sơn      | Sơn review cho evaluation          |
 | AI model           | Preprocess, train RF, feature importance    | Thanh           | Sơn review metrics                 |
 | Evaluation         | Stress test, bias, 5 Pillars                | Sơn             | Thanh review technical correctness |
 | Backend API        | `/predict`, `/health`, `/model/info`        | Thanh           | Phúc review frontend contract      |
@@ -292,5 +292,9 @@ flowchart TD
 - [`docs/discussions/2026-05-13-son-api-integration-qa-checklist.md`](discussions/2026-05-13-son-api-integration-qa-checklist.md)
 - [`docs/discussions/2026-05-13-son-evaluation-pack-summary.md`](discussions/2026-05-13-son-evaluation-pack-summary.md)
 - [`docs/discussions/5-pillars-checkpoint.md`](discussions/5-pillars-checkpoint.md)
+- [`docs/discussions/2026-06-07-independent-data-contract.md`](discussions/2026-06-07-independent-data-contract.md)
+- [`docs/discussions/2026-06-07-independent-data-audit.md`](discussions/2026-06-07-independent-data-audit.md)
+- [`docs/discussions/2026-06-07-independent-model-results.md`](discussions/2026-06-07-independent-model-results.md)
+- [`docs/discussions/2026-06-07-independent-five-pillars-checkpoint.md`](discussions/2026-06-07-independent-five-pillars-checkpoint.md)
 - [`data/processed/FIELD_DESCRIPTIONS.md`](../data/processed/FIELD_DESCRIPTIONS.md)
 - [`data/processed/AREA_REAL_PRICE_DATA_RANKING.md`](../data/processed/AREA_REAL_PRICE_DATA_RANKING.md)

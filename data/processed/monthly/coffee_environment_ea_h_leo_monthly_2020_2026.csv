@@ -1,0 +1,77 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,21.319,75.065,3.2,0.239,Dat do bazan,5,medium,0,
+2020-02-01,2020-02-29,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,21.731,71.448,4.1,0.223,Dat do bazan,5,medium,0,
+2020-03-01,2020-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,25.716,63.968,2.1,0.212,Dat do bazan,5,medium,0,
+2020-04-01,2020-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,25.667,68.833,21.7,0.233,Dat do bazan,5,medium,0,
+2020-05-01,2020-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,27.277,70.677,160.4,0.302,Dat do bazan,5,medium,0,
+2020-06-01,2020-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,31033.333333333332,3,observed,25.053,83.033,177.7,0.443,Dat do bazan,5,medium,3,Nong Nghiep Moi Truong
+2020-07-01,2020-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31588,,0,interpolated_area,24.561,85.0,408.2,0.473,Dat do bazan,5,medium,0,
+2020-08-01,2020-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32144,,0,interpolated_area,24.197,86.452,223.5,0.482,Dat do bazan,5,medium,0,
+2020-09-01,2020-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32699,,0,interpolated_area,24.143,87.0,347.0,0.487,Dat do bazan,5,medium,0,
+2020-10-01,2020-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,33254,,0,interpolated_area,23.126,87.774,429.2,0.487,Dat do bazan,5,medium,0,
+2020-11-01,2020-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,33809,33809.09090909091,11,observed,22.313,83.5,214.2,0.421,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2020-12-01,2020-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32677,32676.923076923078,13,observed,20.645,82.097,26.9,0.387,Dat do bazan,5,medium,13,Nong Nghiep Moi Truong
+2021-01-01,2021-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32036,32036.363636363636,11,observed,19.239,77.29,4.9,0.266,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2021-02-01,2021-02-28,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31667,31666.666666666668,9,observed,21.282,68.107,0.8,0.212,Dat do bazan,5,medium,9,Nong Nghiep Moi Truong
+2021-03-01,2021-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32620,32620.0,10,observed,24.619,66.452,4.3,0.217,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2021-04-01,2021-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32477,32476.923076923078,13,observed,25.293,73.2,167.4,0.297,Dat do bazan,5,medium,13,Nong Nghiep Moi Truong
+2021-05-01,2021-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,32886,32885.71428571428,7,observed,25.687,79.581,173.8,0.354,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2021-06-01,2021-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,34111,34111.11111111111,9,observed,24.613,85.667,115.0,0.453,Dat do bazan,5,medium,9,Nong Nghiep Moi Truong
+2021-07-01,2021-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,36157,36157.142857142855,7,observed,24.158,86.065,235.4,0.473,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2021-08-01,2021-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,37488,37487.5,8,observed,24.361,85.323,199.6,0.48,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2021-09-01,2021-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,39833,39833.333333333336,6,observed,23.523,87.967,547.1,0.492,Dat do bazan,5,medium,6,Nong Nghiep Moi Truong
+2021-10-01,2021-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,40300,40300.0,10,observed,23.019,89.387,316.2,0.486,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2021-11-01,2021-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41145,41145.454545454544,11,observed,22.167,88.367,133.4,0.456,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2021-12-01,2021-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41491,41490.90909090909,11,observed,20.332,82.581,44.3,0.412,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-01-01,2022-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,40045,40045.454545454544,11,observed,21.097,78.968,9.9,0.311,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-02-01,2022-02-28,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41060,41060.0,10,observed,21.854,79.179,22.3,0.288,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2022-03-01,2022-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,40858,40858.333333333336,12,observed,24.103,73.968,117.9,0.285,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2022-04-01,2022-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41108,41108.333333333336,12,observed,23.993,77.033,68.6,0.369,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2022-05-01,2022-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41073,41072.72727272727,11,observed,24.39,83.581,246.0,0.444,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-06-01,2022-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,42245,42245.454545454544,11,observed,24.81,82.167,162.0,0.433,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-07-01,2022-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,41867,41866.666666666664,12,observed,24.077,85.871,221.7,0.465,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2022-08-01,2022-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,47645,47645.454545454544,11,observed,23.652,86.71,224.9,0.487,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-09-01,2022-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,47891,47890.90909090909,11,observed,23.293,88.533,250.5,0.491,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-10-01,2022-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,45750,45750.0,12,observed,22.894,84.194,145.0,0.449,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2022-11-01,2022-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,39964,39963.63636363636,11,observed,22.92,83.433,92.6,0.383,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2022-12-01,2022-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,40783,40783.333333333336,12,observed,20.081,81.806,30.1,0.38,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2023-01-01,2023-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,40283,40283.333333333336,12,observed,19.842,81.968,54.2,0.362,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2023-02-01,2023-02-28,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,44350,44350.0,12,observed,21.714,76.714,10.1,0.261,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2023-03-01,2023-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,47186,47185.71428571428,14,observed,23.316,68.774,1.5,0.232,Dat do bazan,5,medium,14,Nong Nghiep Moi Truong
+2023-04-01,2023-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,50123,50123.07692307692,13,observed,26.5,70.067,32.6,0.251,Dat do bazan,5,medium,13,Nong Nghiep Moi Truong
+2023-05-01,2023-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,54908,54908.333333333336,12,observed,25.842,78.032,196.4,0.391,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2023-06-01,2023-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,64600,64600.0,11,observed,24.46,85.633,201.3,0.465,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2023-07-01,2023-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,65282,65281.818181818184,11,observed,24.161,87.0,225.5,0.482,Dat do bazan,5,medium,11,Nong Nghiep Moi Truong
+2023-08-01,2023-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,65529,65528.57142857143,7,observed,24.519,84.806,150.9,0.456,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2023-09-01,2023-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,66650,66650.0,10,observed,23.98,87.233,210.0,0.482,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2023-10-01,2023-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,63300,63300.0,8,observed,23.777,87.806,162.2,0.466,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2023-11-01,2023-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,59143,59142.857142857145,7,observed,22.71,83.567,44.1,0.357,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2023-12-01,2023-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,65712,65712.5,8,observed,21.945,81.613,21.3,0.309,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2024-01-01,2024-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,70858,70858.33333333333,12,observed,21.103,76.581,2.3,0.228,Dat do bazan,5,medium,12,Nong Nghiep Moi Truong
+2024-02-01,2024-02-29,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,79510,79510.0,10,observed,23.417,71.379,2.5,0.21,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2024-03-01,2024-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,92300,92300.0,9,observed,25.19,68.806,24.3,0.213,Dat do bazan,5,medium,9,Nong Nghiep Moi Truong
+2024-04-01,2024-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,113462,113462.5,8,observed,28.273,61.967,18.4,0.21,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2024-05-01,2024-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,101625,101625.0,8,observed,26.558,77.161,101.9,0.343,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2024-06-01,2024-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,120875,120875.0,8,observed,25.62,80.733,122.5,0.397,Dat do bazan,5,medium,8,Cong Thuong; Nong Nghiep Moi Truong
+2024-07-01,2024-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,127912,127912.5,8,observed,23.852,88.258,273.5,0.488,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2024-08-01,2024-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,118600,118600.0,7,observed,24.939,83.871,187.4,0.454,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2024-09-01,2024-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,122971,122971.42857142857,7,observed,23.927,88.533,200.0,0.491,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2024-10-01,2024-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,112850,112850.0,8,observed,23.397,84.677,129.2,0.423,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2024-11-01,2024-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,113167,113166.66666666667,6,observed,22.867,81.667,85.2,0.36,Dat do bazan,5,medium,6,Nong Nghiep Moi Truong
+2024-12-01,2024-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,124262,124262.5,8,observed,20.829,84.935,103.3,0.368,Dat do bazan,5,medium,8,Cong Thuong; Nong Nghiep Moi Truong
+2025-01-01,2025-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,117525,117525.0,4,observed,19.1,76.097,2.3,0.256,Dat do bazan,5,medium,4,Nong Nghiep Moi Truong
+2025-02-01,2025-02-28,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,131075,131075.0,8,observed,21.279,76.679,20.2,0.235,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2025-03-01,2025-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,131378,131377.77777777778,9,observed,23.668,72.452,13.4,0.225,Dat do bazan,5,medium,9,Nong Nghiep Moi Truong
+2025-04-01,2025-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,129388,129387.5,8,observed,25.737,69.9,22.5,0.236,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2025-05-01,2025-05-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,127029,127028.57142857143,7,observed,25.248,82.581,240.7,0.367,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2025-06-01,2025-06-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,111762,111762.5,8,observed,23.937,89.0,285.0,0.451,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2025-07-01,2025-07-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,92190,92190.0,10,observed,23.697,89.968,195.5,0.423,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2025-08-01,2025-08-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,111114,111114.28571428571,7,observed,23.865,87.516,195.7,0.406,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2025-09-01,2025-09-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,118543,118542.85714285714,7,observed,23.257,91.2,334.3,0.483,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2025-10-01,2025-10-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,114400,114400.0,3,observed,23.326,88.0,187.4,0.417,Dat do bazan,5,medium,3,Nong Nghiep Moi Truong
+2025-11-01,2025-11-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,113967,113966.66666666667,6,observed,21.713,86.433,312.5,0.45,Dat do bazan,5,medium,6,Nong Nghiep Moi Truong
+2025-12-01,2025-12-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,97357,97357.14285714286,7,observed,21.071,84.871,44.9,0.368,Dat do bazan,5,medium,7,Nong Nghiep Moi Truong
+2026-01-01,2026-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,98290,98290.0,10,observed,19.313,75.129,2.0,0.228,Dat do bazan,5,medium,10,Nong Nghiep Moi Truong
+2026-02-01,2026-02-28,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,98567,98566.66666666667,6,observed,21.932,75.036,40.5,0.22,Dat do bazan,5,medium,6,Nong Nghiep Moi Truong
+2026-03-01,2026-03-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,92388,92387.5,8,observed,23.532,69.968,15.6,0.256,Dat do bazan,5,medium,8,Nong Nghiep Moi Truong
+2026-04-01,2026-04-30,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,92388,,0,interpolated_area,27.583,57.467,17.6,0.227,Dat do bazan,5,medium,0,

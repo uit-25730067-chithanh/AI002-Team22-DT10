@@ -1,0 +1,77 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,,0,interpolated_area,21.326,71.677,4.4,0.254,Dat do vang tren bazan,4,low,0,
+2020-02-01,2020-02-29,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,,0,interpolated_area,21.945,65.0,6.6,0.256,Dat do vang tren bazan,4,low,0,
+2020-03-01,2020-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,,0,interpolated_area,23.39,70.742,20.3,0.268,Dat do vang tren bazan,4,low,0,
+2020-04-01,2020-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,,0,interpolated_area,23.147,79.633,163.3,0.372,Dat do vang tren bazan,4,low,0,
+2020-05-01,2020-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,,0,interpolated_area,24.068,82.871,100.9,0.352,Dat do vang tren bazan,4,low,0,
+2020-06-01,2020-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,30800,30800.0,4,observed,22.643,89.867,295.8,0.467,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2020-07-01,2020-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31284,,0,interpolated_area,22.374,89.839,231.0,0.48,Dat do vang tren bazan,4,low,0,
+2020-08-01,2020-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31767,,0,interpolated_area,22.506,90.226,216.9,0.476,Dat do vang tren bazan,4,low,0,
+2020-09-01,2020-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,32251,,0,interpolated_area,22.243,90.633,250.0,0.479,Dat do vang tren bazan,4,low,0,
+2020-10-01,2020-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,32735,,0,interpolated_area,21.523,92.613,345.9,0.498,Dat do vang tren bazan,4,low,0,
+2020-11-01,2020-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,33218,33218.181818181816,11,observed,21.0,86.633,90.9,0.43,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2020-12-01,2020-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,32385,32384.615384615383,13,observed,19.968,86.419,58.2,0.429,Dat do vang tren bazan,4,low,13,Nong Nghiep Moi Truong
+2021-01-01,2021-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31700,31700.0,11,observed,19.123,80.258,22.1,0.327,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2021-02-01,2021-02-28,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31167,31166.666666666668,9,observed,20.564,74.857,14.2,0.286,Dat do vang tren bazan,4,low,9,Nong Nghiep Moi Truong
+2021-03-01,2021-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31890,31890.0,10,observed,22.784,70.355,36.9,0.287,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2021-04-01,2021-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,31708,31707.69230769231,13,observed,22.84,81.967,105.7,0.365,Dat do vang tren bazan,4,low,13,Nong Nghiep Moi Truong
+2021-05-01,2021-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,32029,32028.571428571428,7,observed,23.426,84.774,155.9,0.395,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2021-06-01,2021-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,33300,33300.0,9,observed,22.69,90.4,138.8,0.445,Dat do vang tren bazan,4,low,9,Nong Nghiep Moi Truong
+2021-07-01,2021-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,35357,35357.142857142855,7,observed,22.229,91.29,269.4,0.471,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2021-08-01,2021-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,36688,36687.5,8,observed,22.31,90.935,213.5,0.49,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2021-09-01,2021-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,39033,39033.333333333336,6,observed,21.857,91.733,383.2,0.499,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2021-10-01,2021-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,39550,39550.0,10,observed,21.542,91.677,317.3,0.497,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2021-11-01,2021-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40345,40345.454545454544,11,observed,21.403,89.033,231.6,0.48,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2021-12-01,2021-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40791,40790.90909090909,11,observed,19.916,83.484,24.1,0.369,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-01-01,2022-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,39364,39363.63636363636,11,observed,20.416,77.129,26.0,0.292,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-02-01,2022-02-28,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40570,40570.0,10,observed,21.5,79.071,62.9,0.357,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2022-03-01,2022-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40358,40358.333333333336,12,observed,22.371,79.774,78.6,0.337,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2022-04-01,2022-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40608,40608.333333333336,12,observed,22.093,84.333,108.1,0.407,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2022-05-01,2022-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40564,40563.63636363636,11,observed,22.387,89.839,255.1,0.48,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-06-01,2022-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,41755,41754.545454545456,11,observed,22.22,89.4,174.5,0.458,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-07-01,2022-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,41467,41466.666666666664,12,observed,22.103,90.581,194.4,0.481,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2022-08-01,2022-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,47245,47245.454545454544,11,observed,21.958,90.032,191.6,0.482,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-09-01,2022-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,47391,47390.90909090909,11,observed,21.75,91.1,219.4,0.49,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-10-01,2022-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,45442,45441.666666666664,12,observed,21.348,88.774,184.4,0.481,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2022-11-01,2022-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,39518,39518.181818181816,11,observed,21.2,88.467,191.3,0.463,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2022-12-01,2022-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,40217,40216.666666666664,12,observed,19.435,83.387,42.6,0.375,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2023-01-01,2023-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,39817,39816.666666666664,12,observed,19.59,84.484,107.9,0.377,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2023-02-01,2023-02-28,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,43792,43791.666666666664,12,observed,20.704,77.179,26.4,0.316,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2023-03-01,2023-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,46871,46871.42857142857,14,observed,22.168,69.871,7.7,0.254,Dat do vang tren bazan,4,low,14,Nong Nghiep Moi Truong
+2023-04-01,2023-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,49777,49776.92307692308,13,observed,24.067,76.567,59.2,0.311,Dat do vang tren bazan,4,low,13,Nong Nghiep Moi Truong
+2023-05-01,2023-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,54533,54533.333333333336,12,observed,23.594,84.161,114.2,0.375,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2023-06-01,2023-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,64127,64127.27272727273,11,observed,22.643,89.5,233.2,0.45,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2023-07-01,2023-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,64927,64927.27272727273,11,observed,22.174,91.258,339.5,0.492,Dat do vang tren bazan,4,low,11,Nong Nghiep Moi Truong
+2023-08-01,2023-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,65000,65000.0,7,observed,22.616,90.065,178.6,0.472,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2023-09-01,2023-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,66030,66030.0,10,observed,22.12,91.167,265.1,0.495,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2023-10-01,2023-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,62850,62850.0,8,observed,21.99,91.097,260.7,0.486,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2023-11-01,2023-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,58543,58542.857142857145,7,observed,21.307,88.3,92.7,0.461,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2023-12-01,2023-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,65112,65112.5,8,observed,20.926,83.903,19.6,0.339,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2024-01-01,2024-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,70300,70300.0,12,observed,20.919,77.387,8.0,0.279,Dat do vang tren bazan,4,low,12,Nong Nghiep Moi Truong
+2024-02-01,2024-02-29,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,78840,78840.0,10,observed,22.521,72.724,6.7,0.266,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2024-03-01,2024-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,91689,91688.88888888889,9,observed,24.374,66.387,10.6,0.262,Dat do vang tren bazan,4,low,9,Nong Nghiep Moi Truong
+2024-04-01,2024-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,112988,112987.5,8,observed,25.86,68.867,16.8,0.276,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2024-05-01,2024-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,100788,100787.5,8,observed,24.516,81.71,144.6,0.376,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2024-06-01,2024-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,119938,119937.5,8,observed,23.153,88.0,193.9,0.439,Dat do vang tren bazan,4,low,8,Cong Thuong; Nong Nghiep Moi Truong
+2024-07-01,2024-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,127438,127437.5,8,observed,22.145,91.355,266.9,0.474,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2024-08-01,2024-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,118000,118000.0,7,observed,22.742,89.355,187.5,0.466,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2024-09-01,2024-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,122514,122514.28571428571,7,observed,22.207,92.367,365.8,0.498,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2024-10-01,2024-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,112462,112462.5,8,observed,21.787,90.0,295.9,0.487,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2024-11-01,2024-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,112967,112966.66666666667,6,observed,21.55,86.4,108.0,0.416,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2024-12-01,2024-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,123062,123062.5,8,observed,20.442,87.065,59.4,0.418,Dat do vang tren bazan,4,low,8,Cong Thuong; Nong Nghiep Moi Truong
+2025-01-01,2025-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,116925,116925.0,4,observed,19.474,80.226,6.4,0.326,Dat do vang tren bazan,4,low,4,Nong Nghiep Moi Truong
+2025-02-01,2025-02-28,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,130062,130062.5,8,observed,21.1,78.536,65.9,0.326,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2025-03-01,2025-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,129900,129900.0,9,observed,22.306,77.839,71.6,0.335,Dat do vang tren bazan,4,low,9,Nong Nghiep Moi Truong
+2025-04-01,2025-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,128538,128537.5,8,observed,23.093,79.933,80.7,0.354,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2025-05-01,2025-05-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,126743,126742.85714285714,7,observed,23.006,87.0,248.5,0.422,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2025-06-01,2025-06-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,111312,111312.5,8,observed,22.353,90.567,187.6,0.476,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2025-07-01,2025-07-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,91880,91880.0,10,observed,22.223,91.742,223.5,0.486,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2025-08-01,2025-08-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,110814,110814.28571428571,7,observed,22.142,90.0,223.8,0.47,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2025-09-01,2025-09-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,118100,118100.0,7,observed,21.773,92.167,340.4,0.496,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2025-10-01,2025-10-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,113533,113533.33333333333,3,observed,21.806,90.226,240.7,0.476,Dat do vang tren bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-01,2025-11-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,112500,112500.0,6,observed,21.053,88.267,239.3,0.464,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2025-12-01,2025-12-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,96800,96800.0,7,observed,20.329,85.194,67.4,0.411,Dat do vang tren bazan,4,low,7,Nong Nghiep Moi Truong
+2026-01-01,2026-01-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,97840,97840.0,10,observed,18.945,76.032,3.2,0.267,Dat do vang tren bazan,4,low,10,Nong Nghiep Moi Truong
+2026-02-01,2026-02-28,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,97550,97550.0,6,observed,21.436,76.786,52.1,0.309,Dat do vang tren bazan,4,low,6,Nong Nghiep Moi Truong
+2026-03-01,2026-03-31,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,91675,91675.0,8,observed,21.732,77.677,60.1,0.34,Dat do vang tren bazan,4,low,8,Nong Nghiep Moi Truong
+2026-04-01,2026-04-30,Lam Dong,Bao Loc,Robusta / ca phe nhan xo noi dia,91675,,0,interpolated_area,23.707,75.567,35.0,0.28,Dat do vang tren bazan,4,low,0,

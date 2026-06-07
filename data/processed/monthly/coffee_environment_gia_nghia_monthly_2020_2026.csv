@@ -1,0 +1,77 @@
+﻿period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
+2020-01-01,2020-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.435,67.968,1.0,0.229,Dat do bazan,4,low,0,
+2020-02-01,2020-02-29,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.893,64.828,2.0,0.227,Dat do bazan,4,low,0,
+2020-03-01,2020-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.203,68.226,11.0,0.247,Dat do bazan,4,low,0,
+2020-04-01,2020-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,24.887,76.2,71.9,0.341,Dat do bazan,4,low,0,
+2020-05-01,2020-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,25.468,81.839,189.1,0.391,Dat do bazan,4,low,0,
+2020-06-01,2020-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.617,90.2,304.4,0.493,Dat do bazan,4,low,0,
+2020-07-01,2020-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.381,90.323,427.3,0.493,Dat do bazan,4,low,0,
+2020-08-01,2020-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.539,89.871,335.9,0.484,Dat do bazan,4,low,0,
+2020-09-01,2020-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,23.1,91.2,353.1,0.494,Dat do bazan,4,low,0,
+2020-10-01,2020-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.432,92.548,404.8,0.495,Dat do bazan,4,low,0,
+2020-11-01,2020-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,32900.0,1,observed,22.46,82.733,129.9,0.42,Dat do bazan,4,low,1,Nong Nghiep Moi Truong
+2020-12-01,2020-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,33378,,0,interpolated_area,21.332,80.0,19.9,0.386,Dat do bazan,4,low,0,
+2021-01-01,2021-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,33857,,0,interpolated_area,20.29,74.129,4.9,0.273,Dat do bazan,4,low,0,
+2021-02-01,2021-02-28,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,34335,,0,interpolated_area,21.807,69.107,9.0,0.244,Dat do bazan,4,low,0,
+2021-03-01,2021-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,34813,,0,interpolated_area,24.3,67.774,16.5,0.246,Dat do bazan,4,low,0,
+2021-04-01,2021-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,35291,,0,interpolated_area,24.01,82.6,129.7,0.376,Dat do bazan,4,low,0,
+2021-05-01,2021-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,35770,,0,interpolated_area,24.371,86.355,261.4,0.431,Dat do bazan,4,low,0,
+2021-06-01,2021-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,36248,,0,interpolated_area,23.69,90.467,181.3,0.481,Dat do bazan,4,low,0,
+2021-07-01,2021-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,36726,,0,interpolated_area,23.194,91.323,354.7,0.494,Dat do bazan,4,low,0,
+2021-08-01,2021-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,37205,,0,interpolated_area,23.339,90.097,297.1,0.497,Dat do bazan,4,low,0,
+2021-09-01,2021-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,37683,,0,interpolated_area,22.73,91.767,374.1,0.499,Dat do bazan,4,low,0,
+2021-10-01,2021-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,38161,,0,interpolated_area,22.484,91.452,393.4,0.494,Dat do bazan,4,low,0,
+2021-11-01,2021-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,38639,,0,interpolated_area,22.443,87.3,195.5,0.465,Dat do bazan,4,low,0,
+2021-12-01,2021-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,39118,,0,interpolated_area,21.339,77.581,26.6,0.355,Dat do bazan,4,low,0,
+2022-01-01,2022-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,39596,,0,interpolated_area,21.903,72.258,8.2,0.266,Dat do bazan,4,low,0,
+2022-02-01,2022-02-28,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,40074,,0,interpolated_area,22.757,76.714,47.5,0.308,Dat do bazan,4,low,0,
+2022-03-01,2022-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,40553,,0,interpolated_area,23.761,77.419,63.2,0.343,Dat do bazan,4,low,0,
+2022-04-01,2022-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,41031,,0,interpolated_area,23.3,82.167,133.5,0.4,Dat do bazan,4,low,0,
+2022-05-01,2022-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,41509,,0,interpolated_area,23.377,89.548,337.7,0.488,Dat do bazan,4,low,0,
+2022-06-01,2022-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,41988,,0,province_proxy,23.353,88.033,269.9,0.476,Dat do bazan,4,low,0,
+2022-07-01,2022-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,41809,,0,province_proxy,23.11,90.032,298.2,0.493,Dat do bazan,4,low,0,
+2022-08-01,2022-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,47980,47980.0,10,observed,22.977,89.742,289.8,0.492,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2022-09-01,2022-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,47891,47890.90909090909,11,observed,22.663,90.833,369.3,0.496,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-10-01,2022-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,45750,45750.0,12,observed,22.555,86.677,201.2,0.477,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2022-11-01,2022-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,40064,40063.63636363636,11,observed,22.47,86.233,198.9,0.439,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2022-12-01,2022-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,40917,40916.666666666664,12,observed,20.884,77.387,14.1,0.34,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-01-01,2023-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,40450,40450.0,12,observed,20.71,79.355,68.8,0.361,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-02-01,2023-02-28,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,44400,44400.0,12,observed,22.357,73.107,28.1,0.293,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-03-01,2023-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,47193,47192.857142857145,14,observed,23.594,66.774,3.3,0.234,Dat do bazan,4,low,14,Nong Nghiep Moi Truong
+2023-04-01,2023-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,50030,50030.0,10,observed,25.027,76.867,62.9,0.33,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2023-05-01,2023-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,55008,55008.333333333336,12,observed,24.639,84.032,193.9,0.414,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2023-06-01,2023-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,64809,64809.09090909091,11,observed,23.53,89.2,355.5,0.487,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2023-07-01,2023-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,65555,65554.54545454546,11,observed,23.087,91.097,504.5,0.497,Dat do bazan,4,low,11,Nong Nghiep Moi Truong
+2023-08-01,2023-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,65814,65814.28571428571,7,observed,23.706,88.129,233.9,0.486,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2023-09-01,2023-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,66990,66990.0,10,observed,23.12,90.733,329.7,0.497,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2023-10-01,2023-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,63475,63475.0,8,observed,23.045,90.258,250.9,0.49,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2023-11-01,2023-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,59183,59183.333333333336,6,observed,22.72,83.433,53.1,0.444,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2023-12-01,2023-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,65812,65812.5,8,observed,22.529,77.839,7.3,0.345,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-01-01,2024-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,71017,71016.66666666667,12,observed,22.061,72.194,0.2,0.311,Dat do bazan,4,low,12,Nong Nghiep Moi Truong
+2024-02-01,2024-02-29,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,79900,79900.0,10,observed,23.938,70.379,4.4,0.313,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2024-03-01,2024-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,92544,92544.44444444444,9,observed,25.403,67.065,13.3,0.312,Dat do bazan,4,low,9,Nong Nghiep Moi Truong
+2024-04-01,2024-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,113750,113750.0,8,observed,26.687,71.067,12.4,0.337,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-05-01,2024-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,101712,101712.5,8,observed,25.471,82.742,155.0,0.443,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-06-01,2024-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,121129,121128.57142857143,7,observed,24.09,88.3,261.8,0.487,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-07-01,2024-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,128100,128100.0,8,observed,23.045,91.452,384.7,0.498,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-08-01,2024-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,118686,118685.71428571429,7,observed,23.987,87.613,288.8,0.483,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-09-01,2024-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,123114,123114.28571428571,7,observed,22.98,92.5,425.3,0.5,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2024-10-01,2024-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,113100,113100.0,8,observed,22.958,87.806,248.7,0.483,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2024-11-01,2024-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,113200,113200.0,3,observed,22.94,82.133,82.2,0.383,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2024-12-01,2024-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,124525,124525.0,8,observed,21.684,81.484,37.3,0.328,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-01-01,2025-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,118380,118380.0,5,observed,20.558,72.968,0.7,0.216,Dat do bazan,4,low,5,Nong Nghiep Moi Truong
+2025-02-01,2025-02-28,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,131500,131500.0,8,observed,22.582,71.107,15.6,0.214,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-03-01,2025-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,131412,131412.5,8,observed,24.139,72.387,19.4,0.245,Dat do bazan,4,low,8,Nong Nghiep Moi Truong
+2025-04-01,2025-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,128133,128133.33333333333,6,observed,25.257,74.8,60.8,0.289,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2025-05-01,2025-05-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,126867,126866.66666666667,3,observed,24.281,86.419,284.4,0.445,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-06-01,2025-06-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,110900,110900.0,4,observed,23.367,90.267,232.6,0.48,Dat do bazan,4,low,4,Nong Nghiep Moi Truong
+2025-07-01,2025-07-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,92390,92390.0,10,observed,23.155,91.323,291.4,0.495,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2025-08-01,2025-08-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,110317,110316.66666666667,6,observed,23.132,89.387,257.7,0.468,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2025-09-01,2025-09-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,118986,118985.71428571429,7,observed,22.827,91.767,421.0,0.496,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2025-10-01,2025-10-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,114500,114500.0,3,observed,23.094,88.452,217.1,0.462,Dat do bazan,4,low,3,Nong Nghiep Moi Truong
+2025-11-01,2025-11-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,114100,114100.0,6,observed,22.113,85.367,239.6,0.452,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2025-12-01,2025-12-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,97657,97657.14285714286,7,observed,21.848,79.226,27.5,0.292,Dat do bazan,4,low,7,Nong Nghiep Moi Truong
+2026-01-01,2026-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,98580,98580.0,10,observed,20.5,67.677,0.0,0.202,Dat do bazan,4,low,10,Nong Nghiep Moi Truong
+2026-02-01,2026-02-28,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,98800,98800.0,6,observed,23.136,70.357,39.2,0.226,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2026-03-01,2026-03-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,92333,92333.33333333333,6,observed,23.877,70.548,13.7,0.272,Dat do bazan,4,low,6,Nong Nghiep Moi Truong
+2026-04-01,2026-04-30,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,92333,,0,interpolated_area,25.487,73.2,31.9,0.269,Dat do bazan,4,low,0,

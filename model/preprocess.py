@@ -226,6 +226,7 @@ def split_temporal(
     df: pd.DataFrame,
     train_end: str = "2024-12-31",
     test_start: str = "2025-01-01",
+    test_end: str | None = "2025-12-31",
     train_ratio: float = 0.8,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     """
@@ -235,6 +236,8 @@ def split_temporal(
         df: DataFrame đã qua feature engineering, có cột 'date'.
         train_end: Ngày kết thúc tập train (mặc định 2024-12-31).
         test_start: Ngày bắt đầu tập test (mặc định 2025-01-01).
+        test_end: Ngày kết thúc tập test. Mặc định khóa 2025 để dữ liệu 2026
+            không âm thầm vào tập test khi crawl thêm dữ liệu mới.
         train_ratio: Tỷ lệ train nếu split theo ratio (mặc định 0.8). Chỉ dùng khi test set rỗng theo ngày.
 
     Returns:
@@ -256,6 +259,8 @@ def split_temporal(
     # trong time-series
     train_mask = df["date"] <= train_end
     test_mask = df["date"] >= test_start
+    if test_end is not None:
+        test_mask &= df["date"] <= test_end
 
     train_df = df[train_mask]
     test_df = df[test_mask]

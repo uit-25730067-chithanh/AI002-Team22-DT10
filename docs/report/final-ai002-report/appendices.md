@@ -125,7 +125,7 @@ Giao diện người dùng được thiết kế tối giản, trực quan hóa 
 ## Phụ lục 4: Đường dẫn mã nguồn và Dữ liệu
 
 ### Cấu trúc mã nguồn chính trên repository:
-- **Tập dữ liệu huấn luyện:** [coffee_environment_all_areas_monthly_2022_2025.csv](../../../data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv)
+- **Tập dữ liệu huấn luyện:** [coffee_environment_independent_all_areas_monthly_2022_2026.csv](../../../data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv)
 - **Module tiền xử lý:** [preprocess.py](../../../model/preprocess.py)
 - **Module huấn luyện Random Forest:** [train_rf.py](../../../model/train_rf.py)
 - **Entrypoint Backend API:** [main.py](../../../backend/main.py)

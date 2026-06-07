@@ -128,11 +128,11 @@ pip install -r requirements.txt
 ### 3. Huấn luyện Mô hình Baseline
 
 ```bash
-# Huấn luyện Random Forest baseline trên dữ liệu thực tế theo tháng
-python3 model/train_rf.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv --tag rf_real_monthly
+# Huấn luyện Random Forest baseline trên dataset độc lập theo tháng
+python3 model/train_rf.py --data data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv --tag rf_independent_monthly
 
 # Tùy chọn: Đánh giá mô hình XGBoost so sánh
-python3 model/train_xgboost.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv
+python3 model/train_xgboost.py --data data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv
 
 # Xem lịch sử quá trình huấn luyện
 cat model/experiments.csv
@@ -199,11 +199,11 @@ Xem chi tiết tại: **[docs/project-roadmap.md](./docs/project-roadmap.md)**
 
 ### Luồng Dữ liệu & AI
 
-Luồng làm việc hiện tại sử dụng tập dữ liệu thực tế (đã làm sạch) được tổng hợp theo tháng để huấn luyện mô hình học máy `RandomForestRegressor`. Đây là chiến lược giúp dự đoán giá cả ổn định, dễ giải thích và bám sát nguyên tắc **KISS** (Keep It Simple, Stupid) của thiết kế AI.
+Luồng làm việc hiện tại sử dụng dataset độc lập do Team 2 tự crawl, audit và build lại từ nguồn public, tổng hợp theo tháng để huấn luyện `RandomForestRegressor`. Đây là chiến lược giúp dự đoán giá cả ổn định, dễ giải thích và bám sát nguyên tắc **KISS** (Keep It Simple, Stupid) của thiết kế AI.
 
 ```mermaid
 flowchart TD
-    A["Team 1: Crawl giá cà phê & Thời tiết"] --> B["Raw daily data"]
+    A["Team 2: Crawl độc lập giá cà phê & thời tiết"] --> B["Raw daily data"]
     
     B --> G["Tiền xử lý & Tổng hợp"]
 
@@ -217,9 +217,9 @@ flowchart TD
 ```
 
 **Tập dữ liệu huấn luyện chính:**
-- File: `data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv`
-- Kích thước: 576 dòng, 16 cột
-- Phân chia (Temporal Split): Huấn luyện 2022-2024, Kiểm thử 2025.
+- File: `data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv`
+- Kích thước: 624 dòng, 18 cột
+- Phân chia (Temporal Split): Huấn luyện 2022-2024, Kiểm thử 2025, giữ 2026-01 đến 2026-04 làm freshness holdout.
 
 ---
 
