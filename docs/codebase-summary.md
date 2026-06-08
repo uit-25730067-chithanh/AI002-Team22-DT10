@@ -56,9 +56,11 @@
 
 ### `scripts/` — Tiện ích
 
-Không còn script active trong danh sách file chính. Mock data generator và XGBoost comparison cũ đã đưa ra khỏi repo hiện tại vì dataset canonical + Random Forest monthly baseline là luồng hiện tại.
+| File | Mô tả |
+| --- | --- |
+| `generate_mock_data.py` | Tạo dữ liệu giả (mock) để khởi tạo và test luồng ban đầu |
 
-### `tests/ai-tests/` — Kiểm thử
+### `tests/ai-tests/` — Kiểm thử (20 files)
 
 | File | Mô tả |
 | --- | --- |
@@ -74,6 +76,14 @@ Không còn script active trong danh sách file chính. Mock data generator và 
 | `test_coffee_data_contract.py` | Kiểm tra contract dataset chính thức |
 | `test_canonical_model_training.py` | Kiểm tra train/test/demo windows và promote `rf_monthly` |
 | `test_stress_test_cli_structure.py` | Regression test cho CLI stress test |
+| `test_canonical_area_dataset_builder.py` | Kiểm tra tạo tập dữ liệu khu vực chuẩn |
+| `test_data_quality.py` | Kiểm tra chất lượng dữ liệu và ngoại lệ |
+| `test_debug_endpoint_removed.py` | Đảm bảo các endpoint debug bị loại bỏ |
+| `test_manifest_price_parsers.py` | Kiểm tra parser giá theo manifest |
+| `test_price_crawler_runner.py` | Kiểm tra tiến trình chạy crawler giá |
+| `test_source_manifest.py` | Kiểm tra tính hợp lệ của manifest nguồn |
+| `test_temporal_split.py` | Kiểm tra phân tách dữ liệu theo thời gian (train/test split) |
+| `test_weather_outputs.py` | Kiểm tra output dữ liệu thời tiết |
 
 ### `docs/` — Tài liệu vận hành và bàn giao
 
@@ -95,7 +105,6 @@ Không còn script active trong danh sách file chính. Mock data generator và 
 
 ### `plans/` — Kế hoạch
 
-| File | Mô tả |
+| Thư mục | Mô tả |
 | --- | --- |
-| `plans/260608-1551-balanced-repo-cleanup/plan.md` | Kế hoạch cleanup mức Balanced hiện tại |
-| `plans/260608-1551-balanced-repo-cleanup/reports/` | Báo cáo kiểm kê, archive và validation theo từng phase |
+| `plans/` | Chứa 23 thư mục kế hoạch (plans) được quản lý tự động bằng ClaudeKit cho các công việc như: rebuild data, cleanup repo, refine frontend, update docs,... |

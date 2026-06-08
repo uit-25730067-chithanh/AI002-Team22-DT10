@@ -2,7 +2,7 @@
 
 Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu chính thức được thu thập, audit và tạo lại, sau đó đi qua model, API và frontend.
 
-**Trạng thái hiện tại:** roadmap phản ánh trạng thái cập nhật tính đến 2026-06-07 sau khi tách nhóm và rebuild dataset chính thức.
+**Trạng thái hiện tại:** roadmap phản ánh trạng thái cập nhật tính đến 2026-06-08 sau khi hoàn tất dọn dẹp repo và đồng bộ tài liệu.
 
 ## Bức tranh tổng quan
 

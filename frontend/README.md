@@ -29,9 +29,9 @@ flowchart TD
 
 ## 3. Chức năng các thư mục/file chính
 
-- **`src/App.tsx`**: Khung ứng dụng chính, quản lý định tuyến nội bộ (Tabs).
-- **`src/components/`**: Chứa các thẻ UI dùng chung (Button, Card, Form Input).
-- **`src/lib/`**: Các hàm utility, bao gồm hàm gọi API (`api.ts`).
+- **`src/app/App.tsx`**: Khung ứng dụng chính, quản lý định tuyến nội bộ (Tabs).
+- **`src/shared/components/`**: Chứa các thẻ UI dùng chung (Button, Card, Form Input).
+- **`src/shared/api/`, `src/shared/storage/`, ...**: Các hàm utility, bao gồm hàm gọi API, lưu trữ.
 - **`vite.config.ts` & `tailwind.config.js`**: Cấu hình build system và hệ thống màu sắc, typography.
 
 ## 4. Hướng dẫn chạy Demo

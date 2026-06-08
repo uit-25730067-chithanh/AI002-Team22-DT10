@@ -31,6 +31,7 @@ flowchart TD
 - **`api/routes.py`**: Định nghĩa các API endpoints.
 - **`schemas/prediction.py`**: Chứa các Pydantic schema dùng cho tính chặt chẽ của Request và Response.
 - **`services/predictor.py`**: Lớp Service quản lý việc load file model (`.pkl`), tiền xử lý nhanh và suy luận ra kết quả.
+- **`services/farming_advisory.py`**: Chứa logic rule-based đưa ra lời khuyên canh tác dựa trên các thông số môi trường.
 
 ## 4. Roadmap Tiến độ
 
