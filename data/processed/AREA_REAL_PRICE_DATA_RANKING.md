@@ -46,6 +46,6 @@ File này tổng hợp độ phủ dữ liệu giá cà phê quan sát thật th
 ## File liên quan
 
 - `data/raw/coffee_price_all_areas_daily_2020_2026.csv`: dữ liệu giá public-source dạng daily.
-- `data/processed/weekly/coffee_environment_all_areas_weekly_2020_2026.csv`: dataset weekly đã merge môi trường, thổ nhưỡng và giá.
+- `data/processed/weekly/coffee_environment_all_areas_weekly_2020_2026.csv`: dataset weekly có thể tái tạo khi cần, nhưng CSV tracked cũ đã đưa ra khỏi danh sách file chính vì không dùng làm baseline chính.
 - `data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv`: dataset monthly đã merge môi trường, thổ nhưỡng và giá.
 - `data/processed/area_real_price_data_ranking.csv`: bảng ranking dạng CSV.

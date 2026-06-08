@@ -5,8 +5,8 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 ## 📖 Phân loại tài liệu (Docs Tiering)
 
 - **Tier 1: Current source-of-truth**: Chứa trạng thái mới nhất, bắt buộc maintain. Chỉ bao gồm các tài liệu chính: `README.md`, `project-overview-pdr.md`, `code-standards.md`, `system-architecture.md`, `codebase-summary.md`, `project-roadmap.md`, `deployment.md`, `troubleshooting.md`.
-- **Tier 2: Deliverables (Frozen)**: Các tài liệu đã nộp, đóng băng trạng thái (không maintain): báo cáo cuối kỳ, slide, pdf.
-- **Tier 3: Archive evidence**: Bằng chứng, thảo luận lịch sử, note theo tuần. Không dùng làm source-of-truth hiện tại: `docs/discussions/`.
+- **Tier 2: Deliverables (Frozen)**: Các tài liệu đã chốt, đóng băng trạng thái (không maintain): báo cáo cuối kỳ, slide, pdf.
+- **Tier 3: Evidence phụ**: Chỉ giữ bằng chứng còn dùng trực tiếp cho repo trong `docs/discussions/`; discussion cũ đã tách khỏi repo hiện tại.
 - **Tier 4: Noise**: Đã được xóa bỏ hoặc bỏ qua.
 ## 📖 Mục lục
 
@@ -17,7 +17,7 @@ Thư mục này chứa toàn bộ tài liệu kỹ thuật và quản lý của 
 - [Lộ trình Dự án (Roadmap)](project-roadmap.md): Lịch trình phát triển, biểu đồ Gantt và phân công WBS.
 - [Robustness Stress Test](discussions/robustness-stress-test.md): Bằng chứng stress test cho mô hình hiện tại.
 - [Soil Score Guide](discussions/soil_score_guide.md): Hướng dẫn diễn giải điểm đất.
-- [Archive Evidence Index - Discussions](discussions/README.md): Chỉ mục archive cho toàn bộ tài liệu thảo luận.
+- [Evidence Index - Discussions](discussions/README.md): Chỉ mục evidence phụ còn giữ trong repo.
 - [Report Index](report/README.md): Chỉ mục báo cáo chính thức (`final-ai002-report/`) và PDF evidence.
 - [Slides Thuyết trình](slides/final_presentation_slides.md): Các slide dùng cho báo cáo cuối kỳ.
 - [Hướng dẫn Triển khai & Self-host](deployment.md): Hướng dẫn deploy Cloudflare Pages (Frontend), Render (Backend) và chạy server Local.

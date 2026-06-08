@@ -27,7 +27,7 @@ Thư mục này chứa toàn bộ nội dung báo cáo cuối kỳ của đề t
 
 - **Ngôn ngữ chính:** Tiếng Việt.
 - **Giữ nguyên thuật ngữ tiếng Anh đối với:**
-  - Tên mô hình: `Random Forest`, `XGBoost`.
+  - Tên mô hình hiện tại: `Random Forest`; các mô hình như `XGBoost` chỉ được nhắc ở hướng phát triển tương lai.
   - Các kỹ thuật: `feature engineering`, `one-hot encoding`, `temporal split` (phân chia dữ liệu theo thời gian), `data leakage` (rò rỉ dữ liệu), `outliers` (ngoại lai).
   - Tên các độ đo: `MAE`, `RMSE`, `R-squared` / `R²`.
   - Công nghệ backend: `FastAPI`, `Pydantic`, `Uvicorn`, `endpoints`.

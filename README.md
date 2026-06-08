@@ -28,7 +28,7 @@
   - [Luồng Dữ liệu & AI](#luồng-dữ-liệu--ai)
   - [Phân chia Công việc (WBS)](#phân-chia-công-việc-wbs)
   - [Điều lệ Nhóm](#điều-lệ-nhóm)
-  - [Báo cáo & Nộp bài](#báo-cáo--nộp-bài)
+  - [Báo cáo & Bàn giao](#báo-cáo--bàn-giao)
 
 ---
 
@@ -62,7 +62,7 @@
 | Danh mục             | Công nghệ                                                                                                                                                                                                                                                                                            |
 | :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Backend / API**    | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)                                                                                                                        |
-| **Machine Learning** | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost)                                                                                        |
+| **Machine Learning** | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)                                                                                                                                                                               |
 | **Data & Storage**   | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite)                                             |
 | **Frontend**         | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) |
 
@@ -133,9 +133,6 @@ pip install -r requirements.txt
 # Huấn luyện Random Forest baseline trên dataset chính thức theo tháng
 python3 model/train_rf.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv --tag rf_monthly_baseline
 
-# Tùy chọn: Đánh giá mô hình XGBoost so sánh
-python3 model/train_xgboost.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv
-
 # Xem lịch sử quá trình huấn luyện
 cat model/experiments.csv
 ```
@@ -183,7 +180,7 @@ python3 -m pytest tests/ai-tests -q
 
 ## Chi tiết Học thuật
 
-> Các thông tin phục vụ quá trình chấm điểm, đánh giá quá trình làm việc của đồ án AI002.
+> Các thông tin phục vụ quá trình đánh giá học thuật, đánh giá quá trình làm việc của đồ án AI002.
 
 ---
 
@@ -249,7 +246,6 @@ _(Lưu ý: Do đây là repo public, GitHub handle của một số thành viên
 ### Báo cáo & Nộp bài
 
 Toàn bộ báo cáo, phụ lục, tài liệu thiết kế và slide thuyết trình được lưu trữ trong thư mục `docs/report/final-ai002-report`. Bản nén cuối cùng bao gồm báo cáo PDF, source code và model weights sẽ được nộp trên hệ thống của trường đúng thời hạn yêu cầu.
-
 <br/>
 
 <div align="center">

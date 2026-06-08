@@ -28,7 +28,7 @@ def load_inputs(
     soil_path = raw_dir / soil_file
 
     if not price_path.exists():
-        raise FileNotFoundError(f"Missing {price_path}. Run crawl_coffee_prices.py first.")
+        raise FileNotFoundError(f"Missing {price_path}. Run run_price_crawlers.py first.")
     if not weather_path.exists():
         raise FileNotFoundError(f"Missing {weather_path}. Run crawl_weather_by_area.py first.")
     if not soil_path.exists():

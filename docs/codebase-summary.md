@@ -1,7 +1,7 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Canonical Data Baseline + Protected API Contract + React Frontend + Maintainability Cleanup.
-**Cập nhật:** 2026-06-07
+**Trạng thái:** Canonical Data Baseline + Protected API Contract + React Frontend + Balanced Repo Cleanup.
+**Cập nhật:** 2026-06-08
 
 ---
 
@@ -23,7 +23,6 @@
 | --- | --- | --- |
 | `preprocess.py` | Wrapper backward-compatible cho pipeline real-data | Robustness |
 | `train_rf.py` | Train Random Forest baseline; đánh giá MAE/RMSE/R²; promote model tốt nhất theo scope `rf_real` hoặc `rf_monthly` | Reliability, Transparency |
-| `train_xgboost.py` | XGBoost comparison optional trong venv riêng | Reliability |
 | `stress_test.py` | CLI stress test, inject Black Swan scenarios và ghi report | Robustness |
 | `experiment_tracker.py` | Create/list experiments, save artifacts/metrics/params, promote best model | Traceability |
 | `best_model/` | Metadata và model artifact được promote cho API | Traceability |
@@ -32,17 +31,15 @@
 
 | File | Mô tả |
 | --- | --- |
-| `crawl_coffee_prices.py` | CLI crawl chính, orchestrate sitemap/seed/url file và xuất CSV theo area |
 | `price_crawler_common.py` | Shared parser/helpers: parse date, price/change, article rows, area mapping |
-| `area_dataset_builder.py` | Build weekly/monthly processed datasets từ raw price/weather/soil |
+| `area_dataset_builder.py` | Build monthly dataset chính và weekly reference khi cần từ raw price/weather/soil |
 | `build_area_datasets.py` | CLI wrapper cho dataset builder |
 | `build_soil_profile.py` | Sinh static soil profile theo vùng cà phê |
 | `crawl_weather_by_area.py` | Crawl daily weather theo area |
 | `coffee_areas.py` | Danh sách vùng cà phê, tọa độ và soil metadata |
 | `coffee_data_contract.py` | Contract schema, mốc thời gian và canonical paths cho dataset chính thức |
 | `source_manifest.json` | Seed/source manifest cho crawl từ nguồn public |
-| `run_price_crawlers.py` | Runner crawl giá theo manifest |
-| `build_area_datasets.py` | CLI tạo processed weekly/monthly dataset chính thức |
+| `run_price_crawlers.py` | Runner crawl giá chính theo manifest |
 | `data_audit.py` | Audit độ phủ, range baseline và ranking area |
 | `data_quality.py` | Helper kiểm tra chất lượng dataset |
 
@@ -59,9 +56,7 @@
 
 ### `scripts/` — Tiện ích
 
-| File | Mô tả |
-| --- | --- |
-| `generate_mock_data.py` | Sinh 1200 dòng mock data (Tây Nguyên, 2020-2026); inject NaN + outliers; ghi chú regional bias |
+Không còn script active trong danh sách file chính. Mock data generator và XGBoost comparison cũ đã đưa ra khỏi repo hiện tại vì dataset canonical + Random Forest monthly baseline là luồng hiện tại.
 
 ### `tests/ai-tests/` — Kiểm thử
 
@@ -102,5 +97,5 @@
 
 | File | Mô tả |
 | --- | --- |
-| `plans/260604-1026-ai002-maintainability-cleanup-and-refactor/plan.md` | Kế hoạch cleanup/refactor hiện tại |
-| `plans/260604-1026-ai002-maintainability-cleanup-and-refactor/reports/` | Baseline, validation, handoff và các report liên quan |
+| `plans/260608-1551-balanced-repo-cleanup/plan.md` | Kế hoạch cleanup mức Balanced hiện tại |
+| `plans/260608-1551-balanced-repo-cleanup/reports/` | Báo cáo kiểm kê, archive và validation theo từng phase |

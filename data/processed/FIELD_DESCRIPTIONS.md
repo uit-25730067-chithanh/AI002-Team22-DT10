@@ -1,11 +1,11 @@
 # Mô tả các field trong dữ liệu processed
 
-Tài liệu này mô tả ý nghĩa các cột trong các file CSV tại `data/processed/weekly` và `data/processed/monthly`.
+Tài liệu này mô tả ý nghĩa các cột trong dataset processed. Dự án hiện giữ dataset chính tại `data/processed/monthly`.
 
-Các file trong hai thư mục này có cùng schema. Khác biệt chính là mức tổng hợp thời gian:
+Pipeline vẫn có thể tạo monthly/weekly với cùng schema. Khác biệt chính là mức tổng hợp thời gian:
 
-- `weekly`: dữ liệu được tổng hợp theo tuần.
-- `monthly`: dữ liệu được tổng hợp theo tháng.
+- `monthly`: dữ liệu được tổng hợp theo tháng, là dataset train baseline chính và được giữ trong Git.
+- `weekly`: dữ liệu được tổng hợp theo tuần, chỉ còn vai trò tham khảo/tái tạo khi cần, CSV tracked cũ đã đưa ra khỏi danh sách file chính.
 - `coffee_environment_all_areas_<freq>_2020_2026.csv`: chứa tất cả khu vực.
 - Per-area processed files là artifact trung gian đã được backup local, không còn là source-of-truth final.
 

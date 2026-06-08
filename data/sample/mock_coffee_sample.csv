@@ -1,7 +1,0 @@
-period_start,period_end,province,area,coffee_type,avg_price_vnd_per_kg,observed_price_vnd_per_kg,price_observations,price_fill_method,avg_temperature_c,avg_humidity_percent,total_rainfall_mm,avg_soil_moisture_0_7cm,dominant_soil_type,soil_score,soil_data_confidence,source_url_count,source_names
-2020-01-01,2020-01-31,Dak Lak,Buon Ho,Robusta / ca phe nhan xo noi dia,31150,,0,interpolated_area,20.3,81.452,2.0,0.205,Dat do bazan,5,medium,0,
-2020-01-01,2020-01-31,Dak Lak,Cu M'gar,Robusta / ca phe nhan xo noi dia,31092,,0,interpolated_area,22.787,71.355,1.5,0.212,Dat do bazan,5,high,0,
-2020-01-01,2020-01-31,Dak Lak,Ea H'leo,Robusta / ca phe nhan xo noi dia,31033,,0,interpolated_area,21.319,75.065,3.2,0.239,Dat do bazan,5,medium,0,
-2020-01-01,2020-01-31,Dak Nong,Dak R'lap,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.687,68.774,1.5,0.307,Dat do bazan,4,low,0,
-2020-01-01,2020-01-31,Dak Nong,Gia Nghia,Robusta / ca phe nhan xo noi dia,32900,,0,interpolated_area,22.435,67.968,1.0,0.229,Dat do bazan,4,low,0,
-2020-01-01,2020-01-31,Gia Lai,Chu Prong,Robusta / ca phe nhan xo noi dia,31200,,0,interpolated_area,23.597,63.161,6.3,0.196,Dat do bazan,4,low,0,

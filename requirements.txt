@@ -11,9 +11,6 @@ numpy>=1.24        # Numerical arrays, random generators for mock data
 scikit-learn>=1.3  # Random Forest model, train/test split, metrics (MAE/RMSE)
 joblib>=1.3        # Persist trained model to .pkl file
 
-# Optional (post-holiday model comparison)
-# xgboost>=2.0  # Gradient-boosted trees baseline compare. Requires libomp on macOS: brew install libomp
-
 # Backend API
 fastapi>=0.104     # REST API framework + auto-generated Swagger UI (/predict, /health)
 uvicorn[standard]>=0.24  # ASGI server to run FastAPI

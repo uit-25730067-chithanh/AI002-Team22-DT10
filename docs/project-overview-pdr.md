@@ -29,4 +29,4 @@ Hệ thống phải thể hiện và chứng minh được 5 yếu tố sau tron
 ## 4. Phân công công việc
 
 - **Thanh & Sơn:** Phụ trách data pipeline, model, backend/API, evaluation và hỗ trợ demo cuối kỳ.
-- **Project members:** Cùng rà soát báo cáo, slide và demo trước khi nộp.
+- **Project members:** Cùng rà soát báo cáo, slide và demo trước buổi báo cáo.

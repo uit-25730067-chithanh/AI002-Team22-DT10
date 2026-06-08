@@ -6,7 +6,7 @@ Thư mục chịu trách nhiệm huấn luyện (Training), tiền xử lý (Pre
 
 - Làm sạch dữ liệu từ thư mục `data/processed/`.
 - Thực thi pipeline chia tập dữ liệu (Temporal Split) để tránh Data Leakage (không dùng giá tương lai để đoán quá khứ).
-- Huấn luyện thuật toán (Random Forest, XGBoost) và ghi nhận lại các bản ghi thực nghiệm.
+- Huấn luyện Random Forest baseline và ghi nhận lại các bản ghi thực nghiệm.
 - Lựa chọn mô hình tốt nhất (Best Model) để Promote đưa vào sản xuất (cho Backend sử dụng).
 - Kiểm tra độ bền bỉ của mô hình bằng các kịch bản cực đoan (Stress Test / Robustness).
 
@@ -18,10 +18,7 @@ flowchart TD
     
     Preprocess --> Split["Temporal Split<br/>Train / Test"]
     Split --> TrainRF["train_rf.py<br/>Baseline Random Forest"]
-    Split --> TrainXGB["train_xgboost.py<br/>Thực nghiệm XGBoost"]
-    
     TrainRF --> Tracker["experiment_tracker.py"]
-    TrainXGB --> Tracker
     
     Tracker -->|Lưu log chạy, metrics, model .pkl| Exps["experiments/"]
     Tracker -->|Promote tự động model tốt nhất| Best["best_model/"]
@@ -34,7 +31,6 @@ flowchart TD
 
 - **`preprocess.py`**: Chứa các hàm tạo thêm đặc trưng (feature engineering như độ trễ, biến động), xử lý missing values.
 - **`train_rf.py`**: Kịch bản chạy mô hình Random Forest làm Baseline, đánh giá (MAE, RMSE, R2), và trích xuất Feature Importance (Tính minh bạch).
-- **`train_xgboost.py`**: Script huấn luyện model nâng cao (cần cài đặt XGBoost trong venv).
 - **`experiment_tracker.py`**: Hệ thống quản lý thực nghiệm nhẹ nhàng (KISS), tự động log các metrics, siêu tham số và phiên bản mô hình vào `experiments.csv` thay vì phải cài cắm MLflow phức tạp.
 - **`stress_test.py`**: Đánh giá hiệu suất mô hình trong các kịch bản Black Swan (sốc nhiệt, hạn hán kéo dài). Đảm bảo trụ cột Robustness.
 
@@ -59,4 +55,4 @@ python model/stress_test.py
 - [x] Xây dựng Experiment Tracking System siêu nhẹ
 - [x] Tích hợp Robustness Stress Test
 - [x] Tự động Promote "Best Model" cập nhật cho Backend
-- [ ] Mở rộng Grid Search để tối ưu siêu tham số Hyperparameters (Tương lai)
+- [ ] Mở rộng Grid Search hoặc so sánh model khác trong nhánh nghiên cứu riêng (Tương lai)

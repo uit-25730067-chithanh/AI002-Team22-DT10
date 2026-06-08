@@ -192,7 +192,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Huấn luyện RF baseline")
     parser.add_argument(
         "--data",
-        default="data/raw/mock_coffee_data.csv",
+        default="data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv",
         help="Đường dẫn CSV input",
     )
     parser.add_argument(

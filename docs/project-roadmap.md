@@ -51,7 +51,7 @@ flowchart LR
 | Nhóm              | File                                                                        | Mục đích                        | Trạng thái                                   |
 | :---------------- | :-------------------------------------------------------------------------- | :------------------------------ | :------------------------------------------- |
 | Raw giá crawl     | `data/raw/coffee_price_all_areas_daily_2020_2026.csv`                       | Nguồn giá public tự crawl lại   | Gitignored, không train trực tiếp trong repo |
-| Weekly processed  | `data/processed/weekly/coffee_environment_all_areas_weekly_2020_2026.csv`   | Tham khảo, thử nghiệm tương lai | Chưa dùng làm baseline chính                 |
+| Weekly processed  | Có thể tái tạo bằng `crawler/build_area_datasets.py --freq weekly`           | Tham khảo, thử nghiệm tương lai | CSV tracked cũ đã đưa ra khỏi danh sách file chính |
 | Monthly processed | `data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv` | Dataset train chính             | Đã dùng cho baseline chính thức                 |
 | Xếp hạng độ phủ   | `data/processed/area_real_price_data_ranking.csv`                           | Đánh giá độ phủ khu vực         | Đã dùng để quyết định                        |
 
@@ -96,7 +96,7 @@ gantt
     React frontend nối /predict             :done, f1, 2026-06-03, 1d
     Demo end-to-end                          :done, f2, 2026-06-03, 1d
     Báo cáo kỹ thuật và slide                :done, f3, 2026-05-25, 10d
-    Nộp bài                                  :milestone, f4, 2026-06-04, 0d
+    Bàn giao cuối kỳ                        :milestone, f4, 2026-06-04, 0d
 ```
 
 ## Phân công trách nhiệm
@@ -200,7 +200,7 @@ stateDiagram-v2
     APIContract --> Evaluation
     Evaluation --> FrontendIntegration
     FrontendIntegration --> ReportAndDemo
-    ReportAndDemo --> Submission
+    ReportAndDemo --> FinalHandoff
 
     Foundation: Repo, mock pipeline, API skeleton
     RealData: Processed monthly/weekly datasets
@@ -209,7 +209,7 @@ stateDiagram-v2
     Evaluation: Kiểm toán dữ liệu thật + Bias + 5 Pillars + stress test hoàn tất
     FrontendIntegration: Frontend gọi API
     ReportAndDemo: Slide + báo cáo + demo
-    Submission: Nộp bài cuối kỳ
+    FinalHandoff: Bàn giao cuối kỳ
 ```
 
 ## Theo dõi tiến độ tuần
@@ -225,7 +225,7 @@ stateDiagram-v2
 
 - [x] Chạy mock pipeline.
 - [x] Có FastAPI skeleton.
-- [x] Có Random Forest baseline trên mock data.
+- [x] Có Random Forest baseline giai đoạn foundation; mock data đã archive sau khi canonical monthly dataset thay thế.
 
 ### Tuần 3 — Data thật
 
@@ -286,7 +286,6 @@ flowchart TD
 
 ## Tài liệu liên quan
 
-- [`docs/discussions/2026-05-13-son-evaluation-pack-summary.md`](discussions/2026-05-13-son-evaluation-pack-summary.md)
 - [`docs/discussions/robustness-stress-test.md`](discussions/robustness-stress-test.md)
 - [`data/processed/FIELD_DESCRIPTIONS.md`](../data/processed/FIELD_DESCRIPTIONS.md)
 - [`data/processed/AREA_REAL_PRICE_DATA_RANKING.md`](../data/processed/AREA_REAL_PRICE_DATA_RANKING.md)
