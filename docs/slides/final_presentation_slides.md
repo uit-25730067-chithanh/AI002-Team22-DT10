@@ -3,197 +3,186 @@
 **Môn học:** Tư duy Trí tuệ Nhân tạo (AI002)  
 **Đề tài:** AI Dự báo Kế hoạch Canh tác Mùa vụ & Giá Cà phê cho Nông dân Tây Nguyên  
 **Tác giả:** Nhóm 10 (Đặng Chí Thanh, Hoàng Cao Sơn)  
-**Định dạng Slide:** Có thể trình chiếu trực tiếp từ Markdown hoặc dùng để nhập vào Google Slides/PowerPoint.
+**Định dạng Slide:** Được cập nhật khớp với mã nguồn Frontend `slidesData.ts` (không bao gồm Speaker Notes).
 
 ---
 
 ## Slide 1: Trang bìa
-* **Tiêu đề:** AI hỗ trợ canh tác & Dự báo giá Cà phê cho Nông dân Tây Nguyên
-* **Phân hệ đề tài:** Đề tài DT10 - Tư duy Trí tuệ Nhân tạo (AI002)
-* **Giảng viên hướng dẫn:** TS. Phan Thế Duy
-* **Nhóm thực hiện:** Nhóm 10
+
+- **Tiêu đề:** AI Hỗ Trợ Canh Tác & Dự Báo Giá Cà Phê
+- **Phân hệ đề tài:** Đề tài DT10 - Tư duy Trí tuệ Nhân tạo (AI002)
+- **Giảng viên hướng dẫn:** TS. Phan Thế Duy
+- **Nhóm thực hiện:** Nhóm 10
   - Đặng Chí Thanh (Trưởng nhóm - MSSV: 25730067)
-  - Hoàng Cao Sơn (Đánh giá & Kiểm toán AI - MSSV: 25730061)
-* **Speaker Notes:** 
-  > Xin chào Thầy và các bạn. Hôm nay Nhóm 10 xin đại diện trình bày đồ án cuối kỳ môn Tư duy Trí tuệ Nhân tạo với đề tài DT10: AI dự báo kế hoạch canh tác mùa vụ và giá cà phê cho nông dân Tây Nguyên. Trọng tâm của đồ án không nằm ở việc xây dựng mô hình Deep Learning phức tạp mà tập trung vào việc áp dụng tư duy thiết kế hệ thống AI bền vững và có trách nhiệm đến tay người nông dân nhỏ lẻ.
+  - Hoàng Cao Sơn (Thành viên - MSSV: 25730061)
 
 ---
 
 ## Slide 1.1: Thành viên Đặng Chí Thanh (Nhóm trưởng)
-* **Họ và tên:** Đặng Chí Thanh
-* **MSSV:** 25730067
-* **Nhiệm vụ phân công:** Đảm nhiệm kỹ thuật Machine Learning (Feature Engineering, Preprocessing, Train thuật toán Random Forest Baseline), viết Backend API bằng FastAPI, xây dựng Web UI (Frontend) và liên kết API với UI.
-* **Phụ trách AI Bền vững:** Trục Reliability (Tính tin cậy), Explainability (Tính minh bạch/giải thích được) và Social Impact (Tác động xã hội).
-* **Speaker Notes:**
-  > Nêu bật quá trình thiết kế lõi AI kiểm soát mức độ quan trọng của đặc trưng (Feature Importance), xử lý backend FastAPI và tích hợp giao diện di động React/Vite tối ưu tác động xã hội.
+
+- **Họ và tên:** Đặng Chí Thanh
+- **MSSV:** 25730067
+- **Nhiệm vụ phân công:**
+  - Kỹ thuật Machine Learning (Preprocess dữ liệu, Feature Engineering, Random Forest Baseline).
+  - Phát triển Backend API bằng FastAPI (Định nghĩa contract API).
+  - Xây dựng Web UI (Frontend) và tích hợp liên kết API với giao diện trực quan.
+  - Phụ trách AI Bền vững: Trục Reliability (Tính tin cậy), Transparency (Minh bạch) & Social Impact.
 
 ---
 
 ## Slide 1.2: Thành viên Hoàng Cao Sơn
-* **Họ và tên:** Hoàng Cao Sơn
-* **MSSV:** 25730061
-* **Nhiệm vụ phân công:** Đánh giá và kiểm toán dữ liệu (Real Data Audit), thu thập dữ liệu lịch sử giá & thời tiết (Crawler), đồng thời viết kịch bản stress test tự động cho API.
-* **Phụ trách AI Bền vững:** Trục Robustness (Kháng nhiễu) và Bias (Tính thiên lệch).
-* **Speaker Notes:**
-  > Tóm tắt về các phát hiện khi đánh giá độ lệch dữ liệu địa lý giữa các tỉnh, quy trình crawler dữ liệu và quá trình mô phỏng các kịch bản nhiễu cực đoan (Black Swan).
+
+- **Họ và tên:** Hoàng Cao Sơn
+- **MSSV:** 25730061
+- **Nhiệm vụ phân công:**
+  - Đánh giá và kiểm toán dữ liệu (Real Data Audit).
+  - Thu thập dữ liệu lịch sử giá & thời tiết (Crawler) và đánh giá độ phủ dữ liệu (Data Coverage).
+  - Viết kịch bản stress test tự động cho API đánh giá biên độ sai số.
+  - Phụ trách AI Bền vững: Trục Robustness (Kháng nhiễu) & Bias (Tính thiên lệch).
 
 ---
 
+## Slide 2: Bối cảnh & Vấn đề Nông hộ
 
-## Slide 2: Bối cảnh thực tiễn & Vấn đề nông hộ
-* **Vấn đề 1: Biến đổi khí hậu cực đoan**
-  - Thời tiết Tây Nguyên biến động mạnh (nhiệt độ tăng, lượng mưa thất thường, khô hạn kéo dài).
-  - Ảnh hưởng trực tiếp đến năng suất và chất lượng hạt cà phê.
-* **Vấn đề 2: Bất đối xứng thông tin thị trường**
-  - Giá cà phê biến động liên tục theo sàn thế giới.
-  - Nông dân thiếu dữ liệu khách quan, dễ bị ép giá bởi thương lái.
-* **Vấn đề 3: Quyết định cảm tính**
-  - Việc tưới nước, bón phân, chọn thời điểm bán chủ yếu dựa vào kinh nghiệm cá nhân truyền thống.
-* **Speaker Notes:**
-  > Cà phê là xương sống kinh tế Tây Nguyên. Tuy nhiên, nông dân nhỏ lẻ đang kẹt giữa hai gọng kìm: một bên là thời tiết cực đoan do biến đổi khí hậu, một bên là thị trường giá cả bấp bênh. Họ thiếu công cụ hỗ trợ ra quyết định khoa học, dẫn đến việc bán non hoặc bón phân tưới nước sai thời điểm.
+- **Hình ảnh minh họa:** `/slide-06.png`
+- **Nội dung chính:**
+  - Biến đổi khí hậu cực đoan: Nhiệt độ tăng, lượng mưa thất thường ảnh hưởng trực tiếp năng suất.
+  - Bất đối xứng thông tin thị trường: Nông dân thiếu dữ liệu khách quan, dễ bị ép giá.
+  - Quyết định cảm tính: Việc canh tác, bán hàng phần lớn dựa dẫm kinh nghiệm truyền thống.
 
 ---
 
-## Slide 3: Mục tiêu đề tài & Phạm vi giới hạn
-* **Mục tiêu cốt lõi:**
-  - Đồng hành cùng nông dân Tây Nguyên qua công cụ dự báo giá và khuyến nghị canh tác.
-  - Hiện thực hóa hệ thống dựa trên **5 Trụ cột AI Bền vững** (Responsible AI).
-* **Phạm vi địa lý:** 5 tỉnh Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng, Kon Tum) giai đoạn 2020–2026.
-* **Tuyên bố miễn trừ trách nhiệm (Disclaimer):**
-  - Hệ thống chỉ mang tính chất tham khảo học thuật.
-  - Không thay thế lời khuyên tài chính thương mại hay tư vấn chuyên môn.
-* **Speaker Notes:** 
-  > Dự án hướng tới xây dựng một hệ thống AI thực tế, tập trung giải quyết bài toán của nông dân tại 5 tỉnh Tây Nguyên. Chúng tôi xác lập rõ disclaimer ngay từ đầu: AI là công cụ tham khảo hỗ trợ ra quyết định, không phải là quyết định thay cho người dân để đảm bảo tính an toàn về trách nhiệm pháp lý.
+## Slide 3: Mục tiêu & Phạm vi
+
+- **Nội dung chính:**
+  - Mục tiêu cốt lõi: Cung cấp công cụ dự báo giá và khuyến nghị canh tác.
+  - Định hướng thiết kế: Hiện thực hóa 5 Trụ cột AI Bền vững (Responsible AI).
+  - Phạm vi áp dụng: 5 tỉnh Tây Nguyên (2020–2026).
+- **Tuyên bố miễn trừ trách nhiệm (Disclaimer):** Hệ thống mang tính chất tham khảo học thuật. Không thay thế tư vấn chuyên môn/thương mại.
 
 ---
 
-## Slide 4: Quy trình xử lý dữ liệu (Data-to-AI Flow)
-* **Luồng dữ liệu:**
-  ```text
-  [Raw Daily Prices & Weather] -> [Weekly Dataset (3972 dòng)] -> [Monthly Dataset (912 dòng)]
-  ```
-* **Lý do chọn Monthly Dataset làm baseline:**
-  - **Giảm nhiễu:** Bỏ qua biến động giá ảo trong ngày/tuần.
-  - **Đồng bộ:** Chu kỳ thời tiết và sinh trưởng cây trồng tương thích tốt nhất theo tháng.
-  - **Nguyên lý KISS:** Dữ liệu nhỏ gọn (912 dòng, 18 cột), mô hình huấn luyện cực nhanh, tiết kiệm điện năng tính toán.
-* **Speaker Notes:**
-  > Chúng tôi crawl dữ liệu giá cà phê thực tế hàng ngày và dữ liệu thời tiết. Sau khi lọc nhiễu, chúng tôi tổng hợp thành bộ dữ liệu tháng. Chọn dữ liệu tháng giúp nắm bắt xu hướng trung hạn tốt hơn và bám sát nguyên tắc KISS (Keep It Simple, Stupid), giúp mô hình chạy nhanh và gọn nhẹ.
+## Slide 4: Quy trình Xử lý Dữ liệu
+
+- **Luồng xử lý (Flow steps):**
+  1. Dữ liệu thô hàng ngày (Raw Daily Prices & Weather)
+  2. Dataset Tuần (3,972 dòng)
+  3. Dataset Tháng (912 dòng, 18 cột, 77.96% observed) - Baseline
+- **Nội dung chính:**
+  - Độ phủ dữ liệu thực tế (Observed coverage): Đạt 77.96% trên toàn bộ dataset tháng.
+  - Giảm nhiễu: Bỏ qua biến động giá ảo trong ngày/tuần.
+  - Tính đồng bộ: Chu kỳ sinh trưởng và thời tiết tương thích theo tháng.
+  - Nguyên lý KISS: Dữ liệu nhỏ gọn, nhẹ nhàng, tối ưu tài nguyên.
 
 ---
 
-## Slide 5: Kiến trúc hệ thống 4 tầng (Responsible AI Architecture)
-* **Tầng 1: Data Layer** (Crawler thu thập tự động dữ liệu giá & thời tiết).
-* **Tầng 2: Filtering Layer** (Nội suy giá trị thiếu; Lớp lọc khử nhiễu cảm biến lỗi).
-* **Tầng 3: AI Core Layer** (Backend FastAPI; load model Random Forest Regressor; xác thực đầu vào qua Pydantic).
-* **Tầng 4: Presentation Layer** (Giao diện di động nhẹ, hiển thị dự báo, giải thích & disclaimer).
-* **Speaker Notes:**
-  > Hệ thống được cấu trúc 4 tầng rõ rệt. Điểm đặc biệt nằm ở tầng thứ 2: Filtering Layer đóng vai trò bảo vệ hệ thống khỏi dữ liệu nhiễu trước khi đưa vào mô hình AI ở tầng 3. Tầng 4 được tối ưu hóa hiển thị trực quan thông tin giải thích mô hình cho người nông dân.
+## Slide 5: Kiến trúc 4 Tầng
+
+- **Nội dung chính:**
+  - Tầng 4: Presentation Layer (Mobile UI tối ưu di động, Disclaimer).
+  - Tầng 3: AI Core Layer (FastAPI, Model Random Forest, Pydantic guard).
+  - Tầng 2: Filtering Layer (Nội suy giá trị, Khử nhiễu cảm biến lỗi).
+  - Tầng 1: Data Layer (Crawler thu thập tự động giá & thời tiết).
 
 ---
 
 ## Slide 6: Phương pháp Kỹ thuật & Đặc trưng
-* **Mô hình:** Random Forest Regressor (Ensemble Bagging).
-* **Kỹ thuật Đặc trưng (Feature Engineering):**
-  - **Mã hóa chu kỳ tháng (Cyclic Encoding):** Biến đổi tháng qua hàm $sin$/$cos$ để giữ tính liền mạch thời gian (tháng 12 sát tháng 1).
-  - **Đặc trưng tự hồi quy theo khu vực (Area-based Lags):** Nhóm theo huyện trước khi tính toán `lag_1d` (tháng trước), `lag_7d` và `rolling_avg_7d` để **chống rò rỉ dữ liệu (data leakage) địa lý**.
-* **Speaker Notes:**
-  > Chúng tôi chọn Random Forest vì tính ổn định và khả năng xuất Feature Importance. Khi làm feature engineering, chúng tôi xử lý các thuộc tính trễ giá theo từng huyện riêng biệt để tránh rò rỉ dữ liệu huyện này sang huyện khác, đảm bảo tính đúng đắn về mặt thống kê.
+
+- **Nội dung chính:**
+  - Mô hình học máy: Random Forest Regressor (Ensemble Bagging).
+  - Cyclic Encoding: Mã hóa chu kỳ tháng bằng hàm Sin/Cos (Giữ tính liền mạch T12-T1).
+  - Area-based Lags: Đặc trưng tự hồi quy được cô lập theo huyện, hiểu là kỳ trước/7 kỳ trước trong baseline monthly.
+  - Mục tiêu cốt lõi: Chống rò rỉ dữ liệu (Data Leakage) chéo địa lý.
 
 ---
 
-## Slide 7: Kết quả Định lượng tập Test 2025 (Reliability)
-* **Kết quả thực nghiệm:**
-  - **MAE:** 14,474 VND/kg
-  - **RMSE:** 17,874 VND/kg
-  - **R²:** -1.2244 (Trình bày trung thực số âm)
-* **Giải thích R² âm (Giới hạn ngoại suy):**
-  - Tập huấn luyện (2020-2024) có miền giá cà phê thấp hơn nhiều so với năm 2025.
-  - Tập kiểm thử (2025) chứng kiến giá cà phê tăng vọt lịch sử (**100k - 120k VND/kg**).
-  - Mô hình cây quyết định bị giới hạn bởi trần dữ liệu đã học và xu hướng kéo về miền giá thấp hơn chiếm đa số trong quá khứ, gây ra độ lệch lớn so với thực tế 2025.
-* **Speaker Notes:**
-  > Chúng tôi kiểm thử mô hình trên dữ liệu năm 2025. MAE đạt 14.5k VND/kg và R² bị âm. Chúng tôi trình bày trung thực chỉ số âm này. Nguyên nhân là năm 2025 giá cà phê thực tế tăng phi mã lên hơn 100k/kg, vượt ngoài miền dữ liệu huấn luyện 2020-2024. Mô hình cây quyết định không thể ngoại suy vượt trần tập train. Đây là giới hạn kỹ thuật quan trọng giúp chúng tôi nhận thức rõ tính tin cậy của mô hình khi gặp biến cố lớn.
+## Slide 7: Kết quả Định lượng (Tập Test 2025)
+
+- **Chỉ số đánh giá (Metrics):**
+  - MAE: 14,474 VND/kg
+  - RMSE: 17,874 VND/kg
+  - R²: -1.2244 (Âm)
+- **Nội dung chính:**
+  - Trình bày trung thực R² âm do Giới hạn Ngoại suy (Extrapolation Limit).
+  - Tập Train (2020-2024): Miền giá thấp hơn chiếm đa số trong lịch sử cũ.
+  - Thực tế 2025 (Black Swan): Giá bùng nổ vượt ngưỡng 100k - 131.5k VND/kg.
+  - Mô hình bị giới hạn bởi trần dữ liệu đã học và xu hướng kéo về trung bình quá khứ.
 
 ---
 
-## Slide 8: Responsible AI - Trục Robustness (Kháng nhiễu)
-* **Bảo vệ 1: Validate request ở tầng API**
-  - Pydantic schema chặn nhiệt độ, lượng mưa, độ ẩm, tháng, năm nằm ngoài range hợp lý.
-  - API key bảo vệ `/predict` và `/model/info`.
-* **Bảo vệ 2: Category guard theo model đã train**
-  - `PredictorService` chỉ chấp nhận `province`, `area`, `coffee_type`, `dominant_soil_type` nằm trong tập feature của model.
-  - Input ngoài tập train bị trả `422` thay vì dự báo âm thầm.
-* **Speaker Notes:**
-  > Trong repo hiện tại, lớp Robustness được hiện thực bằng validate ở tầng API và kiểm tra category theo model đã train. Nhóm không claim có một sanitizer riêng hay một lớp guardrails cho LLM production, vì các thành phần đó chưa có trong codebase này.
+## Slide 8: Robustness (Kháng nhiễu)
+
+- **Nội dung chính:**
+  - Bảo vệ 1: Validate request ở tầng API chặn dữ liệu dị thường.
+  - Bảo vệ 2: Category Guard chỉ cho phép dự báo danh mục thuộc tập train.
+  - Kết quả Stress Test: Khi có cú sốc giá cực đoan, MAE tăng 69.5%.
+  - Sốc nhiệt 45°C gần như không làm đổi sai số: MAE 14,472 VND/kg (+0.0%).
+  - Khi kết hợp sốc giá và sốc thời tiết cùng lúc, MAE tăng 69.6%.
+  - Kết luận: Hệ thống nhạy cảm với sốc giá nhưng chống chịu tốt với sốc thời tiết.
 
 ---
 
-## Slide 9: Responsible AI - Trục Bias & Social Impact
-* **Trục Bias (Thiên lệch dữ liệu địa lý):**
-  - Tỉ lệ dữ liệu cào thật: Kon Tum (88.16%), Lâm Đồng (86.84%), Đắk Lắk/Gia Lai (77.63%), Đắk Nông (60.53%).
-  - *Giải pháp:* Hiển thị nhãn cảnh báo độ tin cậy thấp tại Đắk Nông, hướng dẫn nông dân tham chiếu khu vực lân cận.
-* **Trục Social Impact (Tác động xã hội):**
-  - **Phương pháp kiểm chứng:** Kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind tại `frontend/` và kết quả phản hồi kèm disclaimer từ backend.
-  - **Kết quả thực tiễn:** Giao diện có màn chào, menu chọn tác vụ, nút bấm lớn, tương phản cao, tách riêng luồng Dự báo Giá và Khuyến nghị Canh tác.
-  - **Hỗ trợ ngoại tuyến:** Lưu trữ bằng `localStorage` và xem chi tiết lịch sử (đối chiếu input, kết quả, lý do và disclaimer) khi mạng chập chờn.
-  - **Ràng buộc an toàn:** Chân trang luôn bắt buộc hiển thị Disclaimer để tránh nông dân ra quyết định tài chính sai lệch.
-* **Speaker Notes:**
-  > Về trục Bias, chúng tôi phát hiện dữ liệu Đắk Nông có tỷ lệ quan sát thật thấp nhất (60.53%). Do đó hệ thống sẽ cảnh báo nông dân Đắk Nông rằng độ tin cậy dự báo vùng này thấp hơn Lâm Đồng/Kon Tum để tránh họ ra quyết định sai. Về tác động xã hội (Social Impact), chúng tôi kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind kết nối backend.
+## Slide 9: Bias & Social Impact
+
+- **Thiên lệch địa lý (Bias):**
+  - Kon Tum: Độ phủ 88.2% | Lâm Đồng: 86.8%.
+  - Đắk Lắk/Gia Lai: Độ phủ trung bình 77.6%.
+  - Đắk Nông: Phủ 60.5% ➔ Luôn hiển thị cảnh báo tin cậy thấp tại vùng này.
+  - Area cần cảnh báo: Gia Nghĩa, Chư Prông, Cư M'gar, Đắk R'lấp.
+- **Tác động xã hội (Social Impact):**
+  - Giao diện tối ưu Mobile-first, tương phản cao, nút chạm kích thước lớn.
+  - Hỗ trợ xem lại lịch sử Offline (lưu qua localStorage).
+  - Neo chặt Disclaimer dưới chân trang, ngăn rủi ro quyết định sai.
 
 ---
 
-## Slide 10: Responsible AI - Trục Transparency (Tính minh bạch)
-* **Giải thích mô hình qua Feature Importance:**
-  - Giá tháng trước (`lag_1d`): **50.5%**
-  - Đà tăng giá thị trường gần đây (`rolling_avg_7d`): **46.9%**
-  - Các yếu tố khí hậu ngắn hạn (nhiệt độ, lượng mưa): **< 1%**
-* **Ý nghĩa:**
-  - AI minh bạch lý do dự báo: Giá cà phê phụ thuộc vào đà giá lịch sử, tránh để nông dân hiểu sai rằng thời tiết thay đổi nhẹ sẽ thay đổi ngay lập tức giá bán ngày mai.
-* **Speaker Notes:**
-  > Với trục Transparency, mô hình bóc tách rõ tầm ảnh hưởng của các biến. Hai biến giá trễ gần nhất chiếm phần lớn dự báo. Điều này minh bạch hóa thuật toán, giúp nông dân hiểu rằng đà giá thị trường là yếu tố quyết định chính chứ không phải các yếu tố thời tiết ngắn hạn.
+## Slide 10: Transparency (Tính minh bạch)
+
+- **Tỷ lệ đóng góp đặc trưng (Feature Importance - Chart Data):**
+  - Giá tháng trước (lag_1d): 50.5%
+  - Đà giá TT (rolling_avg_7d): 46.9%
+  - Thời tiết & Yếu tố khác: 2.6%
+- **Nội dung chính:**
+  - AI làm sáng tỏ lý do dự báo: Đà giá lịch sử (kỳ gần) đóng vai trò quyết định chính.
+  - Ngăn chặn nhận định cảm tính (Ví dụ: Mưa đột ngột hôm nay không làm rớt ngay giá bán ngày mai).
 
 ---
 
-## Slide 11: Hiện thực Giao diện di động (Mobile-first UI)
-* **Tối ưu trải nghiệm:** Giao diện React/Vite tối ưu hóa theo phong cách Neo-Brutalism (tương phản cao), phân tách luồng Giá và Canh tác rõ ràng.
-* **Tương tác trực quan & an toàn:** 
-  - Nút bấm và ô nhập liệu lớn (>= 48px) dễ thao tác, độ tương phản cao chống chói nắng.
-  - Hỗ trợ lưu kết quả dự báo ngoại tuyến (Offline Storage) qua `localStorage`.
-* **Định dạng hiển thị:** Kết quả trực quan gồm giá dự báo, khoảng dao động, lý giải thanh đóng góp đặc trưng và khuyến nghị canh tác tiếng Việt dễ hiểu.
-* **Speaker Notes:**
-  > Chúng tôi đã hiện thực một giao diện di động bằng React. Giao diện phân tách tính năng thành các luồng chính thức, bám sát mental model của người nông dân. Ứng dụng hỗ trợ lưu trữ cục bộ để xem lại dự báo khi không có mạng, thiết kế theo triết lý Social Impact với các nút bấm lớn dễ ấn, biểu đồ giải thích trực quan và tích hợp đầy đủ cảnh báo thiên lệch dữ liệu.
+## Slide 11: Giao diện Di động (Mobile UI)
+
+- **Nội dung chính:**
+  - Định hướng thiết kế Neo-Brutalism: Tương phản cao, phù hợp đọc dưới nắng gắt ngoài rẫy.
+  - Biệt lập tác vụ: Phân tách rõ luồng 'Dự báo Giá' và 'Khuyến nghị Canh tác'.
+  - An toàn dữ liệu: Lưu dự báo ngoại tuyến, hỗ trợ kết nối mạng 3G yếu chập chờn.
+  - Minh bạch đầu ra: Trực quan hóa mức đóng góp của đặc trưng và khuyến nghị rõ ràng.
 
 ---
 
-## Slide 12: Kết luận & Hướng phát triển
-* **Kết luận:**
-  - Hệ thống baseline đã vận hành end-to-end, lồng ghép thành công tư duy AI bền vững vào cấu trúc code.
-  - Báo cáo trung thực các hạn chế kỹ thuật (R² âm, bias địa lý).
-* **Hướng phát triển:**
-  - Mở rộng dữ liệu lịch sử sâu hơn trước năm 2020.
-  - So sánh Random Forest với các mô hình hỗ trợ học xu hướng tốt hơn (Prophet, XGBoost, LSTM).
-  - Huấn luyện mô hình localized riêng cho từng tiểu vùng.
-* **Speaker Notes:**
-  > Tóm lại, dự án DT10 đã hoàn thiện khung baseline vững chắc và tích hợp Responsible AI vào code thực tế. Trong tương lai, chúng tôi sẽ mở rộng dữ liệu và thử nghiệm các mô hình có khả năng học xu hướng tốt hơn như Prophet hay XGBoost để giải quyết triệt để bài toán ngoại suy khi thị trường biến động cực đoan. Xin cảm ơn Thầy và các bạn đã lắng nghe.
+## Slide 12: Kết luận & Hướng Phát triển
+
+- **Nội dung chính:**
+  - Kết luận:
+    - Đã Vận hành thành công cấu trúc AI End-to-End.
+    - Tích hợp hiện thực thành công 5 Trụ cột AI Bền vững vào hệ thống.
+    - Trung thực báo cáo giới hạn do ngoại suy mô hình cây Quyết định.
+  - Hướng phát triển:
+    - Nghiên cứu mô hình hỗ trợ xu hướng tốt hơn (Linear trend, Prophet, XGBoost v2).
+    - Tiến hành huấn luyện Localized models dành riêng cho các vi khí hậu (tiểu vùng).
 
 ---
 
-## Slide 13: Kết luận & Tài liệu tham khảo
-* **Kết luận:**
-  - Hệ thống baseline AI DT10 đã vận hành thực tế end-to-end, tích hợp thành công 5 Trụ cột AI Bền vững vào cấu trúc phần mềm (từ backend đến frontend).
-  - Đã nhận diện và báo cáo trung thực các hạn chế về mặt thuật toán (giới hạn ngoại suy dẫn đến R² âm) và sự thiên lệch địa lý do dữ liệu.
-* **Tài liệu tham khảo nổi bật:**
-  - Breiman, L. (2001). *Random Forests*. Machine Learning.
-  - *Scikit-learn: Machine Learning in Python*.
-  - Microsoft Responsible AI Standard.
-  - Nguồn dữ liệu: Trang tin thị trường nông sản Việt Nam và Open-Meteo API.
-* **Speaker Notes:**
-  > Tổng kết ngắn gọn giá trị cốt lõi nhóm đã đạt được và trích dẫn các nền tảng khoa học nhóm đã sử dụng.
+## Slide 13: Tài liệu Tham khảo
+
+- **Nội dung chính:**
+  - Breiman, L. (2001). Random Forests. Machine Learning. DOI: 10.1023/A:1010933404324.
+  - Pedregosa, F. et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12(85):2825-2830.
+  - Microsoft Responsible AI Standard v2 & Reference Guide.
+  - Open-Meteo Historical Weather API.
+  - Nguồn giá trong manifest: Báo Công Thương, Nông nghiệp & Môi trường, Kinh tế Đô thị, Vinanet.
 
 ---
 
-## Slide 14: Q&A và Lời cảm ơn (Thank You)
-* **Tiêu đề:** Xin chân thành cảm ơn!
-* **Nội dung:** Cảm ơn TS. Phan Thế Duy và các bạn đã chú ý lắng nghe phần trình bày đồ án Đề tài DT10 của Nhóm 10.
-* **Q&A:** Xin mời Thầy và các bạn đặt câu hỏi.
-* **Speaker Notes:**
-  > Tạm dừng, mỉm cười và chuẩn bị tinh thần trả lời câu hỏi phản biện từ hội đồng.
+## Slide 14: Xin Chân Thành Cảm Ơn
+
+- **Nội dung phụ:** Questions & Answers
+- **Nội dung chính:** Trân trọng cảm ơn TS. Phan Thế Duy và các bạn đã theo dõi báo cáo.
