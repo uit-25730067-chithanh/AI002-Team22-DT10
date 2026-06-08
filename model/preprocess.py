@@ -3,6 +3,8 @@ Module tiền xử lý dữ liệu cho pipeline dự báo giá cà phê.
 Các hàm xử lý missing data, outliers, và engineer features.
 """
 
+from __future__ import annotations
+
 import warnings
 from typing import Tuple
 
