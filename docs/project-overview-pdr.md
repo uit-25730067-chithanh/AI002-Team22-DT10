@@ -10,7 +10,7 @@
 
 Hệ thống phải thể hiện và chứng minh được 5 yếu tố sau trong thiết kế và code:
 
-1. **Reliability (Tính tin cậy):** Độ ổn định, đánh giá bằng metrics rõ ràng (VD: MAE, RMSE). Phân chia tập Train/Test hợp lý (Train: 2022-2024, Test: 2025).
+1. **Reliability (Tính tin cậy):** Độ ổn định, đánh giá bằng metrics rõ ràng (VD: MAE, RMSE). Phân chia theo thời gian: Train 2020-2024, Test 2025, 2026 chỉ dùng cho demo/inference/audit.
 2. **Bias (Tính không thiên vị):** Đảm bảo không phân biệt đối xử hoặc thiên lệch về vùng miền khi áp dụng kết quả dự báo.
 3. **Robustness (Kháng nhiễu):** Hệ thống có khả năng xử lý tốt khi dữ liệu thiếu (NaN) hoặc dữ liệu đầu vào không hợp lệ (VD: Outliers).
 4. **Social Impact (Tác động xã hội):** Giúp nông dân nhỏ lẻ tiếp cận thông tin thị trường, tối ưu hóa lợi nhuận, chống ép giá.
@@ -18,15 +18,15 @@ Hệ thống phải thể hiện và chứng minh được 5 yếu tố sau tron
 
 ## 3. Kiến trúc & Công nghệ (Đề xuất)
 
-- **Backend & Model (Team 2):**
+- **Backend & Model:**
   - Framework: FastAPI (Python) cho tốc độ phát triển và tự động hóa Docs (Transparency).
   - Models: Machine Learning truyền thống (Random Forest, XGBoost).
   - Data Storage: CSV/SQLite (đảm bảo KISS).
-- **Frontend & Crawler (Team 1):**
+- **Frontend & Crawler:**
   - Giao diện: HTML/JS/CSS cơ bản.
   - Crawler: Python (BeautifulSoup, Requests).
 
 ## 4. Phân công công việc
 
-- **Team 1 (Phúc & Thịnh):** Thu thập dữ liệu, làm sạch cơ bản, xây dựng giao diện người dùng (Web UI) và chuẩn bị Slide báo cáo.
-- **Team 2 (Thanh & Sơn):** Chịu trách nhiệm cốt lõi kỹ thuật AI, xây dựng và huấn luyện model, viết API backend (FastAPI) cung cấp endpoint dự báo.
+- **Thanh & Sơn:** Phụ trách data pipeline, model, backend/API, evaluation và hỗ trợ demo cuối kỳ.
+- **Project members:** Cùng rà soát báo cáo, slide và demo trước khi nộp.

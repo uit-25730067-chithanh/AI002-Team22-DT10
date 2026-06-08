@@ -1,7 +1,7 @@
 # Thiết kế: Experiment Tracking cho Model Training (KISS)
 
 > **Ngày:** 2026-04-26
-> **Người yêu cầu:** Thanh (Lead Team 2)
+> **Người yêu cầu:** Thanh
 > **Phạm vi:** Pipeline train/test model (`model/train_rf.py`, `model/train_xgboost.py`, `model/stress_test.py`)
 
 ---
@@ -23,7 +23,7 @@
 | **B. MLflow (Local)**            | UI so sánh runs; track params chuyên nghiệp        | Thêm dependency; cần server; overkill 1 tháng |
 | **C. Weights & Biases**          | Dashboard online đẹp                               | Cần API key; phụ thuộc internet               |
 
-**Quyết định: Phương án A (KISS)** — đúng tinh thần project AI002, dễ chứng minh 5 Trụ cột, Team 1 review không cần cài tool.
+**Quyết định: Phương án A (KISS)** — đúng tinh thần project AI002, dễ chứng minh 5 Trụ cột, project reviewers không cần cài tool.
 
 ---
 

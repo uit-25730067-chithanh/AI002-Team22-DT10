@@ -6,12 +6,14 @@ import pandas as pd
 try:
     from .coffee_areas import slugify
     from .build_soil_profile import build_soil_profile
+    from . import coffee_data_contract as contract
 except ImportError:
     from coffee_areas import slugify
     from build_soil_profile import build_soil_profile
+    import coffee_data_contract as contract
 
-PRICE_FILE = "coffee_price_all_areas_daily_2022_2025.csv"
-WEATHER_FILE = "weather_all_areas_daily_2022_2025.csv"
+PRICE_FILE = contract.RAW_PRICE_FILE.name
+WEATHER_FILE = contract.RAW_WEATHER_FILE.name
 SOIL_FILE = "soil_profile_by_area.csv"
 
 
@@ -190,7 +192,7 @@ def build_dataset(
     weather_file: str = WEATHER_FILE,
     soil_file: str = SOIL_FILE,
     combined_output_name: str | None = None,
-    area_output_year_label: str = "2022_2025",
+    area_output_year_label: str = contract.YEAR_RANGE_LABEL,
 ) -> pd.DataFrame:
     prices, weather, soil = load_inputs(raw_dir, price_file, weather_file, soil_file)
     start_date = weather["date"].min()

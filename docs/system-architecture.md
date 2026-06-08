@@ -1,6 +1,6 @@
 # 🏗️ Kiến trúc Hệ thống (System Architecture)
 
-Tài liệu này mô tả chi tiết kiến trúc hệ thống của dự án **AI Dự báo Canh tác & Giá Cà phê (Đề tài 10 - Team 10)**.
+Tài liệu này mô tả chi tiết kiến trúc hệ thống của dự án **AI Dự báo Canh tác & Giá Cà phê (Đề tài 10)**.
 
 ---
 
@@ -49,7 +49,7 @@ Luồng dữ liệu đi qua các bước từ thu thập thô đến huấn luy�
 - **Xử lý (Processing):** Gộp dữ liệu giá, thời tiết và đất đai. Tạo ra hai phiên bản: weekly (tuần) và monthly (tháng).
 - **Lựa chọn (Selection):** Nhóm chọn tập monthly làm tập train chính vì độ bao phủ (coverage) của dữ liệu giá thật ổn định hơn, ít nhiễu và dễ giải thích.
 - **Huấn luyện (Training):**
-  - Tách tập dữ liệu theo thời gian (Temporal Split): Train từ 2022-2024, Test năm 2025.
+  - Tách tập dữ liệu theo thời gian (Temporal Split): Train từ 2020-2024, Test năm 2025, 2026 chỉ dùng cho demo/inference/audit.
   - Áp dụng các bước tiền xử lý: chuẩn hóa schema, điền giá trị thiếu (fill missing), xử lý outliers (cap outliers), và feature engineering (tạo các biến trễ lag, rolling, sine/cosine tháng).
   - Huấn luyện mô hình `RandomForestRegressor`.
 
@@ -71,7 +71,7 @@ API được xây dựng trên nền tảng **FastAPI**, tự động sinh tài 
 Kiến trúc hệ thống được thiết kế xoay quanh 5 trụ cột của AI Bền vững:
 
 1. **Reliability (Độ tin cậy):** 
-   - Mô hình có phân chia temporal split rõ ràng (Train 2022-2024, Test 2025).
+   - Mô hình có phân chia temporal split rõ ràng (Train 2020-2024, Test 2025, 2026 holdout cho demo/inference/audit).
    - Đánh giá mô hình bằng các metrics chuẩn: MAE, RMSE, $R^2$.
 2. **Bias (Tính không thiên vị):**
    - Phân tích và tài liệu hóa rõ ràng sự thiên lệch về địa lý (ví dụ: Đắk Lắk có nhiều mẫu hơn các tỉnh khác).

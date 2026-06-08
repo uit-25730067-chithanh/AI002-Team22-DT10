@@ -12,10 +12,9 @@ from crawler.crawl_weather_by_area import (
 
 
 def test_canonical_combined_weather_output_path() -> None:
-    path = combined_weather_output_path(Path("data/raw"), "2020_2026")
+    path = combined_weather_output_path(contract.RAW_DIR)
 
     assert path == contract.RAW_WEATHER_FILE
-    assert "2022_2025" not in path.as_posix()
 
 
 def test_write_area_weather_uses_requested_year_range(tmp_path: Path) -> None:
@@ -33,7 +32,7 @@ def test_write_area_weather_uses_requested_year_range(tmp_path: Path) -> None:
         }
     )
 
-    output = write_area_weather(frame, tmp_path, "Di Linh", "2020_2026")
+    output = write_area_weather(frame, tmp_path, "Di Linh")
 
-    assert output == tmp_path / "weather_di_linh_daily_2020_2026.csv"
+    assert output == tmp_path / f"weather_di_linh_daily_{contract.YEAR_RANGE_LABEL}.csv"
     assert output.exists()

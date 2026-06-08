@@ -1,12 +1,12 @@
-# Quy chuẩn Định dạng Dữ liệu (Team 2 ↔ Team 1)
+# Quy chuẩn Định dạng Dữ liệu
 
 **Ngày:** 2026-04-25  
-**Trạng thái:** Bản nháp — chờ Team 1 xác nhận  
+**Trạng thái:** Archive — đã được thay bằng dataset canonical 2020-2026
 **Quyết định:** Dùng SQLite cho truy vấn có cấu trúc (nếu cần) + CSV cho time-series hàng ngày (KISS).
 
 ## 1. Định dạng CSV Đầu ra (Định dạng Trao đổi Chính)
 
-Team 1 crawler xuất ra file CSV với các cột sau:
+Crawler xuất ra file CSV với các cột sau:
 
 | Cột                    | Kiểu  | Mô tả                       | Ví dụ      |
 | ---------------------- | ----- | --------------------------- | ---------- |
@@ -34,18 +34,18 @@ Hạn chế này được ghi nhận từ tầng dữ liệu trở lên để đ
 
 ## 3. Quyết định Lưu trữ (KISS)
 
-- **CSV thô** (`data/raw/`): file dump nguyên bản từ Team 1, không sửa đổi.
+- **CSV thô** (`data/raw/`): file dump nguyên bản từ crawler, không sửa đổi.
 - **CSV đã xử lý / SQLite** (`data/processed/`): dữ liệu đã làm sạch, engineer feature, dùng cho pipeline model.
 - **Không dùng PostgreSQL / MySQL** — độ phức tạp không xứng đáng với phạm vi đề tài.
 
 ## 4. Tham chiếu Dữ liệu Giả lập (Mock Data)
 
-Trong khi chờ Team 1 giao data thật, Team 2 dùng mock data để phát triển local.
+Mock data dùng để phát triển local trước khi dataset public canonical hoàn tất.
 
 | File                    | Đường dẫn                            | Push được Git?                                             | Mục đích           |
 | ----------------------- | ------------------------------------ | ---------------------------------------------------------- | ------------------ |
 | Full mock (1200 dòng)   | `data/raw/mock_coffee_data.csv`      | **Không** — `data/raw/` bị gitignore (chính sách file lớn) | Train & test local |
-| Mẫu xem trước (50 dòng) | `data/sample/mock_coffee_sample.csv` | **Có** — Team 1 xem cấu trúc không cần chạy code           | Tham khảo nhanh    |
+| Mẫu xem trước (50 dòng) | `data/sample/mock_coffee_sample.csv` | **Có** — xem cấu trúc không cần chạy code                  | Tham khảo nhanh    |
 | Script sinh data        | `scripts/generate_mock_data.py`      | **Có** — ai cũng tái tạo được full dataset                 | Tái lập kết quả    |
 
 **Đặc điểm mock data:**
@@ -54,8 +54,8 @@ Trong khi chờ Team 1 giao data thật, Team 2 dùng mock data để phát tri�
 - ~2% outliers vô lý (test độ chịu đựng của pipeline)
 - Hiệu ứng mùa vụ thu hoạch (tháng 11-3 giá cao hơn)
 
-**Team 1:** Mở `data/sample/mock_coffee_sample.csv` để xem chính xác định dạng cột mà Team 2 cần crawler xuất ra.
+Mở `data/sample/mock_coffee_sample.csv` để xem chính xác định dạng cột mà crawler cần xuất ra.
 
 ## 5. Bước Tiếp theo
 
-Team 1 xác nhận lại tên cột và phạm vi ngày có thể crawl. Nhắn Zalo/Slack 5-6 dòng là đủ — không cần viết tài liệu dài dòng.
+Hiện trạng cuối: dùng dataset canonical 2020-2026; tài liệu này chỉ còn vai trò archive.

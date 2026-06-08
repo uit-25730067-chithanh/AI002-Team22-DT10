@@ -12,7 +12,7 @@ except ModuleNotFoundError:
 app = FastAPI(
     title="AI002 Coffee Price Forecast API",
     version="0.1.0",
-    description="FastAPI skeleton cho Team 2 foundation week",
+    description="FastAPI service for AI002 coffee price forecasting",
 )
 
 # CORS cho phép origin từ env

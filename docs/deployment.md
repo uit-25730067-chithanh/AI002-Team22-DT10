@@ -90,7 +90,7 @@ Backend được tự động deploy thông qua GitHub Actions (`.github/workflo
 
 ### Tổng quan
 
-Backend FastAPI được triển khai trên Render Web Service để cung cấp API dự báo giá cà phê cho frontend và demo. Tài liệu này dùng cho Team 2 khi cần cấu hình service, kiểm tra CI/CD và bàn giao URL cho Team 1.
+Backend FastAPI được triển khai trên Render Web Service để cung cấp API dự báo giá cà phê cho frontend và demo. Tài liệu này dùng khi cần cấu hình service, kiểm tra CI/CD và bàn giao URL cho frontend.
 
 ### Cấu hình Platform
 
@@ -114,7 +114,7 @@ flowchart LR
     C -->|Yes| E[Call Render deploy hook]
     E --> F[Render build service]
     F --> G[Test /health and /model/info]
-    G --> H[Share API base URL to Team 1]
+    G --> H[Share API base URL to frontend]
 ```
 
 ### CI/CD GitHub Actions
@@ -240,7 +240,7 @@ curl -H "X-API-Key: replace-with-team-demo-key" \
 
 ### Định dạng Báo cáo Lỗi
 
-Thành viên team (Phúc, Thịnh, Sơn) báo lỗi với thông tin:
+Thành viên dự án báo lỗi với thông tin:
 
 1. **Endpoint**: `/predict`, `/model/info`, v.v.
 2. **Request Payload**: JSON body hoặc query params
@@ -267,7 +267,7 @@ Console: None
 - `GET /model/info` đúng key trả `200`
 - `POST /predict` đúng key trả `200` hoặc `422` nếu payload sai
 - Swagger UI mở được tại `/docs`
-- Nếu frontend chạy trên domain khác và bị CORS, Team 2 cần thêm domain đó vào backend trước demo
+- Nếu frontend chạy trên domain khác và bị CORS, cần thêm domain đó vào backend trước demo
 
 ### Chiến lược Deploy Branch
 
@@ -284,7 +284,7 @@ Console: None
 
 ### Tài liệu Liên quan
 
-- API Handoff: `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`
+- API schema: `backend/schemas/prediction.py`
 - Project Roadmap: `docs/project-roadmap.md`
 - Code Standards: `docs/code-standards.md`
 - Local/self-host: xem mục "Hướng dẫn chạy Backend Local và Self-host" trong tài liệu này
@@ -449,7 +449,7 @@ Sau đó cấu hình HTTPS bằng Certbot theo hướng dẫn hệ điều hành
 
 - Gọi `GET /health` trước demo để kiểm tra backend đã thức.
 - Gọi `/predict` và `/model/info` kèm header `X-API-Key`.
-- Nếu browser báo CORS, báo Team 2 thêm domain frontend vào FastAPI trước khi demo public.
+- Nếu browser báo CORS, thêm domain frontend vào FastAPI trước khi demo public.
 - Không hard-code API key thật vào file frontend được commit lên Git.
 
 ### 9. Bàn giao cho frontend
@@ -463,5 +463,5 @@ Khi backend đã chạy ở local, LAN hoặc server public, người phụ trá
 
 ### 10. Tài liệu liên quan
 
-- API contract: `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`
+- API schema: `backend/schemas/prediction.py`
 - Sửa lỗi thường gặp: `docs/troubleshooting.md`

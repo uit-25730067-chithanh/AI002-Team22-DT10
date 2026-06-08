@@ -1,6 +1,6 @@
 # 🛠 Tiêu chuẩn Code & Quy tắc (Code Standards)
 
-Nhằm đảm bảo sự đồng bộ trong team và bám sát triết lý **Sustainable AI Design Thinking**, tất cả thành viên **Team 10** thống nhất tuân thủ các quy tắc sau:
+Nhằm đảm bảo sự đồng bộ trong nhóm và bám sát triết lý **Sustainable AI Design Thinking**, tất cả thành viên dự án thống nhất tuân thủ các quy tắc sau:
 
 ## 1. Nguyên tắc cốt lõi
 
@@ -11,14 +11,14 @@ Nhằm đảm bảo sự đồng bộ trong team và bám sát triết lý **Sus
 
 - **Nhánh `main`:** Cần luôn sạch sẽ, chứa code có thể chạy được và báo cáo hoàn chỉnh. (Tuyệt đối không push thẳng lên nhánh này).
 - **Thực hiện công việc:** Tạo nhánh `feature/<tên-việc>`, ví dụ: `feature/setup-fastapi`, `feature/random-forest-baseline`.
-- **Hợp nhất:** Cần tạo Pull Request (PR) và cho **Phúc**, **Thanh**, **Thịnh**, **Sơn** review trước khi gộp vào `main`.
+- **Hợp nhất:** Cần tạo Pull Request (PR) và có project reviewers kiểm tra trước khi gộp vào `main`.
 - **Commit:** Sử dụng **Conventional Commits** (ví dụ: `feat:`, `fix:`, `docs:`, `refactor:`). Commit thường xuyên, mỗi commit chỉ chứa một thay đổi nhỏ (atomic).
 - **Quy ước Scope (khuyến nghị):** Để dễ trace từ commit -> plan, nên dùng scope mô tả vị trí task:
   - Format: `type(phase{N}/task{M}/{scope}): description`
   - Ví dụ: `feat(phase1/task1_2/data): add mock data generator`, `docs(phase2/task2_5/test): add stress test report`
   - Nếu commit không thuộc task plan cụ thể, scope có thể ngắn gọn như `feat(api): add health endpoint`.
 
-## 3. Tiêu chuẩn Mã nguồn & Ngôn ngữ (Python - Team 2)
+## 3. Tiêu chuẩn Mã nguồn & Ngôn ngữ (Python)
 
 - **Đặt tên (Naming):** Biến, hàm, lớp **bắt buộc 100% bằng Tiếng Anh** (ví dụ: `train_model`, `predict_price`).
 - **Chú thích (Comments):**

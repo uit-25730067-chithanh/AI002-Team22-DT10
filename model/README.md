@@ -1,6 +1,6 @@
 # 🧠 Model (Machine Learning Core)
 
-Thư mục chịu trách nhiệm huấn luyện (Training), tiền xử lý (Preprocessing), đánh giá (Evaluation) và quản lý vòng đời (Experiment Tracking) cho mô hình AI dự báo giá cà phê của Team 2.
+Thư mục chịu trách nhiệm huấn luyện (Training), tiền xử lý (Preprocessing), đánh giá (Evaluation) và quản lý vòng đời (Experiment Tracking) cho mô hình AI dự báo giá cà phê.
 
 ## 1. Vai trò
 

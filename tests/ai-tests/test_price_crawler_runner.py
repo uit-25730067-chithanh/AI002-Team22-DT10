@@ -73,11 +73,10 @@ def test_merge_source_into_raw_uses_canonical_combined_filename(tmp_path: Path) 
     )
 
     combined_path = tmp_path / contract.RAW_PRICE_FILE.name
-    old_path = tmp_path / "coffee_price_all_areas_daily_2022_2025.csv"
-    area_path = tmp_path / "coffee_price_di_linh_daily_2020_2026.csv"
+    area_path = tmp_path / f"coffee_price_di_linh_daily_{contract.YEAR_RANGE_LABEL}.csv"
     combined = pd.read_csv(combined_path)
 
     assert combined_path.exists()
-    assert not old_path.exists()
+    assert list(tmp_path.glob("coffee_price_all_areas_daily_*.csv")) == [combined_path]
     assert area_path.exists()
     assert len(combined) == 1

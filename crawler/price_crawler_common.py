@@ -19,8 +19,10 @@ from bs4 import BeautifulSoup
 
 try:
     from .coffee_areas import AREAS, AREA_BY_NORMALIZED, COFFEE_TYPE, normalize_name, slugify
+    from . import coffee_data_contract as contract
 except ImportError:
     from coffee_areas import AREAS, AREA_BY_NORMALIZED, COFFEE_TYPE, normalize_name, slugify
+    import coffee_data_contract as contract
 
 
 HEADERS = {
@@ -96,8 +98,8 @@ async def crawl_site_async(
     concurrency: int,
     flush_every: int,
     stop_after_seconds: int,
-    year_range_label: str = "2022_2025",
-    combined_filename: str = "coffee_price_all_areas_daily_2022_2025.csv",
+    year_range_label: str = contract.YEAR_RANGE_LABEL,
+    combined_filename: str = contract.RAW_PRICE_FILE.name,
     error_dir: Path | None = None,
     seed_only: bool = False,
 ) -> Path:
@@ -291,8 +293,8 @@ def finalize_source_output(path: Path) -> pd.DataFrame:
 def merge_source_into_raw(
     source_path: Path,
     raw_dir: Path,
-    combined_filename: str = "coffee_price_all_areas_daily_2022_2025.csv",
-    year_range_label: str = "2022_2025",
+    combined_filename: str = contract.RAW_PRICE_FILE.name,
+    year_range_label: str = contract.YEAR_RANGE_LABEL,
 ) -> None:
     source_frame = finalize_source_output(source_path)
     if source_frame.empty:

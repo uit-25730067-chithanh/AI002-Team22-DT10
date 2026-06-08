@@ -20,7 +20,7 @@ _(Bản nháp - Sẽ được bổ sung liên tục trong quá trình dev)_
 ## 4. Lỗi CORS ở Frontend
 
 **Lỗi:** Trình duyệt báo đỏ `Blocked by CORS policy` khi Frontend (HTML) gọi API.
-**Cách sửa:** Báo cho Team 2 thêm domain của Frontend vào phần cấu hình `CORSMiddleware` bên trong file `main.py` của FastAPI.
+**Cách sửa:** Cập nhật domain của Frontend vào phần cấu hình `CORSMiddleware` bên trong file `main.py` của FastAPI.
 
 ## 5. Gọi `/predict` hoặc `/model/info` bị `401 Unauthorized`
 
@@ -35,4 +35,4 @@ _(Bản nháp - Sẽ được bổ sung liên tục trong quá trình dev)_
 ## 7. Frontend gửi request bị `422 Unprocessable Entity`
 
 **Lỗi:** Payload sai field, sai range hoặc category không nằm trong tập train.
-**Cách sửa:** So lại request với `docs/discussions/2026-05-13-api-handoff-team2-real-data.md`. Các field như `province`, `area`, `coffee_type`, `price_fill_method`, `dominant_soil_type` phải khớp nhóm giá trị backend đã train.
+**Cách sửa:** So lại request với schema trong `backend/schemas/prediction.py` và docs API `/docs`. Các field như `province`, `area`, `coffee_type`, `price_fill_method`, `dominant_soil_type` phải khớp nhóm giá trị backend đã train.

@@ -43,7 +43,7 @@ CATEGORICAL_FEATURES = [
 
 def normalize_real_schema(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Chuẩn hóa schema real processed data về schema nội bộ để tái dùng pipeline Team 2.
+    Chuẩn hóa schema real processed data về schema nội bộ để tái dùng pipeline dự báo.
     """
     df = df.copy()
     df = df.rename(

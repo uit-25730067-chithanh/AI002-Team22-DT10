@@ -45,6 +45,7 @@
 Đồ án tập trung phát triển hệ thống **Trí tuệ Nhân tạo dự báo giá cà phê** và hỗ trợ ra quyết định canh tác cho nông dân tại Tây Nguyên. Điểm cốt lõi của dự án là việc thiết kế và đánh giá hệ thống dựa trên **5 Trụ cột của AI Bền vững (Responsible AI)**: Tính tin cậy (Reliability), Tính không thiên vị (Bias), Kháng nhiễu (Robustness), Tác động xã hội (Social Impact), và Tính minh bạch/Giải thích được (Explainability/Transparency).
 
 **Kết quả cốt lõi:**
+
 1. Thu thập và xử lý tập dữ liệu thực tế về giá cà phê và khí tượng khu vực Tây Nguyên (2020-2026).
 2. Xây dựng mô hình Random Forest dự báo giá cà phê hàng tháng.
 3. Tích hợp kịch bản kiểm thử kháng nhiễu (Stress test) và bảo vệ hệ thống với cấu hình nhắc nhở an toàn (Prompt Guardrails).
@@ -58,12 +59,12 @@
 
 ## Công nghệ sử dụng
 
-| Danh mục | Công nghệ |
-| :--- | :--- |
-| **Backend / API** | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python) |
-| **Machine Learning** | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost) |
-| **Data & Storage** | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite) |
-| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) |
+| Danh mục             | Công nghệ                                                                                                                                                                                                                                                                                            |
+| :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Backend / API**    | ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi) ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)                                                                                                                        |
+| **Machine Learning** | ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBoost-111111?style=flat-square&logo=xgboost)                                                                                        |
+| **Data & Storage**   | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite)                                             |
+| **Frontend**         | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) |
 
 ---
 
@@ -80,13 +81,13 @@ AI002_PROJECT/
 ├── crawler/                        # Scripts cào và xử lý dữ liệu
 ├── notebooks/                      # Jupyter Notebooks phân tích (EDA)
 │
-├── model/                          # AI/ML Core (Team 2)
+├── model/                          # AI/ML Core
 │   ├── preprocess.py               # Làm sạch, tạo đặc trưng, chia dữ liệu theo thời gian
 │   ├── train_rf.py                 # Huấn luyện baseline Random Forest
 │   ├── stress_test.py              # Đánh giá kháng nhiễu (Robustness)
 │   └── best_model/                 # Checkpoint mô hình tốt nhất (metadata & model.pkl)
 │
-├── backend/                        # API Server (Team 2)
+├── backend/                        # API Server
 │   ├── main.py                     # Entry point FastAPI
 │   ├── api/routes.py               # Các endpoints: /health, /predict, /model/info
 │   └── services/predictor.py       # Tải model, dự đoán và giải thích (Explainability)
@@ -97,6 +98,7 @@ AI002_PROJECT/
 ```
 
 > 📚 **Tài liệu Subsystem:**
+>
 > - [Backend API Server](./backend/README.md)
 > - [Crawler & Dữ liệu](./crawler/README.md)
 > - [Mô hình AI](./model/README.md)
@@ -147,11 +149,12 @@ uvicorn backend.main:app --reload
 ```
 
 **Các Endpoint chính:**
+
 - `/health`: Kiểm tra trạng thái API và mô hình.
 - `/predict`: Dự báo giá cà phê kèm khoảng tin cậy và giải thích.
 - `/model/info`: Xem siêu dữ liệu của mô hình (version, đặc trưng,...).
 
-*Truy cập [http://localhost:8000/docs](http://localhost:8000/docs) để xem Swagger UI.* (Chi tiết tự host xem [tại đây](./docs/self-host-guide.md)).
+_Truy cập [http://localhost:8000/docs](http://localhost:8000/docs) để xem Swagger UI._ (Chi tiết tự host xem [tại đây](./docs/self-host-guide.md)).
 
 ### 5. Chạy Giao diện Frontend
 
@@ -187,6 +190,7 @@ python3 -m pytest tests/ai-tests -q
 ### Lộ trình & Tiến độ
 
 Các mốc chính bao gồm:
+
 1. Thu thập dữ liệu thực tế (Giá, thời tiết, thổ nhưỡng).
 2. Xây dựng Data-to-AI pipeline & Tiền xử lý dữ liệu.
 3. Train Random Forest Baseline.
@@ -204,11 +208,11 @@ Luồng làm việc hiện tại sử dụng dataset chính thức được thu 
 ```mermaid
 flowchart TD
     A["Crawl giá cà phê & thời tiết từ nguồn public"] --> B["Raw daily data"]
-    
+
     B --> G["Tiền xử lý & Tổng hợp"]
 
     G --> I["Tập dữ liệu Monthly"]
-    I --> M["Team 2: Train Baseline Random Forest"]
+    I --> M["Train Baseline Random Forest"]
 
     M --> N["Đánh giá 5 Trụ cột Bền vững"]
     N --> O["Cập nhật model/best_model"]
@@ -217,20 +221,10 @@ flowchart TD
 ```
 
 **Tập dữ liệu huấn luyện chính:**
+
 - File: `data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv`
 - Kích thước: 912 dòng, 18 cột
 - Phân chia (Temporal Split): Huấn luyện 2020-2024, Kiểm thử 2025, giữ 2026-01 đến 2026-04 làm demo/inference/audit holdout.
-
----
-
-### Phân chia Công việc (WBS)
-
-Cấu trúc phân chia công việc tối ưu hóa tiến độ làm việc song song:
-
-| Module | Phụ trách chính | Hỗ trợ |
-| :--- | :--- | :--- |
-| **Mô hình, API & Frontend** | Đặng Chí Thanh | Hoàng Cao Sơn |
-| **Dữ liệu & Kiểm toán Bền vững** | Hoàng Cao Sơn | Đặng Chí Thanh |
 
 ---
 
@@ -243,12 +237,12 @@ Cấu trúc phân chia công việc tối ưu hóa tiến độ làm việc song
 
 ### Danh sách Nhóm — Nhóm 10
 
-| MSSV | Họ và Tên | Vai trò | Trục AI Phụ trách | GitHub |
-| :--- | :--- | :--- | :--- | :--- |
+| MSSV     | Họ và Tên      | Vai trò                                      | Trục AI Phụ trách                          | GitHub                                                             |
+| :------- | :------------- | :------------------------------------------- | :----------------------------------------- | :----------------------------------------------------------------- |
 | 25730067 | Đặng Chí Thanh | Trưởng nhóm, Kỹ thuật ML, Backend & Frontend | Reliability, Explainability, Social Impact | [@uit-25730067-chithanh](https://github.com/uit-25730067-chithanh) |
-| 25730061 | Hoàng Cao Sơn | Data Audit, Crawler, Stress test | Robustness, Bias | [@uit-25730061-caoson](https://github.com/uit-25730061-caoson) |
+| 25730061 | Hoàng Cao Sơn  | Data Audit, Crawler, Stress test             | Robustness, Bias                           | [@uit-25730061-caoson](https://github.com/uit-25730061-caoson)     |
 
-*(Lưu ý: Do đây là repo public, GitHub handle của một số thành viên có thể được cập nhật sau)*
+_(Lưu ý: Do đây là repo public, GitHub handle của một số thành viên có thể được cập nhật sau)_
 
 ---
 

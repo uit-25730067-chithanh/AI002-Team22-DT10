@@ -1,6 +1,6 @@
 # Lộ trình Dự án và Luồng Dữ liệu
 
-Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu chính thức do Team 2 tự crawl, audit và tạo lại, sau đó đi qua model, API và frontend.
+Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI dự báo canh tác và giá cà phê**, tập trung vào luồng dữ liệu chính thức được thu thập, audit và tạo lại, sau đó đi qua model, API và frontend.
 
 **Trạng thái hiện tại:** roadmap phản ánh trạng thái cập nhật tính đến 2026-06-07 sau khi tách nhóm và rebuild dataset chính thức.
 
@@ -8,11 +8,11 @@ Tài liệu này mô tả roadmap tổng quan cho **AI002 - Đề tài 10: AI d�
 
 ```mermaid
 flowchart TD
-    A[Team 2: Thanh và Sơn] --> B[Crawl chính thức giá cà phê và dữ liệu môi trường]
+    A[Data pipeline owners] --> B[Crawl chính thức giá cà phê và dữ liệu môi trường]
     B --> C[Raw data]
     C --> D[Processed weekly dataset]
     C --> E[Processed monthly dataset]
-    E --> F[Team 2: Thanh train baseline]
+    E --> F[Train baseline]
     F --> G[Best model và metadata]
     G --> H[FastAPI backend]
     H --> I[Demo frontend]
@@ -73,7 +73,7 @@ gantt
     section GĐ 2: Dữ liệu thật
     Crawl giá cà phê và thời tiết            :done, b1, 2026-05-04, 7d
     Build processed weekly/monthly           :done, b2, 2026-05-08, 4d
-    Rebuild dataset chính thức Team 2           :done, b3, 2026-06-07, 1d
+    Rebuild dataset chính thức                  :done, b3, 2026-06-07, 1d
 
     section GĐ 3: Model baseline
     Chọn monthly dataset                     :done, c1, 2026-05-12, 1d
@@ -103,7 +103,7 @@ gantt
 
 ```mermaid
 flowchart TD
-    subgraph T2Data[Team 2: Thanh và Sơn]
+    subgraph DataPipeline[Data pipeline]
         A1[Crawl chính thức dữ liệu giá]
         A2[Crawl weather theo area]
         A3[Tạo processed datasets chính thức]
@@ -126,7 +126,7 @@ flowchart TD
         C5[Stress/API follow-up]
     end
 
-    subgraph Team[Team 10]
+    subgraph Deliverables[Deliverables]
         D1[Báo cáo]
         D2[Slide]
         D3[Demo]
@@ -223,14 +223,14 @@ stateDiagram-v2
 
 ### Tuần nghỉ lễ — Foundation pipeline
 
-- [x] Team 2 chạy mock pipeline.
+- [x] Chạy mock pipeline.
 - [x] Có FastAPI skeleton.
 - [x] Có Random Forest baseline trên mock data.
 
 ### Tuần 3 — Data thật
 
-- [x] Team 2 tự crawl và tạo lại processed weekly/monthly dataset chính thức.
-- [x] Team 2 đọc và chuẩn hóa schema real-data.
+- [x] Thu thập và tạo lại processed weekly/monthly dataset chính thức.
+- [x] Đọc và chuẩn hóa schema real-data.
 - [x] Có xếp hạng độ phủ dữ liệu theo khu vực.
 - [x] Ghi rõ provenance dữ liệu được thu thập/tái tạo từ nguồn public.
 
@@ -246,7 +246,7 @@ stateDiagram-v2
 
 - [x] Hoàn thiện `/predict`, `/health`, `/model/info` theo real-data contract.
 - [x] API validate numeric ranges, enum và category đã train.
-- [x] Sơn bổ sung danh sách kiểm tra integration API/frontend cho Team 1.
+- [x] Bổ sung danh sách kiểm tra integration API/frontend.
 - [x] Có frontend demo mobile-first trong repo gọi `/predict`.
 - [x] Demo end-to-end backend/frontend bằng kịch bản Lâm Đồng / Di Linh.
 

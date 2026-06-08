@@ -75,7 +75,7 @@ def write_area_weather(
     frame: pd.DataFrame,
     output_dir: Path,
     area_name: str,
-    year_range_label: str = "2022_2025",
+    year_range_label: str = contract.YEAR_RANGE_LABEL,
 ) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     output = output_dir / f"weather_{slugify(area_name)}_daily_{year_range_label}.csv"
@@ -85,7 +85,7 @@ def write_area_weather(
 
 def combined_weather_output_path(
     output_dir: Path,
-    year_range_label: str = "2022_2025",
+    year_range_label: str = contract.YEAR_RANGE_LABEL,
 ) -> Path:
     return output_dir / f"weather_all_areas_daily_{year_range_label}.csv"
 

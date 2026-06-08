@@ -21,9 +21,11 @@ from bs4 import BeautifulSoup
 
 try:
     from .coffee_areas import slugify
+    from . import coffee_data_contract as contract
     from .price_crawler_common import parse_article
 except ImportError:
     from coffee_areas import slugify
+    import coffee_data_contract as contract
     from price_crawler_common import parse_article
 
 
@@ -104,27 +106,32 @@ def collect_urls(
     return urls[:max_urls] if max_urls else urls
 
 
-def write_outputs(rows: list[dict[str, object]], output_dir: Path) -> None:
+def write_outputs(
+    rows: list[dict[str, object]],
+    output_dir: Path,
+    year_range_label: str = contract.YEAR_RANGE_LABEL,
+    combined_filename: str = contract.RAW_PRICE_FILE.name,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     frame = pd.DataFrame(rows)
     if frame.empty:
         print("No rows parsed; no price files written.")
         return
     frame = frame.drop_duplicates(["date", "province", "area", "source_url"]).sort_values(["date", "province", "area"])
-    combined = output_dir / "coffee_price_all_areas_daily_2022_2025.csv"
+    combined = output_dir / combined_filename
     frame.to_csv(combined, index=False, encoding="utf-8-sig")
     print(f"Wrote {combined} ({len(frame)} rows)")
     for area, area_frame in frame.groupby("area"):
-        output = output_dir / f"coffee_price_{slugify(area)}_daily_2022_2025.csv"
+        output = output_dir / f"coffee_price_{slugify(area)}_daily_{year_range_label}.csv"
         area_frame.sort_values(["date", "province", "area"]).to_csv(output, index=False, encoding="utf-8-sig")
         print(f"Wrote {output} ({len(area_frame)} rows)")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--start", default="2022-01-01")
-    parser.add_argument("--end", default="2025-12-31")
-    parser.add_argument("--output-dir", default="data/raw")
+    parser.add_argument("--start", default=contract.START_DATE)
+    parser.add_argument("--end", default=contract.END_DATE)
+    parser.add_argument("--output-dir", default=str(contract.RAW_DIR))
     parser.add_argument("--url-file", default=None, help="Optional newline-separated article URL file.")
     parser.add_argument("--no-sitemap", action="store_true", help="Only use seed URLs and --url-file.")
     parser.add_argument("--max-urls", type=int, default=None, help="Optional cap for faster test crawls.")

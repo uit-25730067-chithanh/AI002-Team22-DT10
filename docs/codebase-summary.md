@@ -1,13 +1,13 @@
 # 🗂 Tóm tắt Cấu trúc Code (Codebase Summary)
 
-**Trạng thái:** Independent Data Baseline + Protected API Contract + React Frontend + Maintainability Cleanup.
+**Trạng thái:** Canonical Data Baseline + Protected API Contract + React Frontend + Maintainability Cleanup.
 **Cập nhật:** 2026-06-07
 
 ---
 
 ## Kiến trúc Thư mục
 
-### `backend/` — API Server (Team 2)
+### `backend/` — API Server
 
 | File | Mô tả | Trụ cột AI liên quan |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 | `services/predictor.py` | Facade load model, build feature row, predict + CI, explain top 3 features | Reliability, Robustness, Transparency |
 | `services/farming_advisory.py` | Rule-based khuyến nghị canh tác theo tháng, lượng mưa và chất lượng đất | Social Impact, Robustness |
 
-### `model/` — AI/ML Pipeline (Team 2)
+### `model/` — AI/ML Pipeline
 
 | File | Mô tả | Trụ cột AI liên quan |
 | --- | --- | --- |
