@@ -2,7 +2,7 @@
 
 ## 3.1. Thu thập dữ liệu và Phân tích độ phủ
 
-Hệ thống sử dụng dữ liệu tích hợp từ hai nguồn chính: dữ liệu giá cà phê thực tế do Team 2 tự crawl lại từ các trang tin thị trường nông sản public và dữ liệu khí tượng từ API thời tiết lịch sử tại khu vực Tây Nguyên. Dataset hiện tại không dùng lại dữ liệu Phúc/Thịnh đã chuẩn bị trước khi tách nhóm.
+Hệ thống sử dụng dữ liệu tích hợp từ các nguồn public: dữ liệu giá cà phê từ trang tin thị trường nông sản, dữ liệu khí tượng lịch sử từ API thời tiết, và hồ sơ đất theo khu vực tại Tây Nguyên.
 
 ### 3.1.1. Thuộc tính dữ liệu (Schema)
 
@@ -19,18 +19,18 @@ Khi đưa dữ liệu thật vào phân tích, nhóm phát triển phát hiện 
 
 Thống kê chi tiết tỷ lệ dòng có dữ liệu giá cào thật trên tổng số dòng theo từng tỉnh:
 
-| Tỉnh | Tỉ lệ dữ liệu giá quan sát thật (Monthly baseline 2022-2026/04) | Đánh giá chất lượng dữ liệu |
+| Tỉnh | Tỉ lệ dữ liệu giá quan sát thật (Monthly baseline 2020-2026/04) | Đánh giá chất lượng dữ liệu |
 | :--- | :---: | :--- |
-| **Kon Tum** | 100.00% | Rất mạnh, nhưng chỉ có 1 area khảo sát. |
-| **Lâm Đồng** | 98.08% | Rất mạnh, phù hợp demo. |
-| **Đắk Lắk** | 93.59% | Chất lượng tốt, nhưng Cư M'gar yếu hơn hai area còn lại. |
-| **Gia Lai** | 93.59% | Chất lượng tốt, nhưng Chư Prông yếu hơn hai area còn lại. |
-| **Đắk Nông** | 86.54% | Thấp nhất trong baseline mới, cần cảnh báo khi demo. |
+| **Kon Tum** | 88.16% | Mạnh nhất, nhưng chỉ có 1 area khảo sát. |
+| **Lâm Đồng** | 86.84% | Tốt, phù hợp demo vì các area có độ phủ đều. |
+| **Đắk Lắk** | 77.63% | Chất lượng trung bình khá, Cư M'gar yếu hơn hai area còn lại. |
+| **Gia Lai** | 77.63% | Chất lượng trung bình khá, Chư Prông yếu hơn hai area còn lại. |
+| **Đắk Nông** | 60.53% | Thấp nhất, cần cảnh báo khi demo. |
 
 **Định hướng thiết kế giảm thiểu Bias:**
 - Khi chạy thử nghiệm và demo, ưu tiên sử dụng dữ liệu của các khu vực có tỷ lệ quan sát thật cao như: **Kon Tum, Di Linh, Ea H'leo, Buôn Hồ, Bảo Lộc, Lâm Hà, Pleiku, Ia Grai**.
 - Cần cảnh báo khi dùng **Gia Nghĩa, Chư Prông, Cư M'gar, Đắk R'lấp** vì đây là các area có nhiều proxy/nội suy hơn trong dataset mới.
-- Bias nguồn vẫn đáng kể: raw giá có 6,293 dòng từ Nông Nghiệp Môi Trường và 13 dòng từ Công Thương. Vì vậy giá trong hệ thống là giá tham khảo public, không phải giao dịch chính thức.
+- Bias nguồn vẫn đáng kể vì dữ liệu phụ thuộc vào các trang tin public. Vì vậy giá trong hệ thống là giá tham khảo, không phải giao dịch chính thức.
 
 ## 3.2. Quy trình xử lý dữ liệu (Raw → Weekly → Monthly)
 
@@ -43,13 +43,13 @@ Dữ liệu thô cào về hàng ngày (`raw daily`) chứa nhiều nhiễu bi�
 [ Tập dữ liệu tuần (Weekly Dataset) ] ── (3,972 dòng, dùng tham khảo)
                 │
                 ▼ (Trung bình hóa theo tháng)
-[ Tập dữ liệu tháng (Monthly Dataset) ] ─ (624 dòng baseline 2022-2026/04, 94.07% observed)
+[ Tập dữ liệu tháng (Monthly Dataset) ] ─ (912 dòng 2020-2026/04, 77.96% observed)
 ```
 
 **Lý do lựa chọn tập dữ liệu tháng (Monthly Dataset) làm baseline chính:**
 1. **Kiểm soát nhiễu:** Dữ liệu tháng loại bỏ các biến động đột biến trong ngày/tuần, giúp mô hình học máy nắm bắt tốt hơn xu hướng chu kỳ dài hạn của giá nông sản.
 2. **Đồng bộ thời tiết:** Các chu kỳ canh tác nông nghiệp và thời tiết thường được tính theo tháng hoặc mùa vụ. Việc sử dụng dữ liệu tháng giúp các đặc trưng khí hậu (nhiệt độ, lượng mưa) mang tính đại diện cao hơn cho sinh trưởng của cây cà phê.
-3. **KISS & YAGNI:** Tập dữ liệu tháng có kích thước gọn nhẹ (624 dòng, 18 cột), giúp mô hình Random Forest huấn luyện nhanh mà vẫn giữ pipeline dễ giải thích. Điều này tránh việc lãng phí tài nguyên tính toán (vấn đề xanh hóa AI).
+3. **KISS & YAGNI:** Tập dữ liệu tháng có kích thước gọn nhẹ (912 dòng, 18 cột), giúp mô hình Random Forest huấn luyện nhanh mà vẫn giữ pipeline dễ giải thích. Điều này tránh việc lãng phí tài nguyên tính toán (vấn đề xanh hóa AI).
 
 ## 3.3. Kiến trúc hệ thống 4 tầng (Responsible AI Architecture)
 
@@ -91,15 +91,15 @@ Cấu trúc thiết kế của API response cho endpoint `/predict` được quy
   "top_features": [
     {
       "feature": "rolling_avg_7d",
-      "importance": 0.728,
+      "importance": 0.469,
       "input_value": 84000.0,
-      "explanation": "rolling_avg_7d có mức quan trọng cao (72.80%) với giá trị hiện tại 84000.00."
+      "explanation": "rolling_avg_7d có mức quan trọng cao (46.90%) với giá trị hiện tại 84000.00."
     },
     {
       "feature": "lag_1d",
-      "importance": 0.2223,
+      "importance": 0.505,
       "input_value": 86000.0,
-      "explanation": "lag_1d có mức quan trọng cao (22.23%) với giá trị hiện tại 86000.00."
+      "explanation": "lag_1d có mức quan trọng cao (50.50%) với giá trị hiện tại 86000.00."
     },
     {
       "feature": "year",
@@ -108,7 +108,7 @@ Cấu trúc thiết kế của API response cho endpoint `/predict` được quy
       "explanation": "year có mức quan trọng cao (1.96%) với giá trị hiện tại 2025.00."
     }
   ],
-  "model_version": "20260607_235428__rf_independent_monthly",
+  "model_version": "20260608_004601__rf_monthly_baseline",
   "farming_recommendation": {
     "action": "growth_care",
     "season_type": "rainy_season",

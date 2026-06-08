@@ -34,11 +34,11 @@ from preprocess import preprocess_pipeline, split_temporal  # noqa: E402
 
 def _update_best_model_after_training(
         tag: str, experiment_id: str) -> Path | None:
-    if tag.startswith("rf_independent"):
+    if tag.startswith("rf_monthly"):
         return update_best_model(
             metric_key="mae",
             mode="min",
-            tag_prefix="rf_independent",
+            tag_prefix="rf_monthly",
             fallback_experiment_id=experiment_id,
         )
 

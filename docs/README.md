@@ -54,7 +54,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A[Phúc và Thịnh] --> B[Data flow roadmap]
+    A[Nhóm phát triển] --> B[Data flow roadmap]
     A --> C[API handoff real data]
     A --> D[Deployment guide]
 

@@ -58,7 +58,7 @@
 * **Mục tiêu cốt lõi:**
   - Đồng hành cùng nông dân Tây Nguyên qua công cụ dự báo giá và khuyến nghị canh tác.
   - Hiện thực hóa hệ thống dựa trên **5 Trụ cột AI Bền vững** (Responsible AI).
-* **Phạm vi địa lý:** 5 tỉnh Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng, Kon Tum) giai đoạn 2022–2025.
+* **Phạm vi địa lý:** 5 tỉnh Tây Nguyên (Đắk Lắk, Gia Lai, Đắk Nông, Lâm Đồng, Kon Tum) giai đoạn 2020–2026.
 * **Tuyên bố miễn trừ trách nhiệm (Disclaimer):**
   - Hệ thống chỉ mang tính chất tham khảo học thuật.
   - Không thay thế lời khuyên tài chính thương mại hay tư vấn chuyên môn.
@@ -70,12 +70,12 @@
 ## Slide 4: Quy trình xử lý dữ liệu (Data-to-AI Flow)
 * **Luồng dữ liệu:**
   ```text
-  [Raw Daily Prices & Weather] -> [Weekly Dataset (2520 dòng)] -> [Monthly Dataset (576 dòng)]
+  [Raw Daily Prices & Weather] -> [Weekly Dataset (3972 dòng)] -> [Monthly Dataset (912 dòng)]
   ```
 * **Lý do chọn Monthly Dataset làm baseline:**
   - **Giảm nhiễu:** Bỏ qua biến động giá ảo trong ngày/tuần.
   - **Đồng bộ:** Chu kỳ thời tiết và sinh trưởng cây trồng tương thích tốt nhất theo tháng.
-  - **Nguyên lý KISS:** Dữ liệu nhỏ gọn (576 dòng, 16 cột), mô hình huấn luyện cực nhanh, tiết kiệm điện năng tính toán.
+  - **Nguyên lý KISS:** Dữ liệu nhỏ gọn (912 dòng, 18 cột), mô hình huấn luyện cực nhanh, tiết kiệm điện năng tính toán.
 * **Speaker Notes:**
   > Chúng tôi crawl dữ liệu giá cà phê thực tế hàng ngày và dữ liệu thời tiết. Sau khi lọc nhiễu, chúng tôi tổng hợp thành bộ dữ liệu tháng. Chọn dữ liệu tháng giúp nắm bắt xu hướng trung hạn tốt hơn và bám sát nguyên tắc KISS (Keep It Simple, Stupid), giúp mô hình chạy nhanh và gọn nhẹ.
 
@@ -103,15 +103,15 @@
 
 ## Slide 7: Kết quả Định lượng tập Test 2025 (Reliability)
 * **Kết quả thực nghiệm:**
-  - **MAE:** 13,552 VND/kg
-  - **RMSE:** 16,754 VND/kg
-  - **R²:** -0.9044 (Trình bày trung thực số âm)
+  - **MAE:** 14,474 VND/kg
+  - **RMSE:** 17,874 VND/kg
+  - **R²:** -1.2244 (Trình bày trung thực số âm)
 * **Giải thích R² âm (Giới hạn ngoại suy):**
-  - Tập huấn luyện (2022-2024) có miền giá cà phê thấp (**35k - 70k VND/kg**).
+  - Tập huấn luyện (2020-2024) có miền giá cà phê thấp hơn nhiều so với năm 2025.
   - Tập kiểm thử (2025) chứng kiến giá cà phê tăng vọt lịch sử (**100k - 120k VND/kg**).
   - Mô hình cây quyết định chỉ dự đoán tối đa mức trần đã học (~78k VND/kg), gây ra độ lệch lớn so với thực tế 2025.
 * **Speaker Notes:**
-  > Chúng tôi kiểm thử mô hình trên dữ liệu năm 2025. MAE đạt 13.5k VND/kg và R² bị âm. Chúng tôi trình bày trung thực chỉ số âm này. Nguyên nhân là năm 2025 giá cà phê thực tế tăng phi mã lên hơn 100k/kg, vượt ngoài miền dữ liệu huấn luyện 2022-2024. Mô hình cây quyết định không thể ngoại suy vượt trần tập train. Đây là giới hạn kỹ thuật quan trọng giúp chúng tôi nhận thức rõ tính tin cậy của mô hình khi gặp biến cố lớn.
+  > Chúng tôi kiểm thử mô hình trên dữ liệu năm 2025. MAE đạt 14.5k VND/kg và R² bị âm. Chúng tôi trình bày trung thực chỉ số âm này. Nguyên nhân là năm 2025 giá cà phê thực tế tăng phi mã lên hơn 100k/kg, vượt ngoài miền dữ liệu huấn luyện 2020-2024. Mô hình cây quyết định không thể ngoại suy vượt trần tập train. Đây là giới hạn kỹ thuật quan trọng giúp chúng tôi nhận thức rõ tính tin cậy của mô hình khi gặp biến cố lớn.
 
 ---
 
@@ -129,7 +129,7 @@
 
 ## Slide 9: Responsible AI - Trục Bias & Social Impact
 * **Trục Bias (Thiên lệch dữ liệu địa lý):**
-  - Tỉ lệ dữ liệu cào thật: Lâm Đồng/Kon Tum (100%), Đắk Lắk/Gia Lai (93%), Đắk Nông (39.6%).
+  - Tỉ lệ dữ liệu cào thật: Kon Tum (88.16%), Lâm Đồng (86.84%), Đắk Lắk/Gia Lai (77.63%), Đắk Nông (60.53%).
   - *Giải pháp:* Hiển thị nhãn cảnh báo độ tin cậy thấp tại Đắk Nông, hướng dẫn nông dân tham chiếu khu vực lân cận.
 * **Trục Social Impact (Tác động xã hội):**
   - **Phương pháp kiểm chứng:** Kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind tại `frontend/` và kết quả phản hồi kèm disclaimer từ backend.
@@ -137,19 +137,19 @@
   - **Hỗ trợ ngoại tuyến:** Lưu trữ bằng `localStorage` và xem chi tiết lịch sử (đối chiếu input, kết quả, lý do và disclaimer) khi mạng chập chờn.
   - **Ràng buộc an toàn:** Chân trang luôn bắt buộc hiển thị Disclaimer để tránh nông dân ra quyết định tài chính sai lệch.
 * **Speaker Notes:**
-  > Về trục Bias, chúng tôi phát hiện dữ liệu Đắk Nông cào được rất ít (chỉ 39.6%). Do đó hệ thống sẽ cảnh báo nông dân Đắk Nông rằng độ tin cậy dự báo vùng này thấp hơn Lâm Đồng để tránh họ ra quyết định sai. Về tác động xã hội (Social Impact), chúng tôi kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind kết nối backend. Giao diện được tối ưu hóa mobile-first với màn chào rõ ràng, nút lớn tương phản cao chống chói nắng, hỗ trợ lưu trữ cục bộ qua localStorage để xem lịch sử khi mất mạng, và đặc biệt chân trang luôn hiển thị Disclaimer bắt buộc nhằm tránh các rủi ro quyết định kinh tế sai lệch cho người nông dân.
+  > Về trục Bias, chúng tôi phát hiện dữ liệu Đắk Nông có tỷ lệ quan sát thật thấp nhất (60.53%). Do đó hệ thống sẽ cảnh báo nông dân Đắk Nông rằng độ tin cậy dự báo vùng này thấp hơn Lâm Đồng/Kon Tum để tránh họ ra quyết định sai. Về tác động xã hội (Social Impact), chúng tôi kiểm nghiệm thực tế giao diện di động React/Vite/Tailwind kết nối backend.
 
 ---
 
 ## Slide 10: Responsible AI - Trục Transparency (Tính minh bạch)
 * **Giải thích mô hình qua Feature Importance:**
-  - Đà tăng giá thị trường gần đây (`rolling_avg_7d`): **72.8%**
-  - Giá tháng trước (`lag_1d`): **22.2%**
+  - Giá tháng trước (`lag_1d`): **50.5%**
+  - Đà tăng giá thị trường gần đây (`rolling_avg_7d`): **46.9%**
   - Các yếu tố khí hậu ngắn hạn (nhiệt độ, lượng mưa): **< 1%**
 * **Ý nghĩa:**
   - AI minh bạch lý do dự báo: Giá cà phê phụ thuộc vào đà giá lịch sử, tránh để nông dân hiểu sai rằng thời tiết thay đổi nhẹ sẽ thay đổi ngay lập tức giá bán ngày mai.
 * **Speaker Notes:**
-  > Với trục Transparency, mô hình bóc tách rõ tầm ảnh hưởng của các biến. 72.8% giá trị dự báo được quyết định bởi trung bình trượt giá quá khứ gần. Điều này minh bạch hóa thuật toán, giúp nông dân hiểu rằng đà giá thị trường là yếu tố quyết định chính chứ không phải các yếu tố thời tiết ngắn hạn, giúp họ bình tĩnh phân tích thông tin.
+  > Với trục Transparency, mô hình bóc tách rõ tầm ảnh hưởng của các biến. Hai biến giá trễ gần nhất chiếm phần lớn dự báo. Điều này minh bạch hóa thuật toán, giúp nông dân hiểu rằng đà giá thị trường là yếu tố quyết định chính chứ không phải các yếu tố thời tiết ngắn hạn.
 
 ---
 
@@ -160,7 +160,7 @@
   - Hỗ trợ lưu kết quả dự báo ngoại tuyến (Offline Storage) qua `localStorage`.
 * **Định dạng hiển thị:** Kết quả trực quan gồm giá dự báo, khoảng dao động, lý giải thanh đóng góp đặc trưng và khuyến nghị canh tác tiếng Việt dễ hiểu.
 * **Speaker Notes:**
-  > Chúng tôi đã hiện thực một giao diện di động bằng React. Giao diện phân tách tính năng thành các luồng độc lập, bám sát mental model của người nông dân. Ứng dụng hỗ trợ lưu trữ cục bộ để xem lại dự báo khi không có mạng, thiết kế theo triết lý Social Impact với các nút bấm lớn dễ ấn, biểu đồ giải thích trực quan và tích hợp đầy đủ cảnh báo thiên lệch dữ liệu.
+  > Chúng tôi đã hiện thực một giao diện di động bằng React. Giao diện phân tách tính năng thành các luồng chính thức, bám sát mental model của người nông dân. Ứng dụng hỗ trợ lưu trữ cục bộ để xem lại dự báo khi không có mạng, thiết kế theo triết lý Social Impact với các nút bấm lớn dễ ấn, biểu đồ giải thích trực quan và tích hợp đầy đủ cảnh báo thiên lệch dữ liệu.
 
 ---
 
@@ -169,7 +169,7 @@
   - Hệ thống baseline đã vận hành end-to-end, lồng ghép thành công tư duy AI bền vững vào cấu trúc code.
   - Báo cáo trung thực các hạn chế kỹ thuật (R² âm, bias địa lý).
 * **Hướng phát triển:**
-  - Mở rộng dữ liệu lịch sử trước năm 2022.
+  - Mở rộng dữ liệu lịch sử sâu hơn trước năm 2020.
   - So sánh Random Forest với các mô hình hỗ trợ học xu hướng tốt hơn (Prophet, XGBoost, LSTM).
   - Huấn luyện mô hình localized riêng cho từng tiểu vùng.
 * **Speaker Notes:**

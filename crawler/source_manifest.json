@@ -1,0 +1,87 @@
+{
+  "dataset_id": "coffee_environment_2020_2026",
+  "description": "Official coffee price source manifest for the AI002 coffee environment dataset.",
+  "date_range": {
+    "start": "2020-01-01",
+    "end": "2026-04-30"
+  },
+  "outputs": {
+    "raw_dir": "data/raw",
+    "source_output_dir": "data/raw/sources",
+    "error_output_dir": "data/raw/errors",
+    "raw_price_file": "data/raw/coffee_price_all_areas_daily_2020_2026.csv",
+    "raw_weather_file": "data/raw/weather_all_areas_daily_2020_2026.csv",
+    "monthly_processed_file": "data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv",
+    "weekly_processed_file": "data/processed/weekly/coffee_environment_all_areas_weekly_2020_2026.csv"
+  },
+  "sources": [
+    {
+      "source_id": "congthuong",
+      "source_name": "Cong Thuong",
+      "base_url": "https://congthuong.vn/",
+      "search_domain": "congthuong.vn",
+      "sitemap_candidates": ["sitemap.xml", "sitemap_index.xml"],
+      "url_keywords": ["gia-ca-phe-hom-nay"],
+      "seed_urls": [
+        "https://congthuong.vn/gia-ca-phe-hom-nay-173-gia-ca-phe-trong-nuoc-giam-200-dongkg-246664.html",
+        "https://congthuong.vn/gia-ca-phe-hom-nay-2762024-gia-ca-phe-giam-manh-o-ca-trong-nuoc-va-the-gioi-328398.html",
+        "https://congthuong.vn/gia-ca-phe-hom-nay-12122024-gia-ca-phe-trong-nuoc-tang-nhe-363788.html"
+      ],
+      "allowed_date_range": {
+        "start": "2020-01-01",
+        "end": "2026-04-30"
+      }
+    },
+    {
+      "source_id": "nongnghiepmoitruong",
+      "source_name": "Nong Nghiep Moi Truong",
+      "base_url": "https://nongnghiepmoitruong.vn/",
+      "search_domain": "nongnghiepmoitruong.vn",
+      "sitemap_candidates": ["sitemap.xml", "sitemap_index.xml"],
+      "url_keywords": ["gia-ca-phe-hom-nay"],
+      "seed_urls": [
+        "https://nongnghiepmoitruong.vn/gia-ca-phe-hom-nay-12-12-2022-tuan-qua-giam-300--500-d-kg-d339610.html",
+        "https://nongnghiepmoitruong.vn/gia-ca-phe-hom-nay-7-3-2023-giam-nhe-mat-moc-48000-d-kg-d345345.html",
+        "https://nongnghiepmoitruong.vn/gia-ca-phe-hom-nay-25-7-2025-thi-truong-tiep-tuc-tang-d764611.html"
+      ],
+      "allowed_date_range": {
+        "start": "2020-01-01",
+        "end": "2026-04-30"
+      }
+    },
+    {
+      "source_id": "kinhtedothi",
+      "source_name": "Kinh Te Do Thi",
+      "base_url": "https://kinhtedothi.vn/",
+      "search_domain": "kinhtedothi.vn",
+      "sitemap_candidates": ["sitemap.xml", "sitemap_index.xml"],
+      "url_keywords": ["gia-ca-phe-hom-nay"],
+      "seed_urls": [
+        "https://kinhtedothi.vn/gia-ca-phe-hom-nay-2-1-ca-phe-trong-nuoc-tang-cham-nong-dan-giu-hang-cho-thoi-co",
+        "https://kinhtedothi.vn/gia-ca-phe-hom-nay-1-4-thang-3-2024-tang-15-000-dong-kg-co-noi-vuot-100-000-dong-kg",
+        "https://kinhtedothi.vn/gia-ca-phe-hom-nay-2-5-2025-nguyen-nhan-ca-phe-quay-xe-manh-ngay-dau-thang-5-2025.692315.html"
+      ],
+      "allowed_date_range": {
+        "start": "2020-01-01",
+        "end": "2026-04-30"
+      }
+    },
+    {
+      "source_id": "vinanet",
+      "source_name": "Vinanet",
+      "base_url": "https://vinanet.vn/",
+      "search_domain": "vinanet.vn",
+      "sitemap_candidates": ["sitemap.xml"],
+      "url_keywords": ["bang-gia-ca-phe-trong-nuoc-va-the-gioi", "gia-ca-phe"],
+      "seed_urls": [
+        "https://vinanet.vn/nong-san/bang-gia-ca-phe-trong-nuoc-va-the-gioi-ngay-7102024-790417.html",
+        "https://vinanet.vn/nong-san/bang-gia-ca-phe-trong-nuoc-va-the-gioi-ngay-122025-795533.html",
+        "https://vinanet.vn/nong-san/bang-gia-ca-phe-trong-nuoc-va-the-gioi-ngay-2532025-797209.html"
+      ],
+      "allowed_date_range": {
+        "start": "2020-01-01",
+        "end": "2026-04-30"
+      }
+    }
+  ]
+}

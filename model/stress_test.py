@@ -286,7 +286,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--data",
-        default="data/processed/monthly/coffee_environment_all_areas_monthly_2022_2025.csv",
+        default="data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv",
         help="Đường dẫn dữ liệu monthly real",
     )
     parser.add_argument(

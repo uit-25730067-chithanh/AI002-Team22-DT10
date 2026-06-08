@@ -6,8 +6,8 @@ Các file trong hai thư mục này có cùng schema. Khác biệt chính là m�
 
 - `weekly`: dữ liệu được tổng hợp theo tuần.
 - `monthly`: dữ liệu được tổng hợp theo tháng.
-- `coffee_environment_all_areas_<freq>_2022_2025.csv`: chứa tất cả khu vực.
-- `coffee_environment_<area>_<freq>_2022_2025.csv`: chỉ chứa dữ liệu của một khu vực cụ thể.
+- `coffee_environment_all_areas_<freq>_2020_2026.csv`: chứa tất cả khu vực.
+- Per-area processed files là artifact trung gian đã được backup local, không còn là source-of-truth final.
 
 ## Danh sách field
 

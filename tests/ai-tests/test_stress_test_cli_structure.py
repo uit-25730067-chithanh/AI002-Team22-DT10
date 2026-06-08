@@ -20,7 +20,7 @@ def test_stress_report_uses_current_scenario_lift_values() -> None:
     report = "\n".join(
         generate_stress_report(
             model_path="model.pkl",
-            data_path="independent.csv",
+            data_path="coffee_environment.csv",
             exp_name="exp",
             mae_normal=100.0,
             rmse_normal=120.0,

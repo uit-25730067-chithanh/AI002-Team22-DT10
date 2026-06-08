@@ -12,7 +12,7 @@ Mục tiêu của thuật toán học có giám sát là tìm kiếm một hàm 
 
 ## 2.2. Thuật toán Random Forest Regression
 
-Thuật toán **Random Forest** (Rừng ngẫu nhiên), giới thiệu bởi Leo Breiman vào năm 2001, là một thuật toán học máy mạnh mẽ thuộc nhóm **Học kết hợp (Ensemble Learning)**. Thuật toán này hoạt động bằng cách xây dựng và kết hợp dự đoán từ một số lượng lớn các Cây Quyết định (Decision Trees) độc lập.
+Thuật toán **Random Forest** (Rừng ngẫu nhiên), giới thiệu bởi Leo Breiman vào năm 2001, là một thuật toán học máy mạnh mẽ thuộc nhóm **Học kết hợp (Ensemble Learning)**. Thuật toán này hoạt động bằng cách xây dựng và kết hợp dự đoán từ một số lượng lớn các Cây Quyết định (Decision Trees) chính thức.
 
 ```text
                [ Vector Đặc Trưng Đầu Vào x ]
@@ -35,13 +35,13 @@ $$\hat{y} = \frac{1}{K} \sum_{k=1}^{K} T_{k}(x)$$
 Trong đó $T_{k}(x)$ là giá trị dự đoán của cây quyết định thứ $k$.
 
 **Lý do lựa chọn thuật toán Random Forest:**
-- **Kiểm soát overfitting tốt:** Việc trung bình hóa kết quả của nhiều cây độc lập giúp giảm phương sai (variance) của mô hình mà không làm tăng độ lệch (bias).
+- **Kiểm soát overfitting tốt:** Việc trung bình hóa kết quả của nhiều cây chính thức giúp giảm phương sai (variance) của mô hình mà không làm tăng độ lệch (bias).
 - **Đánh giá mức độ quan trọng của đặc trưng (Feature Importance):** Cung cấp cơ chế định lượng tầm ảnh hưởng của từng đặc trưng đầu vào thông qua chỉ số giảm độ tinh khiết trung bình (Mean Decrease Impurity - MDI), hỗ trợ đắc lực cho trụ cột minh bạch (Explainability).
 - **Khả năng làm việc với dữ liệu phi tuyến:** Nắm bắt tốt các mối quan hệ tương tác phức tạp giữa thời tiết và giá nông sản mà không yêu cầu chuẩn hóa dữ liệu đầu vào quá phức tạp (KISS).
 
 ## 2.3. Các độ đo đánh giá mô hình
 
-Để đánh giá định lượng chất lượng dự báo của mô hình trên tập kiểm thử độc lập, đồ án áp dụng ba độ đo tiêu chuẩn trong bài toán hồi quy:
+Để đánh giá định lượng chất lượng dự báo của mô hình trên tập kiểm thử chính thức, đồ án áp dụng ba độ đo tiêu chuẩn trong bài toán hồi quy:
 
 ### Sai số Tuyệt đối Trung bình (Mean Absolute Error - MAE)
 
@@ -57,7 +57,7 @@ RMSE giúp nhóm phát triển phát hiện các trường hợp dự báo sai l
 
 ### Hệ số Xác định (R-squared - $R^2$)
 
-$R^2$ biểu thị tỷ lệ phương sai của biến mục tiêu được giải thích bởi các biến độc lập trong mô hình:
+$R^2$ biểu thị tỷ lệ phương sai của biến mục tiêu được giải thích bởi các biến chính thức trong mô hình:
 $$R^2 = 1 - \frac{\sum_{i=1}^{n} (y_{i} - \hat{y}_{i})^2}{\sum_{i=1}^{n} (y_{i} - \bar{y})^2}$$
 Trong đó $\bar{y}$ là giá trị trung bình của dữ liệu thực tế:
 $$\bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_{i}$$

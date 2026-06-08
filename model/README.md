@@ -43,7 +43,7 @@ flowchart TD
 Để chạy huấn luyện mô hình Baseline:
 
 ```bash
-python model/train_rf.py --data data/processed/monthly/coffee_environment_dak_lak_monthly_2022_2025.csv --tag rf_real_monthly
+python model/train_rf.py --data data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv --tag rf_monthly_baseline
 ```
 
 Để chạy Stress Test (Đánh giá khả năng chịu đựng):

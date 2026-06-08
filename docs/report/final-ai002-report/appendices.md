@@ -49,15 +49,15 @@ Phản hồi từ Backend trả về giá dự báo, khoảng tin cậy, các đ
   "top_features": [
     {
       "feature": "rolling_avg_7d",
-      "importance": 0.728,
+      "importance": 0.469,
       "input_value": 83000.0,
-      "explanation": "rolling_avg_7d có mức quan trọng cao (72.80%) với giá trị hiện tại 83000.00."
+      "explanation": "rolling_avg_7d có mức quan trọng cao (46.90%) với giá trị hiện tại 83000.00."
     },
     {
       "feature": "lag_1d",
-      "importance": 0.2223,
+      "importance": 0.505,
       "input_value": 85000.0,
-      "explanation": "lag_1d có mức quan trọng cao (22.23%) với giá trị hiện tại 85000.00."
+      "explanation": "lag_1d có mức quan trọng cao (50.50%) với giá trị hiện tại 85000.00."
     },
     {
       "feature": "year",
@@ -125,7 +125,7 @@ Giao diện người dùng được thiết kế tối giản, trực quan hóa 
 ## Phụ lục 4: Đường dẫn mã nguồn và Dữ liệu
 
 ### Cấu trúc mã nguồn chính trên repository:
-- **Tập dữ liệu huấn luyện:** [coffee_environment_independent_all_areas_monthly_2022_2026.csv](../../../data/processed/monthly/coffee_environment_independent_all_areas_monthly_2022_2026.csv)
+- **Tập dữ liệu huấn luyện:** [coffee_environment_all_areas_monthly_2020_2026.csv](../../../data/processed/monthly/coffee_environment_all_areas_monthly_2020_2026.csv)
 - **Module tiền xử lý:** [preprocess.py](../../../model/preprocess.py)
 - **Module huấn luyện Random Forest:** [train_rf.py](../../../model/train_rf.py)
 - **Entrypoint Backend API:** [main.py](../../../backend/main.py)

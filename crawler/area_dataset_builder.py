@@ -255,7 +255,7 @@ def build_dataset(
 
     output_dir = output_root / freq
     output_dir.mkdir(parents=True, exist_ok=True)
-    resolved_combined_name = combined_output_name or f"coffee_environment_all_areas_{freq}_2022_2025.csv"
+    resolved_combined_name = combined_output_name or f"coffee_environment_all_areas_{freq}_2020_2026.csv"
     combined_output = output_dir / resolved_combined_name
     grouped.to_csv(combined_output, index=False, encoding="utf-8-sig")
     print(f"Wrote {combined_output} ({len(grouped)} rows)")

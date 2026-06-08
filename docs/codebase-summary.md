@@ -22,7 +22,7 @@
 | File | Mô tả | Trụ cột AI liên quan |
 | --- | --- | --- |
 | `preprocess.py` | Wrapper backward-compatible cho pipeline real-data | Robustness |
-| `train_rf.py` | Train Random Forest baseline; đánh giá MAE/RMSE/R²; promote model tốt nhất theo scope `rf_real` hoặc `rf_independent` | Reliability, Transparency |
+| `train_rf.py` | Train Random Forest baseline; đánh giá MAE/RMSE/R²; promote model tốt nhất theo scope `rf_real` hoặc `rf_monthly` | Reliability, Transparency |
 | `train_xgboost.py` | XGBoost comparison optional trong venv riêng | Reliability |
 | `stress_test.py` | CLI stress test, inject Black Swan scenarios và ghi report | Robustness |
 | `experiment_tracker.py` | Create/list experiments, save artifacts/metrics/params, promote best model | Traceability |
@@ -39,12 +39,12 @@
 | `build_soil_profile.py` | Sinh static soil profile theo vùng cà phê |
 | `crawl_weather_by_area.py` | Crawl daily weather theo area |
 | `coffee_areas.py` | Danh sách vùng cà phê, tọa độ và soil metadata |
-| `independent_data_contract.py` | Contract schema và mốc thời gian cho dataset độc lập |
-| `source_manifest_independent.json` | Seed/source manifest cho crawl độc lập |
-| `run_independent_price_crawlers.py` | Runner crawl giá độc lập theo manifest |
-| `build_independent_area_datasets.py` | CLI tạo processed dataset độc lập |
-| `independent_data_audit.py` | Audit độ phủ, range baseline và ranking area độc lập |
-| `independent_data_quality.py` | Helper kiểm tra chất lượng dataset độc lập |
+| `coffee_data_contract.py` | Contract schema, mốc thời gian và canonical paths cho dataset chính thức |
+| `source_manifest.json` | Seed/source manifest cho crawl từ nguồn public |
+| `run_price_crawlers.py` | Runner crawl giá theo manifest |
+| `build_area_datasets.py` | CLI tạo processed weekly/monthly dataset chính thức |
+| `data_audit.py` | Audit độ phủ, range baseline và ranking area |
+| `data_quality.py` | Helper kiểm tra chất lượng dataset |
 
 ### `frontend/` — Giao diện người dùng di động (Mobile-first UI)
 
@@ -61,7 +61,7 @@
 
 | File | Mô tả |
 | --- | --- |
-| `generate_mock_data.py` | Sinh 1200 dòng mock data (Tây Nguyên, 2022-2025); inject NaN + outliers; ghi chú regional bias |
+| `generate_mock_data.py` | Sinh 1200 dòng mock data (Tây Nguyên, 2020-2026); inject NaN + outliers; ghi chú regional bias |
 
 ### `tests/ai-tests/` — Kiểm thử
 
@@ -76,8 +76,8 @@
 | `test_crawler_price_normalization.py` | Kiểm tra normalize/parse helper |
 | `test_crawler_area_dataset_builder.py` | Kiểm tra build dataset helper |
 | `test_price_html_parsers.py` | Kiểm tra date parsing và parse_article mẫu |
-| `test_independent_data_contract.py` | Kiểm tra contract dataset độc lập |
-| `test_independent_model_training.py` | Kiểm tra chọn range baseline và promote `rf_independent` |
+| `test_coffee_data_contract.py` | Kiểm tra contract dataset chính thức |
+| `test_canonical_model_training.py` | Kiểm tra train/test/demo windows và promote `rf_monthly` |
 | `test_stress_test_cli_structure.py` | Regression test cho CLI stress test |
 
 ### `docs/` — Tài liệu vận hành và bàn giao
@@ -86,8 +86,7 @@
 | --- | --- |
 | `README.md` | Chỉ mục tài liệu theo vai trò và nhu cầu đọc |
 | `project-roadmap.md` | Trạng thái milestone hiện tại |
-| `discussions/2026-06-07-independent-five-pillars-checkpoint.md` | Checkpoint 5 trụ cột với dataset/model độc lập |
-| `discussions/2026-06-07-independent-model-results.md` | Kết quả train RF độc lập và quyết định promote |
+| `discussions/robustness-stress-test.md` | Kết quả stress test với baseline hiện tại |
 | `deployment.md` | Tổng quan deploy Render backend + Cloudflare frontend |
 | `troubleshooting.md` | Lỗi thường gặp khi chạy API/front-end integration |
 

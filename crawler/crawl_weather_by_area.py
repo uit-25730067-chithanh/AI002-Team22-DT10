@@ -12,10 +12,10 @@ import requests
 
 try:
     from .coffee_areas import AREAS, slugify
-    from . import independent_data_contract as independent_contract
+    from . import coffee_data_contract as contract
 except ImportError:
     from coffee_areas import AREAS, slugify
-    import independent_data_contract as independent_contract
+    import coffee_data_contract as contract
 
 
 OPEN_METEO_ARCHIVE_URL = "https://archive-api.open-meteo.com/v1/archive"
@@ -92,10 +92,10 @@ def combined_weather_output_path(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--start", default="2022-01-01")
-    parser.add_argument("--end", default="2025-12-31")
-    parser.add_argument("--output-dir", default="data/raw")
-    parser.add_argument("--year-range-label", default="2022_2025")
+    parser.add_argument("--start", default=contract.START_DATE)
+    parser.add_argument("--end", default=contract.END_DATE)
+    parser.add_argument("--output-dir", default=str(contract.RAW_DIR))
+    parser.add_argument("--year-range-label", default=contract.YEAR_RANGE_LABEL)
     parser.add_argument("--sleep", type=float, default=0.5)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--retry-sleep", type=float, default=8.0)
@@ -104,18 +104,7 @@ def main() -> None:
         action="store_true",
         help="Reuse existing per-area weather files in output dir instead of refetching.",
     )
-    parser.add_argument(
-        "--independent",
-        action="store_true",
-        help="Use the Team 2 independent data contract paths and date range.",
-    )
     args = parser.parse_args()
-
-    if args.independent:
-        args.start = independent_contract.START_DATE
-        args.end = independent_contract.END_DATE
-        args.output_dir = str(independent_contract.RAW_DIR)
-        args.year_range_label = independent_contract.YEAR_RANGE_LABEL
 
     output_dir = Path(args.output_dir)
     all_frames: list[pd.DataFrame] = []
