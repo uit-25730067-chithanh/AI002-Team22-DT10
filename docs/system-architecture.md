@@ -61,7 +61,7 @@ API được xây dựng trên nền tảng **FastAPI**, tự động sinh tài 
 
 ### Các Endpoint chính:
 - `GET /health`: Kiểm tra trạng thái hoạt động của server và kiểm tra mô hình học máy đã được tải vào bộ nhớ hay chưa.
-- `GET /model/info`: Trả về metadata của mô hình hiện tại (phiên bản, ngày train, các features sử dụng, chỉ số MAE/RMSE trên tập test). Endpoint này yêu cầu Header `X-API-Key`.
+- `GET /model/info`: Trả về metadata vận hành của mô hình hiện tại (trạng thái load, đường dẫn artifact, phiên bản, ngày train và danh sách features sử dụng). Endpoint này yêu cầu Header `X-API-Key`. Các chỉ số MAE/RMSE/R² được lưu trong `model/best_model/metadata.json`, `model/experiments.csv` và phần đánh giá của báo cáo.
 - `POST /predict`: Dự báo giá cà phê dựa trên các thông số môi trường đầu vào (thời tiết, khu vực, thời gian). Endpoint này yêu cầu Header `X-API-Key` và validate đầu vào nghiêm ngặt thông qua Pydantic.
 
 ---

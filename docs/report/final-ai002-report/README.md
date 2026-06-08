@@ -8,14 +8,16 @@ Thư mục này chứa toàn bộ nội dung báo cáo cuối kỳ của đề t
 
 | Chương | Nội dung chính | File | Owner | Trạng thái |
 | :--- | :--- | :--- | :--- | :--- |
-| **Bìa & Đóng góp** | Trang bìa, thông tin thành viên, bảng phân công nhiệm vụ | [00-cover-and-metadata.md](00-cover-and-metadata.md) | Nhóm trưởng | Pending |
-| **Chương 1** | Giới thiệu đề tài, bối cảnh thực tiễn, mục tiêu, phạm vi và giới hạn | [01-introduction.md](01-introduction.md) | Nhóm phát triển | Pending |
-| **Chương 2** | Cơ sở lý thuyết: Học có giám sát, Random Forest Regressor, các độ đo MAE/RMSE/R², Responsible AI | [02-theoretical-background.md](02-theoretical-background.md) | Nhóm phát triển | Pending |
+| **Bìa & Đóng góp** | Trang bìa, thông tin thành viên, bảng phân công nhiệm vụ | [00-cover-and-metadata.md](00-cover-and-metadata.md) | Nhóm trưởng | Completed |
+| **Chương 1** | Giới thiệu đề tài, bối cảnh thực tiễn, mục tiêu, phạm vi và giới hạn | [01-introduction.md](01-introduction.md) | Nhóm phát triển | Completed |
+| **Chương 2** | Cơ sở lý thuyết: Học có giám sát, Random Forest Regressor, các độ đo MAE/RMSE/R², Responsible AI | [02-theoretical-background.md](02-theoretical-background.md) | Nhóm phát triển | Completed |
 | **Chương 3** | Dữ liệu & Thiết kế: Nguồn dữ liệu, Tiền xử lý, Kiến trúc 4 tầng Responsible AI, Explainability Engine | [03-data-and-design.md](03-data-and-design.md) | Thanh / Sơn | Completed |
 | **Chương 4** | Hiện thực hóa: Feature engineering, API validation, category guard, contract backend và định hướng tích hợp frontend | [04-implementation.md](04-implementation.md) | Thanh | Completed |
 | **Chương 5** | Thực nghiệm & Đánh giá: Thiết lập split temporal, kết quả metrics thật trên tập Test 2025, Kịch bản test 5 trục | [05-experiments-and-evaluation.md](05-experiments-and-evaluation.md) | Sơn / Thanh | Completed |
 | **Chương 6** | Kết luận đạt được, hạn chế mô hình và định hướng phát triển tương lai | [06-conclusion-and-future-work.md](06-conclusion-and-future-work.md) | Nhóm phát triển | Completed |
-| **Phụ lục** | Tài liệu tham khảo, API Request/Response mẫu, Link Github, Screenshots demo | [appendices.md](appendices.md) | Cả nhóm | Completed |
+| **Phụ lục** | Tài liệu tham khảo, API Request/Response mẫu, link mã nguồn và khung mô tả demo | [appendices.md](appendices.md) | Cả nhóm | Completed |
+
+> Ghi chú: thư mục này là nguồn nội dung cập nhật theo tiến trình dự án. Bản báo cáo hoàn thiện, ảnh chụp demo thật và dàn trang cuối cùng được đồng bộ sang repository báo cáo LaTeX riêng của nhóm.
 
 ---
 

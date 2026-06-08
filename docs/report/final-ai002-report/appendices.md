@@ -41,40 +41,40 @@ Request gửi từ Frontend lên Backend chứa đầy đủ các thông số kh
 Phản hồi từ Backend trả về giá dự báo, khoảng tin cậy, các đặc trưng giải thích quan trọng và gợi ý canh tác:
 ```json
 {
-  "predicted_price_vnd": 85200.0,
+  "predicted_price_vnd": 110210.11,
   "confidence_interval": [
-    81400.0,
-    89000.0
+    86092.41,
+    134327.81
   ],
   "top_features": [
     {
-      "feature": "rolling_avg_7d",
-      "importance": 0.469,
-      "input_value": 83000.0,
-      "explanation": "rolling_avg_7d có mức quan trọng cao (46.90%) với giá trị hiện tại 83000.00."
-    },
-    {
       "feature": "lag_1d",
-      "importance": 0.505,
+      "importance": 0.5046,
       "input_value": 85000.0,
-      "explanation": "lag_1d có mức quan trọng cao (50.50%) với giá trị hiện tại 85000.00."
+      "explanation": "lag_1d có mức quan trọng cao (50.46%) với giá trị hiện tại 85000.00."
     },
     {
-      "feature": "year",
-      "importance": 0.0196,
-      "input_value": 2025.0,
-      "explanation": "year có mức quan trọng cao (1.96%) với giá trị hiện tại 2025.00."
+      "feature": "rolling_avg_7d",
+      "importance": 0.4692,
+      "input_value": 83000.0,
+      "explanation": "rolling_avg_7d có mức quan trọng cao (46.92%) với giá trị hiện tại 83000.00."
+    },
+    {
+      "feature": "month",
+      "importance": 0.0101,
+      "input_value": 10.0,
+      "explanation": "month có mức quan trọng cao (1.01%) với giá trị hiện tại 10.00."
     }
   ],
-  "model_version": "20260513_155830__rf_real_monthly",
+  "model_version": "20260608_004601__rf_monthly_baseline",
   "farming_recommendation": {
-    "action": "post_harvest_care",
-    "season_type": "rainy_season",
-    "confidence": 0.9,
-    "reasoning": "Tháng 10 ở Lâm Đồng là giai đoạn thu hoạch rộ và bắt đầu chăm sóc sau thu hoạch. Điều kiện đất và thời tiết hiện tại không có cảnh báo lớn. Đây là gợi ý rule-based để tham khảo.",
+    "action": "harvest",
+    "season_type": "main_season",
+    "confidence": 0.85,
+    "reasoning": "Tháng 10 bắt đầu giai đoạn thu hoạch chính ở nhiều vùng cà phê Tây Nguyên. Điều kiện đất và thời tiết hiện tại không có cảnh báo lớn. Đây là gợi ý rule-based để tham khảo.",
     "warnings": [],
     "next_action_month": 11,
-    "next_action": "post_harvest_care",
+    "next_action": "harvest",
     "advisory_type": "rule_based"
   },
   "disclaimer": "Dự báo giá và gợi ý canh tác chỉ mang tính tham khảo, không thay thế tư vấn tài chính hoặc tư vấn nông nghiệp tại địa phương."
@@ -83,9 +83,9 @@ Phản hồi từ Backend trả về giá dự báo, khoảng tin cậy, các đ
 
 ---
 
-## Phụ lục 3: Minh chứng Demo & Giao diện người dùng (Mô phỏng Mobile UI)
+## Phụ lục 3: Khung Demo & Giao diện người dùng (Mô phỏng Mobile UI)
 
-Giao diện người dùng được thiết kế tối giản, trực quan hóa trên màn hình điện thoại di động giúp nông dân dễ tiếp cận ngoài thực địa:
+Giao diện người dùng được thiết kế tối giản, trực quan hóa trên màn hình điện thoại di động giúp nông dân dễ tiếp cận ngoài thực địa. Khối dưới đây là khung mô tả nhanh trong repository dự án; ảnh chụp demo thật và bản dàn trang cuối cùng được đồng bộ sang repository báo cáo riêng.
 
 ```text
 ┌──────────────────────────────────────────┐
