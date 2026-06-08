@@ -109,7 +109,7 @@
 * **Giải thích R² âm (Giới hạn ngoại suy):**
   - Tập huấn luyện (2020-2024) có miền giá cà phê thấp hơn nhiều so với năm 2025.
   - Tập kiểm thử (2025) chứng kiến giá cà phê tăng vọt lịch sử (**100k - 120k VND/kg**).
-  - Mô hình cây quyết định chỉ dự đoán tối đa mức trần đã học (~78k VND/kg), gây ra độ lệch lớn so với thực tế 2025.
+  - Mô hình cây quyết định bị giới hạn bởi trần dữ liệu đã học và xu hướng kéo về miền giá thấp hơn chiếm đa số trong quá khứ, gây ra độ lệch lớn so với thực tế 2025.
 * **Speaker Notes:**
   > Chúng tôi kiểm thử mô hình trên dữ liệu năm 2025. MAE đạt 14.5k VND/kg và R² bị âm. Chúng tôi trình bày trung thực chỉ số âm này. Nguyên nhân là năm 2025 giá cà phê thực tế tăng phi mã lên hơn 100k/kg, vượt ngoài miền dữ liệu huấn luyện 2020-2024. Mô hình cây quyết định không thể ngoại suy vượt trần tập train. Đây là giới hạn kỹ thuật quan trọng giúp chúng tôi nhận thức rõ tính tin cậy của mô hình khi gặp biến cố lớn.
 
