@@ -95,8 +95,7 @@
 | File/Folder | Mô tả |
 | --- | --- |
 | `docs/slides/final_presentation_slides.md` | Slides thuyết trình cuối kỳ |
-| `docs/report/README.md` | Chỉ mục report notes và tracked PDF evidence |
-| `docs/report/internal-notes/` | Báo cáo tiến độ nội bộ theo tuần (archive evidence) |
+| `docs/report/README.md` | Chỉ mục report và tracked PDF evidence |
 | `docs/report/final-ai002-report/` | Cấu trúc báo cáo cuối kỳ chính thức |
 
 ### `plans/` — Kế hoạch

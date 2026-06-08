@@ -154,7 +154,7 @@ uvicorn backend.main:app --reload
 - `/predict`: Dự báo giá cà phê kèm khoảng tin cậy và giải thích.
 - `/model/info`: Xem siêu dữ liệu của mô hình (version, đặc trưng,...).
 
-_Truy cập [http://localhost:8000/docs](http://localhost:8000/docs) để xem Swagger UI._ (Chi tiết tự host xem [tại đây](./docs/self-host-guide.md)).
+_Truy cập [http://localhost:8000/docs](http://localhost:8000/docs) để xem Swagger UI._ (Chi tiết deploy/local self-host xem [tại đây](./docs/deployment.md)).
 
 ### 5. Chạy Giao diện Frontend
 
