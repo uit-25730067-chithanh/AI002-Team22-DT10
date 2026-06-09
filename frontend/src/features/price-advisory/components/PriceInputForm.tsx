@@ -113,6 +113,7 @@ const PriceInputForm: React.FC<PriceInputFormProps> = ({ onSubmit, isLoading }) 
           type="number"
           value={latestPrice}
           onChange={(e) => setLatestPrice(e.target.value)}
+          onWheel={(e) => e.currentTarget.blur()}
           min="30000"
           max="200000"
           aria-invalid={!!errors.latestPrice}
@@ -128,6 +129,7 @@ const PriceInputForm: React.FC<PriceInputFormProps> = ({ onSubmit, isLoading }) 
           type="number"
           value={rollingPrice}
           onChange={(e) => setRollingPrice(e.target.value)}
+          onWheel={(e) => e.currentTarget.blur()}
           min="30000"
           max="200000"
           aria-invalid={!!errors.rollingPrice}

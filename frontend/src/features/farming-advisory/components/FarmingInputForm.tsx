@@ -116,6 +116,7 @@ const FarmingInputForm: React.FC<FarmingInputFormProps> = ({ onSubmit, isLoading
           step="0.1"
           value={temp}
           onChange={(e) => setTemp(e.target.value)}
+          onWheel={(e) => e.currentTarget.blur()}
           min="10"
           max="45"
           aria-invalid={!!errors.temp}
@@ -131,6 +132,7 @@ const FarmingInputForm: React.FC<FarmingInputFormProps> = ({ onSubmit, isLoading
           type="number"
           value={rainfall}
           onChange={(e) => setRainfall(e.target.value)}
+          onWheel={(e) => e.currentTarget.blur()}
           min="0"
           max="1000"
           aria-invalid={!!errors.rainfall}
@@ -146,6 +148,7 @@ const FarmingInputForm: React.FC<FarmingInputFormProps> = ({ onSubmit, isLoading
           type="number"
           value={humidity}
           onChange={(e) => setHumidity(e.target.value)}
+          onWheel={(e) => e.currentTarget.blur()}
           min="0"
           max="100"
           aria-invalid={!!errors.humidity}

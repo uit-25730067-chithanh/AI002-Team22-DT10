@@ -62,3 +62,11 @@ a:hover {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Luôn hiển thị nút tăng giảm (spin buttons) cho input number trên Chrome/Safari/Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1 !important;
+  display: block;
+}
+
