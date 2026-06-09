@@ -20,3 +20,12 @@ export const AREA_MAPPING: Record<string, { value: string; text: string }[]> = {
     { value: "Lam Ha", text: "Lâm Hà" },
   ],
 };
+
+export const PROVINCE_DISPLAY_MAPPING: Record<string, string> = {
+  "Dak Lak": "Đắk Lắk",
+  "Dak Nong": "Đắk Nông",
+  "Gia Lai": "Gia Lai",
+  "Kon Tum": "Kon Tum",
+  "Lam Dong": "Lâm Đồng",
+};
+

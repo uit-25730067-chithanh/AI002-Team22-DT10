@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AREA_MAPPING } from '../../../shared/constants/location-options';
+import { AREA_MAPPING, PROVINCE_DISPLAY_MAPPING } from '../../../shared/constants/location-options';
 import Button from '../../../shared/components/Button';
 import { PredictionRequest } from '../../../shared/api/prediction-types';
 
@@ -64,7 +64,7 @@ const PriceInputForm: React.FC<PriceInputFormProps> = ({ onSubmit, isLoading }) 
         >
           <option value="">-- Chọn Tỉnh --</option>
           {Object.keys(AREA_MAPPING).map(p => (
-            <option key={p} value={p}>{p}</option>
+            <option key={p} value={p}>{PROVINCE_DISPLAY_MAPPING[p] || p}</option>
           ))}
         </select>
         {errors.province && <span className={errorClasses}>{errors.province}</span>}
