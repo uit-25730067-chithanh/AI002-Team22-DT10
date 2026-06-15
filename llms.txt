@@ -1,4 +1,4 @@
-# AI002 - Agricultural Market Analysis (DT10) - Team 10
+# AI002 - Agricultural Market Analysis (DT10) - Team 22
 > Project context and knowledge base index for LLMs and AI Agents.
 
 ## Full Documentation

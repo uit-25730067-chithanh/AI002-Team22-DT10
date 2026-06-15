@@ -1,4 +1,4 @@
-# Core dependencies for AI002 - Team 10 (Coffee Price Forecasting)
+# Core dependencies for AI002 - Team 22 (Coffee Price Forecasting)
 # python>=3.9
 #
 # KISS: No venv required. Install directly to system Python:

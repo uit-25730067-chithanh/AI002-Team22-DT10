@@ -2,7 +2,7 @@
 
 **Môn học:** Tư duy Trí tuệ Nhân tạo (AI002)  
 **Đề tài:** AI Dự báo Kế hoạch Canh tác Mùa vụ & Giá Cà phê cho Nông dân Tây Nguyên  
-**Tác giả:** Nhóm 10 (Đặng Chí Thanh, Hoàng Cao Sơn)  
+**Tác giả:** Nhóm 22 (Đặng Chí Thanh, Hoàng Cao Sơn)  
 **Định dạng Slide:** Được cập nhật khớp với mã nguồn Frontend `slidesData.ts` (không bao gồm Speaker Notes).
 
 ---
@@ -12,7 +12,7 @@
 - **Tiêu đề:** AI Hỗ Trợ Canh Tác & Dự Báo Giá Cà Phê
 - **Phân hệ đề tài:** Đề tài DT10 - Tư duy Trí tuệ Nhân tạo (AI002)
 - **Giảng viên hướng dẫn:** TS. Phan Thế Duy
-- **Nhóm thực hiện:** Nhóm 10
+- **Nhóm thực hiện:** Nhóm 22
   - Đặng Chí Thanh (Trưởng nhóm - MSSV: 25730067)
   - Hoàng Cao Sơn (Thành viên - MSSV: 25730061)
 

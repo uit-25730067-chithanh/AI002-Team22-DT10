@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI002 - Script Điều Phối Slide - Hoàng Cao Sơn</title>
+
+    <style>
+      :root {
+        --bg: #f6f2e8;
+        --panel: rgba(255, 251, 245, 0.92);
+        --panel-strong: #fffdf8;
+        --ink: #1f1a17;
+        --muted: #645a52;
+        --line: rgba(73, 51, 35, 0.14);
+        --accent: #ba4a1b;
+        --accent-soft: #f7d6c7;
+        --accent-strong: #7f2500;
+        --olive: #48583f;
+        --gold: #a87819;
+        --shadow: 0 22px 60px rgba(71, 43, 23, 0.12);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 14px;
+        --mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(186, 74, 27, 0.12),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(168, 120, 25, 0.1),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #f8f5ef 0%, #f2ede2 100%);
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1500px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 28px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.9fr);
+        gap: 20px;
+        margin-bottom: 22px;
+      }
+
+      .hero-card,
+      .meta-card,
+      .toc,
+      .slide-card {
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        padding: 28px 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        inset: auto -80px -100px auto;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(186, 74, 27, 0.14),
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(186, 74, 27, 0.08);
+        color: var(--accent-strong);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin: 16px 0 10px;
+        font-size: clamp(34px, 4vw, 56px);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 62ch;
+        font-size: 19px;
+        color: var(--muted);
+      }
+
+      .quick-tips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .chip {
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: rgba(72, 88, 63, 0.09);
+        color: #35412f;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .meta-card {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .meta-card h2 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .meta-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .meta-item {
+        padding: 14px 14px 12px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(73, 51, 35, 0.08);
+      }
+
+      .meta-item strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .meta-item span,
+      .meta-item a {
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+      }
+
+      .toc {
+        position: sticky;
+        top: 18px;
+        padding: 18px;
+      }
+
+      .toc h3 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent-strong);
+      }
+
+      .toc small {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .toc-list {
+        display: grid;
+        gap: 8px;
+        max-height: calc(100vh - 180px);
+        overflow: auto;
+        padding-right: 6px;
+      }
+
+      .toc-link {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 10px;
+        align-items: center;
+        padding: 11px 12px;
+        text-decoration: none;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.66);
+        border: 1px solid rgba(73, 51, 35, 0.08);
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .toc-link:hover,
+      .toc-link:focus-visible {
+        transform: translateX(4px);
+        background: rgba(247, 214, 199, 0.72);
+        border-color: rgba(186, 74, 27, 0.28);
+        outline: none;
+      }
+
+      .toc-link.active {
+        background: linear-gradient(
+          135deg,
+          rgba(186, 74, 27, 0.18),
+          rgba(168, 120, 25, 0.16)
+        );
+        border-color: rgba(186, 74, 27, 0.32);
+      }
+
+      .toc-num {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 10px;
+        border-radius: 12px;
+        background: var(--panel-strong);
+        color: var(--accent-strong);
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+      }
+
+      .toc-title {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .content {
+        display: grid;
+        gap: 18px;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 12px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        padding: 14px 16px;
+        background: rgba(255, 252, 247, 0.84);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 16px 36px rgba(71, 43, 23, 0.08);
+      }
+
+      .toolbar strong {
+        font-size: 15px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--accent-strong);
+      }
+
+      .toolbar span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(72, 88, 63, 0.1);
+        color: var(--olive);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .toolbar-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 999px;
+        padding: 11px 14px;
+        background: #fffaf4;
+        color: var(--ink);
+        border: 1px solid rgba(73, 51, 35, 0.14);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+        min-height: 44px;
+      }
+
+      button:hover,
+      button:focus-visible {
+        transform: translateY(-1px);
+        background: rgba(247, 214, 199, 0.74);
+        border-color: rgba(186, 74, 27, 0.32);
+        outline: none;
+      }
+
+      .slide-card {
+        padding: 22px 24px 24px;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease;
+        scroll-margin-top: 90px;
+      }
+
+      .slide-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .slide-card.current {
+        border-color: rgba(186, 74, 27, 0.42);
+        box-shadow: 0 22px 60px rgba(186, 74, 27, 0.14);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 247, 240, 0.96),
+            rgba(255, 252, 247, 0.95)
+          ),
+          var(--panel);
+      }
+
+      .slide-card.done {
+        opacity: 0.96;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(241, 249, 238, 0.96),
+            rgba(252, 255, 250, 0.95)
+          ),
+          var(--panel);
+        border-color: rgba(72, 88, 63, 0.34);
+        box-shadow: 0 18px 42px rgba(72, 88, 63, 0.12);
+      }
+
+      .slide-card.done .slide-badge {
+        background: linear-gradient(135deg, #5d7a4f, #7da06a);
+      }
+
+      .slide-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: start;
+        margin-bottom: 16px;
+      }
+
+      .slide-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .slide-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 76px;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #d06b36);
+        color: white;
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .slide-tag {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(72, 88, 63, 0.09);
+        color: var(--olive);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .slide-card h2 {
+        margin: 0;
+        font-size: clamp(28px, 3vw, 36px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+
+      .done-banner {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0 18px;
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(72, 88, 63, 0.12);
+        color: #304027;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .done-banner::before {
+        content: "✓";
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        background: #5d7a4f;
+        color: white;
+        font-size: 18px;
+        font-weight: 900;
+        flex: none;
+      }
+
+      .slide-card.done .done-banner {
+        display: flex;
+      }
+
+      .cue {
+        margin: 14px 0 18px;
+        padding: 15px 16px;
+        border-left: 5px solid var(--gold);
+        border-radius: 0 16px 16px 0;
+        background: linear-gradient(
+          90deg,
+          rgba(168, 120, 25, 0.12),
+          rgba(168, 120, 25, 0.02)
+        );
+        color: #4f3820;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .slide-card p {
+        margin: 0 0 12px;
+        font-size: 21px;
+        text-wrap: pretty;
+      }
+
+      .controls {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: end;
+      }
+
+      .ghost {
+        background: rgba(255, 255, 255, 0.74);
+      }
+
+      .mini {
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+
+      .footer-note {
+        margin-top: 24px;
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(255, 251, 245, 0.9);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .toc-link.done {
+        background: rgba(72, 88, 63, 0.12);
+        border-color: rgba(72, 88, 63, 0.22);
+      }
+
+      .toc-link.done .toc-num {
+        background: #5d7a4f;
+        color: white;
+      }
+
+      .toc-link.done .toc-title::after {
+        content: " · done";
+        color: #466138;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .footer-note code,
+      .hero code {
+        font-family: var(--mono);
+        font-size: 0.92em;
+        background: rgba(73, 51, 35, 0.08);
+        padding: 2px 6px;
+        border-radius: 7px;
+      }
+
+      @media (max-width: 1100px) {
+        .hero,
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .toc {
+          position: static;
+        }
+
+        .toc-list {
+          max-height: none;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          width: min(100vw - 24px, 100%);
+          padding-top: 14px;
+        }
+
+        .hero-card,
+        .meta-card,
+        .toc,
+        .slide-card {
+          border-radius: 20px;
+        }
+
+        .hero-card,
+        .meta-card,
+        .slide-card {
+          padding: 18px;
+        }
+
+        .toolbar {
+          position: static;
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .slide-head {
+          flex-direction: column;
+        }
+
+        .controls {
+          justify-content: start;
+        }
+
+        .slide-card p {
+          font-size: 18px;
+        }
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+
+        .page {
+          width: 100%;
+          padding: 0;
+        }
+
+        .toolbar,
+        .controls {
+          display: none;
+        }
+
+        .hero-card,
+        .meta-card,
+        .toc,
+        .slide-card {
+          box-shadow: none;
+          backdrop-filter: none;
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <article class="hero-card">
+          <div class="eyebrow">Operator View · AI002 Đề tài DT10</div>
+          <h1>Script điều phối slide (Phần 2) - Hoàng Cao Sơn</h1>
+          <p>
+            Bản HTML này được tối ưu để đặt cạnh màn hình khi thuyết trình. Mỗi
+            khối tương ứng một đoạn nói và một slide, giúp người bấm PowerPoint
+            nhìn nhanh xem hiện đang tới đâu trong phần của Sơn.
+          </p>
+          <div class="quick-tips">
+            <span class="chip">Click card để đánh dấu slide hiện tại</span>
+            <span class="chip"
+              >Phím <code>J</code> lùi · <code>L</code> tiến</span
+            >
+            <span class="chip">Phím <code>K</code> để đánh dấu đã qua</span>
+          </div>
+        </article>
+
+        <aside class="meta-card">
+          <h2>Thông tin nhanh</h2>
+          <div class="meta-list">
+            <div class="meta-item">
+              <strong>Người nói</strong>
+              <span>Hoàng Cao Sơn</span>
+            </div>
+            <div class="meta-item">
+              <strong>Deck mới nhất</strong>
+              <a href="ai002-coffee-slide-deck.pdf"
+                >ai002-coffee-slide-deck.pdf</a
+              >
+            </div>
+            <div class="meta-item">
+              <strong>Phần phụ trách</strong>
+              <span>Slide 10 → 16</span>
+            </div>
+            <div class="meta-item">
+              <strong>Thời lượng</strong>
+              <span>~5 phút</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="layout">
+        <nav class="toc" aria-label="Mục lục slide">
+          <h3>Mục Lục</h3>
+          <small
+            >Nhấn vào từng dòng để nhảy nhanh. Dòng đang active sẽ được tô đậm
+            hơn.</small
+          >
+          
+          <div class="toc-list">
+            <a class="toc-link active" href="#slide-10" data-target="slide-10"><span class="toc-num">10</span><span class="toc-title">Robustness (Kháng nhiễu)</span></a>
+            <a class="toc-link" href="#slide-11" data-target="slide-11"><span class="toc-num">11</span><span class="toc-title">Bias & Social Impact</span></a>
+            <a class="toc-link" href="#slide-12" data-target="slide-12"><span class="toc-num">12</span><span class="toc-title">Transparency (Minh bạch)</span></a>
+            <a class="toc-link" href="#slide-13" data-target="slide-13"><span class="toc-num">13</span><span class="toc-title">Giao diện di động (Mobile UI)</span></a>
+            <a class="toc-link" href="#slide-14" data-target="slide-14"><span class="toc-num">14-15</span><span class="toc-title">Kết luận & Hướng phát triển</span></a>
+            <a class="toc-link" href="#slide-16" data-target="slide-16"><span class="toc-num">16</span><span class="toc-title">Q&A và Lời cảm ơn</span></a>
+          </div>
+
+        </nav>
+
+        <main class="content">
+
+          <div class="toolbar">
+            <div>
+              <strong id="current-label">Đang xem: Slide 10: Responsible AI - Trục Robustness (Kháng nhiễu)</strong>
+              <span class="status-pill" id="done-counter">Done 0/6</span>
+              <span>Thao tác nhanh cho người điều phối slide.</span>
+            </div>
+            <div class="toolbar-actions">
+              <button type="button" id="prev-btn">Slide trước · J</button>
+              <button type="button" id="next-btn">Slide sau · L</button>
+              <button type="button" id="done-btn">Đánh dấu đã qua · K</button>
+            </div>
+          </div>
+
+
+          <article class="slide-card current" id="slide-10" data-label="Slide 10: Responsible AI - Trục Robustness (Kháng nhiễu)">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 10</span>
+                  <span class="slide-tag">Robustness</span>
+                </div>
+                <h2>Slide 10: Responsible AI - Trục Robustness (Kháng nhiễu)</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Dạ vâng, xin cảm ơn phần trình bày về kiến trúc và kết quả mô hình của Thanh.</p><p>Tiếp theo, em xin đi vào giá trị cốt lõi của đề tài: áp dụng <strong>5 Trụ cột AI Bền vững (Responsible AI)</strong> vào thực tế. Trụ cột đầu tiên là <strong>Robustness - Tính kháng nhiễu</strong>.</p><p>Thực tế là, dữ liệu đẩy lên app đôi khi sẽ bị sai lệch cực đoan. Vì vậy, để ngăn hệ thống nhắm mắt dự báo sai, nhóm đã thiết lập 2 lớp khiên bảo vệ.</p><p>- <strong>[click] Lớp 1:</strong> Dùng Pydantic ở tầng API chặn đứng dữ liệu phi lý ngay từ cửa (ví dụ nhiệt độ âm ở Tây Nguyên).<br>- <strong>[click] Lớp 2:</strong> Dùng <code>Category guard</code>. Nếu người dùng nhập tỉnh ngoài vùng Tây Nguyên, API lập tức báo lỗi 422 từ chối dự báo, thay vì đưa ra kết quả sai lệch.</p><p>Để kiểm chứng, tụi em đã chạy <strong>Stress Test</strong> bằng dữ liệu cực đoan. Kết quả rất rõ ràng: khi ép hệ thống chịu mức nhiệt độ sốc 45 độ C, sai số gần như bất động (tăng 0.0%). Tuy nhiên, khi tạo ra cú sốc giá, sai số lập tức vọt lên gần 70%. 
+Qua đó chứng minh được rằng, hệ thống có sức chống chịu cực kỳ vững vàng trước nắng nóng bất thường, nhưng lại khá nhạy cảm với sốc giá.</p><div class="cue"><strong>Chốt slide:</strong> Tinh thần ở đây là: "Thà từ chối dự báo, còn hơn đưa ra một dự báo sai khiến nông dân chịu thiệt hại".</div>
+          </article>
+
+          <article class="slide-card" id="slide-11" data-label="Slide 11: Responsible AI - Trục Bias & Social Impact">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 11</span>
+                  <span class="slide-tag">Bias & Impact</span>
+                </div>
+                <h2>Slide 11: Responsible AI - Trục Bias & Social Impact</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Trụ cột tiếp theo là <strong>Bias (Sự thiên lệch)</strong> và <strong>Social Impact (Tác động xã hội)</strong>.</p><p>Đầu tiên là về dữ liệu, tỷ lệ phân bổ ở các vùng là không đồng đều. Lấy ví dụ, Kon Tum hay Lâm Đồng thu thập được gần 90% dữ liệu thực, nhưng Đắk Nông thì chỉ được khoảng 60%.
+Do đó, thay vì che giấu, nhóm chọn cách minh bạch hóa. Cụ thể là khi tra cứu tại các vùng thiếu hụt như Gia Nghĩa, Chư Prông, Cư M'gar hay Đắk R'lấp, ứng dụng sẽ tự động hiện nhãn cảnh báo: <em>"Độ tin cậy thấp, bà con nên tham khảo vùng lân cận"</em>.</p><p><strong>[click]</strong> Chuyển sang khía cạnh <strong>Tác động xã hội (Social Impact)</strong>, mục tiêu của nhóm là đảm bảo AI thực sự đến được tay người nông dân. 
+Vì vậy, thay vì làm các hệ thống phức tạp, nhóm chọn hướng Mobile-first. Mọi thiết kế từ nút bấm lớn, chế độ Offline cho đến các cảnh báo an toàn đều hướng tới việc hỗ trợ và bảo vệ bà con tốt nhất. Cụ thể giao diện đó trông như thế nào, em sẽ trình bày rõ hơn ở Slide 13.</p>
+          </article>
+
+          <article class="slide-card" id="slide-12" data-label="Slide 12: Responsible AI - Trục Transparency (Tính minh bạch)">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 12</span>
+                  <span class="slide-tag">Transparency</span>
+                </div>
+                <h2>Slide 12: Responsible AI - Trục Transparency (Tính minh bạch)</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Trụ cột thứ tư là <strong>Transparency - Tính minh bạch</strong>. Nghĩa là AI không được làm "hộp đen", mà nó phải giải thích được TẠI SAO lại đưa ra mức giá đó.</p><p>Để làm được điều này, nhóm đã dùng kỹ thuật Feature Importance để bóc tách, và kết quả cho thấy:</p><p>- <strong>Hơn 50%</strong> quyết định đến từ giá tháng trước.<br>- <strong>Gần 47%</strong> đến từ đà tăng giá 7 ngày qua.<br>- <strong>[click]</strong> Đáng chú ý là, các yếu tố khí hậu như nhiệt độ, lượng mưa chỉ đóng góp <strong>khoảng 2.6%</strong> vào biến động giá ngắn hạn.</p><p>Chính việc minh bạch hóa con số này sẽ giúp nông dân dập tắt được các "tin đồn" giá ảo do thời tiết. Qua đó AI chứng minh rõ một điều: Giá cà phê phụ thuộc đà thị trường vĩ mô nhiều hơn, chứ không phải là do thời tiết ngày mai.</p><div class="cue"><strong>Backup Q&A / Câu hỏi hội đồng:</strong> Nếu Thầy hỏi <em>"Vậy đưa thời tiết vào làm gì nếu nó đóng góp ít?"</em>
+<strong>Trả lời:</strong> "Dạ thưa Thầy, thời tiết ngắn hạn ít tác động lên GIÁ, nhưng nó lại tác động trực tiếp lên NĂNG SUẤT và KẾ HOẠCH CANH TÁC (lịch tưới nước, bón phân). Việc bóc tách này giúp nông dân phân định: nhìn giá thì theo dõi thị trường, còn nhìn thời tiết là lo canh tác ạ."</div>
+          </article>
+
+          <article class="slide-card" id="slide-13" data-label="Slide 13: Hiện thực Giao diện di động (Mobile-first UI)">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 13</span>
+                  <span class="slide-tag">UI</span>
+                </div>
+                <h2>Slide 13: Hiện thực Giao diện di động (Mobile-first UI)</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Và phần tiếp theo trên màn hình đây chính là tổng quan về <strong>Giao diện di động (Mobile UI)</strong> mà em vừa nhắc tới.</p><p>Về mặt thiết kế, nhóm áp dụng phong cách Neo-Brutalism. Trọng tâm không phải là sự bóng bẩy, mà là tính <strong>thực dụng</strong>. Với độ tương phản cao và nút chạm lớn, giao diện này cực kỳ dễ đọc và dễ thao tác ngay cả dưới cái nắng gắt ngoài rẫy.</p><p>Về luồng sử dụng, hệ thống phân tách biệt lập hoàn toàn hai tác vụ: Dự báo Giá và Tư vấn Canh tác. 
+Bên cạnh đó, để hỗ trợ môi trường mạng 3G yếu hoặc chập chờn, nhóm đã tích hợp bộ nhớ Offline để xem lại lịch sử. Cuối cùng, nhằm minh bạch đầu ra và đảm bảo an toàn, ứng dụng luôn hiển thị rõ khuyến nghị và neo cứng một dòng thông báo <strong>Tuyên bố miễn trừ trách nhiệm</strong> ở cuối màn hình.</p>
+          </article>
+
+          <article class="slide-card" id="slide-14" data-label="Slide 14 & 15: Kết luận & Hướng phát triển">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 14-15</span>
+                  <span class="slide-tag">Conclusion</span>
+                </div>
+                <h2>Slide 14 & 15: Kết luận & Hướng phát triển</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Tóm lại ở phần kết luận, nhóm 22 đã xây dựng thành công một <strong>hệ thống baseline AI vận hành end-to-end</strong>, chạy thực tế từ Backend cho tới Frontend. Và điều quan trọng nhất là tụi em đã "nhúng" trọn vẹn triết lý <strong>AI Bền vững (Responsible AI)</strong> vào trong hệ thống.</p><p>Tuy nhiên, về mặt hạn chế, mô hình Random Forest đã gặp khó khăn khi ngoại suy sự kiện giá bùng nổ năm 2025, khiến R² bị âm. Mặc dù vậy, nhóm xem đây là một sự phản ánh trung thực về giới hạn của thuật toán trước biến cố thiên nga đen (Black Swan).</p><p><strong>[click]</strong> Dựa vào đó, hướng phát triển tương lai của nhóm sẽ bao gồm:
+1. Thứ nhất, thu thập dữ liệu lịch sử sâu hơn về trước năm 2020.
+2. Thứ hai, thử nghiệm các thuật toán chuỗi thời gian mạnh hơn như <strong>Prophet</strong> hay <strong>XGBoost</strong> để khắc phục triệt để lỗi ngoại suy.
+3. Và cuối cùng là xây dựng mô hình Localized, tinh chỉnh riêng cho từng vùng thổ nhưỡng.</p><p><strong>[click]</strong> Trên slide là các tài liệu tham khảo cốt lõi, đặc biệt là bộ tiêu chuẩn Responsible AI của Microsoft.</p>
+          </article>
+
+          <article class="slide-card" id="slide-16" data-label="Slide 16: Q&A và Lời cảm ơn (Thank You)">
+            <div class="slide-head">
+              <div>
+                <div class="slide-meta">
+                  <span class="slide-badge">Slide 16</span>
+                  <span class="slide-tag">Q&A</span>
+                </div>
+                <h2>Slide 16: Q&A và Lời cảm ơn (Thank You)</h2>
+              </div>
+              <div class="controls">
+                <button class="ghost mini" type="button" data-action="current">Set current</button>
+                <button class="ghost mini" type="button" data-action="done">Done</button>
+              </div>
+            </div>
+            <div class="done-banner">Đoạn này đã qua, có thể yên tâm chuyển sang khối kế tiếp.</div>
+            <p><strong>[click]</strong> Dạ vâng, bài báo cáo của nhóm 22 đến đây là kết thúc.</p><p>Nhóm xin cảm ơn TS. Phan Thế Duy đã truyền đạt những tư duy nền tảng cực kỳ thực tế trong môn học này. Cảm ơn Thầy và các bạn đã lắng nghe.</p><p>Sau đây, nhóm rất mong nhận được những góp ý và phản biện từ hội đồng ạ. Xin kính mời Thầy!
+<em>(Mỉm cười, gật đầu chào và chuẩn bị tinh thần trả lời)</em></p>
+          </article>
+
+        <footer class="footer-note">
+          Hết phần trình bày của Sơn. Kết thúc bảo vệ.
+        </footer>
+
+      </main>
+      </section>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".slide-card");
+        const tocLinks = document.querySelectorAll(".toc-link");
+        const currentLabel = document.getElementById("current-label");
+        const doneCounter = document.getElementById("done-counter");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const doneBtn = document.getElementById("done-btn");
+
+        let currentIndex = 0;
+        let doneStates = new Array(cards.length).fill(false);
+
+        const updateUI = () => {
+          // Update cards
+          cards.forEach((card, idx) => {
+            card.classList.toggle("current", idx === currentIndex);
+            card.classList.toggle("done", doneStates[idx]);
+          });
+
+          // Update TOC
+          tocLinks.forEach((link, idx) => {
+            link.classList.toggle("active", idx === currentIndex);
+            link.classList.toggle("done", doneStates[idx]);
+          });
+
+          // Update label
+          if (cards[currentIndex]) {
+            const label = cards[currentIndex].getAttribute("data-label");
+            currentLabel.textContent = "Đang xem: " + label;
+          }
+
+          // Update counter
+          const doneCount = doneStates.filter(Boolean).length;
+          doneCounter.textContent = `Done ${doneCount}/${cards.length}`;
+
+          // Scroll current into view if needed
+          if (cards[currentIndex]) {
+            const rect = cards[currentIndex].getBoundingClientRect();
+            if (rect.top < 0 || rect.bottom > window.innerHeight) {
+              cards[currentIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+        };
+
+        const goTo = (index) => {
+          if (index >= 0 && index < cards.length) {
+            currentIndex = index;
+            updateUI();
+          }
+        };
+
+        const markDone = () => {
+          doneStates[currentIndex] = true;
+          if (currentIndex < cards.length - 1) {
+            currentIndex++;
+          }
+          updateUI();
+        };
+
+        // Event Listeners
+        prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+        nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+        doneBtn.addEventListener("click", markDone);
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
+            return;
+
+          switch (e.key.toLowerCase()) {
+            case "j":
+              goTo(currentIndex - 1);
+              break;
+            case "l":
+              goTo(currentIndex + 1);
+              break;
+            case "k":
+              markDone();
+              break;
+          }
+        });
+
+        // Card clicks
+        cards.forEach((card, idx) => {
+          card.addEventListener("click", (e) => {
+            if (e.target.tagName === "BUTTON") return; // ignore button clicks inside card
+            goTo(idx);
+          });
+
+          const currentBtn = card.querySelector('[data-action="current"]');
+          const doneBtnLocal = card.querySelector('[data-action="done"]');
+
+          if (currentBtn) currentBtn.addEventListener("click", () => goTo(idx));
+          if (doneBtnLocal) {
+            doneBtnLocal.addEventListener("click", () => {
+              doneStates[idx] = true;
+              updateUI();
+            });
+          }
+        });
+
+        // TOC clicks
+        tocLinks.forEach((link, idx) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            goTo(idx);
+          });
+        });
+
+        // Init
+        updateUI();
+      });
+    </script>
+  </body>
+</html>

@@ -19,6 +19,6 @@ describe("AppFooter component", () => {
     ).toBeInTheDocument();
 
     // Kiểm tra có thông tin nhóm thực hiện
-    expect(screen.getByText(/Nhóm 10/i)).toBeInTheDocument();
+    expect(screen.getByText(/Nhóm 22/i)).toBeInTheDocument();
   });
 });

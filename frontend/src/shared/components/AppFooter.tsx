@@ -13,7 +13,7 @@ const AppFooter: React.FC = () => {
           Người nông dân nên đối chiếu với giá đại lý thu mua địa phương trước khi đưa ra quyết định.
         </p>
         <p className="mt-4 text-xs font-bold text-coffee-500">
-          © 2026 - Nhóm 10 | Đồ án AI002 - Hệ thống Dự báo Canh tác & Giá Cà phê
+          © 2026 - Nhóm 22 | Đồ án AI002 - Hệ thống Dự báo Canh tác & Giá Cà phê
         </p>
       </div>
     </footer>

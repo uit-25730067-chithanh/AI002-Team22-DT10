@@ -1,7 +1,7 @@
 <div align="center">
   <img src="docs/assets/hero-banner.png" alt="AI Coffee Farming Banner" width="100%" style="border-radius: 8px;">
 
-# [AI002] AI Dự Báo Canh Tác & Giá Cà Phê — Nhóm 10
+# [AI002] AI Dự Báo Canh Tác & Giá Cà Phê — Nhóm 22
 
 **Đồ án Môn học — Tư duy Trí tuệ Nhân tạo (AI002)**  
  _Đề tài DT10: AI dự báo kế hoạch canh tác mùa vụ và giá cà phê cho nông dân dựa trên 5 Trụ cột của AI Bền vững._
@@ -232,7 +232,7 @@ flowchart TD
 - **Mã nguồn:** Toàn bộ thay đổi phải bám sát thiết kế kiến trúc và có báo cáo thay đổi.
 - **Tài liệu hóa:** Mọi quyết định thay đổi về luồng dữ liệu đều phải lưu lại biên bản trong thư mục `docs/discussions/`.
 
-### Danh sách Nhóm — Nhóm 10
+### Danh sách Nhóm — Nhóm 22
 
 | MSSV     | Họ và Tên      | Vai trò                                      | Trục AI Phụ trách                          | GitHub                                                             |
 | :------- | :------------- | :------------------------------------------- | :----------------------------------------- | :----------------------------------------------------------------- |
