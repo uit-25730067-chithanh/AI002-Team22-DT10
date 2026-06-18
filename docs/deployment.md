@@ -3,8 +3,8 @@
 ## Tổng quan
 
 Hệ thống được triển khai phân tách thành 2 phần:
-- **Frontend**: Triển khai trên Cloudflare Pages qua workflow `.github/workflows/deploy-cloudflare-pages.yml`.
-- **Backend**: Triển khai trên Render Web Service qua workflow `.github/workflows/ci-cd.yml` kích hoạt deploy hook.
+- **Frontend**: Triển khai trên Cloudflare Pages.
+- **Backend**: Triển khai trên Render Web Service thông qua Deploy hook.
 
 ## 1. Nền tảng: Cloudflare Pages (Frontend)
 
@@ -38,7 +38,7 @@ Thay thế `dist` (nếu khác) bằng thư mục đầu ra được tạo ra b�
 
 ## GitHub Actions
 
-Repo dùng workflow `.github/workflows/deploy-cloudflare-pages.yml` để tự động xuất bản frontend lên Cloudflare Pages khi có thay đổi trong `frontend/**` trên nhánh `main`.
+Trong quá trình phát triển, dự án đã sử dụng GitHub Actions để tự động xuất bản frontend lên Cloudflare Pages khi có thay đổi trong `frontend/**` trên nhánh `main`. (Cấu hình CI/CD đã được gỡ bỏ khỏi bản nộp cuối để tinh gọn source code).
 
 Luồng CI:
 
@@ -86,7 +86,7 @@ Sử dụng giao diện Cloudflare Dashboard > Pages > `uit-ai002-coffee-fronten
 
 ## 2. Nền tảng: Render (Backend)
 
-Backend được tự động deploy thông qua GitHub Actions (`.github/workflows/ci-cd.yml`) mỗi khi code trên nhánh `main` thay đổi. Workflow này sẽ test và gọi deploy hook URL của Render.
+Trong quá trình phát triển, backend được tự động deploy thông qua GitHub Actions mỗi khi code trên nhánh `main` thay đổi. Workflow này gọi deploy hook URL của Render.
 
 ### Tổng quan
 
@@ -108,10 +108,7 @@ Backend FastAPI được triển khai trên Render Web Service để cung cấp 
 
 ```mermaid
 flowchart LR
-    A[Push backend/model to main] --> B[GitHub Actions test]
-    B --> C{Tests pass?}
-    C -->|No| D[Fix code/tests]
-    C -->|Yes| E[Call Render deploy hook]
+    A[Push backend/model to main] --> E[Call Render deploy hook]
     E --> F[Render build service]
     F --> G[Test /health and /model/info]
     G --> H[Share API base URL to frontend]
@@ -126,7 +123,7 @@ Backend sử dụng GitHub Actions để tự động test và deploy lên Rende
 ```yaml
 ## 2. Nền tảng: Render (Backend)
 
-Backend được tự động deploy thông qua GitHub Actions (`.github/workflows/ci-cd.yml`) mỗi khi code trên nhánh `main` thay đổi. Workflow này sẽ test và gọi deploy hook URL của Render.
+Trong quá trình phát triển, backend được tự động deploy thông qua GitHub Actions mỗi khi code trên nhánh `main` thay đổi. Workflow này gọi deploy hook URL của Render.
 on:
   push:
     branches: [main]
@@ -137,7 +134,6 @@ on:
 
 jobs:
   test:
-    - Chạy pytest tests/ai-tests/
     - Chạy flake8 lint (max-line-length=120)
     - Chạy bandit security scan (không fail build)
   deploy:
@@ -176,7 +172,7 @@ Thay đổi frontend, crawler, docs sẽ không trigger deploy.
 #### Bước 1: Kết nối Repository
 
 1. Đăng nhập vào Render dashboard bằng team Render account
-2. Kết nối GitHub repository `uit-25730053-baophuc/AI002_BaiTapNhom`
+2. Kết nối GitHub repository `uit-25730067-chithanh/AI002-Team22-DT10`
 
 #### Bước 2: Tạo Web Service
 
@@ -271,7 +267,7 @@ Console: None
 
 ### Chiến lược Deploy Branch
 
-- **Hiện tại**: GitHub Actions deploy tự động khi push vào main (sau khi tests pass)
+- **Hiện tại**: GitHub Actions deploy tự động khi push vào main
 - **Không enforce branch protection**: Dự án học tập, không muốn rào cản
 - **Path filter**: Chỉ deploy khi thay đổi backend/model/requirements
 

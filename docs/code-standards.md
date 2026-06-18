@@ -29,7 +29,7 @@ Nhằm đảm bảo sự đồng bộ trong nhóm và bám sát triết lý **Su
 
 ## 4. Quản lý Tệp
 
-- Mọi file sinh ra tạm thời, nháp cá nhân, kết quả test AI đặt ở thư mục `tmp/` hoặc `tests/ai-tests/` (đã được gitignore).
+- Mọi file sinh ra tạm thời, nháp cá nhân đặt ở thư mục `tmp/` (đã được gitignore).
 - Các dữ liệu thô và file xử lý trung gian lưu tại `data/` và tuân thủ quy tắc không push file data lớn lên git.
 - Các báo cáo hàng tuần hoặc tài liệu chính thức cần được lưu trong folder `docs/`.
 

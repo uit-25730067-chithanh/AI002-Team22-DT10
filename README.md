@@ -92,8 +92,6 @@ AI002_PROJECT/
 │   ├── api/routes.py               # Các endpoints: /health, /predict, /model/info
 │   └── services/predictor.py       # Tải model, dự đoán và giải thích (Explainability)
 │
-├── tests/ai-tests/                 # Pytest suite cho các modules AI/Backend
-│
 └── frontend/                       # Web demo Mobile-first (React/Vite)
 ```
 
@@ -117,7 +115,7 @@ AI002_PROJECT/
 
 ```bash
 git clone <repository-url>
-cd AI002-Team10-DT10
+cd AI002-Team22-DT10
 
 # Tạo và kích hoạt môi trường ảo
 python3 -m venv venv
@@ -169,14 +167,7 @@ npm run dev
 
 Mở trình duyệt tại URL được hiển thị (thường là `http://localhost:5173`).
 
-### 6. Chạy Kiểm thử (Tests)
 
-```bash
-# Chạy bộ test cho Backend và AI
-python3 -m pytest tests/ai-tests -q
-```
-
----
 
 ## Chi tiết Học thuật
 

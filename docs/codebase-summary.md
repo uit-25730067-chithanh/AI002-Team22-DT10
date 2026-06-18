@@ -54,37 +54,6 @@
 | `tailwind.config.js` | Theme coffee/cream/leaf |
 | `vite.config.ts` | Cấu hình Vite + Vitest |
 
-### `scripts/` — Tiện ích
-
-| File | Mô tả |
-| --- | --- |
-| `generate_mock_data.py` | Tạo dữ liệu giả (mock) để khởi tạo và test luồng ban đầu |
-
-### `tests/ai-tests/` — Kiểm thử (20 files)
-
-| File | Mô tả |
-| --- | --- |
-| `test_predictor_service.py` | Kiểm tra PredictorService load model và trả đủ keys |
-| `test_best_model_promotion.py` | Kiểm tra best model promotion chọn đúng real-data run |
-| `test_api_security.py` | Kiểm tra endpoint public/protected, API key và lỗi thiếu config |
-| `test_farming_advisory_service.py` | Kiểm tra rule-based farming advice |
-| `test_experiment_registry.py` | Kiểm tra registry CSV helper |
-| `test_experiment_artifacts.py` | Kiểm tra artifact helper |
-| `test_crawler_price_normalization.py` | Kiểm tra normalize/parse helper |
-| `test_crawler_area_dataset_builder.py` | Kiểm tra build dataset helper |
-| `test_price_html_parsers.py` | Kiểm tra date parsing và parse_article mẫu |
-| `test_coffee_data_contract.py` | Kiểm tra contract dataset chính thức |
-| `test_canonical_model_training.py` | Kiểm tra train/test/demo windows và promote `rf_monthly` |
-| `test_stress_test_cli_structure.py` | Regression test cho CLI stress test |
-| `test_canonical_area_dataset_builder.py` | Kiểm tra tạo tập dữ liệu khu vực chuẩn |
-| `test_data_quality.py` | Kiểm tra chất lượng dữ liệu và ngoại lệ |
-| `test_debug_endpoint_removed.py` | Đảm bảo các endpoint debug bị loại bỏ |
-| `test_manifest_price_parsers.py` | Kiểm tra parser giá theo manifest |
-| `test_price_crawler_runner.py` | Kiểm tra tiến trình chạy crawler giá |
-| `test_source_manifest.py` | Kiểm tra tính hợp lệ của manifest nguồn |
-| `test_temporal_split.py` | Kiểm tra phân tách dữ liệu theo thời gian (train/test split) |
-| `test_weather_outputs.py` | Kiểm tra output dữ liệu thời tiết |
-
 ### `docs/` — Tài liệu vận hành và bàn giao
 
 | File | Mô tả |
