@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "Thư mục này chứa mã nguồn React/TypeScript/Vite/Tailwind phục vụ demo và kiểm thử hệ thống. Giao diện được thiết kế theo triết lý **Social Impact & Accessibility** để có thể chạy mượt mà ngay cả trên thiết bị di động cấu hình yếu tại vùng sâu Tây Nguyên.",
+  "description": "This folder contains the React/TypeScript/Vite/Tailwind source code for system demo and testing. The interface is designed following the **Social Impact & Accessibility** philosophy to run smoothly even on low-spec mobile devices in remote areas of the Central Highlands.",
   "main": "index.js",
   "scripts": {
     "test": "vitest",
